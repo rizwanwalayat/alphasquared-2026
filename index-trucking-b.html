@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Driveaway Dispatch Software — Built for Vehicle Relocation | Alpha Squared</title>
+<meta name="description" content="Dispatch, driver apps and deep QuickBooks integration built for driveaway and vehicle relocation — where the truck is the freight. Running today with 350+ CDL drivers across 48 states and Canada." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="css/operator.css?v=20260729a" />
+</head>
+
+<body>
+
+<!-- ═══════════════════════ TOP BAR ═══════════════════════ -->
+<div class="topbar">
+  <div class="wrap">
+    <a class="topbar__by" href="index.html">
+      Built by <img src="assets/logo-full-white.png" alt="Alpha Squared" /> — shipping software since 2012, Edmonton, Alberta
+    </a>
+    <span>Free ops benchmark from your DOT number →</span>
+  </div>
+</div>
+
+<!-- ═══════════════════════ NAV ═══════════════════════ -->
+<header class="nav" id="nav">
+  <div class="wrap">
+    <a href="index-trucking-b.html" class="brand">
+      <span class="brand__mark">A²</span>
+      <span>Driveaway<br /><span class="sub">Dispatch Platform</span></span>
+    </a>
+
+    <nav class="nav__links">
+      <a href="#why">Why it's different</a>
+      <a href="#platform">Platform</a>
+      <a href="#proof">Proof</a>
+      <a href="#compare">Compare</a>
+      <a href="#start">How we start</a>
+    </nav>
+
+    <a href="#start" class="btn" style="margin-left:14px">Book a call</a>
+
+    <button class="nav__burger" id="burger" aria-label="Menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main>
+
+<!-- ═══════════════════════ HERO ═══════════════════════ -->
+<section class="hero">
+  <div class="wrap">
+    <div class="hero__grid">
+      <div>
+        <span class="eyebrow">Driveaway &amp; vehicle relocation</span>
+        <h1 class="d1">Dispatch software for when the truck <em>is</em> the freight.</h1>
+        <p class="lead hero__sub">
+          Every TMS on the market assumes a load, on a trailer, pulled by a truck you own,
+          with an ELD in it. Driveaway breaks all four. We built the system that doesn't —
+          and it's dispatching 350+ drivers today.
+        </p>
+
+        <div class="cta-row">
+          <a href="#start" class="btn btn--lg">Get your free ops benchmark</a>
+          <a href="#proof" class="btn btn--ghost btn--lg">See it running</a>
+        </div>
+
+        <div class="hero__trust">
+          <div><b class="mono" data-count="350" data-suf="+">0</b> CDL drivers dispatched</div>
+          <div><b class="mono" data-count="48" data-suf="">0</b> US states + Canada</div>
+          <div><b class="mono" data-count="265" data-suf="+">0</b> projects since 2012</div>
+        </div>
+      </div>
+
+      <!-- dispatch board mock: the product, not an abstraction of it -->
+      <div class="board" data-r>
+        <div class="board__bar">
+          <span class="board__dot"></span><span class="board__dot"></span><span class="board__dot"></span>
+          <span class="board__title">Dispatch — Active jobs</span>
+          <span class="board__stat mono">18 moving · 4 on hold</span>
+        </div>
+
+        <div class="board__head">
+          <span>Job</span><span>Route</span><span>Status</span><span>Driver</span><span>Progress</span>
+        </div>
+
+        <div class="board__row">
+          <span class="mono"><b>DA-4471</b></span>
+          <span class="board__route"><span>Fort Worth, TX</span> → Denver, CO</span>
+          <span><span class="pill pill--moving">Moving</span></span>
+          <span class="mono">R. Ortiz</span>
+          <span class="bar"><i data-w="72"></i></span>
+        </div>
+
+        <div class="board__row">
+          <span class="mono"><b>DA-4468</b></span>
+          <span class="board__route"><span>Springfield, MO</span> → Calgary, AB</span>
+          <span><span class="pill pill--moving">Moving</span></span>
+          <span class="mono">J. Whitfield</span>
+          <span class="bar"><i data-w="41"></i></span>
+        </div>
+
+        <div class="board__row">
+          <span class="mono"><b>DA-4463</b></span>
+          <span class="board__route"><span>Cleveland, OH</span> → Atlanta, GA</span>
+          <span><span class="pill pill--done">Delivered</span></span>
+          <span class="mono">M. Boateng</span>
+          <span class="bar"><i data-w="100" class="is-done"></i></span>
+        </div>
+
+        <div class="board__row">
+          <span class="mono"><b>DA-4459</b></span>
+          <span class="board__route"><span>Laredo, TX</span> → Phoenix, AZ</span>
+          <span><span class="pill pill--hold">Awaiting POD</span></span>
+          <span class="mono">D. Castillo</span>
+          <span class="bar"><i data-w="94"></i></span>
+        </div>
+
+        <div class="board__row">
+          <span class="mono"><b>DA-4455</b></span>
+          <span class="board__route"><span>Edmonton, AB</span> → Winnipeg, MB</span>
+          <span><span class="pill pill--moving">Moving</span></span>
+          <span class="mono">S. Nakamura</span>
+          <span class="bar"><i data-w="28"></i></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ WHY NOTHING FITS ═══════════════════════ -->
+<section class="section" id="why">
+  <div class="wrap">
+    <div class="head" data-r>
+      <span class="eyebrow">Why nothing off the shelf fits</span>
+      <h2 class="d2">Your operation breaks every assumption a TMS makes.</h2>
+      <p class="lead">Which is why driveaway companies run on spreadsheets, email and text
+        messages — or pay to build in-house. There is no product to displace.</p>
+    </div>
+
+    <div class="cols">
+      <div class="col" data-r>
+        <span class="col__n">01 — NO TRAILER</span>
+        <h3>The asset being moved is the cargo.</h3>
+        <p>No trailer, no bill of lading in the normal sense. Every load screen in every TMS starts from the wrong object.</p>
+      </div>
+      <div class="col" data-r="0.08">
+        <span class="col__n">02 — NO ELD</span>
+        <h3>It's the customer's vehicle.</h3>
+        <p>Often no telematics and nothing to pull from. Tracking has to be phone-based, which makes the driver app the tracking system.</p>
+      </div>
+      <div class="col" data-r="0.16">
+        <span class="col__n">03 — NO ROSTER</span>
+        <h3>Drivers are a 1099 network.</h3>
+        <p>Not employees on a route. They accept or decline, they're spread across a continent, and their qualification status is yours to prove.</p>
+      </div>
+      <div class="col" data-r="0.24">
+        <span class="col__n">04 — NO ROUND TRIP</span>
+        <h3>Every job is one-way.</h3>
+        <p>Creating a deadhead and repositioning problem with no analogue in freight — and therefore no solution in freight software.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ PLATFORM ═══════════════════════ -->
+<section class="section section--paper2" id="platform">
+  <div class="wrap">
+    <div class="head head--center" data-r>
+      <span class="eyebrow">The platform</span>
+      <h2 class="d2">Six modules, built for this operation and nobody else's.</h2>
+    </div>
+
+    <div class="grid g3" style="margin-top:42px">
+      <div class="spec" data-r>
+        <span class="spec__i"><svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="14" rx="2"/><path d="M8 21h8M12 18v3"/></svg></span>
+        <h3>Dispatch board</h3>
+        <p>Job creation to delivery in one live view. Assign, reassign and see status without a single back-and-forth email.</p>
+        <span class="spec__status live">● Live in production</span>
+      </div>
+
+      <div class="spec" data-r="0.06">
+        <span class="spec__i"><svg viewBox="0 0 24 24"><rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M11 18h2"/></svg></span>
+        <h3>Native driver app</h3>
+        <p>iOS and Android, offline-tolerant. Accept or decline jobs, capture condition photos and signatures, upload documents, see pay status.</p>
+        <span class="spec__status live">● Live in production</span>
+      </div>
+
+      <div class="spec" data-r="0.12">
+        <span class="spec__i"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 10 10"/><path d="M12 6v6l4 2"/></svg></span>
+        <h3>Deep QuickBooks sync</h3>
+        <p>Load to invoice without anyone retyping it. Payment sync-back and chart-of-accounts mapping — not a push-only checkbox.</p>
+        <span class="spec__status live">● Live in production</span>
+      </div>
+
+      <div class="spec" data-r>
+        <span class="spec__i"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-4"/></svg></span>
+        <h3>Chain of custody</h3>
+        <p>Photo, GPS and signature stamped on every handoff. A tamper-evident record of who had a $180,000 truck, and when.</p>
+        <span class="spec__status live">● Live in production</span>
+      </div>
+
+      <div class="spec" data-r="0.06">
+        <span class="spec__i"><svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="m17 11 2 2 4-4"/></svg></span>
+        <h3>Driver qualification</h3>
+        <p>Every driver's status provable before the roadside inspection — not reconstructed from a folder after one.</p>
+        <span class="spec__status build">● In build</span>
+      </div>
+
+      <div class="spec" data-r="0.12">
+        <span class="spec__i"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4M4.9 4.9l2.9 2.9M16.2 16.2l2.9 2.9M19.1 4.9l-2.9 2.9M7.8 16.2l-2.9 2.9"/></svg></span>
+        <h3>Intelligent assignment</h3>
+        <p>Matching contractor drivers to one-way jobs across location, deadhead cost, endorsements and reliability history.</p>
+        <span class="spec__status build">● In build</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ THE NUMBERS (dark band) ═══════════════════════ -->
+<section class="section band">
+  <div class="wrap">
+    <div class="head" data-r>
+      <span class="eyebrow">Why now</span>
+      <h2 class="d2">Nobody wakes up wanting software. They wake up wanting margin.</h2>
+      <p class="lead">Three numbers are reshaping this industry right now. Each one is a
+        software problem underneath.</p>
+    </div>
+
+    <div class="figs">
+      <div class="fig" data-r>
+        <div class="fig__n warn mono">&minus;2.3%</div>
+        <h3>Average truckload operating margin</h3>
+        <p>Carriers are losing money per mile. Every hour a dispatcher spends retyping a job into accounting comes straight out of that.</p>
+        <cite>Industry operating data, 2025</cite>
+      </div>
+      <div class="fig" data-r="0.08">
+        <div class="fig__n mono">$520k</div>
+        <h3>Average annual cargo loss, per affected carrier</h3>
+        <p>75% is never recovered, and the mechanics have shifted from physical theft to impersonation and double-brokering.</p>
+        <cite>ATRI; Verisk CargoNet, 2025</cite>
+      </div>
+      <div class="fig" data-r="0.16">
+        <div class="fig__n mono">5&ndash;12%</div>
+        <h3>Of CDL holders exiting over 2&ndash;3 years</h3>
+        <p>Under English-proficiency enforcement and the non-domiciled CDL rule. Qualification tracking just became a legal exposure.</p>
+        <cite>FMCSA rulemaking; ATA estimates</cite>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ PROOF ═══════════════════════ -->
+<section class="section" id="proof">
+  <div class="wrap">
+    <div class="case">
+      <div data-r>
+        <span class="tag tag--live">Live in production</span>
+        <h2 class="d2" style="margin:16px 0 16px">Alliance Driveaway Solutions</h2>
+        <p class="lead">
+          A North American Class 6/7/8 vehicle-relocation company. We built their entire
+          digital ecosystem — a dispatch web dashboard plus native iOS and Android driver
+          apps, keeping drivers, clients and operations in sync with real-time job tracking,
+          with QuickBooks-integrated accounting underneath it.
+        </p>
+
+        <h3 style="margin:26px 0 12px;font-size:1rem">What we shipped</h3>
+        <ul class="ticks">
+          <li>Dispatch dashboard with live job status</li>
+          <li>Native iOS and Android driver applications</li>
+          <li>Real-time job tracking across a 1099 driver network</li>
+          <li>QuickBooks-integrated accounting, sync in both directions</li>
+        </ul>
+
+        <div class="cta-row" style="margin-top:26px">
+          <a href="https://alliancedriveaway.com" class="btn btn--ghost" target="_blank" rel="noopener">Visit alliancedriveaway.com</a>
+        </div>
+      </div>
+
+      <div data-r="0.1">
+        <dl class="case__facts">
+          <div class="case__fact"><dt>Drivers dispatched</dt><dd class="mono">350+ screened CDL</dd></div>
+          <div class="case__fact"><dt>Coverage</dt><dd class="mono">48 US states + Canada</dd></div>
+          <div class="case__fact"><dt>Equipment class</dt><dd class="mono">Class 6, 7, 8</dd></div>
+          <div class="case__fact"><dt>Backend</dt><dd class="mono">PHP / Laravel</dd></div>
+          <div class="case__fact"><dt>Web dashboard</dt><dd class="mono">Vue.js</dd></div>
+          <div class="case__fact"><dt>Mobile</dt><dd class="mono">Swift + Kotlin, native</dd></div>
+          <div class="case__fact"><dt>Accounting</dt><dd class="mono">QuickBooks, bi-directional</dd></div>
+          <div class="case__fact"><dt>In build</dt><dd class="mono">Live tracking, assignment</dd></div>
+        </dl>
+
+        <p class="xs" style="margin-top:14px;color:var(--ink-3)">
+          Published with Alliance Driveaway's permission.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ COMPARE ═══════════════════════ -->
+<section class="section section--paper2" id="compare">
+  <div class="wrap">
+    <div class="head head--center" data-r>
+      <span class="eyebrow">What you'd do instead</span>
+      <h2 class="d2">The real question isn't our price. It's your alternative.</h2>
+      <p class="lead">Four honest options, and what each one actually costs you.</p>
+    </div>
+
+    <div class="tblwrap" data-r>
+      <table class="cmp">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Enterprise TMS</th>
+            <th>SMB SaaS</th>
+            <th>Build in-house</th>
+            <th class="us">This platform</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>Fits driveaway</th>
+            <td>No — assumes trailer + ELD</td>
+            <td>No — assumes freight loads</td>
+            <td>Yes, eventually</td>
+            <td class="us">Built for it from the object model up</td>
+          </tr>
+          <tr>
+            <th>Time to running</th>
+            <td>3+ months</td>
+            <td>Days, but wrong shape</td>
+            <td>6&ndash;18 months</td>
+            <td class="us">Weeks — configured, not written</td>
+          </tr>
+          <tr>
+            <th>Up-front cost</th>
+            <td>$50,000+ implementation</td>
+            <td>Low</td>
+            <td>A dev team's salary</td>
+            <td class="us">Scoped after a paid audit</td>
+          </tr>
+          <tr>
+            <th>Ongoing</th>
+            <td>$100&ndash;300 / truck / month</td>
+            <td>~$300 / month</td>
+            <td>Permanent maintenance burden</td>
+            <td class="us">Monthly retainer, fixed</td>
+          </tr>
+          <tr>
+            <th>1099 driver network</th>
+            <td>Not modelled</td>
+            <td>Not modelled</td>
+            <td>You design it yourself</td>
+            <td class="us">The design centre</td>
+          </tr>
+          <tr>
+            <th>Native driver apps</th>
+            <td>Web wrapper</td>
+            <td>Web wrapper</td>
+            <td>Two more teams</td>
+            <td class="us">iOS + Android, in production</td>
+          </tr>
+          <tr>
+            <th>QuickBooks</th>
+            <td>Deep, but legacy UX</td>
+            <td>Push-only, shallow</td>
+            <td>You build it</td>
+            <td class="us">Bi-directional, already shipped</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="sm" data-r style="margin-top:16px;color:var(--ink-3)">
+      Enterprise and SMB figures are published market rates, cited in our vertical research.
+      Your actual numbers get established in the audit — not in a sales call.
+    </p>
+  </div>
+</section>
+
+<!-- ═══════════════════════ HOW WE START ═══════════════════════ -->
+<section class="section" id="start">
+  <div class="wrap">
+    <div class="head head--center" data-r>
+      <span class="eyebrow">How we start</span>
+      <h2 class="d2">Small first step. No platform sale on day one.</h2>
+      <p class="lead">You shouldn't buy a system from people who haven't seen your operation.
+        So we start by looking at it.</p>
+    </div>
+
+    <div class="steps">
+      <div class="step" data-r>
+        <span class="step__n">1</span>
+        <h3>Ops benchmark</h3>
+        <p>We pull your public FMCSA record and send back how your operation profiles against comparable carriers.</p>
+        <span class="step__price">Free · 2 days</span>
+      </div>
+      <div class="step" data-r="0.07">
+        <span class="step__n">2</span>
+        <h3>Dispatch &amp; back-office audit</h3>
+        <p>We map your actual workflows, quantify what the manual hours cost you, and hand you an integration plan — yours to keep either way.</p>
+        <span class="step__price">Paid · 2 weeks</span>
+      </div>
+      <div class="step" data-r="0.14">
+        <span class="step__n">3</span>
+        <h3>Deployment</h3>
+        <p>Dispatch, driver apps, QuickBooks sync and tracking, configured to your operation rather than built from zero.</p>
+        <span class="step__price">Fixed scope · weeks</span>
+      </div>
+      <div class="step" data-r="0.21">
+        <span class="step__n">4</span>
+        <h3>We stay on</h3>
+        <p>Hosting, support, compliance updates and the roadmap. The part that makes this a system rather than a project.</p>
+        <span class="step__price">Monthly retainer</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ FAQ ═══════════════════════ -->
+<section class="section section--paper2">
+  <div class="wrap">
+    <div class="head head--center" data-r>
+      <span class="eyebrow">Straight answers</span>
+      <h2 class="d2">The questions operators actually ask.</h2>
+    </div>
+
+    <div class="faq">
+      <div class="faq__item">
+        <button class="faq__q">Do we have to rip out QuickBooks? <i></i></button>
+        <div class="faq__a"><p>No — the opposite. QuickBooks stays, and the point is that nobody
+          retypes into it. Load to invoice, payments syncing back, accounts mapped properly.
+          Shallow accounting integration is the most-cited back-office complaint in this
+          industry, and it's the piece we've already solved end to end for a live client.</p></div>
+      </div>
+      <div class="faq__item">
+        <button class="faq__q">How is this different from a normal TMS? <i></i></button>
+        <div class="faq__a"><p>A TMS models a load on a trailer behind a truck you own with an
+          ELD in it. If the vehicle you're moving <em>is</em> the freight, is owned by your
+          customer, has no telematics, and is driven one-way by a contractor, every one of
+          those assumptions is wrong. We started from your object model, not freight's.</p></div>
+      </div>
+      <div class="faq__item">
+        <button class="faq__q">Our drivers aren't employees. Does that work? <i></i></button>
+        <div class="faq__a"><p>That's the design centre, not an edge case. Accept-or-decline job
+          offers, self-service document upload, pay visibility, and qualification tracking per
+          driver across a distributed 1099 network. It's running with 350+ drivers today.</p></div>
+      </div>
+      <div class="faq__item">
+        <button class="faq__q">How long before it's actually running? <i></i></button>
+        <div class="faq__a"><p>Weeks, not the three-plus months an enterprise TMS implementation
+          takes — because we're configuring a platform that already exists rather than writing
+          one. The audit in step two gives you a real timeline before you commit to anything.</p></div>
+      </div>
+      <div class="faq__item">
+        <button class="faq__q">What if we're not a driveaway company? <i></i></button>
+        <div class="faq__a"><p>If the driver is your asset and the jobs are one-way, the same
+          architecture applies — auto haul, RV and boat transport, heavy equipment relocation,
+          towing and roadside networks, final-mile and white-glove delivery, yard spotting,
+          rental fleet repositioning. Tell us the shape of your operation and we'll say plainly
+          whether it fits.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ FINAL CTA ═══════════════════════ -->
+<section class="final">
+  <div class="wrap">
+    <h2 class="d2">Send us your DOT number. We'll send back something useful.</h2>
+    <p class="lead">No deck, no discovery-call gauntlet. We'll pull your public record, tell you
+      what we'd look at first, and you decide whether a conversation is worth your time.</p>
+    <div class="cta-row" style="justify-content:center">
+      <a href="mailto:hello@alphasquared.ca?subject=Ops%20benchmark%20request" class="btn btn--onsteel btn--lg">Request the free benchmark</a>
+      <a href="mailto:hello@alphasquared.ca?subject=Driveaway%20platform%20call" class="btn btn--ghost-steel btn--lg">Book a 20-minute call</a>
+    </div>
+    <p class="final__note">Typical response within one business day.</p>
+  </div>
+</section>
+
+</main>
+
+<!-- ═══════════════════════ FOOTER ═══════════════════════ -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__grid">
+      <div>
+        <a href="index-trucking-b.html" class="brand">
+          <span class="brand__mark">A²</span>
+          <span>Driveaway<br /><span class="sub">Dispatch Platform</span></span>
+        </a>
+        <p>Dispatch, driver apps and back-office systems for driveaway and vehicle
+          relocation operators.</p>
+        <a class="footer__by" href="index.html">
+          <span>Built by</span>
+          <img src="assets/logo-full-white.png" alt="Alpha Squared" />
+        </a>
+      </div>
+      <div>
+        <h4>Platform</h4>
+        <ul>
+          <li><a href="#platform">Modules</a></li>
+          <li><a href="#why">Why it's different</a></li>
+          <li><a href="#compare">Compare</a></li>
+          <li><a href="#start">How we start</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Proof</h4>
+        <ul>
+          <li><a href="#proof">Alliance Driveaway</a></li>
+          <li><a href="https://alphasquared.ca">Alpha Squared</a></li>
+          <li><a href="index.html">Our other work</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:hello@alphasquared.ca">hello@alphasquared.ca</a></li>
+          <li>Edmonton, Alberta, Canada</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__base">
+      <span>© 2026 Alpha Squared. Ideas Implemented.</span>
+      <span>Software for operations that can't stop.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/operator.js?v=20260729a"></script>
+</body>
+</html>

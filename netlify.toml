@@ -1,0 +1,43 @@
+# Static site — nothing to build, publish the repo root as-is.
+[build]
+  publish = "."
+  command = ""
+
+# Pretty URLs: /trucking instead of /trucking.html
+[[redirects]]
+  from = "/trucking"
+  to = "/trucking.html"
+  status = 200
+
+[[redirects]]
+  from = "/driveaway"
+  to = "/index-trucking-b.html"
+  status = 200
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+# Versioned assets are safe to cache hard; the ?v= query busts them on deploy.
+[[headers]]
+  for = "/css/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"
+
+[[headers]]
+  for = "/js/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"
+
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"
+
+# HTML must revalidate, or a stale document keeps pointing at old asset versions.
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"

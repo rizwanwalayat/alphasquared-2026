@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Alpha Squared — Software for Trucking, Transport & Operations That Can't Stop</title>
+<meta name="description" content="Alpha Squared builds dispatch platforms, driver apps and AI operations tools for trucking and transport teams. Canadian-led, engineering since 2012, 265+ projects delivered." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="css/style.css?v=20260729a" />
+</head>
+
+<body class="is-loading">
+
+<!-- ═══════════════════════ LOADER ═══════════════════════ -->
+<div class="loader" id="loader" aria-hidden="true">
+  <div class="loader__row">
+    <div class="loader__ring"></div>
+    <div class="loader__name">Alpha<sup>2</sup></div>
+    <span class="loader__pct" id="loaderPct">0%</span>
+  </div>
+</div>
+
+<!-- ═══════════════════════ NAV ═══════════════════════ -->
+<header class="nav" id="nav">
+  <div class="nav__inner">
+    <a href="index.html" class="brand" aria-label="Alpha Squared — Ideas Implemented">
+      <img src="assets/logo-full.png" alt="Alpha Squared" class="brand__logo" />
+    </a>
+
+    <nav class="nav__links">
+      <a href="trucking.html">Trucking &amp; Transport</a>
+      <a href="services.html">Services</a>
+      <a href="case-studies.html">Case Studies</a>
+      <a href="about.html">About Us</a>
+    </nav>
+
+    <a href="#contact" class="btn nav__cta"><span>Contact</span></a>
+
+    <button class="nav__burger" id="burger" aria-label="Menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main>
+
+<!-- ═══════════════════════ HERO ═══════════════════════ -->
+<section class="hero">
+  <div class="hero__arc" data-parallax="0.12"></div>
+  <div class="hero__bloom" data-parallax="0.2"></div>
+
+  <div class="wrap hero__inner">
+    <span class="hero__eyebrow grad" data-anim="fade">Engineering since 2012 · Edmonton, Canada</span>
+
+    <h1 class="d1" data-split="words">Software that moves your operation.</h1>
+
+    <p class="hero__sub" data-anim="fade" data-delay="0.5">
+      We build dispatch platforms, driver apps and AI operations tools for trucking,
+      transport and industrial teams — the systems that have to work at 2am on a
+      Tuesday, not just in a demo.
+    </p>
+
+    <div class="cta-row" data-anim="fade" data-delay="0.65">
+      <a href="#contact" class="btn"><span>Start a project <i class="ar">→</i></span></a>
+      <a href="trucking.html" class="btn btn--ghost"><span>See our trucking work</span></a>
+    </div>
+  </div>
+
+  <!-- Dot-matrix world map: the visual claim the stats below quantify.
+       Country names live in the strip below rather than on the canvas —
+       at this width Europe spans ~46px and five labels would collide. -->
+  <div class="hero__viz">
+    <canvas id="heroViz"></canvas>
+  </div>
+
+  <div class="wrap">
+    <div class="geo" data-anim="fade" data-delay="0.9">
+      <div class="geo__group">
+        <h3>North America</h3>
+        <p>USA · Canada</p>
+      </div>
+      <div class="geo__group">
+        <h3>Europe</h3>
+        <p>UK · Spain · France · Italy · Switzerland · Sweden</p>
+      </div>
+      <div class="geo__group">
+        <h3>Middle East</h3>
+        <p>UAE · Saudi Arabia · Oman</p>
+      </div>
+      <div class="geo__group">
+        <h3>Asia</h3>
+        <p>China · Malaysia · Pakistan</p>
+      </div>
+      <div class="geo__group">
+        <h3>Africa</h3>
+        <p>South Africa · Nigeria</p>
+      </div>
+      <div class="geo__group">
+        <h3>Oceania</h3>
+        <p>Australia</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ STATS ═══════════════════════ -->
+<section class="statband">
+  <div class="wrap">
+    <div class="statband__grid">
+      <div data-anim="up">
+        <div class="statband__n" data-count="14" data-suffix="+">0</div>
+        <div class="statband__l">Years shipping software</div>
+      </div>
+      <div data-anim="up" data-delay="0.07">
+        <div class="statband__n" data-count="265" data-suffix="+">0</div>
+        <div class="statband__l">Projects delivered</div>
+      </div>
+      <div data-anim="up" data-delay="0.14">
+        <div class="statband__n" data-count="17" data-suffix="">0</div>
+        <div class="statband__l">Countries worked in</div>
+      </div>
+      <div data-anim="up" data-delay="0.21">
+        <div class="statband__n" data-count="52" data-suffix="">0</div>
+        <div class="statband__l">Repeat clients</div>
+      </div>
+      <div data-anim="up" data-delay="0.28">
+        <div class="statband__n" data-count="8" data-suffix="">0</div>
+        <div class="statband__l">Startups taken to launch</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ MARQUEE ═══════════════════════ -->
+<section class="section section--tight" style="padding-bottom:0">
+  <div class="wrap">
+    <p class="marquee__label" data-anim="fade">Work delivered for teams at</p>
+  </div>
+  <div class="marquee">
+    <div class="marquee__track">
+      <span>Alliance Driveaway</span><span>Levi Strauss &amp; Co.</span><span>Salesforce</span>
+      <span>Honeywell / Matrikon</span><span>Arcus Power</span><span>FluidsData</span>
+      <span>Century Business Solutions</span><span>WhoIFollow</span>
+      <span>Alliance Driveaway</span><span>Levi Strauss &amp; Co.</span><span>Salesforce</span>
+      <span>Honeywell / Matrikon</span><span>Arcus Power</span><span>FluidsData</span>
+      <span>Century Business Solutions</span><span>WhoIFollow</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ LIFECYCLE CARDS ═══════════════════════ -->
+<section class="section">
+  <div class="wrap">
+    <div class="head head--center">
+      <h2 class="d2" data-split="lines">Trusted by operating teams<br /><span class="grad">from first call to full scale.</span></h2>
+      <p class="lead" data-anim="fade">One accountable partner across the whole lifecycle. 265+ projects
+        delivered since 2012, for clients in 17 countries.</p>
+    </div>
+
+    <div class="riser" style="margin-top:58px">
+      <div class="grid grid--4">
+        <article class="card" data-anim="up">
+          <span class="card__label">Discover</span>
+          <h3>Understand the operation before writing code.</h3>
+          <ul class="ticks">
+            <li>Ride-along process mapping</li>
+            <li>Fixed-price scoping</li>
+          </ul>
+        </article>
+
+        <article class="card" data-anim="up" data-delay="0.08">
+          <span class="card__label">Design</span>
+          <h3>Interfaces dispatchers and drivers actually use.</h3>
+          <ul class="ticks">
+            <li>Field-tested UX</li>
+            <li>Clickable prototype first</li>
+          </ul>
+        </article>
+
+        <article class="card" data-anim="up" data-delay="0.16">
+          <span class="card__label">Build</span>
+          <h3>Senior engineers shipping working software weekly.</h3>
+          <ul class="ticks">
+            <li>Demos, not status reports</li>
+            <li>Native iOS, Android, web</li>
+          </ul>
+        </article>
+
+        <article class="card" data-anim="up" data-delay="0.24">
+          <span class="card__label">Operate</span>
+          <h3>Still here after launch, when it counts most.</h3>
+          <ul class="ticks">
+            <li>Monitoring and real SLAs</li>
+            <li>Roadmap ownership</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ TRUCKING FLAGSHIP ═══════════════════════ -->
+<section class="section" id="trucking">
+  <div class="wrap">
+    <div class="flag">
+      <div>
+        <span class="badge" data-anim="fade">Trucking &amp; Transport</span>
+        <h2 class="d2" data-split="lines">We already know<br /><span class="grad">what breaks at scale.</span></h2>
+        <p class="lead" data-anim="fade" style="margin-top:22px">
+          Dispatch boards that drift out of sync. Drivers on the phone because the app
+          lost signal in Wyoming. Proof-of-delivery photos stuck on a device. We've built
+          the platform that solves all three — in production, across a continent.
+        </p>
+
+        <div class="flag__stats">
+          <div data-anim="up">
+            <div class="stat__n" data-count="350" data-suffix="+">0</div>
+            <div class="stat__l">Drivers kept in sync</div>
+          </div>
+          <div data-anim="up" data-delay="0.1">
+            <div class="stat__n" data-count="48" data-suffix=" + CA">0</div>
+            <div class="stat__l">US states covered</div>
+          </div>
+          <div data-anim="up" data-delay="0.2">
+            <div class="stat__n" data-count="3" data-suffix="">0</div>
+            <div class="stat__l">Apps: dispatch, iOS, Android</div>
+          </div>
+        </div>
+
+        <div class="cta-row" data-anim="fade">
+          <a href="trucking.html" class="btn"><span>Explore trucking solutions <i class="ar">→</i></span></a>
+        </div>
+      </div>
+
+      <div class="proof" data-anim="up" data-delay="0.15">
+        <div class="proof__site"><span class="dot"></span> alliancedriveaway.com · live</div>
+        <h3 class="d3">Alliance Driveaway Solutions</h3>
+        <p class="lead" style="margin-top:12px;font-size:.93rem">
+          A full digital ecosystem for a North American vehicle-relocation company:
+          a dispatch web dashboard plus native iOS and Android driver apps, keeping
+          drivers, clients and operations in sync with real-time job tracking.
+        </p>
+
+        <div class="proof__viz"><canvas id="proofViz"></canvas></div>
+
+        <div class="chips">
+          <span>PHP / Laravel</span><span>Vue.js</span><span>Swift</span>
+          <span>Kotlin</span><span>Real-time dispatch</span><span>GPS tracking</span>
+        </div>
+
+        <!-- Cross-link into the Driveaway product site -->
+        <a class="crosslink" href="index-trucking-b.html">
+          <span class="crosslink__shot" aria-hidden="true">
+            <span class="crosslink__bar"><i></i><i></i><i></i><em>Driveaway Dispatch Platform</em></span>
+            <span class="crosslink__body">
+              <span class="crosslink__hl"></span>
+              <span class="crosslink__hl crosslink__hl--sm"></span>
+              <span class="crosslink__rows">
+                <span></span><span></span><span></span><span></span>
+              </span>
+            </span>
+          </span>
+          <span class="crosslink__txt">
+            <strong>The product we built it into</strong>
+            Dispatch, driver apps and QuickBooks sync — now a platform other
+            vehicle-relocation operators can deploy.
+            <span class="tlink">Visit the Driveaway site <i class="ar">→</i></span>
+          </span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ WHITE SHEET ═══════════════════════ -->
+<div class="page-light">
+
+  <!-- ── COMPARE / DEPENDABILITY ── -->
+  <section class="section">
+    <div class="wrap">
+      <div class="head head--center">
+        <span class="badge" data-anim="fade">Dependability</span>
+        <h2 class="d2" data-split="lines">Stop babysitting your build.<br /><span class="grad">Start shipping with confidence.</span></h2>
+      </div>
+
+      <div class="compare">
+        <div class="compare__col">
+          <div class="cmp cmp--bad" data-anim="left">
+            <span class="cmp__i"><svg viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg></span>
+            Status updates that describe activity instead of progress
+          </div>
+          <div class="cmp cmp--bad" data-anim="left" data-delay="0.08">
+            <span class="cmp__i"><svg viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg></span>
+            Junior developers learning your domain on your budget
+          </div>
+          <div class="cmp cmp--bad" data-anim="left" data-delay="0.16">
+            <span class="cmp__i"><svg viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg></span>
+            Offshore teams asleep when production breaks
+          </div>
+          <div class="cmp cmp--bad" data-anim="left" data-delay="0.24">
+            <span class="cmp__i"><svg viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg></span>
+            A handover document instead of a working system
+          </div>
+        </div>
+
+        <div class="globe"><canvas id="globeViz"></canvas></div>
+
+        <div class="compare__col">
+          <div class="cmp" data-anim="right">
+            <span class="cmp__i"><svg viewBox="0 0 24 24"><path d="m20 6-11 11-5-5"/></svg></span>
+            A working demo every week — you see the software, not a report
+          </div>
+          <div class="cmp" data-anim="right" data-delay="0.08">
+            <span class="cmp__i"><svg viewBox="0 0 24 24"><path d="m20 6-11 11-5-5"/></svg></span>
+            Senior engineers only, 16+ years of delivery behind the work
+          </div>
+          <div class="cmp" data-anim="right" data-delay="0.16">
+            <span class="cmp__i"><svg viewBox="0 0 24 24"><path d="m20 6-11 11-5-5"/></svg></span>
+            A Canadian principal in your timezone, accountable by name
+          </div>
+          <div class="cmp" data-anim="right" data-delay="0.24">
+            <span class="cmp__i"><svg viewBox="0 0 24 24"><path d="m20 6-11 11-5-5"/></svg></span>
+            Documented, monitored systems we keep running after launch
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── THREAD WAVE / CAPABILITY ── -->
+  <section class="section section--tight">
+    <div class="wrap">
+      <div class="head head--center">
+        <span class="badge" data-anim="fade">One team, whole lifecycle</span>
+        <h2 class="d2" data-split="lines">One partner who plans, builds and stays.<br /><span class="grad">Compounding value.</span></h2>
+        <p class="lead" data-anim="fade">Strategy, design, engineering and AI under one roof — so nothing
+          gets lost in a handoff between three vendors.</p>
+      </div>
+
+      <div class="threads">
+        <div class="threads__cols">
+          <div class="thread" style="--tcol:#1c4eff" data-anim="up">
+            <span class="thread__cap">Plans</span>
+            <ul><li>requirements</li><li>architecture</li><li>scope</li><li>budget</li></ul>
+          </div>
+          <div class="thread" style="--tcol:#7b31ff" data-anim="up" data-delay="0.08">
+            <span class="thread__cap">Designs</span>
+            <ul><li>workflows</li><li>interfaces</li><li>prototypes</li><li>systems</li></ul>
+          </div>
+          <div class="thread" style="--tcol:#ac24ff" data-anim="up" data-delay="0.16">
+            <span class="thread__cap">Builds</span>
+            <ul><li>platforms</li><li>mobile apps</li><li>integrations</li><li>AI agents</li></ul>
+          </div>
+          <div class="thread" style="--tcol:#fe881b" data-anim="up" data-delay="0.24">
+            <span class="thread__cap">Operates</span>
+            <ul><li>releases</li><li>monitoring</li><li>support</li><li>roadmap</li></ul>
+          </div>
+        </div>
+        <div class="threads__wave" id="waveHost"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── WHY US (dark inset panel) ── -->
+  <section class="section section--tight">
+    <div class="wrap">
+      <div class="panel" data-anim="up">
+        <div class="why">
+          <div>
+            <span class="badge">Why Alpha Squared</span>
+            <h2 class="d2">Dependable is a track record,<br /><span class="grad">not an adjective.</span></h2>
+
+            <div class="acc" id="acc" style="margin-top:34px">
+              <div class="acc__item is-open">
+                <button class="acc__q">Fourteen years of shipped work <i></i></button>
+                <div class="acc__a"><p>Operating since 2012 out of Edmonton, Alberta. 265+ projects,
+                  clients in 17 countries, 52 of them repeat. The portfolio is the argument —
+                  we point at production systems, not potential.</p></div>
+              </div>
+              <div class="acc__item">
+                <button class="acc__q">Deep expertise in transport operations <i></i></button>
+                <div class="acc__a"><p>We've built the dispatch dashboard, the driver apps and the
+                  tracking layer for a vehicle-relocation network running across 48 states and
+                  Canada. We understand load assignment, driver state and offline sync because
+                  we've shipped them.</p></div>
+              </div>
+              <div class="acc__item">
+                <button class="acc__q">AI already running in production <i></i></button>
+                <div class="acc__a"><p>Voice agents answering real customer calls, OCR microservices,
+                  agentic assistants wired into live CRMs. We treat AI as engineering with a
+                  measurable job to do, not as a line on a slide.</p></div>
+              </div>
+              <div class="acc__item">
+                <button class="acc__q">Canadian front door, senior global bench <i></i></button>
+                <div class="acc__a"><p>Abdullah is your principal in Alberta — same timezone, same
+                  contracts, accountable by name. Behind him is a senior engineering team that
+                  keeps budgets realistic without dropping the standard.</p></div>
+              </div>
+            </div>
+
+            <div class="toggle" id="toggle">
+              <button class="is-on" data-mode="typical">Typical vendor</button>
+              <button data-mode="alpha">Alpha Squared</button>
+            </div>
+          </div>
+
+          <div class="why__viz"><canvas id="radarViz"></canvas></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SERVICES ── -->
+  <section class="section" id="services">
+    <div class="wrap">
+      <div class="head head--center">
+        <span class="badge" data-anim="fade">What we build</span>
+        <h2 class="d2" data-split="lines">Everything the product needs,<br /><span class="grad">under one roof.</span></h2>
+      </div>
+
+      <div class="grid grid--3" style="margin-top:56px">
+        <a class="svc" href="services.html#platforms" data-anim="up">
+          <span class="svc__i"><svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="14" rx="2"/><path d="M8 21h8M12 18v3"/></svg></span>
+          <h3>Operations Platforms</h3>
+          <p>Dispatch boards, admin dashboards, portals and the APIs behind them — architected to scale, built to last.</p>
+          <span class="tlink">Learn more <i class="ar">→</i></span>
+        </a>
+
+        <a class="svc" href="services.html#mobile" data-anim="up" data-delay="0.07">
+          <span class="svc__i"><svg viewBox="0 0 24 24"><rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M11 18h2"/></svg></span>
+          <h3>Mobile Apps</h3>
+          <p>Native iOS and Android for drivers and field crews — offline-tolerant, GPS-aware, built by senior mobile engineers.</p>
+          <span class="tlink">Learn more <i class="ar">→</i></span>
+        </a>
+
+        <a class="svc" href="services.html#ai" data-anim="up" data-delay="0.14">
+          <span class="svc__i"><svg viewBox="0 0 24 24"><path d="M12 2a4 4 0 0 1 4 4c0 1.1-.45 2.1-1.17 2.83L12 12 9.17 8.83A4 4 0 0 1 12 2Z"/><path d="M12 12v10M8 22h8"/></svg></span>
+          <h3>AI &amp; Automation</h3>
+          <p>Voice agents, document OCR, LLM assistants and workflow automation — live in production for real clients today.</p>
+          <span class="tlink">Learn more <i class="ar">→</i></span>
+        </a>
+
+        <a class="svc" href="services.html#design" data-anim="up">
+          <span class="svc__i"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 1 0 18M8 12h8"/></svg></span>
+          <h3>Product &amp; UX Design</h3>
+          <p>Research, product strategy and interfaces refined for clarity — design that ships, not decks that don't.</p>
+          <span class="tlink">Learn more <i class="ar">→</i></span>
+        </a>
+
+        <a class="svc" href="services.html#teams" data-anim="up" data-delay="0.07">
+          <span class="svc__i"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
+          <h3>Dedicated Teams</h3>
+          <p>A vetted senior pod embedded with your team — capacity without the twelve-week local hiring cycle.</p>
+          <span class="tlink">Learn more <i class="ar">→</i></span>
+        </a>
+
+        <a class="svc" href="services.html#cloud" data-anim="up" data-delay="0.14">
+          <span class="svc__i"><svg viewBox="0 0 24 24"><path d="M17.5 19a4.5 4.5 0 1 0-.42-8.98 6 6 0 1 0-11.06 3.1A3.5 3.5 0 0 0 6.5 19Z"/></svg></span>
+          <h3>Cloud, DevOps &amp; Support</h3>
+          <p>Infrastructure, CI/CD, observability and long-term product support with SLAs you can hold us to.</p>
+          <span class="tlink">Learn more <i class="ar">→</i></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CASE STUDIES ── -->
+  <section class="section section--tight" id="work">
+    <div class="wrap">
+      <div class="head head--center">
+        <span class="badge" data-anim="fade">Selected work</span>
+        <h2 class="d2" data-split="lines">Systems running in production<br /><span class="grad">right now.</span></h2>
+      </div>
+
+      <div class="grid grid--3" style="margin-top:56px">
+        <a class="cs" href="case-studies.html#alliance" style="--csGlow:rgba(255,138,36,.4)" data-anim="up">
+          <span class="cs__tag">Trucking &amp; Transport</span>
+          <h3>Alliance Driveaway</h3>
+          <p>Dispatch dashboard and native driver apps keeping 350+ drivers, clients and operations in sync across 48 states and Canada.</p>
+          <span class="tlink">Read case study <i class="ar">→</i></span>
+        </a>
+
+        <a class="cs" href="case-studies.html#fluidsdata" style="--csGlow:rgba(168,48,255,.4)" data-anim="up" data-delay="0.08">
+          <span class="cs__tag">Energy &amp; Industrial</span>
+          <h3>FluidsData</h3>
+          <p>Analytics platform for drilling-fluids data, used by teams at Chevron, ExxonMobil and ADNOC to read wells faster.</p>
+          <span class="tlink">Read case study <i class="ar">→</i></span>
+        </a>
+
+        <a class="cs" href="case-studies.html#futurespark" style="--csGlow:rgba(58,110,255,.42)" data-anim="up" data-delay="0.16">
+          <span class="cs__tag">AI in production</span>
+          <h3>AI Front Desk</h3>
+          <p>A voice agent that answers real inbound calls, books jobs and writes straight into the CRM — no human in the loop.</p>
+          <span class="tlink">Read case study <i class="ar">→</i></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── TEAM ── -->
+  <section class="section section--tight" id="about">
+    <div class="wrap">
+      <div class="team">
+        <div>
+          <span class="badge" data-anim="fade">Who you work with</span>
+          <h2 class="d2" data-split="lines">A named principal,<br /><span class="grad">not an account manager.</span></h2>
+          <p class="lead" data-anim="fade" style="margin-top:22px">
+            You get the people who do the work. Abdullah leads every engagement from
+            Alberta; a senior engineering bench builds behind him. No layer of
+            middlemen, no rotating cast.
+          </p>
+          <div class="cta-row" data-anim="fade" style="margin-top:28px">
+            <a href="about.html" class="btn btn--ghost"><span>Meet the team <i class="ar">→</i></span></a>
+          </div>
+        </div>
+
+        <div class="team__list">
+          <div class="person" data-anim="right">
+            <span class="person__av">AF</span>
+            <div>
+              <h4>Abdullah Farooq Ahmed</h4>
+              <div class="role">Principal · Edmonton, Alberta</div>
+              <p>16+ years across UI/UX and full-stack. Product Designer on internal
+                data-science applications at Levi Strauss &amp; Co.; formerly Lead Product
+                Designer at Arcus Power and Prebuild Design Lead on Salesforce's AT&amp;T
+                OneCare. Your single point of accountability.</p>
+            </div>
+          </div>
+
+          <div class="person" data-anim="right" data-delay="0.1">
+            <span class="person__av">RW</span>
+            <div>
+              <h4>Rizwan Walayat</h4>
+              <div class="role">Engineering · Mobile &amp; platform</div>
+              <p>Senior iOS and platform engineer. Leads mobile architecture across the
+                driver-app and field-operations work, and the AI systems we put into
+                production.</p>
+            </div>
+          </div>
+
+          <div class="person" data-anim="right" data-delay="0.2">
+            <span class="person__av">A²</span>
+            <div>
+              <h4>The engineering bench</h4>
+              <div class="role">Backend · Mobile · QA · DevOps</div>
+              <p>Senior Laravel, Vue, Node, Swift and Kotlin engineers who have shipped
+                together for years — assembled per engagement, never junior-loaded.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FINAL CTA ── -->
+  <section class="final" id="contact">
+    <div class="wrap">
+      <span class="badge" data-anim="fade">Let's talk</span>
+      <h2 class="d2" data-split="lines"><span class="grad">One conversation</span> makes your roadmap real.</h2>
+      <p class="lead" data-anim="fade">Tell us what you're building. You'll get an honest read on scope,
+        timeline and the right engagement model — usually within two business days.</p>
+      <div class="cta-row" data-anim="fade" style="justify-content:center;margin-top:32px">
+        <a href="mailto:hello@alphasquared.ca" class="btn"><span>Book a discovery call <i class="ar">→</i></span></a>
+      </div>
+    </div>
+  </section>
+
+</div><!-- /page-light -->
+
+</main>
+
+<!-- ═══════════════════════ FOOTER ═══════════════════════ -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <a href="index.html" class="brand" aria-label="Alpha Squared — Ideas Implemented">
+          <img src="assets/logo-full-white.png" alt="Alpha Squared" class="brand__logo" />
+        </a>
+        <p>Canadian software studio building for operators and enterprises since 2012.
+          Trucking and transport specialists. Ideas implemented.</p>
+      </div>
+      <div>
+        <h4>Solutions</h4>
+        <ul>
+          <li><a href="trucking.html">Trucking &amp; Transport</a></li>
+          <li><a href="index-trucking-b.html">Driveaway Dispatch Platform ↗</a></li>
+          <li><a href="services.html#platforms">Operations Platforms</a></li>
+          <li><a href="services.html#mobile">Mobile Apps</a></li>
+          <li><a href="services.html#ai">AI &amp; Automation</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="case-studies.html">Case Studies</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:hello@alphasquared.ca">hello@alphasquared.ca</a></li>
+          <li><a href="https://alphasquared.ca">alphasquared.ca</a></li>
+          <li>Edmonton, Alberta, Canada</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__base">
+      <span>© 2026 Alpha Squared. Ideas Implemented.</span>
+      <span>Software for operations that can't stop.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/CustomEase.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
+<script src="https://unpkg.com/split-type@0.3.4/umd/index.min.js"></script>
+<script src="js/main.js?v=20260729a"></script>
+</body>
+</html>
