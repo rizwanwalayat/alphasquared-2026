@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="css/style.css?v=20260729a" />
+<link rel="stylesheet" href="css/style.css?v=20260729d" />
 </head>
 
 <body class="is-loading">
@@ -139,14 +139,36 @@
   <div class="wrap">
     <p class="marquee__label" data-anim="fade">Work delivered for teams at</p>
   </div>
+  <!-- Logo wall. Each mark is an <img> in assets/logos/ with the company name
+       as a wordmark behind it: if the file is missing the <img> removes itself
+       and the name shows instead, so the row never renders as broken icons.
+       Drop-in filenames: salesforce.svg, levi-strauss.svg, honeywell.svg,
+       matrikon.svg, century-business-solutions.svg, arcus-power.svg,
+       fluidsdata.svg, whoifollow.svg — SVG preferred, transparent PNG fine
+       (update the src if the extension differs). Marks are rendered
+       monochrome so eight different brand palettes don't fight each other. -->
   <div class="marquee">
     <div class="marquee__track">
-      <span>Alliance Driveaway</span><span>Levi Strauss &amp; Co.</span><span>Salesforce</span>
-      <span>Honeywell / Matrikon</span><span>Arcus Power</span><span>FluidsData</span>
-      <span>Century Business Solutions</span><span>WhoIFollow</span>
-      <span>Alliance Driveaway</span><span>Levi Strauss &amp; Co.</span><span>Salesforce</span>
-      <span>Honeywell / Matrikon</span><span>Arcus Power</span><span>FluidsData</span>
-      <span>Century Business Solutions</span><span>WhoIFollow</span>
+      <span class="logo logo--knockout"><img src="assets/logos/salesforce.svg" alt="Salesforce" loading="lazy" onerror="this.remove()" /><i>Salesforce</i></span>
+      <span class="logo"><img src="assets/logos/levi-strauss.png" alt="Levi Strauss &amp; Co." loading="lazy" onerror="this.remove()" /><i>Levi Strauss &amp; Co.</i></span>
+      <span class="logo"><img src="assets/logos/honeywell.svg" alt="Honeywell" loading="lazy" onerror="this.remove()" /><i>Honeywell</i></span>
+      <span class="logo"><img src="assets/logos/matrikon.png" alt="Matrikon" loading="lazy" onerror="this.remove()" /><i>Matrikon</i></span>
+      <span class="logo"><img src="assets/logos/alliance-driveaway.gif" alt="Alliance Driveaway Solutions" loading="lazy" onerror="this.remove()" /><i>Alliance Driveaway</i></span>
+      <span class="logo"><img src="assets/logos/century-business-solutions.png" alt="Century Business Solutions" loading="lazy" onerror="this.remove()" /><i>Century Business Solutions</i></span>
+      <span class="logo"><img src="assets/logos/arcus-power.svg" alt="Arcus Power" loading="lazy" onerror="this.remove()" /><i>Arcus Power</i></span>
+      <span class="logo"><img src="assets/logos/fluidsdata.svg" alt="FluidsData" loading="lazy" onerror="this.remove()" /><i>FluidsData</i></span>
+      <span class="logo logo--wordmark"><img src="assets/logos/whoifollow.svg" alt="WhoIFollow" loading="lazy" onerror="this.remove()" /><i>WhoIFollow</i></span>
+
+      <!-- second copy — the track translates -50%, so the loop needs an exact duplicate -->
+      <span class="logo logo--knockout" aria-hidden="true"><img src="assets/logos/salesforce.svg" alt="" loading="lazy" onerror="this.remove()" /><i>Salesforce</i></span>
+      <span class="logo" aria-hidden="true"><img src="assets/logos/levi-strauss.png" alt="" loading="lazy" onerror="this.remove()" /><i>Levi Strauss &amp; Co.</i></span>
+      <span class="logo" aria-hidden="true"><img src="assets/logos/honeywell.svg" alt="" loading="lazy" onerror="this.remove()" /><i>Honeywell</i></span>
+      <span class="logo" aria-hidden="true"><img src="assets/logos/matrikon.png" alt="" loading="lazy" onerror="this.remove()" /><i>Matrikon</i></span>
+      <span class="logo" aria-hidden="true"><img src="assets/logos/alliance-driveaway.gif" alt="" loading="lazy" onerror="this.remove()" /><i>Alliance Driveaway</i></span>
+      <span class="logo" aria-hidden="true"><img src="assets/logos/century-business-solutions.png" alt="" loading="lazy" onerror="this.remove()" /><i>Century Business Solutions</i></span>
+      <span class="logo" aria-hidden="true"><img src="assets/logos/arcus-power.svg" alt="" loading="lazy" onerror="this.remove()" /><i>Arcus Power</i></span>
+      <span class="logo" aria-hidden="true"><img src="assets/logos/fluidsdata.svg" alt="" loading="lazy" onerror="this.remove()" /><i>FluidsData</i></span>
+      <span class="logo logo--wordmark" aria-hidden="true"><img src="assets/logos/whoifollow.svg" alt="" loading="lazy" onerror="this.remove()" /><i>WhoIFollow</i></span>
     </div>
   </div>
 </section>
@@ -623,6 +645,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/CustomEase.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
 <script src="https://unpkg.com/split-type@0.3.4/umd/index.min.js"></script>
-<script src="js/main.js?v=20260729a"></script>
+<script src="js/main.js?v=20260729d"></script>
 </body>
 </html>

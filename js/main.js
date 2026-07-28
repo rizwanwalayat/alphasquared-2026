@@ -516,19 +516,18 @@
 
     var geom = null;
     function layout() {
-      // Stretch to the full width rather than fitting uniformly — a
-      // letterboxed map wastes most of the band. The horizontal stretch is
-      // capped at 1.45x the vertical step so continents widen slightly but
-      // never look smeared. Dots stay circular; only spacing stretches.
-      var stepY = c.h / LAND_ROWS;
-      var stepX = Math.min(c.w / LAND_COLS, stepY * 1.45);
-      var mw = stepX * LAND_COLS, mh = stepY * LAND_ROWS;
+      // Uniform scale — one step for both axes, so the geography keeps its
+      // true proportions. The band's height is sized off viewport width in
+      // CSS (36vw against a 2.5:1 mask), which lets the map run nearly edge
+      // to edge without the horizontal-only stretch it used to need.
+      var step = Math.min(c.w / LAND_COLS, c.h / LAND_ROWS);
+      var mw = step * LAND_COLS, mh = step * LAND_ROWS;
       geom = {
-        stepX: stepX, stepY: stepY,
+        stepX: step, stepY: step,
         x0: (c.w - mw) / 2,
         y0: (c.h - mh) / 2,
         mw: mw, mh: mh,
-        r: Math.max(1, Math.min(stepX, stepY) * 0.34)
+        r: Math.max(1, step * 0.3)
       };
     }
     layout();
@@ -574,11 +573,14 @@
           }
 
           // Gentle vertical fade so the map settles into the background.
-          // Floored at 0.6 so the continents stay legible at the edges —
+          // Floored at 0.55 so the continents stay legible at the edges —
           // below that the map reads as noise rather than geography.
-          var fade = Math.max(0.6, 1 - Math.abs((row / LAND_ROWS) - 0.42) * 0.5);
+          // Base alpha is deliberately low: the land is a backdrop for the
+          // markers and labels, and at full strength it pulled focus off
+          // the headline sitting above it.
+          var fade = Math.max(0.55, 1 - Math.abs((row / LAND_ROWS) - 0.42) * 0.5);
           ctx.fillStyle = 'rgba(' + (cr | 0) + ',' + (cg | 0) + ',' + (cb | 0) + ',' +
-                          (0.52 * fade).toFixed(3) + ')';
+                          (0.32 * fade).toFixed(3) + ')';
           ctx.beginPath();
           ctx.arc(x, y, g.r, 0, Math.PI * 2);
           ctx.fill();
@@ -626,10 +628,11 @@
       });
 
       /* ── country labels, drawn last so nothing paints over them ──
-         Below ~760px the map is too narrow to place 17 labels without
+         Below 820px the map is too narrow to place 17 labels without
          collisions, so they're dropped and the strip under the map
-         carries the names instead. */
-      if (c.w >= 760) {
+         carries the names instead. The threshold has to match the
+         breakpoint that reveals .geo, or the 760–820 band shows both. */
+      if (c.w >= 820) {
         ctx.font = '500 11px Poppins, -apple-system, sans-serif';
         ctx.textBaseline = 'middle';
 
