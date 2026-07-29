@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Services — Operations Platforms, Mobile Apps, AI &amp; Automation | Alpha Squared</title>
+<meta name="description" content="What Alpha Squared builds: operations platforms, native mobile apps, AI &amp; automation, product design, dedicated teams and cloud/DevOps support. Senior engineers, since 2012." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="css/style.css?v=20260729f" />
+</head>
+
+<body class="is-loading">
+
+<!-- ═══════════════════════ LOADER ═══════════════════════ -->
+<div class="loader" id="loader" aria-hidden="true">
+  <div class="loader__row">
+    <div class="loader__ring"></div>
+    <div class="loader__name">Alpha<sup>2</sup></div>
+    <span class="loader__pct" id="loaderPct">0%</span>
+  </div>
+</div>
+
+<!-- ═══════════════════════ NAV ═══════════════════════ -->
+<header class="nav" id="nav">
+  <div class="nav__inner">
+    <a href="index.html" class="brand" aria-label="Alpha Squared — Ideas Implemented">
+      <img src="assets/logo-full.png" alt="Alpha Squared" class="brand__logo" />
+    </a>
+
+    <nav class="nav__links">
+      <a href="trucking.html">Trucking &amp; Transport</a>
+      <a href="services.html" class="is-active">Services</a>
+      <a href="case-studies.html">Case Studies</a>
+      <a href="about.html">About Us</a>
+    </nav>
+
+    <a href="#contact" class="btn nav__cta"><span>Contact</span></a>
+
+    <button class="nav__burger" id="burger" aria-label="Menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main>
+
+<!-- ═══════════════════════ HERO ═══════════════════════ -->
+<section class="hero hero--page">
+  <div class="hero__arc" data-parallax="0.12"></div>
+  <div class="hero__bloom" data-parallax="0.2"></div>
+
+  <div class="wrap hero__inner">
+    <span class="hero__eyebrow grad" data-anim="fade">What we build</span>
+    <h1 class="d1" data-split="words">Six ways we plug into your stack.</h1>
+    <p class="hero__sub" data-anim="fade" data-delay="0.5">
+      Not a menu of buzzwords — six things we've shipped, kept running, and would
+      put our name on again. Each one below links to where we've actually done it.
+    </p>
+    <div class="cta-row" data-anim="fade" data-delay="0.65">
+      <a href="#contact" class="btn"><span>Start a project <i class="ar">→</i></span></a>
+      <a href="case-studies.html" class="btn btn--ghost"><span>See the case studies</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ WHITE SHEET ═══════════════════════ -->
+<div class="page-light">
+
+  <section class="section" id="platforms">
+    <div class="wrap">
+      <div class="svcRow" data-anim="up">
+        <div>
+          <span class="svc__i"><svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="14" rx="2"/><path d="M8 21h8M12 18v3"/></svg></span>
+          <span class="badge">01 · Operations Platforms</span>
+          <h3>Dispatch boards, dashboards and the APIs behind them.</h3>
+          <p class="lead" style="font-size:.98rem">
+            We build for the operation as it actually runs — the exceptions, the
+            edge cases, the workflow your team has half-memorized — not a generic
+            CRUD app with your logo on it.
+          </p>
+          <div class="chips">
+            <span>PHP / Laravel</span><span>Node.js</span><span>Vue.js</span>
+            <span>React &amp; Next.js</span><span>MySQL</span><span>PostgreSQL</span><span>AWS</span>
+          </div>
+        </div>
+        <div class="svcRow__side">
+          <ul class="ticks">
+            <li>Dispatch and scheduling systems</li>
+            <li>Admin and internal tooling</li>
+            <li>Client-facing portals</li>
+            <li>API design and third-party integration</li>
+          </ul>
+          <a class="tlink" href="case-studies.html#alliance">Built Alliance Driveaway's dispatch dashboard <i class="ar">→</i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--tight" id="mobile">
+    <div class="wrap">
+      <div class="svcRow" data-anim="up">
+        <div>
+          <span class="svc__i"><svg viewBox="0 0 24 24"><rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M11 18h2"/></svg></span>
+          <span class="badge">02 · Mobile Apps</span>
+          <h3>Native iOS and Android for people who don't get to complain about signal.</h3>
+          <p class="lead" style="font-size:.98rem">
+            Offline-tolerant, GPS-aware, and shipped to the App Store and Play Store
+            by engineers who own the whole release, not a wrapped webview handed
+            off at the end.
+          </p>
+          <div class="chips">
+            <span>Swift</span><span>Kotlin</span><span>Flutter</span><span>React Native</span>
+          </div>
+        </div>
+        <div class="svcRow__side">
+          <ul class="ticks">
+            <li>Native iOS (Swift) and Android (Kotlin)</li>
+            <li>Cross-platform when it's the right call</li>
+            <li>Offline-first data sync</li>
+            <li>Push notifications and background location</li>
+          </ul>
+          <a class="tlink" href="case-studies.html#alliance">350+ drivers run on our driver app today <i class="ar">→</i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--tight" id="ai">
+    <div class="wrap">
+      <div class="svcRow" data-anim="up">
+        <div>
+          <span class="svc__i"><svg viewBox="0 0 24 24"><path d="M12 2a4 4 0 0 1 4 4c0 1.1-.45 2.1-1.17 2.83L12 12 9.17 8.83A4 4 0 0 1 12 2Z"/><path d="M12 12v10M8 22h8"/></svg></span>
+          <span class="badge">03 · AI &amp; Automation</span>
+          <h3>Voice agents, OCR and assistants wired into what you already run.</h3>
+          <p class="lead" style="font-size:.98rem">
+            We treat AI as engineering with a measurable job to do — answer the
+            phone, read the document, update the record — not a line on a slide.
+          </p>
+          <div class="chips">
+            <span>VAPI</span><span>Twilio</span><span>ElevenLabs</span>
+            <span>n8n</span><span>HubSpot CRM</span><span>Custom OCR</span>
+          </div>
+        </div>
+        <div class="svcRow__side">
+          <ul class="ticks">
+            <li>Inbound and outbound voice agents</li>
+            <li>Document OCR and data extraction</li>
+            <li>Agentic assistants wired into your CRM</li>
+            <li>Workflow automation (n8n, Make.com)</li>
+          </ul>
+          <a class="tlink" href="case-studies.html#futurespark">An AI receptionist answering real calls, no human in the loop <i class="ar">→</i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--tight" id="design">
+    <div class="wrap">
+      <div class="svcRow" data-anim="up">
+        <div>
+          <span class="svc__i"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 1 0 18M8 12h8"/></svg></span>
+          <span class="badge">04 · Product &amp; UX Design</span>
+          <h3>Interfaces that hold up under real use, not just a portfolio shot.</h3>
+          <p class="lead" style="font-size:.98rem">
+            Our principal leads UX on internal data-science and AI tools at Levi
+            Strauss &amp; Co. and was Prebuild Design Lead on Salesforce's AT&amp;T
+            OneCare build — making complex, data-dense software legible is the job,
+            not a first attempt at it.
+          </p>
+          <div class="chips">
+            <span>Figma</span><span>Design systems</span><span>Prototyping</span>
+          </div>
+        </div>
+        <div class="svcRow__side">
+          <ul class="ticks">
+            <li>User research and product strategy</li>
+            <li>Clickable prototypes before a line of code</li>
+            <li>Design systems that scale with the product</li>
+            <li>Data-dense interfaces made legible</li>
+          </ul>
+          <a class="tlink" href="about.html">Meet the person who leads it <i class="ar">→</i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--tight" id="teams">
+    <div class="wrap">
+      <div class="svcRow" data-anim="up">
+        <div>
+          <span class="svc__i"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
+          <span class="badge">05 · Dedicated Teams</span>
+          <h3>A vetted senior pod, embedded, without the hiring cycle.</h3>
+          <p class="lead" style="font-size:.98rem">
+            Assembled per engagement around your stack, never junior-loaded.
+            Capacity without a twelve-week local hire, and without paying to
+            teach someone your domain on your budget.
+          </p>
+          <div class="chips">
+            <span>Laravel</span><span>Vue</span><span>Node</span><span>Swift</span><span>Kotlin</span>
+          </div>
+        </div>
+        <div class="svcRow__side">
+          <ul class="ticks">
+            <li>Senior engineers only</li>
+            <li>Assembled around your stack, not the other way around</li>
+            <li>You keep control, we keep momentum</li>
+            <li>Scale up or down as scope changes</li>
+          </ul>
+          <a class="tlink" href="about.html">16+ years of people who've shipped together <i class="ar">→</i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--tight" id="cloud">
+    <div class="wrap">
+      <div class="svcRow" data-anim="up">
+        <div>
+          <span class="svc__i"><svg viewBox="0 0 24 24"><path d="M17.5 19a4.5 4.5 0 1 0-.42-8.98 6 6 0 1 0-11.06 3.1A3.5 3.5 0 0 0 6.5 19Z"/></svg></span>
+          <span class="badge">06 · Cloud, DevOps &amp; Support</span>
+          <h3>Infrastructure and support agreed in writing, before go-live.</h3>
+          <p class="lead" style="font-size:.98rem">
+            Uptime and response-time targets get defined per system before launch,
+            not improvised after an incident. Long-term support after launch is
+            when it counts most.
+          </p>
+          <div class="chips">
+            <span>AWS (S3, RDS, EC2)</span><span>CI/CD</span><span>Monitoring</span>
+          </div>
+        </div>
+        <div class="svcRow__side">
+          <ul class="ticks">
+            <li>AWS infrastructure and provisioning</li>
+            <li>CI/CD pipelines</li>
+            <li>Monitoring and observability</li>
+            <li>Ongoing support with agreed response times</li>
+          </ul>
+          <a class="tlink" href="trust.html">Read how we structure SLAs and support <i class="ar">→</i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FINAL CTA ── -->
+  <section class="final" id="contact">
+    <div class="wrap">
+      <span class="badge" data-anim="fade">Let's talk</span>
+      <h2 class="d2" data-split="lines"><span class="grad">One conversation</span> makes your roadmap real.</h2>
+      <p class="lead" data-anim="fade">Tell us what you're building. You'll get an honest read on scope,
+        timeline and the right engagement model — usually within two business days.</p>
+      <div class="cta-row" data-anim="fade" style="justify-content:center;margin-top:32px">
+        <a href="mailto:info@alphasquared.co" class="btn"><span>Book a discovery call <i class="ar">→</i></span></a>
+      </div>
+    </div>
+  </section>
+
+</div><!-- /page-light -->
+
+</main>
+
+<!-- ═══════════════════════ FOOTER ═══════════════════════ -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <a href="index.html" class="brand" aria-label="Alpha Squared — Ideas Implemented">
+          <img src="assets/logo-full-white.png" alt="Alpha Squared" class="brand__logo" />
+        </a>
+        <p>Canadian software studio building for operators and enterprises since 2012.
+          Trucking and transport specialists. Ideas implemented.</p>
+      </div>
+      <div>
+        <h4>Solutions</h4>
+        <ul>
+          <li><a href="trucking.html">Trucking &amp; Transport</a></li>
+          <li><a href="index-trucking-b.html">Driveaway Dispatch Platform ↗</a></li>
+          <li><a href="services.html#platforms">Operations Platforms</a></li>
+          <li><a href="services.html#mobile">Mobile Apps</a></li>
+          <li><a href="services.html#ai">AI &amp; Automation</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="case-studies.html">Case Studies</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="trust.html">Trust &amp; Security</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:info@alphasquared.co">info@alphasquared.co</a></li>
+          <li><a href="https://alphasquared.ca">alphasquared.ca</a></li>
+          <li>Edmonton, Alberta, Canada</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__base">
+      <span>© 2026 Alpha Squared. Ideas Implemented.</span>
+      <span>Software for operations that can't stop.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/CustomEase.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
+<script src="https://unpkg.com/split-type@0.3.4/umd/index.min.js"></script>
+<script src="js/main.js?v=20260729f"></script>
+</body>
+</html>

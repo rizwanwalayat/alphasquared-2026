@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Case Studies — Alliance Driveaway, FluidsData, AI Front Desk | Alpha Squared</title>
+<meta name="description" content="How Alpha Squared solved real operating problems: a driveaway dispatch platform for 350+ drivers, an AI data platform used by teams at Chevron and ExxonMobil, and a voice agent that runs a front desk with no human in the loop." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="css/style.css?v=20260729f" />
+</head>
+
+<body class="is-loading">
+
+<!-- ═══════════════════════ LOADER ═══════════════════════ -->
+<div class="loader" id="loader" aria-hidden="true">
+  <div class="loader__row">
+    <div class="loader__ring"></div>
+    <div class="loader__name">Alpha<sup>2</sup></div>
+    <span class="loader__pct" id="loaderPct">0%</span>
+  </div>
+</div>
+
+<!-- ═══════════════════════ NAV ═══════════════════════ -->
+<header class="nav" id="nav">
+  <div class="nav__inner">
+    <a href="index.html" class="brand" aria-label="Alpha Squared — Ideas Implemented">
+      <img src="assets/logo-full.png" alt="Alpha Squared" class="brand__logo" />
+    </a>
+
+    <nav class="nav__links">
+      <a href="trucking.html">Trucking &amp; Transport</a>
+      <a href="services.html">Services</a>
+      <a href="case-studies.html" class="is-active">Case Studies</a>
+      <a href="about.html">About Us</a>
+    </nav>
+
+    <a href="#contact" class="btn nav__cta"><span>Contact</span></a>
+
+    <button class="nav__burger" id="burger" aria-label="Menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main>
+
+<!-- ═══════════════════════ HERO ═══════════════════════ -->
+<section class="hero hero--page">
+  <div class="hero__arc" data-parallax="0.12"></div>
+  <div class="hero__bloom" data-parallax="0.2"></div>
+
+  <div class="wrap hero__inner">
+    <span class="hero__eyebrow grad" data-anim="fade">Selected work</span>
+    <h1 class="d1" data-split="words">Systems running in production, not slides in a deck.</h1>
+    <p class="hero__sub" data-anim="fade" data-delay="0.5">
+      265+ projects since 2012. These three are the ones we can show in full —
+      the problem, what we shipped, and what it's doing today.
+    </p>
+  </div>
+</section>
+
+<!-- ═══════════════════════ ALLIANCE ═══════════════════════ -->
+<section class="section" id="alliance">
+  <div class="wrap">
+    <div class="study" data-anim="up">
+      <div class="study__top">
+        <div>
+          <span class="badge">Trucking &amp; Transport · Live in production</span>
+          <h2 class="d2">Alliance Driveaway<br /><span class="grad">Solutions.</span></h2>
+          <p class="lead" style="margin-top:20px">
+            A North American Class 6/7/8 vehicle-relocation company. We built their
+            entire digital ecosystem: a dispatch web dashboard plus native iOS and
+            Android driver apps, keeping drivers, clients and operations in sync
+            with real-time job tracking — with QuickBooks-integrated accounting
+            underneath it.
+          </p>
+          <div class="chips">
+            <span>PHP / Laravel</span><span>Vue.js</span><span>Swift</span>
+            <span>Kotlin</span><span>QuickBooks</span><span>Real-time tracking</span>
+          </div>
+        </div>
+        <div class="study__viz"><canvas id="proofViz"></canvas></div>
+      </div>
+
+      <div class="study__grid">
+        <div>
+          <h4>The problem</h4>
+          <p>A distributed network of contractor drivers, one-way jobs spread
+            across a continent, and no software on the market built for an
+            operation where the vehicle being moved is the freight itself.
+            Dispatch ran on phone calls, spreadsheets and email threads that
+            drifted out of sync the moment a job changed hands.</p>
+        </div>
+        <div>
+          <h4>What we shipped</h4>
+          <ul class="ticks">
+            <li>A live dispatch dashboard — job creation to delivery in one view</li>
+            <li>Native iOS and Android driver apps, offline-tolerant</li>
+            <li>Photo, GPS and signature chain-of-custody on every handoff</li>
+            <li>Deep QuickBooks sync — load to invoice with no retyping</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Where it stands today</h4>
+          <ul class="ticks">
+            <li>350+ screened CDL drivers dispatched</li>
+            <li>48 US states and Canada</li>
+            <li>Class 6, 7 and 8 equipment</li>
+            <li>Live truck tracking currently in build</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ FLUIDSDATA ═══════════════════════ -->
+<section class="section" id="fluidsdata">
+  <div class="wrap">
+    <div class="study" data-anim="up">
+      <div class="study__top">
+        <div>
+          <span class="badge">Energy &amp; Industrial · In active use</span>
+          <h2 class="d2">FluidsData.</h2>
+          <p class="lead" style="margin-top:20px">
+            An AI-powered analytics platform for the oil and gas sector. It turns
+            raw, messy drilling-fluids and technical data into structured
+            dashboards and exploratory analysis, and its Fluids Intelligence
+            layer couples domain models with an agentic AI assistant for
+            predictive guidance.
+          </p>
+          <div class="chips">
+            <span>Golang</span><span>Python</span><span>Vue.js</span><span>MySQL</span><span>Agentic AI</span>
+          </div>
+        </div>
+        <div class="study__viz"><canvas id="globeViz"></canvas></div>
+      </div>
+
+      <div class="study__grid">
+        <div>
+          <h4>The problem</h4>
+          <p>Field and lab data for fluids engineering arrives messy, siloed
+            and slow to interpret — the kind of raw technical data that
+            usually means someone spends hours in spreadsheets before a
+            decision gets made, on wells where that delay has a real cost.</p>
+        </div>
+        <div>
+          <h4>What we shipped</h4>
+          <ul class="ticks">
+            <li>Structured dashboards over raw drilling-fluids data</li>
+            <li>Exploratory analysis tooling for fluids engineers</li>
+            <li>A Fluids Intelligence layer combining domain models with AI</li>
+            <li>An agentic assistant for predictive guidance, not just charts</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Where it stands today</h4>
+          <ul class="ticks">
+            <li>In active use by teams at Chevron</li>
+            <li>In active use by teams at ExxonMobil</li>
+            <li>In active use by teams at ADNOC</li>
+            <li>Built and maintained for a high bar on data trust</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ AI FRONT DESK ═══════════════════════ -->
+<section class="section" id="futurespark">
+  <div class="wrap">
+    <div class="study" data-anim="up">
+      <div class="study__top">
+        <div>
+          <span class="badge">AI in production · Live in production</span>
+          <h2 class="d2">AI Front Desk.</h2>
+          <p class="lead" style="margin-top:20px">
+            An autonomous voice agent that answers real inbound calls around the
+            clock — understanding intent, checking live availability, booking
+            appointments and logging everything straight into the CRM. No human
+            in the loop.
+          </p>
+          <div class="chips">
+            <span>VAPI</span><span>Twilio</span><span>ElevenLabs</span><span>HubSpot CRM</span>
+          </div>
+        </div>
+        <div class="study__viz"><canvas id="radarViz"></canvas></div>
+      </div>
+
+      <div class="study__grid">
+        <div>
+          <h4>The problem</h4>
+          <p>Staffing a front desk for round-the-clock coverage is expensive
+            and inconsistent, and every missed call is a booking that went
+            to a competitor instead. The client needed calls answered
+            instantly, at any hour, without hiring for it.</p>
+        </div>
+        <div>
+          <h4>What we shipped</h4>
+          <ul class="ticks">
+            <li>A voice agent that understands caller intent in real time</li>
+            <li>Live availability checks before offering a time slot</li>
+            <li>Appointment booking with zero human handoff</li>
+            <li>Every call logged straight into HubSpot CRM</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Where it stands today</h4>
+          <ul class="ticks">
+            <li>Answering real inbound calls, 24 hours a day</li>
+            <li>No manual data entry after a booked call</li>
+            <li>No human required in the loop</li>
+            <li>One of several AI systems we run in production today</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ WHITE SHEET: TESTIMONIALS ═══════════════════════ -->
+<div class="page-light">
+  <section class="section section--tight">
+    <div class="wrap">
+      <div class="head head--center">
+        <span class="badge" data-anim="fade">What clients say</span>
+        <h2 class="d2" data-split="lines">Ask the people<br /><span class="grad">who've actually worked with us.</span></h2>
+      </div>
+
+      <div class="grid grid--2" style="margin-top:48px">
+        <div class="quote" data-anim="up">
+          <span class="quote__mark">&ldquo;</span>
+          <p>I am very pleased with Alpha Squared's project management capability
+            &mdash; the highest work ethic I have seen for a development team.</p>
+          <div class="quote__who">Nico Fusco<span>Founder, Paladin</span></div>
+        </div>
+        <div class="quote" data-anim="up" data-delay="0.1">
+          <span class="quote__mark">&ldquo;</span>
+          <p>We are very satisfied and happy to have found Alpha Squared as our
+            offshore development partner &mdash; they found a way to successfully
+            complement our operations without causing any discontinuities on
+            our side.</p>
+          <div class="quote__who">Brian Liu<span>CEO, Foodies Express</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FINAL CTA ── -->
+  <section class="final" id="contact">
+    <div class="wrap">
+      <span class="badge" data-anim="fade">Let's talk</span>
+      <h2 class="d2" data-split="lines"><span class="grad">One conversation</span> makes your roadmap real.</h2>
+      <p class="lead" data-anim="fade">Tell us what you're building. You'll get an honest read on scope,
+        timeline and the right engagement model — usually within two business days.</p>
+      <div class="cta-row" data-anim="fade" style="justify-content:center;margin-top:32px">
+        <a href="mailto:info@alphasquared.co" class="btn"><span>Book a discovery call <i class="ar">→</i></span></a>
+      </div>
+    </div>
+  </section>
+</div><!-- /page-light -->
+
+</main>
+
+<!-- ═══════════════════════ FOOTER ═══════════════════════ -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <a href="index.html" class="brand" aria-label="Alpha Squared — Ideas Implemented">
+          <img src="assets/logo-full-white.png" alt="Alpha Squared" class="brand__logo" />
+        </a>
+        <p>Canadian software studio building for operators and enterprises since 2012.
+          Trucking and transport specialists. Ideas implemented.</p>
+      </div>
+      <div>
+        <h4>Solutions</h4>
+        <ul>
+          <li><a href="trucking.html">Trucking &amp; Transport</a></li>
+          <li><a href="index-trucking-b.html">Driveaway Dispatch Platform ↗</a></li>
+          <li><a href="services.html#platforms">Operations Platforms</a></li>
+          <li><a href="services.html#mobile">Mobile Apps</a></li>
+          <li><a href="services.html#ai">AI &amp; Automation</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="case-studies.html">Case Studies</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="trust.html">Trust &amp; Security</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:info@alphasquared.co">info@alphasquared.co</a></li>
+          <li><a href="https://alphasquared.ca">alphasquared.ca</a></li>
+          <li>Edmonton, Alberta, Canada</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__base">
+      <span>© 2026 Alpha Squared. Ideas Implemented.</span>
+      <span>Software for operations that can't stop.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/CustomEase.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
+<script src="https://unpkg.com/split-type@0.3.4/umd/index.min.js"></script>
+<script src="js/main.js?v=20260729f"></script>
+</body>
+</html>

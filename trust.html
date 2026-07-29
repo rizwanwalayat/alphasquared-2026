@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Trust &amp; Security — NDA, Process, SLA | Alpha Squared</title>
+<meta name="description" content="How Alpha Squared handles NDAs, privacy, security practices, development process, support and service level agreements — documented before we start, not improvised after." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="css/style.css?v=20260729f" />
+</head>
+
+<body class="is-loading">
+
+<!-- ═══════════════════════ LOADER ═══════════════════════ -->
+<div class="loader" id="loader" aria-hidden="true">
+  <div class="loader__row">
+    <div class="loader__ring"></div>
+    <div class="loader__name">Alpha<sup>2</sup></div>
+    <span class="loader__pct" id="loaderPct">0%</span>
+  </div>
+</div>
+
+<!-- ═══════════════════════ NAV ═══════════════════════ -->
+<header class="nav" id="nav">
+  <div class="nav__inner">
+    <a href="index.html" class="brand" aria-label="Alpha Squared — Ideas Implemented">
+      <img src="assets/logo-full.png" alt="Alpha Squared" class="brand__logo" />
+    </a>
+
+    <nav class="nav__links">
+      <a href="trucking.html">Trucking &amp; Transport</a>
+      <a href="services.html">Services</a>
+      <a href="case-studies.html">Case Studies</a>
+      <a href="about.html">About Us</a>
+    </nav>
+
+    <a href="#contact" class="btn nav__cta"><span>Contact</span></a>
+
+    <button class="nav__burger" id="burger" aria-label="Menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main>
+
+<!-- ═══════════════════════ HERO ═══════════════════════ -->
+<section class="hero hero--page">
+  <div class="hero__arc" data-parallax="0.12"></div>
+  <div class="hero__bloom" data-parallax="0.2"></div>
+
+  <div class="wrap hero__inner">
+    <span class="hero__eyebrow grad" data-anim="fade">Trust &amp; process</span>
+    <h1 class="d1" data-split="words">How we protect the work, and you.</h1>
+    <p class="hero__sub" data-anim="fade" data-delay="0.5">
+      Early on, a client asked us for an SLA document we didn't have. We don't
+      want that call again, and you shouldn't have to ask for any of this
+      either — it's below, before you need it.
+    </p>
+    <div class="integrations" data-anim="fade" data-delay="0.6">
+      <span>NDA</span><span>Privacy</span><span>Security</span>
+      <span>Delivery process</span><span>Support</span><span>SLA</span><span>Code ownership</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ ACCORDION ═══════════════════════ -->
+<section class="section">
+  <div class="wrap">
+    <div class="panel" data-anim="up">
+      <div class="why">
+        <div>
+          <span class="badge">Seven things you'd otherwise have to ask for</span>
+          <h2 class="d2">Documented,<br /><span class="grad">not improvised.</span></h2>
+
+          <div class="acc" id="acc" style="margin-top:34px">
+            <div class="acc__item is-open">
+              <button class="acc__q">NDA &amp; confidentiality <i></i></button>
+              <div class="acc__a"><p>A mutual NDA is standard before we go into specifics about your
+                system, your data or your roadmap — ours, or one your legal team prefers to use
+                instead. Either is fine; we just don't talk scope without one in place.</p></div>
+            </div>
+            <div class="acc__item">
+              <button class="acc__q">Privacy <i></i></button>
+              <div class="acc__a"><p>We collect what you give us through the contact form or a discovery
+                call, and standard site analytics. We use it to respond to your enquiry and, if you
+                engage us, to deliver the project. We don't sell it, and we don't hand it to a third
+                party for their own marketing. Ask <a href="mailto:info@alphasquared.co">info@alphasquared.co</a>
+                to see or remove what we hold on you.</p></div>
+            </div>
+            <div class="acc__item">
+              <button class="acc__q">Security practices <i></i></button>
+              <div class="acc__a"><p>Least-privilege access on every engagement, credentials scoped per
+                client rather than shared across projects, encrypted transit end to end, and secrets
+                kept out of shared repositories. Staging and production stay separate environments,
+                and every change is reviewed before it merges — the same discipline this site itself
+                ships with, down to its transport headers.</p></div>
+            </div>
+            <div class="acc__item">
+              <button class="acc__q">Development &amp; delivery process <i></i></button>
+              <div class="acc__a"><p>Discover, design, build, operate — the same four steps on every
+                engagement. Iterative delivery with a working demo every week, version control and
+                code review on every change, and a staging environment that mirrors production before
+                anything ships to it.</p></div>
+            </div>
+            <div class="acc__item">
+              <button class="acc__q">Maintenance &amp; support <i></i></button>
+              <div class="acc__a"><p>Support after launch is part of the engagement, not an upsell we
+                spring on you afterward. What that looks like — a retainer, hourly as-needed, or a
+                dedicated on-call arrangement — gets agreed before launch, along with what's covered
+                and what response times to expect.</p></div>
+            </div>
+            <div class="acc__item">
+              <button class="acc__q">Service Level Agreement <i></i></button>
+              <div class="acc__a"><p>Uptime and response-time targets are set per system and put in
+                writing before go-live — not a boilerplate number pasted into a contract. If the
+                system has to run at 2am on a Tuesday, the SLA reflects that before it's live, not
+                after the first incident.</p></div>
+            </div>
+            <div class="acc__item">
+              <button class="acc__q">Code ownership &amp; IP <i></i></button>
+              <div class="acc__a"><p>You own the code and the IP we deliver, on final payment. No
+                vendor lock-in, and no holding the repository hostage. It's hosted in a repository you
+                control, or a shared one, whichever you'd rather run.</p></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="why__viz"><canvas id="radarViz"></canvas></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ WHITE SHEET ═══════════════════════ -->
+<div class="page-light">
+  <!-- ── FINAL CTA ── -->
+  <section class="final" id="contact">
+    <div class="wrap">
+      <span class="badge" data-anim="fade">Want it in writing first?</span>
+      <h2 class="d2" data-split="lines"><span class="grad">Ask for the NDA or SLA template</span> before we even talk.</h2>
+      <p class="lead" data-anim="fade">No pressure to commit to anything — we'll send the paperwork so
+        your legal or procurement team can review it on their own timeline.</p>
+      <div class="cta-row" data-anim="fade" style="justify-content:center;margin-top:32px">
+        <a href="mailto:info@alphasquared.co?subject=NDA%20%2F%20SLA%20template%20request" class="btn"><span>Request the templates <i class="ar">→</i></span></a>
+      </div>
+    </div>
+  </section>
+</div><!-- /page-light -->
+
+</main>
+
+<!-- ═══════════════════════ FOOTER ═══════════════════════ -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <a href="index.html" class="brand" aria-label="Alpha Squared — Ideas Implemented">
+          <img src="assets/logo-full-white.png" alt="Alpha Squared" class="brand__logo" />
+        </a>
+        <p>Canadian software studio building for operators and enterprises since 2012.
+          Trucking and transport specialists. Ideas implemented.</p>
+      </div>
+      <div>
+        <h4>Solutions</h4>
+        <ul>
+          <li><a href="trucking.html">Trucking &amp; Transport</a></li>
+          <li><a href="index-trucking-b.html">Driveaway Dispatch Platform ↗</a></li>
+          <li><a href="services.html#platforms">Operations Platforms</a></li>
+          <li><a href="services.html#mobile">Mobile Apps</a></li>
+          <li><a href="services.html#ai">AI &amp; Automation</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="case-studies.html">Case Studies</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="trust.html">Trust &amp; Security</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:info@alphasquared.co">info@alphasquared.co</a></li>
+          <li><a href="https://alphasquared.ca">alphasquared.ca</a></li>
+          <li>Edmonton, Alberta, Canada</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__base">
+      <span>© 2026 Alpha Squared. Ideas Implemented.</span>
+      <span>Software for operations that can't stop.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/CustomEase.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
+<script src="https://unpkg.com/split-type@0.3.4/umd/index.min.js"></script>
+<script src="js/main.js?v=20260729f"></script>
+</body>
+</html>
