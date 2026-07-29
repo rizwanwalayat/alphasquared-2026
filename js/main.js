@@ -458,16 +458,27 @@
 
   /* ─────────────────────────────────────────────────────────────────
      The 17 countries we've delivered into (client-supplied, 2026-07-28).
+     North America is broken out to city level instead of one dot per
+     country — it's the flagship market, so it gets more visual weight on
+     the map than the rest. Every other region stays country-level.
 
      dx/dy are label offsets in px from the marker; `a` is the text anchor.
-     Europe and the Gulf are hand-fanned outward into empty ocean because
-     six European countries sit inside ~65px of each other — anything
-     placed inline there collides. A leader line is drawn automatically
-     whenever a label is pushed far enough from its marker to need one.
+     Europe, the Gulf and now North America are hand-fanned outward into
+     empty ocean because the markers sit within ~80px of each other at
+     this scale — anything placed inline there collides. A leader line is
+     drawn automatically whenever a label is pushed far enough from its
+     marker to need one.
      ───────────────────────────────────────────────────────────────── */
   var PLACES = [
-    { n: 'Canada',       lat: 56.0,  lng: -106.0, hq: true, dx: 0,   dy: -22, a: 'center' },
-    { n: 'USA',          lat: 39.5,  lng: -98.5,            dx: -6,  dy: 26,  a: 'center' },
+    /* North America — city-level, fanned out from a tight real cluster */
+    { n: 'Edmonton',     lat: 53.5,  lng: -113.5, hq: true, dx: 0,   dy: -26, a: 'center' },
+    { n: 'Calgary',      lat: 51.0,  lng: -114.1,           dx: -40, dy: -6,  a: 'right' },
+    { n: 'Vancouver',    lat: 49.3,  lng: -123.1,           dx: -66, dy: 10,  a: 'right' },
+    { n: 'Toronto',      lat: 43.7,  lng: -79.4,            dx: 50,  dy: -16, a: 'left' },
+    { n: 'New York',     lat: 40.7,  lng: -74.0,            dx: 80,  dy: 6,   a: 'left' },
+    { n: 'Chicago',      lat: 41.9,  lng: -87.6,            dx: 32,  dy: 28,  a: 'left' },
+    { n: 'Dallas',       lat: 32.8,  lng: -96.8,            dx: -10, dy: 50,  a: 'center' },
+    { n: 'Miami',        lat: 25.8,  lng: -80.2,            dx: 48,  dy: 48,  a: 'left' },
 
     /* Europe — fanned into the Atlantic and the Arctic */
     { n: 'Sweden',       lat: 62.0,  lng: 15.0,             dx: 30,  dy: -22, a: 'left' },
