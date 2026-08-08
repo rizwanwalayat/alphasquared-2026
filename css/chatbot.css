@@ -1,0 +1,105 @@
+/* ============ Ask Alpha² — chat widget ============
+   Scoped with an askA2- prefix so it can't collide with site classes.
+   The --chat-* layer maps onto style.css's real tokens; the fallbacks are
+   the literal values of those tokens, so the widget still renders correctly
+   if it's ever dropped on a page without style.css. */
+:root{
+  --chat-bg: var(--panel, #1A1526);
+  --chat-bg-alt: var(--panel-2, #211A30);
+  --chat-page-bg: var(--bg, #13101C);
+  --chat-border: var(--hair, rgba(255,255,255,0.09));
+  --chat-border-strong: rgba(255,255,255,0.2);
+  --chat-text: var(--on-dark, #FFFFFF);
+  --chat-text-muted: var(--on-dark-2, rgba(255,255,255,0.66));
+  --chat-text-faint: var(--on-dark-3, rgba(255,255,255,0.42));
+  --chat-accent1: var(--blue, #1C4EFF);
+  --chat-accent2: var(--purple, #AC24FF);
+  --chat-grad: var(--grad-btn, linear-gradient(90deg, #1C4EFF 0%, #AC24FF 50%, #FE881B 100%));
+  --chat-accent-tint: rgba(28,78,255,0.14);
+  --chat-accent-text: var(--blue-lt, #2BA7FF);
+}
+
+#askA2-launcher{
+  position:fixed; bottom:28px; right:28px; width:60px; height:60px; border-radius:50%;
+  background:var(--chat-grad); border:none; cursor:pointer; display:flex; align-items:center; justify-content:center;
+  box-shadow:0 8px 24px rgba(28,78,255,0.35); z-index:9999; transition:transform .2s ease;
+  font-family:inherit;
+}
+#askA2-launcher:hover{ transform:scale(1.06); }
+#askA2-launcher svg{ width:26px; height:26px; stroke:#fff; }
+#askA2-launcher .askA2-badge-dot{
+  position:absolute; top:-2px; right:-2px; width:20px; height:20px; border-radius:50%;
+  background:#F04B4B; color:#fff; font-size:11px; font-weight:600; display:flex; align-items:center; justify-content:center;
+  border:2px solid var(--chat-page-bg);
+}
+#askA2-launcher .askA2-ring{
+  position:absolute; inset:-6px; border-radius:50%; border:2px solid var(--chat-accent1); opacity:0;
+  animation:askA2RingPulse 2.4s ease-out infinite;
+}
+@keyframes askA2RingPulse{ 0%{ transform:scale(0.9); opacity:0.5; } 100%{ transform:scale(1.35); opacity:0; } }
+
+#askA2-panel{
+  position:fixed; bottom:104px; right:28px; width:380px; max-width:calc(100vw - 40px);
+  height:560px; max-height:calc(100vh - 140px);
+  background:var(--chat-bg); border:1px solid var(--chat-border); border-radius:16px; overflow:hidden;
+  display:flex; flex-direction:column; z-index:9999;
+  box-shadow:0 24px 60px rgba(0,0,0,0.45);
+  opacity:0; transform:translateY(16px) scale(0.98); pointer-events:none; transition:opacity .22s ease, transform .22s ease;
+  font-family:inherit; color:var(--chat-text);
+}
+#askA2-panel.open{ opacity:1; transform:translateY(0) scale(1); pointer-events:auto; }
+
+.askA2-head{ display:flex; align-items:center; gap:12px; padding:18px; border-bottom:1px solid var(--chat-border); background:var(--chat-bg-alt); }
+.askA2-avatar{ width:36px; height:36px; border-radius:9px; background:var(--chat-grad); display:flex; align-items:center; justify-content:center; font-weight:700; font-size:15px; flex-shrink:0; color:#fff; }
+.askA2-title{ font-size:14.5px; font-weight:600; }
+.askA2-status{ font-size:12px; color:var(--chat-text-muted); display:flex; align-items:center; gap:6px; margin-top:2px; }
+.askA2-status-dot{ width:6px; height:6px; border-radius:50%; background:#35E08A; animation:askA2Pulse 2s infinite; }
+@keyframes askA2Pulse{ 0%{ box-shadow:0 0 0 0 rgba(53,224,138,0.5); } 70%{ box-shadow:0 0 0 6px rgba(53,224,138,0); } 100%{ box-shadow:0 0 0 0 rgba(53,224,138,0); } }
+.askA2-close{ margin-left:auto; width:28px; height:28px; border-radius:7px; border:1px solid var(--chat-border); background:transparent; color:var(--chat-text-muted); cursor:pointer; display:flex; align-items:center; justify-content:center; }
+.askA2-close:hover{ border-color:var(--chat-border-strong); color:var(--chat-text); }
+
+.askA2-body{ flex:1; overflow-y:auto; padding:18px; display:flex; flex-direction:column; gap:14px; }
+.askA2-body::-webkit-scrollbar{ width:5px; }
+.askA2-body::-webkit-scrollbar-thumb{ background:var(--chat-border-strong); border-radius:10px; }
+
+.askA2-msg{ max-width:84%; font-size:13.5px; line-height:1.55; padding:11px 14px; border-radius:12px; animation:askA2MsgIn .25s ease; }
+@keyframes askA2MsgIn{ from{ opacity:0; transform:translateY(6px); } to{ opacity:1; transform:translateY(0); } }
+.askA2-msg.bot{ background:var(--chat-bg-alt); border:1px solid var(--chat-border); border-bottom-left-radius:4px; align-self:flex-start; }
+.askA2-msg.user{ background:var(--chat-grad); color:#fff; border-bottom-right-radius:4px; align-self:flex-end; }
+
+.askA2-typing{ align-self:flex-start; display:flex; gap:4px; padding:12px 14px; background:var(--chat-bg-alt); border:1px solid var(--chat-border); border-radius:12px; border-bottom-left-radius:4px; }
+.askA2-typing span{ width:6px; height:6px; border-radius:50%; background:var(--chat-text-faint); animation:askA2Bounce 1.2s infinite; }
+.askA2-typing span:nth-child(2){ animation-delay:0.15s; }
+.askA2-typing span:nth-child(3){ animation-delay:0.3s; }
+@keyframes askA2Bounce{ 0%,60%,100%{ transform:translateY(0); opacity:0.5; } 30%{ transform:translateY(-4px); opacity:1; } }
+
+.askA2-quick-wrap{ padding:0 18px 14px; }
+.askA2-quick-label{ font-size:11px; text-transform:uppercase; letter-spacing:0.05em; color:var(--chat-text-faint); margin-bottom:10px; }
+.askA2-quick-row{ display:flex; flex-wrap:wrap; gap:8px; }
+.askA2-quick-btn{
+  font-size:12.5px; padding:8px 13px; border-radius:100px; border:1px solid var(--chat-border);
+  background:var(--chat-bg-alt); color:var(--chat-text); cursor:pointer; transition:border-color .15s ease, transform .15s ease;
+  font-family:inherit;
+}
+.askA2-quick-btn:hover{ border-color:var(--chat-accent1); transform:translateY(-1px); }
+
+.askA2-input-row{ display:flex; align-items:center; gap:8px; padding:14px 16px; border-top:1px solid var(--chat-border); background:var(--chat-bg-alt); }
+.askA2-input-row input{
+  flex:1; background:var(--chat-page-bg); border:1px solid var(--chat-border); border-radius:100px; padding:10px 16px;
+  font-family:inherit; font-size:13.5px; color:var(--chat-text); outline:none;
+}
+.askA2-input-row input:focus{ border-color:var(--chat-accent1); }
+.askA2-input-row input::placeholder{ color:var(--chat-text-faint); }
+.askA2-send{
+  width:38px; height:38px; border-radius:50%; border:none; background:var(--chat-grad); color:#fff; cursor:pointer;
+  display:flex; align-items:center; justify-content:center; flex-shrink:0; transition:opacity .15s ease;
+}
+.askA2-send:hover{ opacity:0.88; }
+.askA2-send svg{ width:16px; height:16px; }
+
+.askA2-disclaimer{ font-size:11px; color:var(--chat-text-faint); text-align:center; padding:8px 16px 12px; background:var(--chat-bg-alt); }
+
+@media (max-width:460px){
+  #askA2-panel{ right:16px; left:16px; width:auto; bottom:96px; }
+  #askA2-launcher{ right:16px; bottom:20px; }
+}
