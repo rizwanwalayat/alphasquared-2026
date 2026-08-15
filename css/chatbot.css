@@ -53,28 +53,6 @@
 }
 @keyframes askA2RingPulse{ 0%{ transform:scale(0.9); opacity:0.5; } 100%{ transform:scale(1.35); opacity:0; } }
 
-/* Label sitting against the launcher. Static, not a timed pop-up: it says
-   what the circle is for without interrupting anyone. */
-#askA2-label{
-  position:fixed; bottom:41px; right:96px; z-index:9998;
-  padding:9px 15px;
-  border:1px solid var(--chat-border); border-radius:100px;
-  background:var(--chat-bg-alt); color:var(--chat-text);
-  font-family:inherit; font-size:13px; font-weight:600; line-height:1;
-  box-shadow:0 10px 26px rgba(0,0,0,0.22);
-  cursor:pointer;
-  transition:border-color .2s ease, transform .2s ease;
-}
-#askA2-label:hover{ border-color:var(--chat-accent); transform:translateY(-1px); }
-/* Tail pointing at the launcher. */
-#askA2-label::after{
-  content:''; position:absolute; right:-5px; top:50%; width:9px; height:9px;
-  transform:translateY(-50%) rotate(45deg);
-  background:var(--chat-bg-alt);
-  border-right:1px solid var(--chat-border); border-top:1px solid var(--chat-border);
-}
-#askA2-panel.open ~ #askA2-label{ opacity:0; pointer-events:none; }
-
 /* The panel was 380x560 with a fixed question tray eating a third of it.
    Wider, taller, and the tray folds away once the conversation starts. */
 #askA2-panel{
@@ -174,5 +152,4 @@
 @media (max-width:520px){
   #askA2-panel{ right:12px; left:12px; width:auto; bottom:88px; height:calc(100vh - 130px); }
   #askA2-launcher{ right:16px; bottom:18px; width:54px; height:54px; }
-  #askA2-label{ right:80px; bottom:29px; padding:8px 12px; font-size:12.5px; }
 }
