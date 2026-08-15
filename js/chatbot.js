@@ -444,6 +444,20 @@
     if (badgeDot) badgeDot.style.display = 'none';
   }
 
+  /* ── launcher label ──────────────────────────────────────────────────────
+     Attached to the button rather than popped in on a timer: a bare circle
+     does not say what it is for. Built here so all 55 pages get it without
+     another copy of the markup to keep in sync. */
+  var label = document.createElement('button');
+  label.id = 'askA2-label';
+  label.type = 'button';
+  label.textContent = 'Ask anything';
+  label.addEventListener('click', function () {
+    openPanel();
+    if (input) input.focus();
+  });
+  document.body.appendChild(label);
+
   launcher.addEventListener('click', function () {
     var open = panel.classList.toggle('open');
     if (badgeDot) badgeDot.style.display = 'none';
