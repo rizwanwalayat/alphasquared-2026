@@ -451,7 +451,12 @@
   var label = document.createElement('button');
   label.id = 'askA2-label';
   label.type = 'button';
-  label.textContent = 'Ask anything';
+  var labelTitle = document.createElement('b');
+  labelTitle.textContent = 'Ask anything';
+  var labelSub = document.createElement('span');
+  labelSub.textContent = 'Services, pricing, timelines';
+  label.appendChild(labelTitle);
+  label.appendChild(labelSub);
   label.addEventListener('click', function () {
     openPanel();
     if (input) input.focus();
