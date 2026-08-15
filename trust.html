@@ -3,40 +3,31 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Trust &amp; Security: NDA, Code Ownership, SLA | Alpha Squared</title>
-<meta name="description" content="The seven answers most studios make you ask for. How Alpha Squared handles NDAs, privacy, security practices, delivery process, support, service level agreements and code ownership. Written down before we start, not improvised after an incident." />
-<link rel="canonical" href="https://alphasquared.ca/trust.html" />
-
-<meta property="og:type" content="website" />
-<meta property="og:site_name" content="Alpha Squared" />
-<meta property="og:title" content="Trust &amp; Security: NDA, Code Ownership, SLA | Alpha Squared" />
-<meta property="og:description" content="NDAs, security practices, SLAs and code ownership, documented up front. You own the code and the IP on final payment. No lock-in, no hostage repositories." />
-<meta property="og:url" content="https://alphasquared.ca/trust.html" />
-<meta property="og:image" content="https://alphasquared.ca/assets/CaseStudies/company-01-cover.jpg" />
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Trust &amp; Security: NDA, Code Ownership, SLA | Alpha Squared" />
-<meta name="twitter:description" content="NDAs, security practices, SLAs and code ownership, documented up front. You own the code and the IP on final payment." />
-<meta name="twitter:image" content="https://alphasquared.ca/assets/CaseStudies/company-01-cover.jpg" />
+<title>Trust &amp; Security — NDA, Process, SLA | Alpha Squared</title>
+<meta name="description" content="How Alpha Squared handles NDAs, privacy, security practices, development process, support and service level agreements — documented before we start, not improvised after." />
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="css/style.css?v=20260813c" />
-<link rel="stylesheet" href="css/theme.css?v=20260813c" />
-<link rel="stylesheet" href="css/trust.css?v=20260815a" />
-<link rel="stylesheet" href="css/chatbot.css?v=20260813c" />
-
-<!-- Theme is resolved before first paint so a light-mode reload never flashes dark. -->
-<script>(function(){try{var m=localStorage.getItem('a2-theme')||(matchMedia('(prefers-color-scheme: light)').matches?'light':'dark');if(m==='light')document.documentElement.setAttribute('data-theme','light');}catch(e){}})();</script>
+<link rel="stylesheet" href="css/style.css?v=20260729g" />
 </head>
 
-<body>
+<body class="is-loading">
+
+<!-- ═══════════════════════ LOADER ═══════════════════════ -->
+<div class="loader" id="loader" aria-hidden="true">
+  <div class="loader__row">
+    <div class="loader__ring"></div>
+    <div class="loader__name">Alpha<sup>2</sup></div>
+    <span class="loader__pct" id="loaderPct">0%</span>
+  </div>
+</div>
 
 <!-- ═══════════════════════ NAV ═══════════════════════ -->
 <header class="nav" id="nav">
   <div class="nav__inner">
-    <a href="index.html" class="brand" aria-label="Alpha Squared home, ideas implemented">
-      <img src="assets/logo-full.png" alt="Alpha Squared logo" class="brand__logo" />
+    <a href="index.html" class="brand" aria-label="Alpha Squared — Ideas Implemented">
+      <img src="assets/logo-full.png" alt="Alpha Squared" class="brand__logo" />
     </a>
 
     <nav class="nav__links">
@@ -46,7 +37,7 @@
       <a href="about.html">About Us</a>
     </nav>
 
-    <a href="contact.html" class="btn nav__cta"><span>Contact</span></a>
+    <a href="#contact" class="btn nav__cta"><span>Contact</span></a>
 
     <button class="nav__burger" id="burger" aria-label="Menu" aria-expanded="false">
       <span></span><span></span><span></span>
@@ -63,11 +54,11 @@
 
   <div class="wrap hero__inner">
     <span class="hero__eyebrow grad" data-anim="fade">Trust &amp; process</span>
-    <h1 class="d1" data-anim="fade">You Own the Code. <em>In Writing, Before We Start</em></h1>
+    <h1 class="d1" data-split="words">How we protect the work, and you.</h1>
     <p class="hero__sub" data-anim="fade" data-delay="0.5">
-      Early on, a client asked us for an SLA document we didn't have. We never
-      wanted that call again. So the seven things you'd normally have to chase a
-      vendor for are all below, answered before you need to ask.
+      Early on, a client asked us for an SLA document we didn't have. We don't
+      want that call again, and you shouldn't have to ask for any of this
+      either — it's below, before you need it.
     </p>
     <div class="integrations" data-anim="fade" data-delay="0.6">
       <span>NDA</span><span>Privacy</span><span>Security</span>
@@ -76,320 +67,85 @@
   </div>
 </section>
 
-<!-- ═══════════════════════ THE SHORT VERSION ═══════════════════════ -->
-<section class="section section--tight" id="commitments">
+<!-- ═══════════════════════ ACCORDION ═══════════════════════ -->
+<section class="section">
   <div class="wrap">
-    <div class="head head--center">
-      <span class="badge" data-anim="fade">The short version</span>
-      <h2 class="d2" data-anim="up">Four Commitments <em>That Never Move</em></h2>
-      <p class="lead" data-anim="fade">Everything further down this page is the detail behind these four.</p>
-    </div>
+    <div class="panel" data-anim="up">
+      <div class="why">
+        <div>
+          <span class="badge">Seven things you'd otherwise have to ask for</span>
+          <h2 class="d2">Documented,<br /><span class="grad">not improvised.</span></h2>
 
-    <div class="grid grid--4" style="margin-top:40px">
-      <article class="card" data-anim="up">
-        <span class="card__label">Ownership</span>
-        <h3>You Own the Code</h3>
-        <p>Source, IP and infrastructure definitions transfer to you on final payment, in a
-          repository you control. No lock-in and no hostage repositories.</p>
-      </article>
+          <div class="acc" id="acc" style="margin-top:34px">
+            <div class="acc__item is-open">
+              <button class="acc__q">NDA &amp; confidentiality <i></i></button>
+              <div class="acc__a"><p>A mutual NDA is standard before we go into specifics about your
+                system, your data or your roadmap — ours, or one your legal team prefers to use
+                instead. Either is fine; we just don't talk scope without one in place.</p></div>
+            </div>
+            <div class="acc__item">
+              <button class="acc__q">Privacy <i></i></button>
+              <div class="acc__a"><p>We collect what you give us through the contact form or a discovery
+                call, and standard site analytics. We use it to respond to your enquiry and, if you
+                engage us, to deliver the project. We don't sell it, and we don't hand it to a third
+                party for their own marketing. Ask <a href="mailto:info@alphasquared.co">info@alphasquared.co</a>
+                to see or remove what we hold on you.</p></div>
+            </div>
+            <div class="acc__item">
+              <button class="acc__q">Security practices <i></i></button>
+              <div class="acc__a"><p>Least-privilege access on every engagement, credentials scoped per
+                client rather than shared across projects, encrypted transit end to end, and secrets
+                kept out of shared repositories. Staging and production stay separate environments,
+                and every change is reviewed before it merges — the same discipline this site itself
+                ships with, down to its transport headers.</p></div>
+            </div>
+            <div class="acc__item">
+              <button class="acc__q">Development &amp; delivery process <i></i></button>
+              <div class="acc__a"><p>Discover, design, build, operate — the same four steps on every
+                engagement. Iterative delivery with a working demo every week, version control and
+                code review on every change, and a staging environment that mirrors production before
+                anything ships to it.</p></div>
+            </div>
+            <div class="acc__item">
+              <button class="acc__q">Maintenance &amp; support <i></i></button>
+              <div class="acc__a"><p>Support after launch is part of the engagement, not an upsell we
+                spring on you afterward. What that looks like — a retainer, hourly as-needed, or a
+                dedicated on-call arrangement — gets agreed before launch, along with what's covered
+                and what response times to expect.</p></div>
+            </div>
+            <div class="acc__item">
+              <button class="acc__q">Service Level Agreement <i></i></button>
+              <div class="acc__a"><p>Uptime and response-time targets are set per system and put in
+                writing before go-live — not a boilerplate number pasted into a contract. If the
+                system has to run at 2am on a Tuesday, the SLA reflects that before it's live, not
+                after the first incident.</p></div>
+            </div>
+            <div class="acc__item">
+              <button class="acc__q">Code ownership &amp; IP <i></i></button>
+              <div class="acc__a"><p>You own the code and the IP we deliver, on final payment. No
+                vendor lock-in, and no holding the repository hostage. It's hosted in a repository you
+                control, or a shared one, whichever you'd rather run.</p></div>
+            </div>
+          </div>
+        </div>
 
-      <article class="card" data-anim="up" data-delay="0.06">
-        <span class="card__label">Jurisdiction</span>
-        <h3>Canadian Company, Canadian Paper</h3>
-        <p>Incorporated in Alberta, contracting under Canadian law, PIPEDA applies to us by
-          default. Data residency is chosen with you, not assumed.</p>
-      </article>
-
-      <article class="card" data-anim="up" data-delay="0.12">
-        <span class="card__label">Access</span>
-        <h3>Least Privilege, Always</h3>
-        <p>Credentials are scoped per client and per environment, never shared across projects,
-          and revoked the week an engagement ends.</p>
-      </article>
-
-      <article class="card" data-anim="up" data-delay="0.18">
-        <span class="card__label">Accountability</span>
-        <h3>Targets in Writing First</h3>
-        <p>Uptime, response times and escalation paths are agreed before go-live, sized to your
-          system rather than pasted from a template.</p>
-      </article>
+        <div class="why__viz"><canvas id="radarViz"></canvas></div>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- ═══════════════════════ WHITE SHEET ═══════════════════════ -->
 <div class="page-light">
-
-  <!-- ── SECURITY IN PRACTICE ── -->
-  <section class="section" id="security">
-    <div class="wrap">
-      <div class="head head--center">
-        <span class="badge" data-anim="fade">Security in practice</span>
-        <h2 class="d2" data-anim="up">Controls We Apply <em>on Every Engagement</em></h2>
-        <p class="lead" data-anim="fade">Not a certification badge. The specific things we do on your
-          system, whether the contract is six weeks or six years.</p>
-      </div>
-
-      <div class="grid grid--3" style="margin-top:44px">
-        <div class="svc" data-anim="up">
-          <span class="svc__i"><svg viewBox="0 0 24 24"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg></span>
-          <h3>Application</h3>
-          <ul class="ticks">
-            <li>Secrets kept out of source control, injected at deploy</li>
-            <li>Parameterised queries and input validation at every boundary</li>
-            <li>Dependency and vulnerability scanning in the pipeline</li>
-            <li>Auth, session and role checks reviewed before merge</li>
-          </ul>
-        </div>
-
-        <div class="svc" data-anim="up" data-delay="0.07">
-          <span class="svc__i"><svg viewBox="0 0 24 24"><path d="M4 7.5 12 4l8 3.5v5c0 5-3.4 8.6-8 9.5-4.6-.9-8-4.5-8-9.5Z"/><path d="m9 12 2.2 2.2L15.5 10"/></svg></span>
-          <h3>Infrastructure</h3>
-          <ul class="ticks">
-            <li>Encrypted in transit end to end, encrypted at rest</li>
-            <li>Staging and production kept as separate environments</li>
-            <li>Automated backups with a restore that gets tested</li>
-            <li>Logging and alerting wired up before launch, not after</li>
-          </ul>
-        </div>
-
-        <div class="svc" data-anim="up" data-delay="0.14">
-          <span class="svc__i"><svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="m17 11 2 2 4-4"/></svg></span>
-          <h3>People &amp; Process</h3>
-          <ul class="ticks">
-            <li>Named engineers on your project, under NDA</li>
-            <li>Every change peer-reviewed before it merges</li>
-            <li>Access granted per environment and revoked at handover</li>
-            <li>Incident response path agreed with you in advance</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── DATA HANDLING ── -->
-  <section class="section section--tight" id="data">
-    <div class="wrap">
-      <div class="head head--center">
-        <span class="badge" data-anim="fade">Your data</span>
-        <h2 class="d2" data-anim="up">What We Hold, Why, <em>and for How Long</em></h2>
-      </div>
-
-      <div class="grid grid--3" style="margin-top:40px">
-        <article class="card" data-anim="up">
-          <span class="card__label">Enquiries</span>
-          <h3>What You Send Us</h3>
-          <p>Name, email and whatever you describe in the form or on a call. Used to answer you
-            and to scope the work. Kept while the conversation is live, deleted on request.</p>
-        </article>
-
-        <article class="card" data-anim="up" data-delay="0.06">
-          <span class="card__label">Project data</span>
-          <h3>Systems We Work On</h3>
-          <p>Access to your environments for as long as the engagement runs. Production data is
-            never copied to a laptop; we work against masked or seeded data wherever possible.</p>
-        </article>
-
-        <article class="card" data-anim="up" data-delay="0.12">
-          <span class="card__label">Site analytics</span>
-          <h3>This Website</h3>
-          <p>Aggregate page analytics only. No sale of data, no handing it to a third party for
-            their own marketing, no advertising profiles built on you.</p>
-        </article>
-      </div>
-
-      <p class="lead" data-anim="fade" style="text-align:center;margin-top:28px;font-size:.9rem">
-        Ask for a copy or a deletion at any time:
-        <a class="tlink" href="mailto:info@alphasquared.co">info@alphasquared.co</a>
-      </p>
-    </div>
-  </section>
-
-  <!-- ── THE PAPERWORK ── -->
-  <section class="section section--tight" id="paperwork">
-    <div class="wrap">
-      <div class="head head--center">
-        <span class="badge" data-anim="fade">The paperwork</span>
-        <h2 class="d2" data-anim="up">Five Documents, <em>All of Them Yours to Keep</em></h2>
-        <p class="lead" data-anim="fade">
-          None of it is invented mid-project and none of it is chased by hand. Every document is
-          generated from the same scope record the build runs against, so versions never drift and
-          nobody retypes a number between them. Send your legal team's paper instead of ours
-          wherever you'd rather; we work either way.
-        </p>
-      </div>
-
-      <div class="docs">
-        <article data-anim="up">
-          <span class="docs__n">01</span>
-          <h3>Mutual NDA</h3>
-          <p>Signed before we go into specifics about your system, your data or your roadmap.</p>
-        </article>
-
-        <article data-anim="up" data-delay="0.06">
-          <span class="docs__n">02</span>
-          <h3>Master Services Agreement</h3>
-          <p>Liability, IP assignment and termination, settled once instead of per phase.</p>
-        </article>
-
-        <article data-anim="up" data-delay="0.12">
-          <span class="docs__n">03</span>
-          <h3>Statement of Work</h3>
-          <p>Scope and price per phase, written down, with the change process agreed up front.</p>
-        </article>
-
-        <article data-anim="up" data-delay="0.18">
-          <span class="docs__n">04</span>
-          <h3>Service Level Agreement</h3>
-          <p>Uptime, response times and escalation, sized to your system and signed before go-live.</p>
-        </article>
-
-        <article data-anim="up" data-delay="0.24">
-          <span class="docs__n">05</span>
-          <h3>Handover Pack</h3>
-          <p>Source, docs, credentials and the automation runbook, delivered on final payment.</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── DISCLOSURE ── -->
-  <section class="section section--tight" id="disclosure">
-    <div class="wrap">
-      <div class="disc" data-anim="up">
-        <div class="disc__copy">
-          <span class="badge">Responsible disclosure</span>
-          <h2 class="d2">Found Something? <em>Tell Us and We'll Fix It</em></h2>
-          <p class="lead">
-            If you believe you have found a security issue in this site or in something we built,
-            send it straight to the engineers. Reports are triaged the moment they land, never
-            parked in a shared inbox.
-          </p>
-
-          <ul class="ticks disc__ticks">
-            <li>Acknowledged within one business day</li>
-            <li>You get updates while the fix is in flight</li>
-            <li>We never pursue anyone reporting in good faith</li>
-          </ul>
-
-          <p class="disc__alt">
-            Prefer email? <a class="tlink" href="mailto:info@alphasquared.co">info@alphasquared.co</a>
-          </p>
-        </div>
-
-        <form class="disc__form form" name="vuln-report" data-lead="vuln-report" method="POST"
-              data-netlify="true" netlify-honeypot="bot-field" action="/contact.html?sent=1">
-          <input type="hidden" name="form-name" value="vuln-report" />
-          <p class="form__hp">
-            <label>Leave this field empty <input name="bot-field" tabindex="-1" autocomplete="off" /></label>
-          </p>
-
-          <label class="form__field">
-            <span>Your email</span>
-            <input type="email" name="email" required autocomplete="email" placeholder="you@example.com" />
-          </label>
-
-          <label class="form__field">
-            <span>Where you found it</span>
-            <input type="text" name="location" required placeholder="URL, endpoint or app screen" />
-          </label>
-
-          <label class="form__field">
-            <span>What happens, and how to reproduce it</span>
-            <textarea name="message" rows="4" required
-                      placeholder="Steps, payload, expected versus actual. Enough that we can see it ourselves."></textarea>
-          </label>
-
-          <button type="submit" class="btn form__submit"><span>Send the report <i class="ar">&rarr;</i></span></button>
-        </form>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── THE SEVEN ANSWERS ── -->
-  <section class="section section--tight" id="documented">
-    <div class="wrap">
-      <div class="panel" data-anim="up">
-        <div class="why why--solo">
-          <div>
-            <div class="head head--center">
-              <span class="badge">Seven things you'd otherwise have to ask for</span>
-              <h2 class="d2">Documented,<br /><span class="grad">Not Improvised</span></h2>
-            </div>
-
-            <div class="acc" id="acc" style="margin-top:34px">
-              <div class="acc__item is-open">
-                <button class="acc__q">NDA &amp; confidentiality <i></i></button>
-                <div class="acc__a"><p>A mutual NDA is standard before we go into specifics about your
-                  system, your data or your roadmap. Use ours or send your legal team's paper instead:
-                  either is fine. We just don't talk scope without one in place.</p></div>
-              </div>
-              <div class="acc__item">
-                <button class="acc__q">Privacy <i></i></button>
-                <div class="acc__a"><p>We collect what you give us through the contact form or a discovery
-                  call, plus standard site analytics. We use it to answer your inquiry and, if you
-                  engage us, to deliver the project. We don't sell it, and we don't hand it to a third
-                  party for their own marketing. Email <a href="mailto:info@alphasquared.co">info@alphasquared.co</a>
-                  to see or delete anything we hold on you. Canadian company, so PIPEDA applies to us
-                  by default.</p></div>
-              </div>
-              <div class="acc__item">
-                <button class="acc__q">Security practices <i></i></button>
-                <div class="acc__a"><p>Least-privilege access on every engagement, credentials scoped per
-                  client rather than shared across projects, encrypted transit end to end, and secrets
-                  kept out of shared repositories. Staging and production stay separate environments,
-                  and every change is reviewed before it merges. That's the same discipline this site
-                  itself ships with, down to its transport headers.</p></div>
-              </div>
-              <div class="acc__item">
-                <button class="acc__q">Development &amp; delivery process <i></i></button>
-                <div class="acc__a"><p>Discover, design, build, operate: the same four steps on every
-                  engagement. You get a working demo every week rather than a status report, version
-                  control and code review on every change, and a staging environment that mirrors
-                  production before anything ships to it.</p></div>
-              </div>
-              <div class="acc__item">
-                <button class="acc__q">Maintenance &amp; support <i></i></button>
-                <div class="acc__a"><p>Support after launch is part of the engagement, not an upsell we
-                  spring on you afterward. The shape of it gets agreed before launch: a retainer,
-                  hourly as-needed, or a dedicated on-call arrangement, along with what's covered and
-                  what response times to expect.</p></div>
-              </div>
-              <div class="acc__item">
-                <button class="acc__q">Service Level Agreement <i></i></button>
-                <div class="acc__a"><p>Uptime and response-time targets are set per system and put in
-                  writing before go-live, never a boilerplate number pasted into a contract. If the
-                  system has to hold up at 2am on a Tuesday, the SLA says so before it's live rather
-                  than after the first incident.</p></div>
-              </div>
-              <div class="acc__item">
-                <button class="acc__q">Code ownership &amp; IP <i></i></button>
-                <div class="acc__a"><p>You own the code and the IP we deliver, on final payment. No
-                  vendor lock-in, and no holding the repository hostage. It lives in a repository you
-                  control, or a shared one, whichever you'd rather run.</p></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- ── FINAL CTA ── -->
-  <section class="final final--close" id="contact">
+  <section class="final" id="contact">
     <div class="wrap">
-      <div class="close" data-anim="up">
-        <h2 class="d2" data-anim="up">Show Us One Manual Process. <em>We'll Show You What Automating It Takes</em></h2>
-        <p class="lead">One conversation, and you know what it takes.</p>
-
-        <div class="close__act">
-          <a class="btn" href="https://wa.me/18259772020?text=Hi%20Alpha%20Squared%2C%20I%27d%20like%20to%20book%20a%20call%20about%20a%20build."
-             target="_blank" rel="noopener">
-            <span>Book a call <i class="ar">&rarr;</i></span>
-          </a>
-
-          <a class="btn btn--ghost" href="contact.html"><span>Send a brief</span></a>
-        </div>
+      <span class="badge" data-anim="fade">Want it in writing first?</span>
+      <h2 class="d2" data-split="lines"><span class="grad">Ask for the NDA or SLA template</span> before we even talk.</h2>
+      <p class="lead" data-anim="fade">No pressure to commit to anything — we'll send the paperwork so
+        your legal or procurement team can review it on their own timeline.</p>
+      <div class="cta-row" data-anim="fade" style="justify-content:center;margin-top:32px">
+        <a href="mailto:info@alphasquared.co?subject=NDA%20%2F%20SLA%20template%20request" class="btn"><span>Request the templates <i class="ar">→</i></span></a>
       </div>
     </div>
   </section>
@@ -400,133 +156,55 @@
 <!-- ═══════════════════════ FOOTER ═══════════════════════ -->
 <footer class="footer">
   <div class="wrap">
-
     <div class="footer__grid">
       <div class="footer__brand">
-        <a href="index.html" class="brand" aria-label="Alpha Squared home, ideas implemented">
-          <img src="assets/logo-full-white.png" alt="Alpha Squared logo" class="brand__logo" />
+        <a href="index.html" class="brand" aria-label="Alpha Squared — Ideas Implemented">
+          <img src="assets/logo-full-white.png" alt="Alpha Squared" class="brand__logo" />
         </a>
         <p>Canadian software studio building for operators and enterprises since 2012.
-          Edmonton, Alberta. Trucking and transport specialists. Ideas implemented.</p>
-
-        <h2 class="footer__h footer__h--soc">Follow Along</h2>
-        <!-- Profile URLs are placeholders until the real handles are confirmed;
-             WhatsApp and email are live. -->
-        <ul class="soc">
-          <li><a href="#" aria-label="Alpha Squared on LinkedIn">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5ZM3 9.5h4V21H3V9.5Zm6.5 0h3.8v1.6h.05a4.2 4.2 0 0 1 3.77-2.07c4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.1c0-1.22-.02-2.78-1.7-2.78-1.7 0-1.96 1.33-1.96 2.7V21h-4V9.5Z"/></svg>
-          </a></li>
-          <li><a href="#" aria-label="Alpha Squared on X">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.53 3h3.2l-6.99 7.99L22 21h-6.44l-5.04-6.6L4.75 21H1.54l7.48-8.55L2 3h6.6l4.56 6.03L17.53 3Zm-1.12 16.06h1.77L7.67 4.84H5.77l10.64 14.22Z"/></svg>
-          </a></li>
-          <li><a href="#" aria-label="Alpha Squared on Facebook">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 21v-8h2.7l.4-3.1h-3.1V7.9c0-.9.25-1.5 1.54-1.5h1.66V3.63A22 22 0 0 0 14.3 3.5c-2.4 0-4.05 1.47-4.05 4.17V9.9H7.5V13h2.75v8h3.25Z"/></svg>
-          </a></li>
-          <li><a href="#" aria-label="Alpha Squared on Instagram">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r="1.1" fill="currentColor" stroke="none"/></svg>
-          </a></li>
-          <li><a href="https://wa.me/18259772020" target="_blank" rel="noopener" aria-label="Alpha Squared on WhatsApp">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2C6.6 2 2.2 6.4 2.2 11.84c0 1.74.46 3.44 1.32 4.94L2 22l5.34-1.4a9.8 9.8 0 0 0 4.7 1.2h.01c5.43 0 9.84-4.4 9.84-9.84C21.89 6.4 17.48 2 12.04 2Zm5.76 14.02c-.24.68-1.4 1.3-1.94 1.34-.5.05-.98.23-3.3-.69-2.78-1.1-4.55-3.94-4.69-4.13-.13-.19-1.12-1.49-1.12-2.84s.71-2.01.96-2.29c.25-.27.55-.34.73-.34l.53.01c.17 0 .4-.06.62.48.24.57.8 1.97.87 2.11.07.14.12.31.02.5-.09.19-.14.31-.28.47l-.42.49c-.14.14-.28.29-.12.57.16.27.71 1.17 1.52 1.9 1.05.93 1.93 1.22 2.2 1.36.28.14.44.12.6-.07.17-.19.7-.81.88-1.09.19-.27.37-.23.63-.14.25.1 1.65.78 1.93.92.28.14.47.21.54.33.07.11.07.65-.17 1.33Z"/></svg>
-          </a></li>
-          <li><a href="mailto:info@alphasquared.co" aria-label="Email Alpha Squared">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="2.5" y="4.5" width="19" height="15" rx="2.5"/><path d="m3.5 7 8.5 6 8.5-6"/></svg>
-          </a></li>
-        </ul>
+          Trucking and transport specialists. Ideas implemented.</p>
       </div>
-
       <div>
-        <h2 class="footer__h">Solutions</h2>
+        <h4>Solutions</h4>
         <ul>
           <li><a href="trucking.html">Trucking &amp; Transport</a></li>
-          <li><a href="services.html#teams">Dedicated Teams</a></li>
+          <li><a href="index-trucking-b.html">Driveaway Dispatch Platform ↗</a></li>
           <li><a href="services.html#platforms">Operations Platforms</a></li>
           <li><a href="services.html#mobile">Mobile Apps</a></li>
           <li><a href="services.html#ai">AI &amp; Automation</a></li>
         </ul>
       </div>
-
       <div>
-        <h2 class="footer__h">Company</h2>
+        <h4>Company</h4>
         <ul>
           <li><a href="about.html">About Us</a></li>
           <li><a href="case-studies.html">Case Studies</a></li>
           <li><a href="services.html">Services</a></li>
           <li><a href="trust.html">Trust &amp; Security</a></li>
-          <li><a href="contact.html">Contact</a></li>
+          <li><a href="#contact">Contact</a></li>
         </ul>
       </div>
-
       <div>
-        <h2 class="footer__h">Talk to Us</h2>
-        <ul class="footer__contact">
-          <li><span>Phone</span><a href="tel:+18259772020">+1 (825) 977-2020</a></li>
-          <li><span>Email</span><a href="mailto:info@alphasquared.co">info@alphasquared.co</a></li>
-          <li><span>Office</span>5479 CrabApple Loop SW<br />Edmonton, Alberta T6X 1S5</li>
-          <li><span>Hours</span>Mountain Time, 8am to 6pm</li>
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:info@alphasquared.co">info@alphasquared.co</a></li>
+          <li><a href="https://alphasquared.ca">alphasquared.ca</a></li>
+          <li>Edmonton, Alberta, Canada</li>
         </ul>
       </div>
     </div>
-
     <div class="footer__base">
       <span>© 2026 Alpha Squared. Ideas Implemented.</span>
-      <ul class="footer__legal">
-        <li><a href="sitemap.xml">Sitemap</a></li>
-      </ul>
-      <span>Built in Edmonton, Alberta</span>
+      <span>Software for operations that can't stop.</span>
     </div>
   </div>
 </footer>
-
-<!-- ═══════════════════════ CHATBOT ═══════════════════════ -->
-<button id="askA2-launcher" aria-label="Open chat">
-  <div class="askA2-ring"></div>
-  <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
-  <div class="askA2-badge-dot" id="askA2-badge-dot">1</div>
-</button>
-
-<div id="askA2-panel">
-  <div class="askA2-head">
-    <div class="askA2-avatar">&#945;&sup2;</div>
-    <div>
-      <div class="askA2-title">Ask Alpha&sup2;</div>
-      <div class="askA2-status"><span class="askA2-status-dot"></span>Usually replies instantly</div>
-    </div>
-    <button class="askA2-close" id="askA2-close" aria-label="Close chat">
-      <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 6L6 18M6 6l12 12"/></svg>
-    </button>
-  </div>
-
-  <div class="askA2-body" id="askA2-body">
-    <div class="askA2-msg bot">Hey. I'm the Alpha&sup2; assistant. Ask me about NDAs, code ownership, SLAs or how we handle security, or tap a question below.</div>
-  </div>
-
-  <div class="askA2-quick-wrap">
-    <div class="askA2-quick-label">Quick questions</div>
-    <div class="askA2-quick-row" id="askA2-quick-row">
-      <button class="askA2-quick-btn" data-q="Who owns the code when the project is done?">Who owns the code?</button>
-      <button class="askA2-quick-btn" data-q="Will you sign an NDA?">Will you sign an NDA?</button>
-      <button class="askA2-quick-btn" data-q="How do you handle security and compliance?">Security and compliance?</button>
-      <button class="askA2-quick-btn" data-q="What does support look like after launch?">Support after launch?</button>
-    </div>
-  </div>
-
-  <div class="askA2-input-row">
-    <input type="text" id="askA2-input" placeholder="Ask anything..." aria-label="Ask a question" />
-    <button class="askA2-send" id="askA2-send" aria-label="Send">
-      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 2 11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
-    </button>
-  </div>
-
-  <div class="askA2-disclaimer">Ask Alpha&sup2; can make mistakes. For anything important, book a call with our team.</div>
-</div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/CustomEase.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
 <script src="https://unpkg.com/split-type@0.3.4/umd/index.min.js"></script>
-<script src="js/main.js?v=20260813c"></script>
-<script src="js/forms.js?v=20260814a"></script>
-<script src="js/chatbot.js?v=20260815a"></script>
+<script src="js/main.js?v=20260729g"></script>
 </body>
 </html>

@@ -3,13 +3,6 @@
   publish = "."
   command = ""
 
-# The forms and the assistant write to MongoDB Atlas through these. Each
-# function declares its own /api/* path, so no redirect is needed.
-[functions]
-  directory = "netlify/functions"
-  node_bundler = "esbuild"
-  external_node_modules = ["mongodb"]
-
 # Pretty URLs: /trucking instead of /trucking.html
 [[redirects]]
   from = "/trucking"
@@ -18,38 +11,7 @@
 
 [[redirects]]
   from = "/driveaway"
-  to = "/trucking.html"
-  status = 301
-
-[[redirects]]
-  from = "/services"
-  to = "/services.html"
-  status = 200
-
-[[redirects]]
-  from = "/about"
-  to = "/about.html"
-  status = 200
-
-[[redirects]]
-  from = "/contact"
-  to = "/contact.html"
-  status = 200
-
-[[redirects]]
-  from = "/trust"
-  to = "/trust.html"
-  status = 200
-
-[[redirects]]
-  from = "/case-studies"
-  to = "/case-studies.html"
-  status = 200
-
-# Splat so every generated detail page gets the extensionless URL too.
-[[redirects]]
-  from = "/case-studies/:slug"
-  to = "/case-studies/:slug.html"
+  to = "/index-trucking-b.html"
   status = 200
 
 [[headers]]
@@ -79,17 +41,3 @@
   for = "/*.html"
   [headers.values]
     Cache-Control = "public, max-age=0, must-revalidate"
-
-# The write endpoints return nothing cacheable. The read endpoint sets its own
-# Cache-Control, so it is deliberately not covered here.
-[[headers]]
-  for = "/api/lead"
-  [headers.values]
-    Cache-Control = "no-store"
-    Referrer-Policy = "same-origin"
-
-[[headers]]
-  for = "/api/chat"
-  [headers.values]
-    Cache-Control = "no-store"
-    Referrer-Policy = "same-origin"
