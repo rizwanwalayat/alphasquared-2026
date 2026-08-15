@@ -1,0 +1,258 @@
+/* ==========================================================================
+   Alpha Squared — Trucking product page.
+   Loaded after theme.css by trucking.html only. Same recipe as the about and
+   contact pages: the markup keeps .page-light, the paper tokens flip to steel.
+   ========================================================================== */
+
+/* ── page rhythm ─────────────────────────────────────────────────────────── */
+.section { padding: clamp(40px, 3.8vw, 64px) 0; }
+.section--tight { padding-top: 0; }
+.head .d2 { margin-bottom: 16px; }
+
+/* ── token flip ──────────────────────────────────────────────────────────── */
+.page-light {
+  --sheet:      var(--bg-deep);
+  --sheet-soft: rgba(255, 255, 255, .03);
+  --sheet-hair: var(--hair);
+  --ink:        #ffffff;
+  --ink-2:      var(--on-dark-2);
+  --ink-3:      var(--on-dark-3);
+  --grad-ink:   var(--amber);
+
+  background: var(--bg-deep);
+  border-top: 1px solid var(--hair-soft);
+}
+
+.page-light .grad { color: var(--amber); }
+.page-light .tlink { color: var(--amber); }
+.page-light .badge { background: rgba(255, 255, 255, .03); color: var(--on-dark-2); }
+
+.page-light .svc { background: var(--panel); }
+.page-light .svc p { color: var(--on-dark-2); }
+.page-light .svc:hover { border-color: rgba(245, 165, 36, .45); }
+.page-light .svc__i {
+  width: 40px; height: 40px;
+  margin-bottom: 18px;
+  border: 1px solid var(--hair);
+  border-radius: 10px;
+  background: none;
+  color: var(--amber);
+}
+.page-light .svc__i svg { width: 20px; height: 20px; stroke: currentColor; stroke-width: 1.4; }
+.page-light .svc:hover .svc__i { border-color: rgba(245, 165, 36, .45); background: var(--amber-tint); }
+
+/* ── hero route strip ────────────────────────────────────────────────────
+   The truck runs the road on a loop; the labels are the two ends of a
+   one-way driveaway job, which is the whole product in one line. */
+.troute {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 18px;
+  max-width: 720px;
+  margin: 40px auto 0;
+  padding: 18px 20px;
+  border: 1px solid var(--hair);
+  border-radius: var(--r-card);
+  background: var(--panel);
+}
+.troute__end { text-align: center; }
+.troute__end b { display: block; font-size: .92rem; color: #fff; }
+.troute__end span {
+  display: block;
+  margin-top: 4px;
+  font-family: var(--mono);
+  font-size: .58rem;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--on-dark-3);
+}
+.troute__road {
+  position: relative;
+  height: 34px;
+  border-top: 1px dashed rgba(255, 255, 255, .18);
+  margin-top: 16px;
+}
+.troute__road::after {
+  content: '';
+  position: absolute;
+  left: 0; top: -1px;
+  height: 1px;
+  background: var(--amber);
+  animation: trouteFill 7s linear infinite;
+}
+.troute__truck {
+  position: absolute;
+  top: -15px;
+  font-size: 1.2rem;
+  line-height: 1;
+  animation: trouteDrive 7s linear infinite;
+}
+@keyframes trouteFill { 0% { width: 0; } 90%, 100% { width: 100%; } }
+@keyframes trouteDrive { 0% { left: 0; } 90%, 100% { left: calc(100% - 22px); } }
+
+/* ── the automated load lifecycle ────────────────────────────────────────
+   Six stages of a real load, each showing the manual version it replaced.
+   `--i` staggers the amber highlight so the row reads as a running process. */
+.tflow {
+  padding: clamp(22px, 2.4vw, 30px);
+  border: 1px solid var(--hair);
+  border-radius: var(--r-panel);
+  background:
+    radial-gradient(120% 120% at 50% 0%, rgba(245, 165, 36, .06), transparent 62%),
+    var(--panel);
+}
+.tflow__k {
+  display: block;
+  margin-bottom: 20px;
+  font-family: var(--mono);
+  font-size: .58rem;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--amber);
+}
+.tflow__track {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 26px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.tflow__track li {
+  position: relative;
+  padding: 16px 14px 18px;
+  border: 1px solid var(--hair);
+  border-radius: var(--r-card);
+  background: rgba(255, 255, 255, .02);
+  animation: tflowStep 9s var(--ease) infinite;
+  animation-delay: calc(var(--i) * 1.5s);
+}
+/* The chevron sits in the gap, so the card must not clip its overflow. */
+.tflow__track li + li::before {
+  content: '';
+  position: absolute;
+  left: -17px; top: 50%;
+  width: 8px; height: 8px;
+  border-top: 1px solid rgba(255, 255, 255, .22);
+  border-right: 1px solid rgba(255, 255, 255, .22);
+  transform: translateY(-50%) rotate(45deg);
+}
+.tflow__track b {
+  font-family: var(--mono);
+  font-size: .62rem;
+  letter-spacing: .14em;
+  color: var(--amber);
+}
+.tflow__track h3 { margin: 8px 0 10px; font-size: .95rem; color: #fff; }
+.tflow__was, .tflow__now {
+  display: block;
+  font-size: .76rem;
+  line-height: 1.45;
+}
+.tflow__was { color: var(--on-dark-3); text-decoration: line-through; text-decoration-color: rgba(255, 255, 255, .22); }
+.tflow__now { margin-top: 6px; color: var(--on-dark-2); }
+.tflow__now::before { content: '\2192  '; color: var(--amber); }
+
+@keyframes tflowStep {
+  0%, 12%   { border-color: rgba(245, 165, 36, .5); background: var(--amber-tint); }
+  22%, 100% { border-color: var(--hair); background: rgba(255, 255, 255, .02); }
+}
+
+/* ── engagement ladder ─────────────────────────────────────────────────────
+   One card for the whole ladder. The truck drives the road above the steps
+   and each step lights in turn, so the sequence reads as one running process. */
+.ladder {
+  padding: clamp(28px, 3.2vw, 46px);
+  border: 1px solid var(--hair);
+  border-radius: var(--r-panel);
+  background:
+    radial-gradient(120% 120% at 50% 0%, rgba(245, 165, 36, .07), transparent 60%),
+    var(--panel);
+}
+.ladder .head { margin-bottom: 0; }
+
+.ladder__road {
+  position: relative;
+  height: 30px;
+  max-width: 860px;
+  margin: 30px auto 0;
+  border-top: 1px dashed rgba(255, 255, 255, .18);
+}
+.ladder__road::after {
+  content: '';
+  position: absolute;
+  left: 0; top: -1px;
+  height: 1px;
+  background: var(--amber);
+  animation: trouteFill 8s linear infinite;
+}
+.ladder__truck {
+  position: absolute;
+  top: -14px;
+  font-size: 1.15rem;
+  line-height: 1;
+  animation: ladderDrive 8s linear infinite;
+}
+@keyframes ladderDrive { 0% { left: 0; } 90%, 100% { left: calc(100% - 22px); } }
+
+.rail { margin-top: 26px; }
+.rail__step {
+  padding: 22px 22px 24px;
+  border: 1px solid var(--hair);
+  border-radius: var(--r-card);
+  background: rgba(255, 255, 255, .02);
+  transition: border-color .3s var(--ease), transform .3s var(--ease);
+}
+.ladder .rail__step { animation: railStep 8s var(--ease) infinite; animation-delay: calc(var(--i) * 1.8s); }
+.rail__step:hover { transform: translateY(-3px); border-color: rgba(245, 165, 36, .45); }
+
+@keyframes railStep {
+  0%, 14%   { border-color: rgba(245, 165, 36, .5); background: var(--amber-tint); }
+  26%, 100% { border-color: var(--hair); background: rgba(255, 255, 255, .02); }
+}
+.rail__step::before, .rail__step::after { display: none; }
+.rail__n { font-family: var(--mono); color: var(--amber); }
+.rail__step h3 { margin: 10px 0 8px; font-size: 1.02rem; color: #fff; }
+.rail__step p { margin: 0; font-size: .88rem; line-height: 1.6; color: var(--on-dark-2); }
+
+/* ── cards ───────────────────────────────────────────────────────────────── */
+.page-light .card { background: var(--panel); box-shadow: none; }
+.page-light .card p { color: var(--on-dark-2); }
+.page-light .card__label { color: var(--amber); }
+
+/* ── FAQ ─────────────────────────────────────────────────────────────────── */
+.tfaq { max-width: 780px; margin: 0 auto; }
+.tfaq .acc { border-left: 0; }
+.tfaq .acc__item {
+  padding: 0 22px;
+  border: 1px solid var(--hair);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, .02);
+}
+.tfaq .acc__item + .acc__item { margin-top: 10px; }
+.tfaq .acc__item::before { display: none; }
+.tfaq .acc__item.is-open { border-color: rgba(245, 165, 36, .4); }
+.tfaq .acc__q { padding: 18px 0; }
+.tfaq .acc__a p { margin: 0; padding: 0 0 18px; }
+
+@media (max-width: 1100px) {
+  .tflow__track { grid-template-columns: repeat(3, 1fr); gap: 26px; }
+  .tflow__track li:nth-child(4)::before { display: none; }
+}
+@media (max-width: 720px) {
+  .tflow__track { grid-template-columns: 1fr; gap: 12px; }
+  .tflow__track li + li::before { display: none; }
+  .troute { grid-template-columns: 1fr; }
+  .troute__road { display: none; }
+  .ladder__road { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .tflow__track li, .troute__truck, .troute__road::after,
+  .ladder .rail__step, .ladder__truck, .ladder__road::after,
+  .product__shot::after, .product__brow, .product__brow i:nth-child(3),
+  .product__live::before { animation: none; }
+  .product__shot::after { display: none; }
+  .troute__road::after { width: 100%; }
+  .ladder__road::after { width: 100%; }
+}

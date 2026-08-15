@@ -50,7 +50,6 @@ built from scratch in canvas/SVG, themed to trucking rather than data centres:
 | `heroViz` | **dot-matrix world map**, delivery cities pulsing, Edmonton labelled |
 | `proofViz` | dispatch-board abstraction — job bars flowing across lanes |
 | `globeViz` | fibonacci-sphere wireframe globe with a gradient rim |
-| `radarViz` | radar sweep with blips that brighten as the sweep passes |
 | `waveHost` | 46 stacked sine paths, stroke-dash drawn in on scroll |
 
 The hero arc is CSS: a conic gradient masked to a thin rim band, on a circle whose

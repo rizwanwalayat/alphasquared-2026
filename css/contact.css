@@ -1,0 +1,115 @@
+/* ==========================================================================
+   Alpha Squared — Contact page.
+   Loaded after theme.css by contact.html only. The white sheet is gone: the
+   markup keeps .page-light, the paper tokens flip to steel, and only the
+   rules that hardcoded #fff need an explicit override.
+   ========================================================================== */
+
+/* ── page rhythm ─────────────────────────────────────────────────────────── */
+.section { padding: clamp(38px, 3.6vw, 60px) 0; }
+.section--tight { padding-top: 0; }
+.head .d2 { margin-bottom: 16px; }
+
+/* ── token flip ──────────────────────────────────────────────────────────── */
+.page-light {
+  --sheet:      var(--bg-deep);
+  --sheet-soft: rgba(255, 255, 255, .03);
+  --sheet-hair: var(--hair);
+  --ink:        #ffffff;
+  --ink-2:      var(--on-dark-2);
+  --ink-3:      var(--on-dark-3);
+  --grad-ink:   var(--amber);
+
+  background: var(--bg-deep);
+  border-top: 1px solid var(--hair-soft);
+}
+
+.page-light .grad { color: var(--amber); }
+.page-light .tlink { color: var(--amber); }
+.page-light .badge { background: rgba(255, 255, 255, .03); color: var(--on-dark-2); }
+
+/* ── the form ────────────────────────────────────────────────────────────
+   --r-btn is a pill since the theme landed, which is wrong for a text box. */
+.form input[type="text"],
+.form input[type="email"],
+.form input[type="tel"],
+.form textarea {
+  border-radius: 12px;
+  background: rgba(255, 255, 255, .03);
+  color: #fff;
+}
+.form input:focus, .form textarea:focus {
+  border-color: rgba(245, 165, 36, .55);
+  box-shadow: 0 0 0 3px rgba(245, 165, 36, .14);
+}
+.form__chips span { background: rgba(255, 255, 255, .03); }
+.form__chips label:hover span { border-color: rgba(255, 255, 255, .24); color: #fff; }
+.form__chips input:checked + span { background: var(--amber); color: #1b1200; }
+.form__chips input:focus-visible + span { box-shadow: 0 0 0 3px rgba(245, 165, 36, .22); }
+
+/* The form is a panel now, so it reads as a peer of the cards beside it. */
+.contact__form {
+  padding: clamp(24px, 2.6vw, 34px);
+  border: 1px solid var(--hair);
+  border-radius: var(--r-panel);
+  background:
+    radial-gradient(120% 120% at 50% 0%, rgba(245, 165, 36, .06), transparent 62%),
+    var(--panel);
+}
+
+/* ── side cards ──────────────────────────────────────────────────────────── */
+.contact__card {
+  border-color: var(--hair);
+  background: var(--panel);
+  transition: border-color .3s var(--ease);
+}
+.contact__card:hover { border-color: rgba(255, 255, 255, .2); }
+.contact__h {
+  font-family: var(--mono);
+  font-size: .6rem;
+  letter-spacing: .16em;
+  color: var(--amber);
+}
+.contact__k { font-family: var(--mono); font-size: .6rem; letter-spacing: .16em; color: var(--on-dark-3); }
+a.contact__v:hover { color: var(--amber); }
+
+/* Marks on a white plate flatten to one colour on dark, same as the wall. */
+.contact__logos img { filter: brightness(0) invert(1); opacity: .5; }
+.contact__card--logos:hover .contact__logos img { opacity: .8; }
+
+/* ── what happens next ───────────────────────────────────────────────────── */
+.rail { margin-top: 28px; }
+.rail__step {
+  padding: 22px 22px 24px;
+  border: 1px solid var(--hair);
+  border-radius: var(--r-card);
+  background: rgba(255, 255, 255, .02);
+  transition: border-color .3s var(--ease), transform .3s var(--ease);
+}
+.rail__step:hover { transform: translateY(-3px); border-color: rgba(245, 165, 36, .45); }
+.rail__step::before, .rail__step::after { display: none; }
+.rail__n { font-family: var(--mono); color: var(--amber); }
+.rail__step h3 { margin: 10px 0 8px; font-size: 1.02rem; color: #fff; }
+.rail__step p { margin: 0; font-size: .88rem; line-height: 1.6; color: var(--on-dark-2); }
+
+/* ── closing CTA ─────────────────────────────────────────────────────────
+   The number is the headline here, so it replaces the usual .d2. */
+.callnum {
+  display: block;
+  margin: 4px 0 14px;
+  font-family: var(--mono);
+  font-size: clamp(1.9rem, 4.6vw, 3.1rem);
+  font-weight: 500;
+  letter-spacing: -.02em;
+  line-height: 1.05;
+  color: var(--amber);
+  transition: opacity .25s var(--ease);
+}
+.callnum:hover { opacity: .8; }
+
+.page-light .final--close { padding: clamp(48px, 5vw, 76px) 0 clamp(56px, 6vw, 88px); }
+.page-light .final--close::before { display: none; }
+
+@media (max-width: 900px) {
+  .rail { gap: 14px; }
+}

@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+# Internal scratch file, never meant to be indexed.
+Disallow: /mockup-preview.html
+
+Sitemap: https://alphasquared.ca/sitemap.xml

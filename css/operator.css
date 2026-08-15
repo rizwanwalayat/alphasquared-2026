@@ -493,7 +493,7 @@ table.cmp thead th.us { background: var(--blue); color: #fff; }
 .footer .brand { color: #fff; margin-bottom: 14px; }
 .footer .brand__mark { background: #fff; color: var(--steel); }
 .footer p { margin: 0; max-width: 300px; font-size: .87rem; }
-.footer h4 { margin-bottom: 13px; font-size: .72rem; letter-spacing: .1em; text-transform: uppercase; color: var(--on-steel-2); }
+.footer h4, .footer__h { margin-bottom: 13px; font-size: .72rem; letter-spacing: .1em; text-transform: uppercase; color: var(--on-steel-2); }
 .footer li + li { margin-top: 9px; }
 .footer li a { font-size: .88rem; color: var(--on-steel-3); transition: color .2s; }
 .footer li a:hover { color: #fff; }

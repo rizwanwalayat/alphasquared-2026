@@ -2,3 +2,10 @@
 node_modules/
 .netlify/
 *.log
+__pycache__/
+
+# Database credentials live in Netlify env vars; .env.example is the only
+# version-controlled copy of the variable names.
+.env
+.env.*
+!.env.example

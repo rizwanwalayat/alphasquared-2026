@@ -3,31 +3,40 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Services — Operations Platforms, Mobile Apps, AI &amp; Automation | Alpha Squared</title>
-<meta name="description" content="What Alpha Squared builds: operations platforms, native mobile apps, AI &amp; automation, product design, dedicated teams and cloud/DevOps support. Senior engineers, since 2012." />
+<title>Services: Operations Platforms, Driver Apps, AI Agents | Alpha Squared</title>
+<meta name="description" content="Six things Alpha Squared builds and keeps running: operations platforms, native mobile apps, AI and automation, product and UX design, dedicated senior teams, and cloud, DevOps and support. Each one links to where we've actually shipped it." />
+<link rel="canonical" href="https://alphasquared.ca/services.html" />
+
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Alpha Squared" />
+<meta property="og:title" content="Services: Operations Platforms, Driver Apps, AI Agents | Alpha Squared" />
+<meta property="og:description" content="Operations platforms, native mobile apps, AI and automation, product design, dedicated senior teams and cloud support. Senior engineers, principal-led, since 2012." />
+<meta property="og:url" content="https://alphasquared.ca/services.html" />
+<meta property="og:image" content="https://alphasquared.ca/assets/CaseStudies/company-03-tech-stack.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Services: Operations Platforms, Driver Apps, AI Agents | Alpha Squared" />
+<meta name="twitter:description" content="Six things we build and keep running. Each one links to where we've actually shipped it." />
+<meta name="twitter:image" content="https://alphasquared.ca/assets/CaseStudies/company-03-tech-stack.jpg" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="css/style.css?v=20260729g" />
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="css/style.css?v=20260813c" />
+<link rel="stylesheet" href="css/theme.css?v=20260813c" />
+<link rel="stylesheet" href="css/services.css?v=20260813c" />
+<link rel="stylesheet" href="css/chatbot.css?v=20260813c" />
+
+<!-- Theme is resolved before first paint so a light-mode reload never flashes dark. -->
+<script>(function(){try{var m=localStorage.getItem('a2-theme')||(matchMedia('(prefers-color-scheme: light)').matches?'light':'dark');if(m==='light')document.documentElement.setAttribute('data-theme','light');}catch(e){}})();</script>
 </head>
 
-<body class="is-loading">
-
-<!-- ═══════════════════════ LOADER ═══════════════════════ -->
-<div class="loader" id="loader" aria-hidden="true">
-  <div class="loader__row">
-    <div class="loader__ring"></div>
-    <div class="loader__name">Alpha<sup>2</sup></div>
-    <span class="loader__pct" id="loaderPct">0%</span>
-  </div>
-</div>
+<body>
 
 <!-- ═══════════════════════ NAV ═══════════════════════ -->
 <header class="nav" id="nav">
   <div class="nav__inner">
-    <a href="index.html" class="brand" aria-label="Alpha Squared — Ideas Implemented">
-      <img src="assets/logo-full.png" alt="Alpha Squared" class="brand__logo" />
+    <a href="index.html" class="brand" aria-label="Alpha Squared home, ideas implemented">
+      <img src="assets/logo-full.png" alt="Alpha Squared logo" class="brand__logo" />
     </a>
 
     <nav class="nav__links">
@@ -37,7 +46,7 @@
       <a href="about.html">About Us</a>
     </nav>
 
-    <a href="#contact" class="btn nav__cta"><span>Contact</span></a>
+    <a href="contact.html" class="btn nav__cta"><span>Contact</span></a>
 
     <button class="nav__burger" id="burger" aria-label="Menu" aria-expanded="false">
       <span></span><span></span><span></span>
@@ -49,37 +58,274 @@
 
 <!-- ═══════════════════════ HERO ═══════════════════════ -->
 <section class="hero hero--page">
-  <div class="hero__arc" data-parallax="0.12"></div>
   <div class="hero__bloom" data-parallax="0.2"></div>
 
   <div class="wrap hero__inner">
     <span class="hero__eyebrow grad" data-anim="fade">What we build</span>
-    <h1 class="d1" data-split="words">Six ways we plug into your stack.</h1>
+    <h1 class="d1" data-split="words">Six Ways We Plug into Your Stack</h1>
     <p class="hero__sub" data-anim="fade" data-delay="0.5">
-      Not a menu of buzzwords — six things we've shipped, kept running, and would
-      put our name on again. Each one below links to where we've actually done it.
+      Not a menu of buzzwords. Six things we've shipped, kept running, and would put
+      our name on again. Every one below links to a case study where we actually did it.
     </p>
     <div class="cta-row" data-anim="fade" data-delay="0.65">
-      <a href="#contact" class="btn"><span>Start a project <i class="ar">→</i></span></a>
-      <a href="case-studies.html" class="btn btn--ghost"><span>See the case studies</span></a>
+      <a href="contact.html" class="btn"><span>Start a project <i class="ar">&rarr;</i></span></a>
+      <a href="#picker" class="btn btn--ghost"><span>Not sure which? Start here</span></a>
     </div>
   </div>
 </section>
 
-<!-- ═══════════════════════ WHITE SHEET ═══════════════════════ -->
-<div class="page-light">
+<!-- ═══════════════════════ SERVICE INDEX ═══════════════════════ -->
+<section class="section section--tight">
+  <div class="wrap">
+    <div class="svcpanel" data-anim="up">
+      <div class="head head--center">
+        <span class="badge">What we do</span>
+        <h2 class="d2">Six Services, <em>One Accountable Team</em></h2>
+        <p class="lead">Every one of them is running somewhere right now.
+          Jump straight to the one you came for.</p>
+      </div>
 
-  <section class="section" id="platforms">
-    <div class="wrap">
-      <div class="svcRow" data-anim="up">
+      <div class="svcidx">
+      <a class="svcidx__a" href="#platforms" data-anim="up">
+        <span class="svcidx__n">01</span>
+        <span class="svcidx__i" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="14" rx="2"/><path d="M8 21h8M12 18v3"/></svg></span>
+        <b>Operations Platforms</b>
+        <span>Dispatch boards, dashboards and the APIs behind them</span>
+      </a>
+      <a class="svcidx__a" href="#mobile" data-anim="up" data-delay="0.05">
+        <span class="svcidx__n">02</span>
+        <span class="svcidx__i" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M11 18h2"/></svg></span>
+        <b>Mobile Apps</b>
+        <span>Native iOS and Android that keep working past the last tower</span>
+      </a>
+      <a class="svcidx__a svcidx__a--hot" href="#ai" data-anim="up" data-delay="0.1">
+        <span class="svcidx__n">03</span>
+        <span class="svcidx__i" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2a4 4 0 0 1 4 4c0 1.1-.45 2.1-1.17 2.83L12 12 9.17 8.83A4 4 0 0 1 12 2Z"/><path d="M12 12v10M8 22h8"/></svg></span>
+        <b>AI &amp; Automation</b>
+        <span>Voice agents, OCR and assistants wired into what you run</span>
+      </a>
+      <a class="svcidx__a" href="#design" data-anim="up" data-delay="0.15">
+        <span class="svcidx__n">04</span>
+        <span class="svcidx__i" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 1 0 18M8 12h8"/></svg></span>
+        <b>Product &amp; UX Design</b>
+        <span>Data-dense interfaces made legible before code starts</span>
+      </a>
+      <a class="svcidx__a" href="#teams" data-anim="up" data-delay="0.2">
+        <span class="svcidx__n">05</span>
+        <span class="svcidx__i" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
+        <b>Dedicated Teams</b>
+        <span>A vetted senior pod, embedded, without the hiring cycle</span>
+      </a>
+      <a class="svcidx__a" href="#cloud" data-anim="up" data-delay="0.25">
+        <span class="svcidx__n">06</span>
+        <span class="svcidx__i" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M17.5 19a4.5 4.5 0 1 0-.42-8.98 6 6 0 1 0-11.06 3.1A3.5 3.5 0 0 0 6.5 19Z"/></svg></span>
+        <b>Cloud, DevOps &amp; Support</b>
+        <span>Uptime and response times agreed in writing, before go-live</span>
+      </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ HOW IT STARTS ═══════════════════════ -->
+<section class="section section--tight" id="start">
+  <div class="wrap">
+    <div class="svcpanel" data-anim="up">
+      <div class="head head--center">
+        <span class="badge">How it starts</span>
+        <h2 class="d2">Three Steps Before <em>You Owe Us Anything</em></h2>
+      </div>
+
+      <ol class="startrail">
+        <li>
+          <span class="startrail__n">Step 01</span>
+          <b>A 15-minute call</b>
+          <p>With the person who would run the build, not a salesperson working off a script.</p>
+          <a class="tlink" href="https://wa.me/18259772020?text=Hi%20Alpha%20Squared%2C%20I%27d%20like%20to%20book%20a%2015-minute%20call."
+             target="_blank" rel="noopener">Book the call <i class="ar">&rarr;</i></a>
+        </li>
+        <li>
+          <span class="startrail__n">Step 02</span>
+          <b>A written scope</b>
+          <p>We map the operation before we price it. The scope is yours whether or not you hire us.</p>
+          <a class="tlink" href="contact.html">Send us the brief <i class="ar">&rarr;</i></a>
+        </li>
+        <li>
+          <span class="startrail__n">Step 03</span>
+          <b>Working software, weekly</b>
+          <p>Once it starts, you see a running build every week. Never a status report.</p>
+          <a class="tlink" href="case-studies.html">See what we shipped <i class="ar">&rarr;</i></a>
+        </li>
+      </ol>
+
+      <div class="svcRow__flow">
+        <span class="autostrip__k">What that looks like on a calendar</span>
+        <ol class="autostrip__steps">
+          <li style="--i:0"><b>01</b><span>Brief received</span></li>
+          <li style="--i:1"><b>02</b><span>Call booked</span></li>
+          <li style="--i:2"><b>03</b><span>Scope written</span></li>
+          <li style="--i:3"><b>04</b><span>First release</span></li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ SPOTLIGHT: AI & AUTOMATION ═══════════════════════ -->
+<section class="section section--tight" id="spotlight">
+  <div class="wrap">
+    <div class="spot" data-anim="up">
+
+      <div class="spot__head">
+        <span class="badge">Spotlight &middot; our most active practice</span>
+        <h2 class="d2" data-anim="up">AI with <em>a Measurable Job to Do</em></h2>
+        <p class="lead">Answer the phone, read the document, update the record. Three of
+          these are running in production right now.</p>
+      </div>
+
+      <div class="spot__body">
+        <div class="spot__tabs" id="spotTabs" role="tablist" aria-label="AI capabilities">
+          <button class="spot__tab is-on" data-spot="0" type="button" role="tab" aria-selected="true"><b>01</b>Voice agents</button>
+          <button class="spot__tab" data-spot="1" type="button" role="tab" aria-selected="false"><b>02</b>Document OCR</button>
+          <button class="spot__tab" data-spot="2" type="button" role="tab" aria-selected="false"><b>03</b>Agentic assistants</button>
+          <button class="spot__tab" data-spot="3" type="button" role="tab" aria-selected="false"><b>04</b>Workflow automation</button>
+        </div>
+
+        <div class="spot__panes">
+        <div class="spot__pane is-on" data-spot-pane="0" role="tabpanel">
+          <h3>It Books the 3am Call Your Competitor Missed</h3>
+          <ol class="spot__steps">
+            <li><b>01</b><span>Answers the inbound call, day or night</span></li>
+            <li><b>02</b><span>Reads what the caller actually wants</span></li>
+            <li><b>03</b><span>Checks the live calendar before offering a slot</span></li>
+            <li><b>04</b><span>Books it and writes the record into HubSpot, during the call</span></li>
+          </ol>
+          <p class="spot__kick">No human in the loop, and no message waiting for someone in the morning.</p>
+          <div class="chips"><span>VAPI</span><span>Twilio</span><span>ElevenLabs</span><span>HubSpot CRM</span></div>
+          <a class="tlink" href="case-studies/ai-front-desk.html">Play the simulated call <i class="ar">&rarr;</i></a>
+        </div>
+
+        <div class="spot__pane" data-spot-pane="1" role="tabpanel">
+          <h3>Reading a Crumpled Receipt Well Enough to Pay Money Against It</h3>
+          <ol class="spot__steps">
+            <li><b>01</b><span>Takes a photo of a thermal-paper grocery receipt</span></li>
+            <li><b>02</b><span>Extracts merchant, date, totals and every line item</span></li>
+            <li><b>03</b><span>Validates them against the eligible-product list</span></li>
+            <li><b>04</b><span>Releases the cash-back payout</span></li>
+          </ol>
+          <p class="spot__kick">Off-the-shelf OCR fell over on these receipts, so we built the microservice ourselves for FoodStretcher Plus.</p>
+          <div class="chips"><span>Custom OCR</span><span>Python</span><span>Laravel</span><span>Microservice</span></div>
+          <a class="tlink" href="case-studies/foodstretcher-plus-ocr.html">See the OCR pipeline <i class="ar">&rarr;</i></a>
+        </div>
+
+        <div class="spot__pane" data-spot-pane="2" role="tabpanel">
+          <h3>An Assistant That Answers in Your Domain, Not in Generalities</h3>
+          <ol class="spot__steps">
+            <li><b>01</b><span>An engineer asks why ECD is climbing</span></li>
+            <li><b>02</b><span>The assistant pulls the actual sample data</span></li>
+            <li><b>03</b><span>Physics-backed domain models are applied to it</span></li>
+            <li><b>04</b><span>The answer comes back with the caveats attached</span></li>
+          </ol>
+          <p class="spot__kick">FluidsData's Fluids Intelligence layer. Teams at Chevron, ExxonMobil and ADNOC use it.</p>
+          <div class="chips"><span>Agentic AI</span><span>Go</span><span>Python</span><span>Vue.js</span></div>
+          <a class="tlink" href="case-studies/fluidsdata.html">See it answer a real question <i class="ar">&rarr;</i></a>
+        </div>
+
+        <div class="spot__pane" data-spot-pane="3" role="tabpanel">
+          <h3>The Handoffs Nobody Should Still Be Doing by Hand</h3>
+          <ol class="spot__steps">
+            <li><b>01</b><span>Form submission lands in the CRM</span></li>
+            <li><b>02</b><span>The CRM record raises the invoice</span></li>
+            <li><b>03</b><span>The invoice posts to the accounting system</span></li>
+            <li><b>04</b><span>Payments sync back against the job</span></li>
+          </ol>
+          <p class="spot__kick">n8n and Make.com where a full build would be overkill, proper code where the volume justifies it. Alliance Driveaway's QuickBooks sync started as exactly this conversation.</p>
+          <div class="chips"><span>n8n</span><span>Make.com</span><span>Webhooks</span><span>QuickBooks</span></div>
+          <a class="tlink" href="case-studies/alliance-driveaway.html">See the QuickBooks sync <i class="ar">&rarr;</i></a>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ HOW WE WORK ═══════════════════════ -->
+<section class="section section--tight">
+  <div class="wrap">
+    <h2 class="sr-only">How We Work</h2>
+    <ul class="trustrow" data-anim="up">
+      <li>
+        <span class="trustrow__i" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/></svg></span>
+        <b>Senior engineers only</b>
+        <span>Never junior-loaded to protect our margin</span>
+      </li>
+      <li>
+        <span class="trustrow__i" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8.6 16.4 4.2 12l4.4-4.4M15.4 7.6 19.8 12l-4.4 4.4M13.6 4.5l-3.2 15"/></svg></span>
+        <b>You own the code</b>
+        <span>Repository, infrastructure and documentation, yours</span>
+      </li>
+      <li>
+        <span class="trustrow__i" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3.5 20.5h17"/><path d="M6.5 20.5V12M11 20.5V6.5M15.5 20.5v-5M20 20.5V9"/></svg></span>
+        <b>265+ builds since 2012</b>
+        <span>50+ of those clients came back for a second one</span>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- ═══════════════════════ INTERACTIVE PICKER ═══════════════════════ -->
+<section class="section section--tight" id="picker">
+  <div class="wrap">
+    <div class="head head--center">
+      <span class="badge" data-anim="fade">Click what's true</span>
+      <h2 class="d2" data-anim="up">Start with the Problem, <em>Not the Service Name</em></h2>
+      <p class="lead" data-anim="fade" data-delay="0.1">
+        Nobody wakes up wanting a dedicated team. Pick the sentence that sounds like
+        your Monday.
+      </p>
+    </div>
+
+    <div class="picker" data-anim="up">
+      <div class="picker__opts" id="pickerOpts" role="tablist" aria-label="Common problems">
+        <button class="picker__opt is-on" data-pick="0" type="button" role="tab" aria-selected="true">Our operation runs on spreadsheets and phone calls.</button>
+        <button class="picker__opt" data-pick="1" type="button" role="tab" aria-selected="false">Our field staff need an app that works without signal.</button>
+        <button class="picker__opt" data-pick="2" type="button" role="tab" aria-selected="false">We're drowning in calls, forms or paperwork.</button>
+        <button class="picker__opt" data-pick="3" type="button" role="tab" aria-selected="false">The software works but nobody can use it.</button>
+        <button class="picker__opt" data-pick="4" type="button" role="tab" aria-selected="false">We can't hire engineers fast enough.</button>
+        <button class="picker__opt" data-pick="5" type="button" role="tab" aria-selected="false">It's live and we're scared of it going down.</button>
+      </div>
+
+      <div class="picker__out" id="pickerOut" role="tabpanel" aria-live="polite">
+        <span class="picker__k" id="pickerK">01 &middot; Operations Platforms</span>
+        <h3 id="pickerT">You Need a System That Matches How the Work Actually Runs</h3>
+        <p id="pickerD">Dispatch boards, dashboards and the APIs behind them, built around
+          your exceptions and your edge cases rather than a generic CRUD app with your
+          logo on it.</p>
+        <a class="tlink" id="pickerL" href="#platforms">Read more about Operations Platforms <i class="ar">&rarr;</i></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ THE SIX ═══════════════════════ -->
+<section class="section section--tight" id="six">
+  <div class="wrap">
+    <div class="head head--center">
+      <span class="badge" data-anim="fade">The six in detail</span>
+      <h2 class="d2" data-anim="up">What Each One <em>Actually Covers</em></h2>
+      <p class="lead" data-anim="fade">The stack we use, the work it includes, and the build
+        where you can see it running.</p>
+    </div>
+
+      <div class="svcRow" id="platforms" data-anim="up">
         <div>
-          <span class="svc__i"><svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="14" rx="2"/><path d="M8 21h8M12 18v3"/></svg></span>
-          <span class="badge">01 · Operations Platforms</span>
-          <h3>Dispatch boards, dashboards and the APIs behind them.</h3>
+          <span class="svc__i"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="4" width="20" height="14" rx="2"/><path d="M8 21h8M12 18v3"/></svg></span>
+          <h2>Dispatch Boards, Dashboards and the APIs Behind Them</h2>
           <p class="lead" style="font-size:.98rem">
-            We build for the operation as it actually runs — the exceptions, the
-            edge cases, the workflow your team has half-memorized — not a generic
-            CRUD app with your logo on it.
+            We build for the operation as it actually runs: the exceptions, the edge
+            cases, the workflow your team has half-memorized. Not a generic CRUD app
+            with your logo on it. Alliance Driveaway's board runs 350+ drivers across
+            48 states on this exact premise.
           </p>
           <div class="chips">
             <span>PHP / Laravel</span><span>Node.js</span><span>Vue.js</span>
@@ -93,23 +339,29 @@
             <li>Client-facing portals</li>
             <li>API design and third-party integration</li>
           </ul>
-          <a class="tlink" href="case-studies.html#alliance">Built Alliance Driveaway's dispatch dashboard <i class="ar">→</i></a>
+          <a class="tlink" href="case-studies/alliance-driveaway.html">Built Alliance Driveaway's dispatch dashboard <i class="ar">&rarr;</i></a>
+        </div>
+
+        <div class="svcRow__flow">
+          <span class="autostrip__k">What the board does on its own</span>
+          <ol class="autostrip__steps">
+            <li style="--i:0"><b>01</b><span>Load created</span></li>
+            <li style="--i:1"><b>02</b><span>Driver accepts</span></li>
+            <li style="--i:2"><b>03</b><span>Proof captured</span></li>
+            <li style="--i:3"><b>04</b><span>Invoice sent</span></li>
+          </ol>
         </div>
       </div>
-    </div>
-  </section>
 
-  <section class="section section--tight" id="mobile">
-    <div class="wrap">
-      <div class="svcRow" data-anim="up">
+      <div class="svcRow" id="mobile" data-anim="up">
         <div>
-          <span class="svc__i"><svg viewBox="0 0 24 24"><rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M11 18h2"/></svg></span>
-          <span class="badge">02 · Mobile Apps</span>
-          <h3>Native iOS and Android for people who don't get to complain about signal.</h3>
+          <span class="svc__i"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M11 18h2"/></svg></span>
+          <h2>Native iOS and Android for People Who Don't Get to Complain About Signal</h2>
           <p class="lead" style="font-size:.98rem">
-            Offline-tolerant, GPS-aware, and shipped to the App Store and Play Store
-            by engineers who own the whole release, not a wrapped webview handed
-            off at the end.
+            Offline-tolerant, GPS-aware, and shipped to the App Store and Play Store by
+            engineers who own the whole release. Not a wrapped webview handed off at the
+            end. Our driver app is used by 350+ CDL drivers who lose signal for hours at
+            a time and still expect the job to be there.
           </p>
           <div class="chips">
             <span>Swift</span><span>Kotlin</span><span>Flutter</span><span>React Native</span>
@@ -118,26 +370,34 @@
         <div class="svcRow__side">
           <ul class="ticks">
             <li>Native iOS (Swift) and Android (Kotlin)</li>
-            <li>Cross-platform when it's the right call</li>
+            <li>Cross-platform when it's genuinely the right call</li>
             <li>Offline-first data sync</li>
             <li>Push notifications and background location</li>
           </ul>
-          <a class="tlink" href="case-studies.html#alliance">350+ drivers run on our driver app today <i class="ar">→</i></a>
+          <a class="tlink" href="case-studies/alliance-driveaway.html">350+ drivers run on our driver app today <i class="ar">&rarr;</i></a>
+        </div>
+
+        <div class="svcRow__flow">
+          <span class="autostrip__k">What happens when the signal drops</span>
+          <ol class="autostrip__steps">
+            <li style="--i:0"><b>01</b><span>Job offered</span></li>
+            <li style="--i:1"><b>02</b><span>Accepted offline</span></li>
+            <li style="--i:2"><b>03</b><span>Photos captured</span></li>
+            <li style="--i:3"><b>04</b><span>Synced on reconnect</span></li>
+          </ol>
         </div>
       </div>
-    </div>
-  </section>
 
-  <section class="section section--tight" id="ai">
-    <div class="wrap">
-      <div class="svcRow" data-anim="up">
+      <div class="svcRow svcRow--feature" id="ai" data-anim="up">
         <div>
-          <span class="svc__i"><svg viewBox="0 0 24 24"><path d="M12 2a4 4 0 0 1 4 4c0 1.1-.45 2.1-1.17 2.83L12 12 9.17 8.83A4 4 0 0 1 12 2Z"/><path d="M12 12v10M8 22h8"/></svg></span>
-          <span class="badge">03 · AI &amp; Automation</span>
-          <h3>Voice agents, OCR and assistants wired into what you already run.</h3>
+          <span class="svc__i"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a4 4 0 0 1 4 4c0 1.1-.45 2.1-1.17 2.83L12 12 9.17 8.83A4 4 0 0 1 12 2Z"/><path d="M12 12v10M8 22h8"/></svg></span>
+          <span class="badge">Featured</span>
+          <h2>Voice Agents, OCR and Assistants Wired into What You Already Run</h2>
           <p class="lead" style="font-size:.98rem">
-            We treat AI as engineering with a measurable job to do — answer the
-            phone, read the document, update the record — not a line on a slide.
+            AI with a measurable job: answer the phone, read the document, update the
+            record. A voice agent booking real appointments at 3am, an OCR service
+            reading receipts accurately enough to pay cash back against them, and an
+            agentic assistant that teams at Chevron and ExxonMobil rely on.
           </p>
           <div class="chips">
             <span>VAPI</span><span>Twilio</span><span>ElevenLabs</span>
@@ -151,24 +411,29 @@
             <li>Agentic assistants wired into your CRM</li>
             <li>Workflow automation (n8n, Make.com)</li>
           </ul>
-          <a class="tlink" href="case-studies.html#futurespark">An AI receptionist answering real calls, no human in the loop <i class="ar">→</i></a>
+          <a class="tlink" href="case-studies/ai-front-desk.html">An AI receptionist answering real calls, no human in the loop <i class="ar">&rarr;</i></a>
+        </div>
+
+        <div class="svcRow__flow">
+          <span class="autostrip__k">One inbound call, no human in it</span>
+          <ol class="autostrip__steps">
+            <li style="--i:0"><b>01</b><span>Call answered</span></li>
+            <li style="--i:1"><b>02</b><span>Intent read</span></li>
+            <li style="--i:2"><b>03</b><span>Slot booked</span></li>
+            <li style="--i:3"><b>04</b><span>CRM updated</span></li>
+          </ol>
         </div>
       </div>
-    </div>
-  </section>
 
-  <section class="section section--tight" id="design">
-    <div class="wrap">
-      <div class="svcRow" data-anim="up">
+      <div class="svcRow" id="design" data-anim="up">
         <div>
-          <span class="svc__i"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 1 0 18M8 12h8"/></svg></span>
-          <span class="badge">04 · Product &amp; UX Design</span>
-          <h3>Interfaces that hold up under real use, not just a portfolio shot.</h3>
+          <span class="svc__i"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 1 0 18M8 12h8"/></svg></span>
+          <h2>Interfaces That Hold up Under Real Use, Not Just a Portfolio Shot</h2>
           <p class="lead" style="font-size:.98rem">
-            Our principal leads UX on internal data-science and AI tools at Levi
-            Strauss &amp; Co. and was Prebuild Design Lead on Salesforce's AT&amp;T
-            OneCare build — making complex, data-dense software legible is the job,
-            not a first attempt at it.
+            Our principal leads UX on internal data-science and AI tools at Levi Strauss
+            &amp; Co. and was Prebuild Design Lead on Salesforce's AT&amp;T OneCare build.
+            Making complex, data-dense software legible is the job, not a first attempt
+            at it.
           </p>
           <div class="chips">
             <span>Figma</span><span>Design systems</span><span>Prototyping</span>
@@ -181,23 +446,29 @@
             <li>Design systems that scale with the product</li>
             <li>Data-dense interfaces made legible</li>
           </ul>
-          <a class="tlink" href="about.html">Meet the person who leads it <i class="ar">→</i></a>
+          <a class="tlink" href="about.html#principal">Meet the person who leads it <i class="ar">&rarr;</i></a>
+        </div>
+
+        <div class="svcRow__flow">
+          <span class="autostrip__k">How a screen gets decided</span>
+          <ol class="autostrip__steps">
+            <li style="--i:0"><b>01</b><span>Workflow mapped</span></li>
+            <li style="--i:1"><b>02</b><span>Prototype clicked</span></li>
+            <li style="--i:2"><b>03</b><span>Changed in Figma</span></li>
+            <li style="--i:3"><b>04</b><span>Handed to build</span></li>
+          </ol>
         </div>
       </div>
-    </div>
-  </section>
 
-  <section class="section section--tight" id="teams">
-    <div class="wrap">
-      <div class="svcRow" data-anim="up">
+      <div class="svcRow" id="teams" data-anim="up">
         <div>
-          <span class="svc__i"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
-          <span class="badge">05 · Dedicated Teams</span>
-          <h3>A vetted senior pod, embedded, without the hiring cycle.</h3>
+          <span class="svc__i"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
+          <h2>A Vetted Senior Pod, Embedded, Without the Hiring Cycle</h2>
           <p class="lead" style="font-size:.98rem">
-            Assembled per engagement around your stack, never junior-loaded.
-            Capacity without a twelve-week local hire, and without paying to
-            teach someone your domain on your budget.
+            Assembled per engagement around your stack, never junior-loaded. Capacity
+            without a twelve-week local hire, and without paying to teach someone your
+            domain on your budget. Mountain Time means they're in your standup, not
+            reading a summary of it.
           </p>
           <div class="chips">
             <span>Laravel</span><span>Vue</span><span>Node</span><span>Swift</span><span>Kotlin</span>
@@ -210,23 +481,28 @@
             <li>You keep control, we keep momentum</li>
             <li>Scale up or down as scope changes</li>
           </ul>
-          <a class="tlink" href="about.html">16+ years of people who've shipped together <i class="ar">→</i></a>
+          <a class="tlink" href="about.html#team">16+ years of people who've shipped together <i class="ar">&rarr;</i></a>
+        </div>
+
+        <div class="svcRow__flow">
+          <span class="autostrip__k">How a pod comes together</span>
+          <ol class="autostrip__steps">
+            <li style="--i:0"><b>01</b><span>Scope agreed</span></li>
+            <li style="--i:1"><b>02</b><span>Pod assembled</span></li>
+            <li style="--i:2"><b>03</b><span>Weekly releases</span></li>
+            <li style="--i:3"><b>04</b><span>Scaled up or down</span></li>
+          </ol>
         </div>
       </div>
-    </div>
-  </section>
 
-  <section class="section section--tight" id="cloud">
-    <div class="wrap">
-      <div class="svcRow" data-anim="up">
+      <div class="svcRow" id="cloud" data-anim="up">
         <div>
-          <span class="svc__i"><svg viewBox="0 0 24 24"><path d="M17.5 19a4.5 4.5 0 1 0-.42-8.98 6 6 0 1 0-11.06 3.1A3.5 3.5 0 0 0 6.5 19Z"/></svg></span>
-          <span class="badge">06 · Cloud, DevOps &amp; Support</span>
-          <h3>Infrastructure and support agreed in writing, before go-live.</h3>
+          <span class="svc__i"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.5 19a4.5 4.5 0 1 0-.42-8.98 6 6 0 1 0-11.06 3.1A3.5 3.5 0 0 0 6.5 19Z"/></svg></span>
+          <h2>Infrastructure and Support Agreed in Writing, Before Go-Live</h2>
           <p class="lead" style="font-size:.98rem">
-            Uptime and response-time targets get defined per system before launch,
-            not improvised after an incident. Long-term support after launch is
-            when it counts most.
+            Uptime and response-time targets get defined per system before launch, not
+            improvised after an incident. 50+ of our clients are repeat clients, and
+            long-term support is the main reason why. We don't disappear at handover.
           </p>
           <div class="chips">
             <span>AWS (S3, RDS, EC2)</span><span>CI/CD</span><span>Monitoring</span>
@@ -239,81 +515,173 @@
             <li>Monitoring and observability</li>
             <li>Ongoing support with agreed response times</li>
           </ul>
-          <a class="tlink" href="trust.html">Read how we structure SLAs and support <i class="ar">→</i></a>
+          <a class="tlink" href="trust.html">Read how we structure SLAs and support <i class="ar">&rarr;</i></a>
+        </div>
+
+        <div class="svcRow__flow">
+          <span class="autostrip__k">What a release runs through</span>
+          <ol class="autostrip__steps">
+            <li style="--i:0"><b>01</b><span>Commit pushed</span></li>
+            <li style="--i:1"><b>02</b><span>Pipeline runs</span></li>
+            <li style="--i:2"><b>03</b><span>Staging verified</span></li>
+            <li style="--i:3"><b>04</b><span>Released to production</span></li>
+          </ol>
+        </div>
+      </div>
+  </div>
+</section>
+
+<!-- ── FINAL CTA ── -->
+<section class="final final--close" id="contact">
+    <div class="wrap">
+      <div class="close" data-anim="up">
+        <h2 class="d2" data-anim="up">Show Us One Manual Process. <em>We'll Show You What Automating It Takes</em></h2>
+        <p class="lead">One conversation, and you know what it takes.</p>
+
+        <div class="close__act">
+          <a class="btn" href="https://wa.me/18259772020?text=Hi%20Alpha%20Squared%2C%20I%27d%20like%20to%20book%20a%20call%20about%20a%20build."
+             target="_blank" rel="noopener">
+            <span>Book a call <i class="ar">&rarr;</i></span>
+          </a>
+
+          <a class="btn btn--ghost" href="contact.html"><span>Send a brief</span></a>
         </div>
       </div>
     </div>
   </section>
-
-  <!-- ── FINAL CTA ── -->
-  <section class="final" id="contact">
-    <div class="wrap">
-      <span class="badge" data-anim="fade">Let's talk</span>
-      <h2 class="d2" data-split="lines"><span class="grad">One conversation</span> makes your roadmap real.</h2>
-      <p class="lead" data-anim="fade">Tell us what you're building. You'll get an honest read on scope,
-        timeline and the right engagement model — usually within two business days.</p>
-      <div class="cta-row" data-anim="fade" style="justify-content:center;margin-top:32px">
-        <a href="mailto:info@alphasquared.co" class="btn"><span>Book a discovery call <i class="ar">→</i></span></a>
-      </div>
-    </div>
-  </section>
-
-</div><!-- /page-light -->
 
 </main>
 
 <!-- ═══════════════════════ FOOTER ═══════════════════════ -->
 <footer class="footer">
   <div class="wrap">
+
     <div class="footer__grid">
       <div class="footer__brand">
-        <a href="index.html" class="brand" aria-label="Alpha Squared — Ideas Implemented">
-          <img src="assets/logo-full-white.png" alt="Alpha Squared" class="brand__logo" />
+        <a href="index.html" class="brand" aria-label="Alpha Squared home, ideas implemented">
+          <img src="assets/logo-full-white.png" alt="Alpha Squared logo" class="brand__logo" />
         </a>
         <p>Canadian software studio building for operators and enterprises since 2012.
-          Trucking and transport specialists. Ideas implemented.</p>
+          Edmonton, Alberta. Trucking and transport specialists. Ideas implemented.</p>
+
+        <h2 class="footer__h footer__h--soc">Follow Along</h2>
+        <!-- Profile URLs are placeholders until the real handles are confirmed;
+             WhatsApp and email are live. -->
+        <ul class="soc">
+          <li><a href="#" aria-label="Alpha Squared on LinkedIn">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5ZM3 9.5h4V21H3V9.5Zm6.5 0h3.8v1.6h.05a4.2 4.2 0 0 1 3.77-2.07c4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.1c0-1.22-.02-2.78-1.7-2.78-1.7 0-1.96 1.33-1.96 2.7V21h-4V9.5Z"/></svg>
+          </a></li>
+          <li><a href="#" aria-label="Alpha Squared on X">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.53 3h3.2l-6.99 7.99L22 21h-6.44l-5.04-6.6L4.75 21H1.54l7.48-8.55L2 3h6.6l4.56 6.03L17.53 3Zm-1.12 16.06h1.77L7.67 4.84H5.77l10.64 14.22Z"/></svg>
+          </a></li>
+          <li><a href="#" aria-label="Alpha Squared on Facebook">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 21v-8h2.7l.4-3.1h-3.1V7.9c0-.9.25-1.5 1.54-1.5h1.66V3.63A22 22 0 0 0 14.3 3.5c-2.4 0-4.05 1.47-4.05 4.17V9.9H7.5V13h2.75v8h3.25Z"/></svg>
+          </a></li>
+          <li><a href="#" aria-label="Alpha Squared on Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r="1.1" fill="currentColor" stroke="none"/></svg>
+          </a></li>
+          <li><a href="https://wa.me/18259772020" target="_blank" rel="noopener" aria-label="Alpha Squared on WhatsApp">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2C6.6 2 2.2 6.4 2.2 11.84c0 1.74.46 3.44 1.32 4.94L2 22l5.34-1.4a9.8 9.8 0 0 0 4.7 1.2h.01c5.43 0 9.84-4.4 9.84-9.84C21.89 6.4 17.48 2 12.04 2Zm5.76 14.02c-.24.68-1.4 1.3-1.94 1.34-.5.05-.98.23-3.3-.69-2.78-1.1-4.55-3.94-4.69-4.13-.13-.19-1.12-1.49-1.12-2.84s.71-2.01.96-2.29c.25-.27.55-.34.73-.34l.53.01c.17 0 .4-.06.62.48.24.57.8 1.97.87 2.11.07.14.12.31.02.5-.09.19-.14.31-.28.47l-.42.49c-.14.14-.28.29-.12.57.16.27.71 1.17 1.52 1.9 1.05.93 1.93 1.22 2.2 1.36.28.14.44.12.6-.07.17-.19.7-.81.88-1.09.19-.27.37-.23.63-.14.25.1 1.65.78 1.93.92.28.14.47.21.54.33.07.11.07.65-.17 1.33Z"/></svg>
+          </a></li>
+          <li><a href="mailto:info@alphasquared.co" aria-label="Email Alpha Squared">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="2.5" y="4.5" width="19" height="15" rx="2.5"/><path d="m3.5 7 8.5 6 8.5-6"/></svg>
+          </a></li>
+        </ul>
       </div>
+
       <div>
-        <h4>Solutions</h4>
+        <h2 class="footer__h">Solutions</h2>
         <ul>
           <li><a href="trucking.html">Trucking &amp; Transport</a></li>
-          <li><a href="index-trucking-b.html">Driveaway Dispatch Platform ↗</a></li>
+          <li><a href="services.html#teams">Dedicated Teams</a></li>
           <li><a href="services.html#platforms">Operations Platforms</a></li>
           <li><a href="services.html#mobile">Mobile Apps</a></li>
           <li><a href="services.html#ai">AI &amp; Automation</a></li>
         </ul>
       </div>
+
       <div>
-        <h4>Company</h4>
+        <h2 class="footer__h">Company</h2>
         <ul>
           <li><a href="about.html">About Us</a></li>
           <li><a href="case-studies.html">Case Studies</a></li>
           <li><a href="services.html">Services</a></li>
           <li><a href="trust.html">Trust &amp; Security</a></li>
-          <li><a href="#contact">Contact</a></li>
+          <li><a href="contact.html">Contact</a></li>
         </ul>
       </div>
+
       <div>
-        <h4>Contact</h4>
-        <ul>
-          <li><a href="mailto:info@alphasquared.co">info@alphasquared.co</a></li>
-          <li><a href="https://alphasquared.ca">alphasquared.ca</a></li>
-          <li>Edmonton, Alberta, Canada</li>
+        <h2 class="footer__h">Talk to Us</h2>
+        <ul class="footer__contact">
+          <li><span>Phone</span><a href="tel:+18259772020">+1 (825) 977-2020</a></li>
+          <li><span>Email</span><a href="mailto:info@alphasquared.co">info@alphasquared.co</a></li>
+          <li><span>Office</span>5479 CrabApple Loop SW<br />Edmonton, Alberta T6X 1S5</li>
+          <li><span>Hours</span>Mountain Time, 8am to 6pm</li>
         </ul>
       </div>
     </div>
+
     <div class="footer__base">
       <span>© 2026 Alpha Squared. Ideas Implemented.</span>
-      <span>Software for operations that can't stop.</span>
+      <ul class="footer__legal">
+        <li><a href="sitemap.xml">Sitemap</a></li>
+      </ul>
+      <span>Built in Edmonton, Alberta</span>
     </div>
   </div>
 </footer>
+
+<!-- ═══════════════════════ CHATBOT ═══════════════════════ -->
+<button id="askA2-launcher" aria-label="Open chat">
+  <div class="askA2-ring"></div>
+  <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+  <div class="askA2-badge-dot" id="askA2-badge-dot">1</div>
+</button>
+
+<div id="askA2-panel">
+  <div class="askA2-head">
+    <div class="askA2-avatar">&#945;&sup2;</div>
+    <div>
+      <div class="askA2-title">Ask Alpha&sup2;</div>
+      <div class="askA2-status"><span class="askA2-status-dot"></span>Usually replies instantly</div>
+    </div>
+    <button class="askA2-close" id="askA2-close" aria-label="Close chat">
+      <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 6L6 18M6 6l12 12"/></svg>
+    </button>
+  </div>
+
+  <div class="askA2-body" id="askA2-body">
+    <div class="askA2-msg bot">Hey. I'm the Alpha&sup2; assistant. Ask me about our work, pricing, timelines or how we staff a project, or tap a question below.</div>
+  </div>
+
+  <div class="askA2-quick-wrap">
+    <div class="askA2-quick-label">Quick questions</div>
+    <div class="askA2-quick-row" id="askA2-quick-row">
+      <button class="askA2-quick-btn" data-q="What services do you offer?">What services do you offer?</button>
+      <button class="askA2-quick-btn" data-q="Tell me about your AI automation work">Tell me about AI automation</button>
+      <button class="askA2-quick-btn" data-q="Can you take over an existing project?">Can you take over an existing build?</button>
+      <button class="askA2-quick-btn" data-q="What does a project cost?">What does a project cost?</button>
+    </div>
+  </div>
+
+  <div class="askA2-input-row">
+    <input type="text" id="askA2-input" placeholder="Ask anything..." aria-label="Ask a question" />
+    <button class="askA2-send" id="askA2-send" aria-label="Send">
+      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 2 11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+    </button>
+  </div>
+
+  <div class="askA2-disclaimer">Ask Alpha&sup2; can make mistakes. For anything important, book a call with our team.</div>
+</div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/CustomEase.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
 <script src="https://unpkg.com/split-type@0.3.4/umd/index.min.js"></script>
-<script src="js/main.js?v=20260729g"></script>
+<script src="js/main.js?v=20260813c"></script>
+<script src="js/services.js?v=20260813c"></script>
+<script src="js/chatbot.js?v=20260815a"></script>
 </body>
 </html>

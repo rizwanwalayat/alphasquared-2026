@@ -3,30 +3,40 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Trucking &amp; Transport Software — Dispatch, Driver Apps, Operations | Alpha Squared</title>
-<meta name="description" content="Alpha Squared builds dispatch platforms, native driver apps and back-office integrations for trucking and transport operators. Proven on a 350+ driver network across 48 states and Canada." />
+<title>Trucking Dispatch Software &amp; Driver Apps, Built in Canada | Alpha Squared</title>
+<meta name="description" content="Dispatch platforms, native iOS and Android driver apps and deep QuickBooks integration for trucking, transport and driveaway operators. Proven on a 350+ CDL driver network running across 48 US states and Canada. Edmonton, Alberta." />
+<link rel="canonical" href="https://alphasquared.ca/trucking.html" />
+
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Alpha Squared" />
+<meta property="og:title" content="Trucking Dispatch Software &amp; Driver Apps, Built in Canada | Alpha Squared" />
+<meta property="og:description" content="Dispatch software for when the truck is the freight. Running today on a 350+ driver network across 48 states and Canada, with QuickBooks sync that nobody has to retype into." />
+<meta property="og:url" content="https://alphasquared.ca/trucking.html" />
+<meta property="og:image" content="https://alphasquared.ca/assets/CaseStudies/09-alliance-driveaway-solutions.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Trucking Dispatch Software &amp; Driver Apps, Built in Canada | Alpha Squared" />
+<meta name="twitter:description" content="Dispatch software for when the truck is the freight. 350+ drivers, 48 states, live in production." />
+<meta name="twitter:image" content="https://alphasquared.ca/assets/CaseStudies/09-alliance-driveaway-solutions.jpg" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="css/style.css?v=20260729g" />
+<link rel="stylesheet" href="css/style.css?v=20260813c" />
+<link rel="stylesheet" href="css/theme.css?v=20260813c" />
+<link rel="stylesheet" href="css/home.css?v=20260815a" />
+<link rel="stylesheet" href="css/trucking.css?v=20260815a" />
+<link rel="stylesheet" href="css/chatbot.css?v=20260813c" />
+
+<!-- Theme is resolved before first paint so a light-mode reload never flashes dark. -->
+<script>(function(){try{var m=localStorage.getItem('a2-theme')||(matchMedia('(prefers-color-scheme: light)').matches?'light':'dark');if(m==='light')document.documentElement.setAttribute('data-theme','light');}catch(e){}})();</script>
 </head>
 
-<body class="is-loading">
-
-<!-- ═══════════════════════ LOADER ═══════════════════════ -->
-<div class="loader" id="loader" aria-hidden="true">
-  <div class="loader__row">
-    <div class="loader__ring"></div>
-    <div class="loader__name">Alpha<sup>2</sup></div>
-    <span class="loader__pct" id="loaderPct">0%</span>
-  </div>
-</div>
+<body>
 
 <!-- ═══════════════════════ NAV ═══════════════════════ -->
 <header class="nav" id="nav">
   <div class="nav__inner">
-    <a href="index.html" class="brand" aria-label="Alpha Squared — Ideas Implemented"><img src="assets/logo-full.png" alt="Alpha Squared" class="brand__logo" /></a>
+    <a href="index.html" class="brand" aria-label="Alpha Squared home, ideas implemented"><img src="assets/logo-full.png" alt="Alpha Squared logo" class="brand__logo" /></a>
 
     <nav class="nav__links">
       <a href="trucking.html" class="is-active">Trucking &amp; Transport</a>
@@ -35,7 +45,7 @@
       <a href="about.html">About Us</a>
     </nav>
 
-    <a href="#contact" class="btn nav__cta"><span>Book a call</span></a>
+    <a href="contact.html" class="btn nav__cta"><span>Book a call</span></a>
 
     <button class="nav__burger" id="burger" aria-label="Menu" aria-expanded="false">
       <span></span><span></span><span></span>
@@ -50,25 +60,49 @@
   <div class="hero__arc" data-parallax="0.12"></div>
   <div class="hero__bloom" data-parallax="0.2"></div>
 
-  <div class="wrap hero__inner">
-    <span class="hero__eyebrow grad" data-anim="fade">Driveaway &amp; vehicle relocation</span>
+  <div class="wrap hero__inner hero__inner--split">
+    <div>
+      <span class="hero__eyebrow grad" data-anim="fade">Edmonton, Alberta &middot; Mountain Time &middot; Since 2012</span>
 
-    <h1 class="d1" data-split="words">Dispatch software for when the truck is the freight.</h1>
+      <h1 class="d1" data-anim="fade">You Need Automation. <em>We Build Dispatch Platforms and AI Agents That Deliver It</em></h1>
 
-    <p class="hero__sub" data-anim="fade" data-delay="0.5">
-      Every transportation management system on the market assumes a load, on a trailer,
-      pulled by a truck you own, with an ELD in it. Driveaway breaks all four. We built the
-      system that doesn't — and it's running today.
-    </p>
+      <p class="hero__sub" data-anim="fade" data-delay="0.5">
+        The manual steps come out of the operation and the work keeps moving.
+        350+ CDL drivers already run on ours, across 48 states and Canada.
+      </p>
 
-    <div class="cta-row" data-anim="fade" data-delay="0.65">
-      <a href="#contact" class="btn"><span>Get your free ops benchmark <i class="ar">→</i></span></a>
-      <a href="#proof" class="btn btn--ghost"><span>See it running</span></a>
+      <div class="cta-row" data-anim="fade" data-delay="0.65">
+        <a href="#ask" class="btn"><span>Tell us what to automate <i class="ar">&rarr;</i></span></a>
+        <a href="#platform" class="btn btn--ghost"><span>See the platform</span></a>
+      </div>
+
+      <ul class="hero__trust" data-anim="fade" data-delay="0.8">
+        <li>Answer in one business day</li>
+        <li>You own the code</li>
+        <li>14 years, 265+ builds</li>
+      </ul>
+    </div>
+
+    <!-- The hero is the product: a dispatch board that keeps updating on its own.
+         Decorative — the claim it illustrates is written in the copy beside it. -->
+    <div class="board" data-anim="up" data-delay="0.4" aria-hidden="true">
+      <div class="board__bar">
+        <i></i><i></i><i></i>
+        <span class="board__title">Dispatch &middot; North America</span>
+        <span class="live"><span class="dot"></span> Live</span>
+      </div>
+
+      <div class="board__map"><canvas id="netViz"></canvas></div>
+
+      <div class="board__rows" id="boardRows"></div>
+
+      <div class="board__foot">
+        <span>Active loads <b id="fActive">128</b></span>
+        <span>Drivers online <b id="fDrivers">311</b></span>
+        <span>Avg. sync <b id="fSync">0.4s</b></span>
+      </div>
     </div>
   </div>
-
-  <div class="hero__viz"><canvas id="heroViz"></canvas></div>
-  <span class="hero__scroll" data-anim="fade" data-delay="1">Scroll</span>
 </section>
 
 <!-- ═══════════════════════ PROOF BAR ═══════════════════════ -->
@@ -94,41 +128,328 @@
     </div>
   </div>
 </section>
+<!-- ═══════════════ THE AUTOMATED LOAD ═══════════════ -->
+<section class="section" id="flow">
+  <div class="wrap">
+    <div class="head head--center">
+      <span class="badge" data-anim="fade">One load, start to invoice</span>
+      <h2 class="d2" data-anim="up">Six Stages a Dispatcher Used to Retype, <em>Now Filed Once</em></h2>
+      <p class="lead" data-anim="fade">Every stage below is written once, at the truck, and read everywhere
+        else. Nobody keys it into a second system.</p>
+    </div>
+
+    <div class="tflow" data-anim="up" style="margin-top:30px">
+      <span class="tflow__k">🚚 The load, automated end to end</span>
+      <ol class="tflow__track">
+        <li style="--i:0">
+          <b>01</b>
+          <h3>Load Posted</h3>
+          <span class="tflow__was">A phone call and a spreadsheet row</span>
+          <span class="tflow__now">Created once, visible to every driver</span>
+        </li>
+        <li style="--i:1">
+          <b>02</b>
+          <h3>Driver Accepts</h3>
+          <span class="tflow__was">Ring around until somebody says yes</span>
+          <span class="tflow__now">Offered and accepted in the app</span>
+        </li>
+        <li style="--i:2">
+          <b>03</b>
+          <h3>Pickup Verified</h3>
+          <span class="tflow__was">Condition photos stuck on a phone</span>
+          <span class="tflow__now">Photo, GPS and signature filed to the load</span>
+        </li>
+        <li style="--i:3">
+          <b>04</b>
+          <h3>In Transit</h3>
+          <span class="tflow__was">Status calls to the cab all day</span>
+          <span class="tflow__now">Office and cab read the same row</span>
+        </li>
+        <li style="--i:4">
+          <b>05</b>
+          <h3>Delivered</h3>
+          <span class="tflow__was">Paperwork mailed in days later</span>
+          <span class="tflow__now">Proof attached the moment it happens</span>
+        </li>
+        <li style="--i:5">
+          <b>06</b>
+          <h3>Invoiced</h3>
+          <span class="tflow__was">Retyped into QuickBooks by hand</span>
+          <span class="tflow__now">Load to invoice, nobody retyping</span>
+        </li>
+      </ol>
+    </div>
+  </div>
+</section>
+<!-- ═══════════════════════ TRUCKING FLAGSHIP ═══════════════════════ -->
+<section class="section" id="proof">
+  <div class="wrap">
+    <div class="flagcard" data-anim="up">
+    <div class="head head--center">
+      <span class="badge" data-anim="fade">Trucking &amp; Transport</span>
+      <h2 class="d2" data-anim="up">Every Driver, Every State, <em>One Automated Dispatch Board</em></h2>
+      <p class="lead" data-anim="fade">
+        Past forty trucks, every fleet breaks in the same three places: the board
+        and the cab disagree, the app quits where coverage does, and the proof
+        never leaves the phone. Here is what we shipped against each one.
+      </p>
+    </div>
+
+    <div class="flag__stats flag__stats--wide">
+      <div data-anim="up">
+        <span class="stat__i" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.4"/><path d="M2.8 19.5c0-3.1 2.8-5.2 6.2-5.2s6.2 2.1 6.2 5.2"/><path d="M16.5 6.2a3.2 3.2 0 0 1 0 6.2M18 14.6c2 .7 3.3 2.3 3.3 4.4"/></svg></span>
+        <div class="stat__n" data-count="350" data-suffix="+">0</div>
+        <div class="stat__l">Drivers kept in sync</div>
+      </div>
+      <div data-anim="up" data-delay="0.1">
+        <span class="stat__i" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9.2 3.4 3.5 5.6v15l5.7-2.2 5.6 2.2 5.7-2.2v-15L14.8 5.6Z"/><path d="M9.2 3.4v15.2M14.8 5.6v15"/></svg></span>
+        <div class="stat__n" data-count="48" data-suffix="+">0</div>
+        <div class="stat__l">States covered, plus Canada</div>
+      </div>
+      <div data-anim="up" data-delay="0.2">
+        <span class="stat__i" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="2.6" y="4.2" width="12.4" height="11" rx="2"/><rect x="15.6" y="8.6" width="5.8" height="11.2" rx="1.8"/><path d="M2.6 8.6h12.4M7 19.8h5"/></svg></span>
+        <div class="stat__n" data-count="3" data-suffix="">0</div>
+        <div class="stat__l">Apps: dispatch, iOS, Android</div>
+      </div>
+    </div>
+
+    <h3 class="subhead" data-anim="fade">Where the Automation Is Already Running</h3>
+
+    <div class="flag">
+      <div class="flag__copy">
+        <p class="flag__p">
+          Class 6, 7 and 8 trucks moving across 48 states and Canada. One system,
+          four moving parts, none of them bolted on afterwards.
+        </p>
+
+        <ul class="ticks flag__ticks">
+          <li>A dispatch board the office and the cab read from at the same time</li>
+          <li>Native iOS and Android apps that keep working past the last tower</li>
+          <li>Photo, GPS and signature chain of custody filed against every load</li>
+          <li>QuickBooks sync that carries a load through to the invoice</li>
+        </ul>
+
+        <dl class="flag__spec">
+          <div><dt>Stack</dt><dd>Laravel, Vue, Swift, Kotlin</dd></div>
+          <div><dt>Footprint</dt><dd>48 states plus Canada</dd></div>
+          <div><dt>Status</dt><dd>In production, still shipping</dd></div>
+        </dl>
+
+        <!-- The automation running end to end. The highlight walks the four
+             steps on a loop; nobody retypes anything between them. -->
+        <div class="autoloop">
+          <span class="autoloop__lbl">One load, start to invoice, nobody retyping it</span>
+          <ol class="autoloop__steps">
+            <li style="--i:0">
+              <i><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="4.5" width="17" height="15" rx="2"/><path d="M3.5 9h17M8 9v10.5"/></svg></i>
+              <b>Load created</b>
+            </li>
+            <li style="--i:1">
+              <i><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="2.8" width="10" height="18.4" rx="2.4"/><path d="M9.6 12.4l1.8 1.8 3.4-3.6"/></svg></i>
+              <b>Driver accepts</b>
+            </li>
+            <li style="--i:2">
+              <i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 7.5h4l1.4-2h6.2l1.4 2h4v11h-17z"/><circle cx="12" cy="13" r="3.4"/></svg></i>
+              <b>Proof captured</b>
+            </li>
+            <li style="--i:3">
+              <i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3.5h12v17l-3-1.8-3 1.8-3-1.8-3 1.8z"/><path d="M9 8.5h6M9 12.5h6"/></svg></i>
+              <b>Invoice sent</b>
+            </li>
+          </ol>
+        </div>
+
+        <div class="cta-row" data-anim="fade">
+          <a href="case-studies.html" class="btn"><span>See the case studies <i class="ar">&rarr;</i></span></a>
+        </div>
+      </div>
+
+      <div class="proof" data-anim="up" data-delay="0.15">
+        <div class="proof__site"><span class="dot"></span> alliancedriveaway.com · live</div>
+
+        <h4 class="proof__h">Every Load on One Timeline</h4>
+        <p class="proof__p">
+          Every load on one timeline: what has landed, what is rolling, what is
+          waiting on a driver. The office and the cab are reading the same row.
+        </p>
+
+        <div class="proof__vizhead">
+          <span class="proof__vizlbl">Loads in motion</span>
+          <ul class="vizkey">
+            <li class="vizkey--live">Moving</li>
+            <li class="vizkey--done">Delivered</li>
+            <li class="vizkey--queue">Queued</li>
+          </ul>
+        </div>
+
+        <div class="proof__viz"><canvas id="proofViz"></canvas></div>
+
+        <div class="chips">
+          <span>PHP / Laravel</span><span>Vue.js</span><span>Swift</span>
+          <span>Kotlin</span><span>Real-time dispatch</span><span>GPS tracking</span>
+        </div>
+
+        <a class="tlink" href="case-studies/alliance-driveaway.html">Read the full case study <i class="ar">&rarr;</i></a>
+      </div>
+    </div>
+    </div><!-- /flagcard -->
+  </div>
+</section>
+
+<!-- ═══════════════════════ ASK ═══════════════════════ -->
+<section class="section section--tight">
+  <div class="wrap">
+    <div class="head head--center head--mt" data-anim="up">
+      <h3 class="d2">Skip the Pitch Decks. <em>Get the Real Answer</em></h3>
+      <p class="lead">Fifteen minutes with the person who would run the build, and a written
+        scope you keep whether or not you hire us.</p>
+    </div>
+
+    <!-- ── Ask: name, email and what is breaking. The read-out on the left is
+         the same one the principal answers with. ── -->
+    <div class="triage" id="ask" data-anim="up">
+      <div class="triage__copy">
+        <span class="badge">Talk to the principal</span>
+        <p>Tell us where it breaks. Not the tidy version for the board deck, the one
+          that keeps you up the night before a busy week. You get a straight read back:
+          what we would build against it, where that build is already running today, and
+          whether it is worth building at all yet. It comes from the engineer who would
+          lead the work, never from a salesperson reading a script.</p>
+
+        <h4 class="triage__h">What You Get Back</h4>
+        <dl class="triage__read">
+          <div>
+            <dt>What we ship against it</dt>
+            <dd id="tgFix">Status written once, at the truck, and read everywhere.</dd>
+          </div>
+          <div>
+            <dt>Where it already runs</dt>
+            <dd id="tgProof">Alliance Driveaway, 350+ drivers, 48 states plus Canada.</dd>
+          </div>
+          <div>
+            <dt>First step</dt>
+            <dd id="tgStep">A 15-minute call, then a written scope you keep either way.</dd>
+          </div>
+        </dl>
+
+        <ul class="triage__assure">
+          <li>Answer in one business day</li>
+          <li>Goes to a person, not a queue</li>
+          <li>No mailing list, ever</li>
+        </ul>
+      </div>
+
+      <form class="triage__form form" name="ops-triage" data-lead="ops-triage" method="POST"
+            data-netlify="true" netlify-honeypot="bot-field" action="/contact.html?sent=1">
+        <input type="hidden" name="form-name" value="ops-triage" />
+        <p class="form__hp">
+          <label>Leave this field empty <input name="bot-field" tabindex="-1" autocomplete="off" /></label>
+        </p>
+
+        <label class="form__field">
+          <span>Your name</span>
+          <input type="text" name="name" required autocomplete="name" placeholder="Dana Reyes" />
+        </label>
+
+        <label class="form__field">
+          <span>Work email</span>
+          <input type="email" name="email" required autocomplete="email" placeholder="dana@northbound.com" />
+        </label>
+
+        <label class="form__field">
+          <span>Which is costing you most, and what does it look like on a bad day?</span>
+          <textarea id="tgMsg" name="message" rows="4" required
+                    placeholder="The board and the cab disagree / the app quits where coverage does / the proof never leaves the phone, or something else entirely. Rough is fine. Vague is not."></textarea>
+        </label>
+
+        <div class="triage__act">
+          <button type="submit" class="btn form__submit"><span>Get my read <i class="ar">&rarr;</i></span></button>
+          <a class="btn btn--ghost" href="https://wa.me/18259772020?text=Hi%20Alpha%20Squared%2C%20I%27d%20like%20to%20book%20a%20call%20about%20our%20dispatch%20operation."
+             target="_blank" rel="noopener">
+            <span>Book a call</span>
+          </a>
+        </div>
+
+        <p class="form__note">Prefer the phone? <a href="tel:+18259772020">+1 (825) 977-2020</a>,
+          Mountain Time, 8am to 6pm.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ── ENGAGEMENT LADDER ── -->
+<section class="section section--tight" id="engage">
+  <div class="wrap">
+    <div class="ladder" data-anim="up">
+      <div class="head head--center">
+        <span class="badge" data-anim="fade">How we start</span>
+        <h2 class="d2" data-split="lines">Small First Step.<br /><span class="grad">No Platform Sale on Day One</span></h2>
+        <p class="lead" data-anim="fade">You shouldn't buy a system from people who haven't seen your
+          operation. So we start by looking at it.</p>
+      </div>
+
+      <div class="ladder__road" aria-hidden="true"><span class="ladder__truck">🚚</span></div>
+
+      <div class="rail">
+        <div class="rail__step" style="--i:0" data-lit data-anim="up">
+          <span class="rail__n">STEP 01</span>
+          <h3>Free Ops Benchmark</h3>
+          <p>We pull your public FMCSA record and send back how your operation profiles against comparable carriers. Costs you an email.</p>
+        </div>
+        <div class="rail__step" style="--i:1" data-lit data-anim="up" data-delay="0.08">
+          <span class="rail__n">STEP 02</span>
+          <h3>Dispatch &amp; Back-Office Audit</h3>
+          <p>Two weeks. We map your actual workflows, quantify what the manual hours cost you, and hand you an integration plan that's yours to keep.</p>
+        </div>
+        <div class="rail__step" style="--i:2" data-lit data-anim="up" data-delay="0.16">
+          <span class="rail__n">STEP 03</span>
+          <h3>Platform Deployment</h3>
+          <p>Dispatch, driver app, QuickBooks sync and tracking, configured to your operation rather than custom-built from zero.</p>
+        </div>
+        <div class="rail__step" style="--i:3" data-lit data-anim="up" data-delay="0.24">
+          <span class="rail__n">STEP 04</span>
+          <h3>We Stay On</h3>
+          <p>Hosting, support, compliance updates and the roadmap. The part that makes this a system rather than a project.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- ═══════════════════════ THE FOUR BROKEN ASSUMPTIONS ═══════════════════════ -->
 <section class="section">
   <div class="wrap">
     <div class="head head--center">
       <span class="badge" data-anim="fade">Why nothing off the shelf fits</span>
-      <h2 class="d2" data-split="lines">Your operation breaks<br /><span class="grad">every assumption a TMS makes.</span></h2>
+      <h2 class="d2" data-anim="up">Your Operation Breaks <em>Every Assumption a TMS Makes</em></h2>
       <p class="lead" data-anim="fade">That's why driveaway companies run on spreadsheets, email and text
-        messages — or pay to build in-house. There is no product to displace.</p>
+        messages. There is no product to displace.</p>
     </div>
 
-    <div class="riser" style="margin-top:58px">
+    <div class="riser" style="margin-top:32px">
       <div class="grid grid--4">
         <article class="card" data-anim="up">
           <span class="card__label">No trailer</span>
-          <h3>The asset being moved is the cargo.</h3>
+          <h3>The Asset Being Moved Is the Cargo</h3>
           <p>No trailer, no bill of lading in the normal sense. Every load screen in every TMS starts from the wrong object.</p>
         </article>
 
         <article class="card" data-anim="up" data-delay="0.08">
           <span class="card__label">No ELD</span>
-          <h3>It's the customer's vehicle, not yours.</h3>
+          <h3>It's the Customer's Vehicle, Not Yours</h3>
           <p>Often no telematics and no ELD to pull from. Tracking has to be phone-based, which means the driver app <em>is</em> the tracking system.</p>
         </article>
 
         <article class="card" data-anim="up" data-delay="0.16">
           <span class="card__label">No roster</span>
-          <h3>Drivers are a distributed 1099 network.</h3>
+          <h3>Drivers Are a Distributed 1099 Network</h3>
           <p>Not employees on a route. They accept or decline, they're spread across a continent, and their qualification status is yours to prove.</p>
         </article>
 
         <article class="card" data-anim="up" data-delay="0.24">
           <span class="card__label">No round trip</span>
-          <h3>Every job is one-way.</h3>
-          <p>Which creates a deadhead and repositioning problem that has no analogue in freight — and no solution in freight software.</p>
+          <h3>Every Job Is One-Way</h3>
+          <p>Which creates a deadhead and repositioning problem with no analog in freight, and therefore no solution in freight software.</p>
         </article>
       </div>
     </div>
@@ -143,263 +464,44 @@
     <div class="wrap">
       <div class="head head--center">
         <span class="badge" data-anim="fade">What we build</span>
-        <h2 class="d2" data-split="lines">Six pieces, built for this operation<br /><span class="grad">and nobody else's.</span></h2>
+        <h2 class="d2" data-split="lines">Six Pieces, Built for This Operation<br /><span class="grad">And Nobody Else's</span></h2>
       </div>
 
       <div class="grid grid--3" style="margin-top:56px">
         <div class="svc" data-anim="up">
           <span class="svc__i"><svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="14" rx="2"/><path d="M8 21h8M12 18v3"/></svg></span>
-          <h3>Dispatch board</h3>
+          <h3>Dispatch Board</h3>
           <p>Job creation to delivery in one live view. Assign, reassign and see status without a single back-and-forth email.</p>
         </div>
 
         <div class="svc" data-anim="up" data-delay="0.07">
           <span class="svc__i"><svg viewBox="0 0 24 24"><rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M11 18h2"/></svg></span>
-          <h3>Native driver app</h3>
+          <h3>Native Driver App</h3>
           <p>iOS and Android, offline-tolerant. Accept or decline jobs, capture condition photos and signatures, submit documents, see pay status.</p>
         </div>
 
         <div class="svc" data-anim="up" data-delay="0.14">
           <span class="svc__i"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 10 10"/><path d="M12 6v6l4 2"/></svg></span>
-          <h3>Deep QuickBooks sync</h3>
-          <p>Load to invoice without anyone retyping it. Payment sync-back and chart-of-accounts mapping — not a push-only checkbox.</p>
+          <h3>Deep QuickBooks Sync</h3>
+          <p>Load to invoice without anyone retyping it. Payment sync-back and chart-of-accounts mapping, not a push-only checkbox.</p>
         </div>
 
         <div class="svc" data-anim="up">
           <span class="svc__i"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-4"/></svg></span>
-          <h3>Chain of custody</h3>
+          <h3>Chain of Custody</h3>
           <p>Photo, GPS and signature stamped on every handoff. A tamper-evident record of who had a $180,000 truck, and when.</p>
         </div>
 
         <div class="svc" data-anim="up" data-delay="0.07">
           <span class="svc__i"><svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="m17 11 2 2 4-4"/></svg></span>
-          <h3>Driver qualification</h3>
-          <p>Every driver's status provable before the roadside inspection — not reconstructed from a folder after one.</p>
+          <h3>Driver Qualification</h3>
+          <p>Every driver's status provable before the roadside inspection, not reconstructed from a folder after one.</p>
         </div>
 
         <div class="svc" data-anim="up" data-delay="0.14">
           <span class="svc__i"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4M4.9 4.9l2.9 2.9M16.2 16.2l2.9 2.9M19.1 4.9l-2.9 2.9M7.8 16.2l-2.9 2.9"/></svg></span>
-          <h3>Intelligent assignment</h3>
+          <h3>Intelligent Assignment</h3>
           <p>Matching contractor drivers to one-way jobs across driver location, deadhead cost, endorsements and reliability history.</p>
-        </div>
-      </div>
-
-      <p class="lead" data-anim="fade" style="text-align:center;margin-top:34px;font-size:.9rem">
-        Dispatch, driver apps and QuickBooks are live in production today.
-        Live truck tracking and intelligent assignment are in build.
-      </p>
-    </div>
-  </section>
-
-  <!-- ── THE MATH ── -->
-  <section class="section section--tight">
-    <div class="wrap">
-      <div class="head head--center">
-        <span class="badge" data-anim="fade">Why now</span>
-        <h2 class="d2" data-split="lines">Nobody wakes up wanting software.<br /><span class="grad">They wake up wanting margin.</span></h2>
-        <p class="lead" data-anim="fade">Three numbers are reshaping this industry right now. Each one is a
-          software problem underneath.</p>
-      </div>
-
-      <div class="grid grid--3" style="margin-top:52px">
-        <div class="svc" data-anim="up">
-          <h3 style="font-size:2rem;letter-spacing:-.04em;margin-bottom:14px">&minus;2.3%</h3>
-          <p><strong>Average truckload operating margin.</strong> Carriers are losing money per mile.
-            Every hour a dispatcher spends retyping a job into accounting comes out of that.</p>
-          <span class="tlink" style="pointer-events:none;font-size:.78rem;color:var(--ink-3)">Source: industry operating data, 2025</span>
-        </div>
-
-        <div class="svc" data-anim="up" data-delay="0.07">
-          <h3 style="font-size:2rem;letter-spacing:-.04em;margin-bottom:14px">$520k</h3>
-          <p><strong>Average annual cargo loss per affected carrier.</strong> 75% is never recovered, and
-            the mechanics have shifted from physical theft to impersonation and double-brokering.</p>
-          <span class="tlink" style="pointer-events:none;font-size:.78rem;color:var(--ink-3)">Source: ATRI; Verisk CargoNet 2025</span>
-        </div>
-
-        <div class="svc" data-anim="up" data-delay="0.14">
-          <h3 style="font-size:2rem;letter-spacing:-.04em;margin-bottom:14px">5&ndash;12%</h3>
-          <p><strong>Of CDL holders exiting over 2&ndash;3 years</strong> under English-proficiency
-            enforcement and the non-domiciled CDL rule. Qualification tracking just became a legal exposure.</p>
-          <span class="tlink" style="pointer-events:none;font-size:.78rem;color:var(--ink-3)">Source: FMCSA rulemaking; ATA estimates</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── ALLIANCE PROOF (dark inset) ── -->
-  <section class="section section--tight" id="proof">
-    <div class="wrap">
-      <div class="study" data-anim="up">
-        <div class="study__top">
-          <div>
-            <span class="badge">Live in production</span>
-            <h2 class="d2">Alliance Driveaway<br /><span class="grad">Solutions.</span></h2>
-            <p class="lead" style="margin-top:20px">
-              A North American Class 6/7/8 vehicle-relocation company. We built their entire
-              digital ecosystem: a dispatch web dashboard plus native iOS and Android driver
-              apps, keeping drivers, clients and operations in sync with real-time job tracking
-              — with QuickBooks-integrated accounting underneath it.
-            </p>
-            <div class="chips">
-              <span>PHP / Laravel</span><span>Vue.js</span><span>Swift</span>
-              <span>Kotlin</span><span>QuickBooks</span><span>Real-time tracking</span>
-            </div>
-          </div>
-
-          <div class="study__viz"><canvas id="proofViz"></canvas></div>
-        </div>
-
-        <div class="study__grid">
-          <div>
-            <h4>The problem</h4>
-            <p>A distributed contractor driver network, one-way jobs across a continent, and no
-              software on the market built for an operation where the vehicle being moved is the
-              freight itself.</p>
-          </div>
-          <div>
-            <h4>What we shipped</h4>
-            <ul class="ticks">
-              <li>Dispatch dashboard</li>
-              <li>Native iOS + Android driver apps</li>
-              <li>Real-time job tracking</li>
-              <li>QuickBooks-integrated accounting</li>
-            </ul>
-          </div>
-          <div>
-            <h4>Scale today</h4>
-            <ul class="ticks">
-              <li>350+ screened CDL drivers</li>
-              <li>48 US states and Canada</li>
-              <li>Class 6, 7 and 8 equipment</li>
-              <li>Live truck tracking in build</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── PRODUCT CROSS-LINK → the Driveaway site ── -->
-  <section class="section section--tight">
-    <div class="wrap">
-      <a class="product" href="index-trucking-b.html" data-anim="up">
-        <div class="product__copy">
-          <span class="badge">The product</span>
-          <h2 class="d2">We turned that build<br /><span class="grad">into a platform.</span></h2>
-          <p class="lead" style="margin-top:18px">
-            What we shipped for Alliance is now a deployable system for any
-            vehicle-relocation operator — dispatch, native driver apps, deep
-            QuickBooks sync and chain of custody. It has its own home.
-          </p>
-          <span class="tlink" style="margin-top:22px">Visit the Driveaway Dispatch Platform <i class="ar">→</i></span>
-        </div>
-
-        <!-- Miniature of the product site, drawn in CSS so it can't go stale -->
-        <div class="product__shot" aria-hidden="true">
-          <div class="product__chrome"><i></i><i></i><i></i><em>driveaway dispatch platform</em></div>
-          <div class="product__page">
-            <div class="product__nav"><b></b><u></u><u></u><u></u><s></s></div>
-            <div class="product__hero">
-              <div class="product__h1"></div>
-              <div class="product__h1 product__h1--2"></div>
-              <div class="product__p"></div>
-              <div class="product__p product__p--2"></div>
-              <div class="product__btns"><s></s><s class="ghost"></s></div>
-            </div>
-            <div class="product__board">
-              <div class="product__brow"><i></i><i></i><i></i></div>
-              <div class="product__brow"><i></i><i></i><i></i></div>
-              <div class="product__brow"><i></i><i></i><i></i></div>
-              <div class="product__brow"><i></i><i></i><i></i></div>
-            </div>
-          </div>
-        </div>
-      </a>
-    </div>
-  </section>
-
-  <!-- ── BUYER'S ALTERNATIVE ── -->
-  <section class="section">
-    <div class="wrap">
-      <div class="head head--center">
-        <span class="badge" data-anim="fade">What you'd do instead</span>
-        <h2 class="d2" data-split="lines">The real question isn't our price.<br /><span class="grad">It's your alternative.</span></h2>
-      </div>
-
-      <div class="compare">
-        <div class="compare__col">
-          <div class="cmp cmp--bad" data-anim="left">
-            <span class="cmp__i"><svg viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg></span>
-            Enterprise TMS at $100&ndash;300 per truck per month, plus $50,000+ implementation and three months
-          </div>
-          <div class="cmp cmp--bad" data-anim="left" data-delay="0.08">
-            <span class="cmp__i"><svg viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg></span>
-            SMB SaaS at $300/month that was never built for one-way jobs or a contractor network
-          </div>
-          <div class="cmp cmp--bad" data-anim="left" data-delay="0.16">
-            <span class="cmp__i"><svg viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg></span>
-            Building in-house — hiring a team to learn an operation you already understand
-          </div>
-          <div class="cmp cmp--bad" data-anim="left" data-delay="0.24">
-            <span class="cmp__i"><svg viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg></span>
-            The status quo: spreadsheets, email threads, and staff retyping jobs into accounting
-          </div>
-        </div>
-
-        <div class="globe"><canvas id="globeViz"></canvas></div>
-
-        <div class="compare__col">
-          <div class="cmp" data-anim="right">
-            <span class="cmp__i"><svg viewBox="0 0 24 24"><path d="m20 6-11 11-5-5"/></svg></span>
-            A platform already built for this operation — configured, not written from scratch
-          </div>
-          <div class="cmp" data-anim="right" data-delay="0.08">
-            <span class="cmp__i"><svg viewBox="0 0 24 24"><path d="m20 6-11 11-5-5"/></svg></span>
-            Deployed in weeks, because the hard architectural problems are already solved
-          </div>
-          <div class="cmp" data-anim="right" data-delay="0.16">
-            <span class="cmp__i"><svg viewBox="0 0 24 24"><path d="m20 6-11 11-5-5"/></svg></span>
-            A team that has run a 350-driver network across 48 states and knows what breaks
-          </div>
-          <div class="cmp" data-anim="right" data-delay="0.24">
-            <span class="cmp__i"><svg viewBox="0 0 24 24"><path d="m20 6-11 11-5-5"/></svg></span>
-            One accountable Canadian principal, in your timezone, for the whole engagement
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── ENGAGEMENT LADDER ── -->
-  <section class="section section--tight" id="engage">
-    <div class="wrap">
-      <div class="head head--center">
-        <span class="badge" data-anim="fade">How we start</span>
-        <h2 class="d2" data-split="lines">Small first step.<br /><span class="grad">No platform sale on day one.</span></h2>
-        <p class="lead" data-anim="fade">You shouldn't buy a system from people who haven't seen your
-          operation. So we start by looking at it.</p>
-      </div>
-
-      <div class="rail">
-        <div class="rail__step" data-lit data-anim="up">
-          <span class="rail__n">STEP 01</span>
-          <h3>Free ops benchmark</h3>
-          <p>We pull your public FMCSA record and send back how your operation profiles against comparable carriers. Costs you an email.</p>
-        </div>
-        <div class="rail__step" data-lit data-anim="up" data-delay="0.08">
-          <span class="rail__n">STEP 02</span>
-          <h3>Dispatch &amp; back-office audit</h3>
-          <p>Two weeks. We map your actual workflows, quantify what the manual hours cost you, and hand you an integration plan — yours to keep.</p>
-        </div>
-        <div class="rail__step" data-lit data-anim="up" data-delay="0.16">
-          <span class="rail__n">STEP 03</span>
-          <h3>Platform deployment</h3>
-          <p>Dispatch, driver app, QuickBooks sync and tracking — configured to your operation rather than custom-built from zero.</p>
-        </div>
-        <div class="rail__step" data-lit data-anim="up" data-delay="0.24">
-          <span class="rail__n">STEP 04</span>
-          <h3>We stay on</h3>
-          <p>Hosting, support, compliance updates and the roadmap. The part that makes this a system rather than a project.</p>
         </div>
       </div>
     </div>
@@ -409,15 +511,16 @@
   <section class="section">
     <div class="wrap">
       <div class="panel" data-anim="up">
-        <div class="why">
-          <div>
+        <div class="tfaq">
+          <div class="head head--center">
             <span class="badge">Straight answers</span>
-            <h2 class="d2">The questions<br /><span class="grad">operators actually ask.</span></h2>
+            <h2 class="d2">Frequently Asked Questions<br /><span class="grad">Regarding Dispatch</span></h2>
+          </div>
 
-            <div class="acc" id="acc" style="margin-top:34px">
+          <div class="acc" id="acc" style="margin-top:34px">
               <div class="acc__item is-open">
                 <button class="acc__q">Do we have to rip out QuickBooks? <i></i></button>
-                <div class="acc__a"><p>No — the opposite. QuickBooks stays, and the point is that nobody
+                <div class="acc__a"><p>No, the opposite. QuickBooks stays, and the point is that nobody
                   retypes into it. Load to invoice, payments syncing back, accounts mapped properly. Shallow
                   accounting integration is the most-cited back-office complaint in this industry, and it's
                   the piece we've already solved end to end for a live client.</p></div>
@@ -431,34 +534,37 @@
               </div>
               <div class="acc__item">
                 <button class="acc__q">Our drivers aren't employees. Does that work? <i></i></button>
-                <div class="acc__a"><p>That's the design centre, not an edge case. Accept-or-decline job
+                <div class="acc__a"><p>That's the design center, not an edge case. Accept-or-decline job
                   offers, self-service document upload, pay visibility, and qualification tracking per driver
                   across a distributed 1099 network. It's running with 350+ drivers today.</p></div>
               </div>
               <div class="acc__item">
                 <button class="acc__q">How long before it's actually running? <i></i></button>
                 <div class="acc__a"><p>Weeks, not the three-plus months an enterprise TMS implementation
-                  takes — because we're configuring a platform that already exists rather than writing one.
+                  takes, because we're configuring a platform that already exists rather than writing one.
                   The audit in step two gives you a real timeline before you commit to anything.</p></div>
               </div>
-            </div>
           </div>
-
-          <div class="why__viz"><canvas id="radarViz"></canvas></div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- ── FINAL CTA ── -->
-  <section class="final" id="contact">
+  <section class="final final--close" id="contact">
     <div class="wrap">
-      <span class="badge" data-anim="fade">Let's talk</span>
-      <h2 class="d2" data-split="lines"><span class="grad">Send us your DOT number.</span> We'll send back something useful.</h2>
-      <p class="lead" data-anim="fade">No deck, no discovery-call gauntlet. We'll pull your public record,
-        tell you what we'd look at first, and you decide whether a conversation is worth your time.</p>
-      <div class="cta-row" data-anim="fade" style="justify-content:center;margin-top:32px">
-        <a href="mailto:info@alphasquared.co?subject=Ops%20benchmark%20request" class="btn"><span>Request the free benchmark <i class="ar">→</i></span></a>
+      <div class="close" data-anim="up">
+        <h2 class="d2" data-anim="up">Show Us One Manual Process. <em>We'll Show You What Automating It Takes</em></h2>
+        <p class="lead">One conversation, and you know what it takes.</p>
+
+        <div class="close__act">
+          <a class="btn" href="https://wa.me/18259772020?text=Hi%20Alpha%20Squared%2C%20I%27d%20like%20to%20book%20a%20call%20about%20a%20build."
+             target="_blank" rel="noopener">
+            <span>Book a call <i class="ar">&rarr;</i></span>
+          </a>
+
+          <a class="btn btn--ghost" href="contact.html"><span>Send a brief</span></a>
+        </div>
       </div>
     </div>
   </section>
@@ -470,52 +576,134 @@
 <!-- ═══════════════════════ FOOTER ═══════════════════════ -->
 <footer class="footer">
   <div class="wrap">
+
     <div class="footer__grid">
       <div class="footer__brand">
-        <a href="index.html" class="brand" aria-label="Alpha Squared — Ideas Implemented"><img src="assets/logo-full-white.png" alt="Alpha Squared" class="brand__logo" /></a>
-        <p>Canadian software studio building for operators since 2012. Dispatch, driver apps
-          and back-office systems for driveaway and vehicle relocation.</p>
-      </div>
-      <div>
-        <h4>Driveaway</h4>
-        <ul>
-          <li><a href="#platform">The platform</a></li>
-          <li><a href="#proof">Alliance Driveaway</a></li>
-          <li><a href="#engage">How we start</a></li>
-          <li><a href="#contact">Free ops benchmark</a></li>
+        <a href="index.html" class="brand" aria-label="Alpha Squared home, ideas implemented">
+          <img src="assets/logo-full-white.png" alt="Alpha Squared logo" class="brand__logo" />
+        </a>
+        <p>Canadian software studio building for operators and enterprises since 2012.
+          Edmonton, Alberta. Trucking and transport specialists. Ideas implemented.</p>
+
+        <h2 class="footer__h footer__h--soc">Follow Along</h2>
+        <!-- Profile URLs are placeholders until the real handles are confirmed;
+             WhatsApp and email are live. -->
+        <ul class="soc">
+          <li><a href="#" aria-label="Alpha Squared on LinkedIn">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5ZM3 9.5h4V21H3V9.5Zm6.5 0h3.8v1.6h.05a4.2 4.2 0 0 1 3.77-2.07c4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.1c0-1.22-.02-2.78-1.7-2.78-1.7 0-1.96 1.33-1.96 2.7V21h-4V9.5Z"/></svg>
+          </a></li>
+          <li><a href="#" aria-label="Alpha Squared on X">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.53 3h3.2l-6.99 7.99L22 21h-6.44l-5.04-6.6L4.75 21H1.54l7.48-8.55L2 3h6.6l4.56 6.03L17.53 3Zm-1.12 16.06h1.77L7.67 4.84H5.77l10.64 14.22Z"/></svg>
+          </a></li>
+          <li><a href="#" aria-label="Alpha Squared on Facebook">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 21v-8h2.7l.4-3.1h-3.1V7.9c0-.9.25-1.5 1.54-1.5h1.66V3.63A22 22 0 0 0 14.3 3.5c-2.4 0-4.05 1.47-4.05 4.17V9.9H7.5V13h2.75v8h3.25Z"/></svg>
+          </a></li>
+          <li><a href="#" aria-label="Alpha Squared on Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r="1.1" fill="currentColor" stroke="none"/></svg>
+          </a></li>
+          <li><a href="https://wa.me/18259772020" target="_blank" rel="noopener" aria-label="Alpha Squared on WhatsApp">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2C6.6 2 2.2 6.4 2.2 11.84c0 1.74.46 3.44 1.32 4.94L2 22l5.34-1.4a9.8 9.8 0 0 0 4.7 1.2h.01c5.43 0 9.84-4.4 9.84-9.84C21.89 6.4 17.48 2 12.04 2Zm5.76 14.02c-.24.68-1.4 1.3-1.94 1.34-.5.05-.98.23-3.3-.69-2.78-1.1-4.55-3.94-4.69-4.13-.13-.19-1.12-1.49-1.12-2.84s.71-2.01.96-2.29c.25-.27.55-.34.73-.34l.53.01c.17 0 .4-.06.62.48.24.57.8 1.97.87 2.11.07.14.12.31.02.5-.09.19-.14.31-.28.47l-.42.49c-.14.14-.28.29-.12.57.16.27.71 1.17 1.52 1.9 1.05.93 1.93 1.22 2.2 1.36.28.14.44.12.6-.07.17-.19.7-.81.88-1.09.19-.27.37-.23.63-.14.25.1 1.65.78 1.93.92.28.14.47.21.54.33.07.11.07.65-.17 1.33Z"/></svg>
+          </a></li>
+          <li><a href="mailto:info@alphasquared.co" aria-label="Email Alpha Squared">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="2.5" y="4.5" width="19" height="15" rx="2.5"/><path d="m3.5 7 8.5 6 8.5-6"/></svg>
+          </a></li>
         </ul>
       </div>
+
       <div>
-        <h4>Company</h4>
+        <h2 class="footer__h">Solutions</h2>
         <ul>
-          <li><a href="index.html">Alpha Squared</a></li>
+          <li><a href="trucking.html">Trucking &amp; Transport</a></li>
+          <li><a href="services.html#platforms">Operations Platforms</a></li>
+          <li><a href="services.html#mobile">Mobile Apps</a></li>
+          <li><a href="services.html#ai">AI &amp; Automation</a></li>
+          <li><a href="services.html#teams">Dedicated Teams</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h2 class="footer__h">Company</h2>
+        <ul>
           <li><a href="about.html">About Us</a></li>
           <li><a href="case-studies.html">Case Studies</a></li>
-          <li><a href="services.html">All Services</a></li>
+          <li><a href="services.html">Services</a></li>
           <li><a href="trust.html">Trust &amp; Security</a></li>
+          <li><a href="contact.html">Contact</a></li>
         </ul>
       </div>
+
       <div>
-        <h4>Contact</h4>
-        <ul>
-          <li><a href="mailto:info@alphasquared.co">info@alphasquared.co</a></li>
-          <li><a href="https://alphasquared.ca">alphasquared.ca</a></li>
-          <li>Edmonton, Alberta, Canada</li>
+        <h2 class="footer__h">Talk to Us</h2>
+        <ul class="footer__contact">
+          <li><span>Phone</span><a href="tel:+18259772020">+1 (825) 977-2020</a></li>
+          <li><span>Email</span><a href="mailto:info@alphasquared.co">info@alphasquared.co</a></li>
+          <li><span>Office</span>5479 CrabApple Loop SW<br />Edmonton, Alberta T6X 1S5</li>
+          <li><span>Hours</span>Mountain Time, 8am to 6pm</li>
         </ul>
       </div>
     </div>
+
     <div class="footer__base">
       <span>© 2026 Alpha Squared. Ideas Implemented.</span>
-      <span>Software for operations that can't stop.</span>
+      <ul class="footer__legal">
+        <li><a href="sitemap.xml">Sitemap</a></li>
+      </ul>
+      <span>Built in Edmonton, Alberta</span>
     </div>
   </div>
 </footer>
+
+<!-- ═══════════════════════ CHATBOT ═══════════════════════ -->
+<button id="askA2-launcher" aria-label="Open chat">
+  <div class="askA2-ring"></div>
+  <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+  <div class="askA2-badge-dot" id="askA2-badge-dot">1</div>
+</button>
+
+<div id="askA2-panel">
+  <div class="askA2-head">
+    <div class="askA2-avatar">&#945;&sup2;</div>
+    <div>
+      <div class="askA2-title">Ask Alpha&sup2;</div>
+      <div class="askA2-status"><span class="askA2-status-dot"></span>Usually replies instantly</div>
+    </div>
+    <button class="askA2-close" id="askA2-close" aria-label="Close chat">
+      <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 6L6 18M6 6l12 12"/></svg>
+    </button>
+  </div>
+
+  <div class="askA2-body" id="askA2-body">
+    <div class="askA2-msg bot">Hey. I'm the Alpha&sup2; assistant. Ask me about dispatch, driver apps, QuickBooks sync or what the free ops benchmark involves.</div>
+  </div>
+
+  <div class="askA2-quick-wrap">
+    <div class="askA2-quick-label">Quick questions</div>
+    <div class="askA2-quick-row" id="askA2-quick-row">
+      <button class="askA2-quick-btn" data-q="Do you integrate with QuickBooks?">Do you do QuickBooks?</button>
+      <button class="askA2-quick-btn" data-q="Tell me about your trucking and dispatch platform">What's in the platform?</button>
+      <button class="askA2-quick-btn" data-q="Do you build native iOS and Android driver apps?">Native driver apps?</button>
+      <button class="askA2-quick-btn" data-q="How long does a project take?">How fast can it run?</button>
+    </div>
+  </div>
+
+  <div class="askA2-input-row">
+    <input type="text" id="askA2-input" placeholder="Ask anything..." aria-label="Ask a question" />
+    <button class="askA2-send" id="askA2-send" aria-label="Send">
+      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 2 11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+    </button>
+  </div>
+
+  <div class="askA2-disclaimer">Ask Alpha&sup2; can make mistakes. For anything important, book a call with our team.</div>
+</div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/CustomEase.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
 <script src="https://unpkg.com/split-type@0.3.4/umd/index.min.js"></script>
-<script src="js/main.js?v=20260729g"></script>
+<script src="js/main.js?v=20260813c"></script>
+<script src="js/home.js?v=20260813c"></script>
+<script src="js/forms.js?v=20260814a"></script>
+<script src="js/chatbot.js?v=20260815a"></script>
 </body>
 </html>

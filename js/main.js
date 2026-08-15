@@ -11,6 +11,15 @@
   var REDUCED = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var hasGSAP = typeof window.gsap !== 'undefined';
 
+  /* The canvas visuals were drawn white-on-dark. On paper they need ink of
+     the same weight, so every literal white is read through these. */
+  function isLight() { return document.documentElement.getAttribute('data-theme') === 'light'; }
+  function inkRGB() { return isLight() ? '15,44,82' : '255,255,255'; }
+  function ink(a) { return 'rgba(' + inkRGB() + ',' + a + ')'; }
+  /* Accent: high-vis amber on the dark theme, gold on the light one. */
+  function accentRGB() { return isLight() ? '192,138,30' : '245,165,36'; }
+  function accent(a) { return 'rgba(' + accentRGB() + ',' + a + ')'; }
+
   document.documentElement.classList.add('js-on');
 
   /* ── shared easing ─────────────────────────────────────────────── */
@@ -248,6 +257,65 @@
   }
 
   /* ══════════════════════════════════════════════════════════════════
+     7a. Theme — dark by default, light remembered per browser. The pill
+         is injected here so the markup is not duplicated on 50+ pages.
+     ══════════════════════════════════════════════════════════════════ */
+  var THEME_KEY = 'a2-theme';
+
+  function applyTheme(mode) {
+    var root = document.documentElement;
+    if (mode === 'light') root.setAttribute('data-theme', 'light');
+    else root.removeAttribute('data-theme');
+
+    // The footer lockup is a white PNG, invisible once the footer turns pale.
+    document.querySelectorAll('.footer .brand__logo').forEach(function (img) {
+      var base = img.getAttribute('src').replace(/logo-full(-white)?\.png/, 'logo-full{v}.png');
+      img.setAttribute('src', base.replace('{v}', mode === 'light' ? '' : '-white'));
+    });
+
+    var tog = document.querySelector('.themetog');
+    if (tog) {
+      tog.setAttribute('aria-pressed', String(mode === 'light'));
+      tog.setAttribute('aria-label', mode === 'light' ? 'Switch to dark mode' : 'Switch to light mode');
+    }
+  }
+
+  function theme() {
+    var stored = null;
+    try { stored = localStorage.getItem(THEME_KEY); } catch (e) { /* private mode */ }
+
+    var mode = stored ||
+      (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+
+    var inner = document.querySelector('.nav__inner');
+    if (inner) {
+      var btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'themetog';
+      btn.innerHTML =
+        '<svg class="themetog__sun" viewBox="0 0 24 24" aria-hidden="true">' +
+          '<circle cx="12" cy="12" r="4.2"/>' +
+          '<path d="M12 2.6v2.4M12 19v2.4M2.6 12h2.4M19 12h2.4M5.4 5.4l1.7 1.7M16.9 16.9l1.7 1.7M18.6 5.4l-1.7 1.7M7.1 16.9l-1.7 1.7"/>' +
+        '</svg>' +
+        '<svg class="themetog__moon" viewBox="0 0 24 24" aria-hidden="true">' +
+          '<path d="M20.5 14.6A8.6 8.6 0 0 1 9.4 3.5a8.6 8.6 0 1 0 11.1 11.1Z"/>' +
+        '</svg>';
+
+      var cta = inner.querySelector('.nav__cta');
+      if (cta) inner.insertBefore(btn, cta);
+      else inner.appendChild(btn);
+
+      btn.addEventListener('click', function () {
+        mode = mode === 'light' ? 'dark' : 'light';
+        try { localStorage.setItem(THEME_KEY, mode); } catch (e) { /* private mode */ }
+        applyTheme(mode);
+      });
+    }
+
+    applyTheme(mode);
+  }
+
+  /* ══════════════════════════════════════════════════════════════════
      7. Nav — hide on scroll down, show on scroll up
      ══════════════════════════════════════════════════════════════════ */
   function nav() {
@@ -296,13 +364,55 @@
      ══════════════════════════════════════════════════════════════════ */
   function cardGlow() {
     if (REDUCED) return;
-    document.querySelectorAll('.card').forEach(function (c) {
+    document.querySelectorAll('.card, .svc, .cs').forEach(function (c) {
       c.addEventListener('pointermove', function (e) {
         var r = c.getBoundingClientRect();
         c.style.setProperty('--mx', (e.clientX - r.left) + 'px');
         c.style.setProperty('--my', (e.clientY - r.top) + 'px');
       });
     });
+  }
+
+  /* ══════════════════════════════════════════════════════════════════
+     8b. Scroll progress rail + stat-band fills
+
+     Both are functions of scroll position rather than fire-once tweens,
+     so scrubbing back up re-runs them. One rAF-throttled listener drives
+     the pair; the count-up above stays on its own ScrollTrigger.
+     ══════════════════════════════════════════════════════════════════ */
+  function scrollMeters() {
+    var fill = document.getElementById('railFill');
+    var cells = Array.prototype.slice.call(document.querySelectorAll('.statband__grid > div'));
+    if (!fill && !cells.length) return;
+
+    var ticking = false;
+
+    function paint() {
+      ticking = false;
+
+      if (fill) {
+        var max = document.documentElement.scrollHeight - window.innerHeight;
+        var y = window.scrollY || window.pageYOffset;
+        fill.style.width = (max > 0 ? Math.min(1, y / max) * 100 : 0) + '%';
+      }
+
+      cells.forEach(function (cell) {
+        var r = cell.getBoundingClientRect();
+        var p = (window.innerHeight - r.top) / (window.innerHeight * 0.55);
+        p = Math.max(0, Math.min(1, p));
+        cell.style.setProperty('--p', (1 - Math.pow(1 - p, 3)).toFixed(3));
+      });
+    }
+
+    function onScroll() {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(paint);
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+    paint();
   }
 
   /* ══════════════════════════════════════════════════════════════════
@@ -612,7 +722,7 @@
         // expanding ring
         if (!REDUCED) {
           var rr = base + beat * (ct.hq ? 30 : 21);
-          ctx.strokeStyle = 'rgba(255,255,255,' + (0.34 * (1 - beat)).toFixed(3) + ')';
+          ctx.strokeStyle = ink((0.34 * (1 - beat)).toFixed(3));
           ctx.lineWidth = 1;
           ctx.beginPath();
           ctx.arc(x, y, rr, 0, Math.PI * 2);
@@ -630,7 +740,7 @@
         ctx.fill();
         ctx.restore();
 
-        ctx.fillStyle = '#fff';
+        ctx.fillStyle = isLight() ? '#0f2c52' : '#fff';
         ctx.beginPath();
         ctx.arc(x, y, base, 0, Math.PI * 2);
         ctx.fill();
@@ -655,7 +765,7 @@
 
           // leader line back to the marker, for labels fanned out of a cluster
           if (far) {
-            ctx.strokeStyle = 'rgba(255,255,255,.22)';
+            ctx.strokeStyle = ink('.22');
             ctx.lineWidth = 1;
             ctx.beginPath();
             ctx.moveTo(m.x, m.y);
@@ -671,13 +781,15 @@
                  : tx - w / 2 - padX;
 
           // plate behind the text — over a dotted map bare text loses its edges
-          ctx.fillStyle = 'rgba(11,8,18,.72)';
+          ctx.fillStyle = isLight() ? 'rgba(238,244,252,.9)' : 'rgba(11,8,18,.72)';
           ctx.beginPath();
           if (ctx.roundRect) ctx.roundRect(bx, ty - boxH / 2, w + padX * 2, boxH, 4);
           else ctx.rect(bx, ty - boxH / 2, w + padX * 2, boxH);
           ctx.fill();
 
-          ctx.fillStyle = ct.hq ? 'rgba(255,206,150,.96)' : 'rgba(255,255,255,.88)';
+          ctx.fillStyle = ct.hq
+            ? (isLight() ? 'rgba(168,118,15,.98)' : 'rgba(255,206,150,.96)')
+            : ink('.88');
           ctx.fillText(ct.n, tx, ty);
         });
       }
@@ -686,25 +798,31 @@
   }
 
   /* ══════════════════════════════════════════════════════════════════
-     12. Proof visual — a live dispatch board abstraction
+     12. Proof visual — loads crossing a dispatch timeline. Three states
+         only, in the theme accent, so it reads as a board rather than
+         as decoration.
      ══════════════════════════════════════════════════════════════════ */
   function proofViz() {
     var canvas = document.getElementById('proofViz');
     if (!canvas) return;
 
     var c = setupCanvas(canvas);
-    var LANES = 7;
+    var LANES = 6;
     var jobs = [];
+
+    // 0 delivered, 1 moving, 2 queued. Weighted so most of the board is
+    // settled work and the amber reads as "happening now".
+    var STATE = [0, 1, 0, 2, 1, 0, 0, 1, 2, 0];
 
     function build() {
       jobs = [];
-      for (var i = 0; i < 22; i++) {
+      for (var i = 0; i < 18; i++) {
         jobs.push({
           lane: i % LANES,
-          x: Math.random(),
-          w: 0.1 + Math.random() * 0.24,
-          v: 0.0009 + Math.random() * 0.0014,
-          c: Math.random()
+          x: Math.random() * 1.2 - 0.2,
+          w: 0.14 + Math.random() * 0.26,
+          v: 0.0007 + Math.random() * 0.0009,
+          s: STATE[i % STATE.length]
         });
       }
     }
@@ -720,35 +838,241 @@
       var ctx = c.ctx, lh = c.h / LANES;
       ctx.clearRect(0, 0, c.w, c.h);
 
-      // lane rails
-      ctx.strokeStyle = 'rgba(255,255,255,.06)';
+      ctx.strokeStyle = ink('.05');
       ctx.lineWidth = 1;
       for (var i = 0; i <= LANES; i++) {
         ctx.beginPath();
-        ctx.moveTo(0, i * lh);
-        ctx.lineTo(c.w, i * lh);
+        ctx.moveTo(0, Math.round(i * lh) + .5);
+        ctx.lineTo(c.w, Math.round(i * lh) + .5);
+        ctx.stroke();
+      }
+      for (var k = 1; k < 6; k++) {
+        var gx = Math.round(c.w * k / 6) + .5;
+        ctx.beginPath();
+        ctx.moveTo(gx, 0);
+        ctx.lineTo(gx, c.h);
         ctx.stroke();
       }
 
       jobs.forEach(function (j) {
         j.x += j.v;
-        if (j.x > 1.1) { j.x = -j.w - Math.random() * 0.3; j.c = Math.random(); }
+        if (j.x > 1.15) { j.x = -j.w - Math.random() * 0.35; j.s = STATE[Math.floor(Math.random() * STATE.length)]; }
 
-        var x = j.x * c.w, w = j.w * c.w;
-        var y = j.lane * lh + lh * 0.26, h = lh * 0.48;
-        var col = j.c < .34 ? '28,78,255' : (j.c < .68 ? '172,36,255' : '254,136,27');
+        var x = j.x * c.w, w = Math.max(j.w * c.w, lh * 0.5);
+        var y = j.lane * lh + lh * 0.3, h = lh * 0.4, r = h / 2;
 
-        var g = ctx.createLinearGradient(x, 0, x + w, 0);
-        g.addColorStop(0, 'rgba(' + col + ',.06)');
-        g.addColorStop(.72, 'rgba(' + col + ',.62)');
-        g.addColorStop(1, 'rgba(' + col + ',.9)');
-        ctx.fillStyle = g;
+        if (j.s === 1) {
+          var g = ctx.createLinearGradient(x, 0, x + w, 0);
+          g.addColorStop(0, accent('.18'));
+          g.addColorStop(1, accent('.95'));
+          ctx.fillStyle = g;
+        } else if (j.s === 0) {
+          ctx.fillStyle = ink(isLight() ? '.34' : '.2');
+        } else {
+          ctx.fillStyle = ink(isLight() ? '.14' : '.07');
+        }
 
-        var r = h / 2;
         ctx.beginPath();
-        if (ctx.roundRect) ctx.roundRect(x, y, Math.max(w, r * 2), h, r);
-        else ctx.rect(x, y, Math.max(w, r * 2), h);
+        if (ctx.roundRect) ctx.roundRect(x, y, w, h, r);
+        else ctx.rect(x, y, w, h);
         ctx.fill();
+
+        // Leading dot on the live loads: the eye needs one thing to track.
+        if (j.s === 1) {
+          ctx.fillStyle = isLight() ? '#e3a92f' : '#ffc45c';
+          ctx.beginPath();
+          ctx.arc(x + w, y + h / 2, r * 0.85, 0, Math.PI * 2);
+          ctx.fill();
+        }
+      });
+    }
+    requestAnimationFrame(frame);
+  }
+
+  /* ══════════════════════════════════════════════════════════════════
+     12b. Throughput sparkline — one bar shifts off the left every beat
+     ══════════════════════════════════════════════════════════════════ */
+  function sparkline() {
+    var host = document.getElementById('spark');
+    if (!host) return;
+
+    var BARS = 32;
+    var vals = [];
+
+    for (var i = 0; i < BARS; i++) {
+      vals.push(28 + Math.round(Math.abs(Math.sin(i / 3.1)) * 58) + Math.round(Math.random() * 14));
+      host.appendChild(document.createElement('i'));
+    }
+
+    function paint() {
+      for (var k = 0; k < BARS; k++) host.children[k].style.height = vals[k] + '%';
+    }
+    paint();
+
+    if (REDUCED) return;
+    setInterval(function () {
+      if (!onScreen(host)) return;
+      vals.shift();
+      vals.push(30 + Math.round(Math.random() * 66));
+      paint();
+    }, 1400);
+  }
+
+  /* ══════════════════════════════════════════════════════════════════
+     12c. Live dispatch board — the hero's product shot
+
+     Rows walk a load through assigned → pickup → en route → delivered,
+     then recycle onto a fresh lane. Illustrative, not real data: the
+     panel is aria-hidden and the claim it stands for is in the copy.
+     ══════════════════════════════════════════════════════════════════ */
+  var LANES = [
+    ['Edmonton, AB', 'Calgary, AB'],
+    ['Chicago, IL', 'Dallas, TX'],
+    ['Toronto, ON', 'Detroit, MI'],
+    ['Vancouver, BC', 'Seattle, WA'],
+    ['Miami, FL', 'Atlanta, GA'],
+    ['Laredo, TX', 'Phoenix, AZ'],
+    ['New York, NY', 'Columbus, OH'],
+    ['Winnipeg, MB', 'Fargo, ND']
+  ];
+
+  var FLOW = [
+    { k: 'assigned',  t: 'Assigned' },
+    { k: 'pickup',    t: 'At pickup' },
+    { k: 'rolling',   t: 'En route' },
+    { k: 'delivered', t: 'Delivered' }
+  ];
+
+  function dispatchBoard() {
+    var host = document.getElementById('boardRows');
+    if (!host) return;
+
+    var fActive = document.getElementById('fActive');
+    var fDrivers = document.getElementById('fDrivers');
+    var fSync = document.getElementById('fSync');
+    var jobs = [];
+    var seq = 4821;
+
+    function makeJob(stage) {
+      var lane = LANES[Math.floor(Math.random() * LANES.length)];
+      return { id: 'ADS-' + (seq++), from: lane[0], to: lane[1], stage: stage };
+    }
+
+    for (var i = 0; i < 5; i++) jobs.push(makeJob(Math.floor(Math.random() * 3)));
+
+    function render(hit) {
+      host.innerHTML = jobs.map(function (j, idx) {
+        var s = FLOW[j.stage];
+        return '<div class="row' + (idx === hit ? ' is-hit' : '') + '">' +
+          '<span class="row__id">' + j.id + '</span>' +
+          '<span class="row__route">' + j.from + ' <em>&rarr;</em> ' + j.to + '</span>' +
+          '<span class="pill" data-s="' + s.k + '"><b></b>' + s.t + '</span>' +
+          '</div>';
+      }).join('');
+    }
+    render(-1);
+
+    if (REDUCED) return;
+    setInterval(function () {
+      if (!onScreen(host)) return;
+
+      var idx = Math.floor(Math.random() * jobs.length);
+      if (jobs[idx].stage < FLOW.length - 1) jobs[idx].stage++;
+      else jobs[idx] = makeJob(0);
+      render(idx);
+
+      fActive.textContent = 120 + Math.floor(Math.random() * 18);
+      fDrivers.textContent = 300 + Math.floor(Math.random() * 24);
+      fSync.textContent = (0.3 + Math.random() * 0.4).toFixed(1) + 's';
+    }, 2100);
+  }
+
+  /* ══════════════════════════════════════════════════════════════════
+     12d. Board map — nodes with packets running the links between them
+     ══════════════════════════════════════════════════════════════════ */
+  function netViz() {
+    var canvas = document.getElementById('netViz');
+    if (!canvas) return;
+
+    var c = setupCanvas(canvas);
+    var NODES = [
+      { x: .13, y: .60 }, { x: .27, y: .30 }, { x: .40, y: .70 },
+      { x: .54, y: .38 }, { x: .68, y: .68 }, { x: .82, y: .34 },
+      { x: .92, y: .62 }, { x: .46, y: .16 }
+    ];
+    var EDGES = [[0, 1], [1, 2], [2, 3], [3, 4], [4, 5], [5, 6], [1, 7], [7, 3], [2, 4], [3, 5]];
+    function hues() { return isLight() ? ['#c08a1e', '#e3a92f', ink('.55')] : ['#f5a524', '#ffc45c', ink('.55')]; }
+    var packets = EDGES.map(function (e, i) {
+      return { e: e, t: Math.random(), sp: 0.0022 + Math.random() * 0.0028, hue: i % 3 };
+    });
+
+    function px(n) { return { x: n.x * c.w, y: n.y * c.h }; }
+
+    var t0 = 0;
+    function frame(ts) {
+      requestAnimationFrame(frame);
+      if (!onScreen(canvas)) return;
+      if (ts - t0 < 24) return;
+      t0 = ts;
+
+      var ctx = c.ctx;
+      ctx.clearRect(0, 0, c.w, c.h);
+      var HUES = hues();
+
+      // faint dot field, so the panel reads as territory rather than empty space
+      ctx.fillStyle = ink(isLight() ? '.10' : '.05');
+      for (var gx = 12; gx < c.w; gx += 17) {
+        for (var gy = 12; gy < c.h; gy += 17) ctx.fillRect(gx, gy, 1.2, 1.2);
+      }
+
+      ctx.lineWidth = 1;
+      ctx.strokeStyle = ink(isLight() ? '.16' : '.10');
+      EDGES.forEach(function (e) {
+        var a = px(NODES[e[0]]), b = px(NODES[e[1]]);
+        ctx.beginPath();
+        ctx.moveTo(a.x, a.y);
+        ctx.lineTo(b.x, b.y);
+        ctx.stroke();
+      });
+
+      packets.forEach(function (p) {
+        var a = px(NODES[p.e[0]]), b = px(NODES[p.e[1]]);
+        if (!REDUCED) p.t += p.sp;
+        if (p.t > 1) p.t = 0;
+
+        var x = a.x + (b.x - a.x) * p.t;
+        var y = a.y + (b.y - a.y) * p.t;
+        var tx = a.x + (b.x - a.x) * Math.max(0, p.t - 0.14);
+        var ty = a.y + (b.y - a.y) * Math.max(0, p.t - 0.14);
+
+        var g = ctx.createLinearGradient(tx, ty, x, y);
+        g.addColorStop(0, ink('0'));
+        g.addColorStop(1, HUES[p.hue]);
+        ctx.strokeStyle = g;
+        ctx.lineWidth = 1.6;
+        ctx.beginPath();
+        ctx.moveTo(tx, ty);
+        ctx.lineTo(x, y);
+        ctx.stroke();
+
+        ctx.fillStyle = HUES[p.hue];
+        ctx.beginPath();
+        ctx.arc(x, y, 2, 0, Math.PI * 2);
+        ctx.fill();
+      });
+
+      NODES.forEach(function (n, i) {
+        var p = px(n);
+        var pulse = REDUCED ? 0 : (Math.sin(ts / 620 + i) + 1) / 2;
+        ctx.fillStyle = ink((0.18 + pulse * 0.18).toFixed(3));
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, 3.2 + pulse * 1.1, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.strokeStyle = ink(isLight() ? '.24' : '.16');
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, 7 + pulse * 2.4, 0, Math.PI * 2);
+        ctx.stroke();
       });
     }
     requestAnimationFrame(frame);
@@ -826,96 +1150,6 @@
   }
 
   /* ══════════════════════════════════════════════════════════════════
-     14. Radar sweep — the why-us panel visual
-     ══════════════════════════════════════════════════════════════════ */
-  function radarViz() {
-    var canvas = document.getElementById('radarViz');
-    if (!canvas) return;
-
-    var c = setupCanvas(canvas);
-    var blips = [];
-    for (var i = 0; i < 34; i++) {
-      blips.push({ a: Math.random() * Math.PI * 2, r: 0.18 + Math.random() * 0.74, s: Math.random() });
-    }
-
-    var sweep = 0, t0 = 0;
-    function frame(ts) {
-      requestAnimationFrame(frame);
-      if (!onScreen(canvas)) return;
-      if (ts - t0 < 24) return;
-      t0 = ts;
-
-      var ctx = c.ctx;
-      var cx = c.w / 2, cy = c.h / 2;
-      var R = Math.min(c.w, c.h) * 0.42;
-      ctx.clearRect(0, 0, c.w, c.h);
-
-      sweep += REDUCED ? 0 : 0.012;
-
-      // Sweep wedge goes down first: its destination-out fade must only
-      // erase the wedge, so nothing else can be on the canvas yet. A conic gradient fades it along the arc; a radial mask
-      // on top fades it toward the rim so the wedge has no hard outer edge.
-      ctx.save();
-      ctx.translate(cx, cy);
-      ctx.rotate(sweep);
-
-      var g = ctx.createConicGradient ? ctx.createConicGradient(0, 0, 0) : null;
-      if (g) {
-        g.addColorStop(0, 'rgba(172,36,255,.42)');
-        g.addColorStop(.16, 'rgba(120,60,255,.06)');
-        g.addColorStop(.2, 'rgba(172,36,255,0)');
-        g.addColorStop(1, 'rgba(172,36,255,0)');
-        ctx.fillStyle = g;
-      } else {
-        ctx.fillStyle = 'rgba(172,36,255,.18)';
-      }
-      ctx.beginPath();
-      ctx.moveTo(0, 0);
-      ctx.arc(0, 0, R, 0, Math.PI / 3);
-      ctx.closePath();
-      ctx.fill();
-
-      ctx.globalCompositeOperation = 'destination-out';
-      var fade = ctx.createRadialGradient(0, 0, R * 0.45, 0, 0, R);
-      fade.addColorStop(0, 'rgba(0,0,0,0)');
-      fade.addColorStop(1, 'rgba(0,0,0,1)');
-      ctx.fillStyle = fade;
-      ctx.beginPath();
-      ctx.arc(0, 0, R, 0, Math.PI * 2);
-      ctx.fill();
-      ctx.restore();
-
-      // concentric rings, drawn over the wedge
-      ctx.lineWidth = 1;
-      for (var k = 1; k <= 4; k++) {
-        ctx.strokeStyle = 'rgba(255,255,255,' + (0.11 - k * 0.014).toFixed(3) + ')';
-        ctx.beginPath();
-        ctx.arc(cx, cy, R * (k / 4), 0, Math.PI * 2);
-        ctx.stroke();
-      }
-
-      // blips brighten as the sweep passes
-      blips.forEach(function (b) {
-        var d = ((sweep % (Math.PI * 2)) - b.a + Math.PI * 2) % (Math.PI * 2);
-        var hot = Math.max(0, 1 - d / 1.1);
-        var x = cx + Math.cos(b.a) * b.r * R;
-        var y = cy + Math.sin(b.a) * b.r * R;
-        ctx.fillStyle = 'rgba(210,180,255,' + (0.12 + hot * 0.8).toFixed(3) + ')';
-        ctx.beginPath();
-        ctx.arc(x, y, 1.6 + hot * 2.4, 0, Math.PI * 2);
-        ctx.fill();
-      });
-
-      // centre dot
-      ctx.fillStyle = 'rgba(255,255,255,.85)';
-      ctx.beginPath();
-      ctx.arc(cx, cy, 4, 0, Math.PI * 2);
-      ctx.fill();
-    }
-    requestAnimationFrame(frame);
-  }
-
-  /* ══════════════════════════════════════════════════════════════════
      15. Thread wave — stacked sine paths that draw in on scroll.
          This is the reference's flowing-lines block.
      ══════════════════════════════════════════════════════════════════ */
@@ -967,6 +1201,202 @@
   }
 
   /* ══════════════════════════════════════════════════════════════════
+     North America map — the world map was decorative, this one answers a
+     question buyers actually have: "are you in my timezone?". Land is a
+     canvas dot-matrix cropped to NA; hubs are real DOM buttons on top so
+     they're clickable, focusable and screen-reader visible.
+     ══════════════════════════════════════════════════════════════════ */
+  // Mask window covering North America, in mask-grid cells.
+  var NA_COL0 = 5, NA_COL1 = 76, NA_ROW0 = 5, NA_ROW1 = 43;
+
+  var HUBS = [
+    { n: 'Edmonton', r: 'Alberta', lat: 53.5, lng: -113.5, tz: 'America/Edmonton', z: 'Mountain',
+      hq: true, note: 'Head office. Every engagement is run from here, on Mountain Time.' },
+    { n: 'Calgary', r: 'Alberta', lat: 51.0, lng: -114.1, tz: 'America/Edmonton', z: 'Mountain',
+      note: 'Same timezone as head office, three hours from the Eastern seaboard.' },
+    { n: 'Vancouver', r: 'British Columbia', lat: 49.3, lng: -123.1, tz: 'America/Vancouver', z: 'Pacific',
+      note: 'One hour behind us. A 9am call your time is 10am ours.' },
+    { n: 'Toronto', r: 'Ontario', lat: 43.7, lng: -79.4, tz: 'America/Toronto', z: 'Eastern',
+      note: 'Two hours ahead. We are online before your afternoon starts.' },
+    { n: 'Chicago', r: 'Illinois', lat: 41.9, lng: -87.6, tz: 'America/Chicago', z: 'Central',
+      note: 'One hour ahead. Full working-day overlap, every day.' },
+    { n: 'New York', r: 'New York', lat: 40.7, lng: -74.0, tz: 'America/New_York', z: 'Eastern',
+      note: 'Two hours ahead. Your 5pm is our 3pm, so end-of-day still gets an answer.' },
+    { n: 'Dallas', r: 'Texas', lat: 32.8, lng: -96.8, tz: 'America/Chicago', z: 'Central',
+      note: 'One hour ahead. Where a lot of the driveaway freight actually moves.' },
+    { n: 'Miami', r: 'Florida', lat: 25.8, lng: -80.2, tz: 'America/New_York', z: 'Eastern',
+      note: 'Two hours ahead. Still a same-working-day conversation.' }
+  ];
+
+  function naMap() {
+    var host = document.getElementById('naMap');
+    var canvas = document.getElementById('naCanvas');
+    if (!host || !canvas) return;
+
+    var c = setupCanvas(canvas);
+    var land = decodeLand();
+    var hubLayer = document.getElementById('naHubs');
+    var cols = NA_COL1 - NA_COL0;
+    var rows = NA_ROW1 - NA_ROW0;
+
+    // lat/lng -> fraction across the cropped window
+    function project(lat, lng) {
+      var col = ((lng + 180) / 360) * LAND_COLS;
+      var row = ((LAND_LAT0 - lat) / (LAND_LAT0 - LAND_LAT1)) * LAND_ROWS;
+      return { fx: (col - NA_COL0) / cols, fy: (row - NA_ROW0) / rows };
+    }
+
+    var geom = null;
+    function layout() {
+      var step = Math.min(c.w / cols, c.h / rows);
+      geom = {
+        step: step,
+        x0: (c.w - step * cols) / 2,
+        y0: (c.h - step * rows) / 2,
+        r: Math.max(1, step * 0.30)
+      };
+      placeHubs();
+    }
+
+    function placeHubs() {
+      if (!geom) return;
+      var rect = canvas.getBoundingClientRect();
+      var scale = rect.width / c.w;
+      HUBS.forEach(function (h) {
+        if (!h.el) return;
+        var p = project(h.lat, h.lng);
+        h.el.style.left = ((geom.x0 + p.fx * geom.step * cols) * scale) + 'px';
+        h.el.style.top = ((geom.y0 + p.fy * geom.step * rows) * scale) + 'px';
+      });
+    }
+
+    /* ── panel ── */
+    var elCity = document.getElementById('naCity');
+    var elTime = document.getElementById('naTime');
+    var elZone = document.getElementById('naZone');
+    var elNote = document.getElementById('naNote');
+    var at = 0, timer = null, taken = false;
+
+    function paint(i) {
+      at = i;
+      var h = HUBS[i];
+      HUBS.forEach(function (o, n) {
+        if (o.el) o.el.classList.toggle('is-on', n === i);
+        if (o.el) o.el.setAttribute('aria-pressed', String(n === i));
+      });
+      if (elCity) elCity.textContent = h.n + ', ' + h.r;
+      if (elZone) elZone.textContent = h.z + (h.hq ? ' · head office' : '');
+      if (elNote) elNote.textContent = h.note;
+      tickTime();
+    }
+
+    function tickTime() {
+      if (!elTime) return;
+      elTime.textContent = new Date().toLocaleTimeString('en-US', {
+        timeZone: HUBS[at].tz, hour: 'numeric', minute: '2-digit'
+      });
+    }
+
+    function stop() {
+      taken = true;
+      clearInterval(timer);
+      var hint = host.querySelector('.namap__hint');
+      if (hint) hint.remove();
+    }
+
+    HUBS.forEach(function (h, i) {
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'namap__hub' + (h.hq ? ' is-hq' : '');
+      b.setAttribute('aria-pressed', 'false');
+      b.innerHTML = '<i></i><span>' + h.n + '</span>';
+      b.addEventListener('click', function () { stop(); paint(i); });
+      b.addEventListener('mouseenter', function () {
+        if (window.matchMedia('(hover: hover)').matches) { stop(); paint(i); }
+      });
+      h.el = b;
+      if (hubLayer) hubLayer.appendChild(b);
+    });
+
+    layout();
+    paint(0);
+    setInterval(tickTime, 30000);
+
+    window.addEventListener('resize', function () { setTimeout(layout, 60); });
+
+    if (!REDUCED) {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (!e.isIntersecting || taken) return;
+          io.unobserve(e.target);
+          timer = setInterval(function () {
+            if (taken) return clearInterval(timer);
+            paint((at + 1) % HUBS.length);
+          }, 3200);
+        });
+      }, { rootMargin: '0px 0px -20% 0px', threshold: 0 });
+      io.observe(host);
+    }
+
+    var t0 = 0, pulse = 0;
+    function frame(ts) {
+      requestAnimationFrame(frame);
+      if (!onScreen(canvas)) return;
+      if (ts - t0 < 40) return;
+      t0 = ts;
+      if (!REDUCED) pulse += 0.03;
+      if (!geom) return;
+
+      var ctx = c.ctx;
+      ctx.clearRect(0, 0, c.w, c.h);
+
+      for (var row = NA_ROW0; row < NA_ROW1; row++) {
+        for (var col = NA_COL0; col < NA_COL1; col++) {
+          if (!land[row * LAND_COLS + col]) continue;
+          var x = geom.x0 + (col - NA_COL0 + 0.5) * geom.step;
+          var y = geom.y0 + (row - NA_ROW0 + 0.5) * geom.step;
+
+          // Single accent: steel dots, warming toward the selected hub.
+          var p = project(HUBS[at].lat, HUBS[at].lng);
+          var hx = geom.x0 + p.fx * geom.step * cols;
+          var hy = geom.y0 + p.fy * geom.step * rows;
+          var d = Math.hypot(x - hx, y - hy) / (geom.step * 12);
+          var near = Math.max(0, 1 - d);
+          var a = 0.18 + near * 0.5;
+
+          ctx.fillStyle = near > 0.04
+            ? accent(a.toFixed(3))
+            : (isLight() ? 'rgba(27,63,107,.32)' : 'rgba(150,170,200,.16)');
+          ctx.beginPath();
+          ctx.arc(x, y, geom.r, 0, Math.PI * 2);
+          ctx.fill();
+        }
+      }
+    }
+    requestAnimationFrame(frame);
+  }
+
+  /* ══════════════════════════════════════════════════════════════════
+     Timezone band — the section claims our working day overlaps yours,
+     so show the actual clocks rather than assert it.
+     ══════════════════════════════════════════════════════════════════ */
+  function clocks() {
+    var cells = document.querySelectorAll('[data-clock]');
+    if (!cells.length) return;
+
+    function tick() {
+      Array.prototype.forEach.call(cells, function (el) {
+        el.textContent = new Date().toLocaleTimeString('en-US', {
+          timeZone: el.getAttribute('data-clock'),
+          hour: 'numeric', minute: '2-digit'
+        });
+      });
+    }
+    tick();
+    setInterval(tick, 30000);
+  }
+
+  /* ══════════════════════════════════════════════════════════════════
      Boot
      ══════════════════════════════════════════════════════════════════ */
   // Each step is isolated: a decorative visual that throws must never take
@@ -983,6 +1413,7 @@
 
   function init() {
     safely('initScroll', initScroll);
+    safely('theme', theme);
     safely('nav', nav);
     safely('splitHeadings', splitHeadings);
     safely('reveals', reveals);
@@ -990,13 +1421,18 @@
     safely('rails', rails);
     safely('parallax', parallax);
     safely('cardGlow', cardGlow);
+    safely('scrollMeters', scrollMeters);
     safely('accordion', accordion);
     safely('threadWave', threadWave);
+    safely('clocks', clocks);
+    safely('naMap', naMap);
 
     safely('heroViz', heroViz);
+    safely('netViz', netViz);
+    safely('dispatchBoard', dispatchBoard);
+    safely('sparkline', sparkline);
     safely('proofViz', proofViz);
     safely('globeViz', globeViz);
-    safely('radarViz', radarViz);
 
     // The loader is last but must run no matter what came before it,
     // or the page stays hidden behind the splash.

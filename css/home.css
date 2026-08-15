@@ -1,0 +1,2138 @@
+/* ==========================================================================
+   Alpha Squared — homepage-only components.
+   Loaded after theme.css. Everything here is industrial-theme native, so it
+   carries no legacy gradient overrides.
+   ========================================================================== */
+
+/* The homepage carries far more blocks than the inner pages, so it runs on a
+   tighter vertical rhythm than the site default. */
+.section { padding: clamp(40px, 4.2vw, 68px) 0; }
+.section--tight { padding-top: 0; }
+.head .d2 { margin-bottom: 8px; }
+.head .lead { margin-top: 8px; line-height: 1.58; }
+.head--center .badge { margin-bottom: 10px; }
+
+/* Headlines are single declarative sentences now. The accent is one clause
+   inside the sentence rather than a second coloured line under it. */
+.d1 em, .d2 em, .d3 em, .flag__h em, .proof__h em {
+  font-style: normal;
+  color: var(--amber);
+}
+
+.page-light .d1 em, .page-light .d2 em, .page-light .d3 em { color: var(--amber); }
+
+/* style.css sizes these for four-word headlines. A full sentence at 4.6rem
+   wraps into a wall, so the homepage runs a smaller display scale. */
+.d1 { font-size: clamp(1.95rem, 3.5vw, 3rem); line-height: 1.14; }
+.d2 { font-size: clamp(1.55rem, 2.7vw, 2.3rem); line-height: 1.16; }
+
+.hero__inner--split .d1 { max-width: 22ch; }
+.hero__inner--split .hero__sub { margin-top: 20px; font-size: .98rem; }
+.hero .cta-row { margin-top: 26px; }
+
+/* Stacked hero: the column is the full wrap, so the headline can run wider
+   than it does beside the board. */
+@media (max-width: 1000px) {
+  .hero__inner--split .d1 { max-width: 28ch; }
+}
+
+/* The sample runs wider headlines than style.css allows for. */
+.head { max-width: 880px; }
+.head--center .lead { max-width: 62ch; }
+
+/* A head introducing a block partway down a section needs its own air. */
+.head--mt { margin-top: 46px; }
+
+/* ── Hero: a line of proof directly under the buttons, so the first screen
+      answers "why you" without the visitor having to scroll for it. ── */
+
+.hero__trust {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 22px;
+  margin: 22px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.hero__trust li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--mono);
+  font-size: .66rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--on-dark-3);
+}
+
+.hero__trust li::before {
+  content: '';
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--amber);
+  box-shadow: 0 0 0 3px rgba(245, 165, 36, .14);
+}
+
+/* ── Hero capability panel: what the studio delivers, stated as a list
+      instead of a product screenshot. ── */
+
+.hcap {
+  position: relative;
+  padding: 26px 26px 22px;
+  border: 1px solid var(--hair);
+  border-radius: var(--r-panel);
+  background:
+    radial-gradient(120% 80% at 50% 0%, rgba(245, 165, 36, .07), transparent 60%),
+    linear-gradient(180deg, var(--panel-2), var(--panel));
+  box-shadow: 0 40px 90px -40px rgba(0, 0, 0, .9);
+  text-align: left;
+  overflow: hidden;
+}
+
+.hcap::before {
+  content: '';
+  position: absolute;
+  left: 0; right: 0; top: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--amber), transparent);
+}
+
+.hcap__eyebrow {
+  display: block;
+  font-family: var(--mono);
+  font-size: .66rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--on-dark-3);
+}
+
+.hcap__h {
+  margin: 8px 0 18px;
+  font-size: 1.22rem;
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -.01em;
+}
+
+.hcap__list {
+  display: grid;
+  gap: 2px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.hcap__list li {
+  display: grid;
+  grid-template-columns: 34px 1fr;
+  align-items: start;
+  gap: 4px 14px;
+  padding: 13px 0;
+  border-top: 1px solid var(--hair-soft);
+}
+.hcap__list li:first-child { border-top: 0; padding-top: 0; }
+
+.hcap__list i {
+  grid-row: span 2;
+  display: grid;
+  place-items: center;
+  width: 34px; height: 34px;
+  border-radius: 10px;
+  border: 1px solid var(--hair);
+  background: rgba(245, 165, 36, .08);
+}
+.hcap__list svg {
+  width: 17px; height: 17px;
+  fill: none;
+  stroke: var(--amber);
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.hcap__list b { font-size: .92rem; font-weight: 600; }
+.hcap__list span { font-size: .82rem; line-height: 1.55; color: var(--on-dark-2); }
+
+.hcap__foot {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 18px;
+  margin-top: 18px;
+  padding-top: 16px;
+  border-top: 1px solid var(--hair-soft);
+  font-family: var(--mono);
+  font-size: .68rem;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  color: var(--on-dark-3);
+}
+
+/* ── Proof band. The record and the logo wall are one panel: a claim, the
+      five numbers, then the marks as the evidence under a single rule.
+      The old scroll-linked fill bars under each stat are gone. ── */
+
+.pband {
+  position: relative;
+  padding: 40px 36px 30px;
+  border: 1px solid var(--hair);
+  border-radius: var(--r-panel);
+  background:
+    radial-gradient(120% 90% at 50% 0%, rgba(245, 165, 36, .07), transparent 60%),
+    var(--panel);
+  overflow: hidden;
+}
+
+/* amber rule across the top edge, fading out at both ends */
+.pband::before {
+  content: '';
+  position: absolute;
+  left: 0; right: 0; top: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--amber), transparent);
+}
+
+.pband__head { max-width: 40ch; margin: 0 auto 30px; text-align: center; }
+
+.pband__eyebrow {
+  display: block;
+  margin-bottom: 12px;
+  font-family: var(--mono);
+  font-size: .66rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--amber);
+}
+
+.pband__h {
+  margin: 0;
+  font-size: clamp(1.55rem, 2.7vw, 2.3rem);
+  font-weight: 600;
+  line-height: 1.16;
+  letter-spacing: -.03em;
+  color: var(--on-dark);
+}
+
+.statband__n {
+  font-size: clamp(1.9rem, 2.8vw, 2.7rem);
+  letter-spacing: -.04em;
+  filter: none;                       /* was a violet drop-shadow from the old palette */
+  background: none;
+  -webkit-background-clip: border-box;
+  background-clip: border-box;
+  color: var(--amber);
+}
+
+.statband__l { margin-top: 10px; font-size: .63rem; letter-spacing: .1em; }
+
+.statband__grid > div { padding: 4px 14px 0; }
+.statband__grid > div::after { display: none; }
+.statband__grid > div + div::before { top: 6%; bottom: 6%; background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, .12), transparent); }
+
+.pband__wall { margin-top: 34px; padding-top: 26px; border-top: 1px solid var(--hair); }
+
+.pband__lbl {
+  display: block;
+  margin-bottom: 20px;
+  text-align: center;
+  font-family: var(--mono);
+  font-size: .64rem;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: var(--on-dark-3);
+}
+
+/* the wall runs edge to edge inside the panel, so the fade has to reach further */
+.pband .marquee {
+  margin: 0 -36px;
+  mask-image: linear-gradient(90deg, transparent, #000 14%, #000 86%, transparent);
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 14%, #000 86%, transparent);
+}
+
+@media (max-width: 760px) {
+  .pband { padding: 32px 20px 24px; }
+  .pband .marquee { margin: 0 -20px; }
+  .statband__grid { grid-template-columns: repeat(2, 1fr); gap: 26px 0; }
+  .statband__grid > div:nth-child(odd)::before { display: none; }
+}
+
+/* ── Sub-head: a rule-and-label divider for the blocks that sit inside a
+      section and were previously introduced by nothing at all. ── */
+
+.subhead {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 34px 0 22px;
+  font-family: var(--mono);
+  font-size: .68rem;
+  font-weight: 500;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--on-dark-3);
+}
+
+.subhead::before,
+.subhead::after { content: ''; height: 1px; flex: 1; background: var(--hair); }
+.subhead::before { flex: 0 0 26px; background: var(--amber); }
+
+.page-light .subhead { color: var(--ink-3); }
+.page-light .subhead::after { background: var(--sheet-hair); }
+
+/* ── Flagship proof block: two competing d3 headlines side by side read as
+      two separate sections. One heading level down, and they stop fighting. ── */
+
+.flag__h {
+  margin: 0 0 10px;
+  font-size: clamp(1.3rem, 2.1vw, 1.75rem);
+  font-weight: 600;
+  letter-spacing: -.03em;
+  color: var(--on-dark);
+}
+
+.flag__p { margin: 0 0 4px; font-size: .95rem; line-height: 1.65; color: var(--on-dark-2); }
+
+.proof__h {
+  margin: 0 0 8px;
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: -.02em;
+  color: var(--on-dark);
+}
+
+.proof__p { margin: 0; font-size: .9rem; line-height: 1.6; color: var(--on-dark-2); }
+
+.proof__vizhead {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 22px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--hair);
+}
+
+.proof__vizlbl {
+  font-family: var(--mono);
+  font-size: .6rem;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+  color: var(--on-dark-3);
+}
+
+.vizkey { display: flex; flex-wrap: wrap; gap: 4px 14px; margin: 0; padding: 0; list-style: none; }
+
+.vizkey li {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--mono);
+  font-size: .58rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--on-dark-3);
+}
+
+.vizkey li::before {
+  content: '';
+  width: 14px; height: 5px;
+  border-radius: 3px;
+  background: rgba(255, 255, 255, .07);
+}
+
+.vizkey--live::before { background: var(--amber) !important; }
+.vizkey--done::before { background: rgba(255, 255, 255, .2) !important; }
+
+.proof__viz { margin-top: 14px; }
+
+/* ── Work section: the headline is centred now, so the archive link moves
+      below the grid instead of sitting beside it. ── */
+
+.reshead__all { display: flex; justify-content: center; margin-top: 22px; }
+
+/* ==========================================================================
+   North America map — canvas land, DOM hubs on top so they stay clickable
+   and focusable. Replaces the decorative world map.
+   ========================================================================== */
+
+.subhead + .namap { margin-top: 0; }
+
+.namap {
+  display: grid;
+  grid-template-columns: 1.35fr .65fr;
+  gap: 0;
+  margin-top: 26px;
+  border: 1px solid var(--hair);
+  border-radius: var(--r-card);
+  background: var(--panel);
+  overflow: hidden;
+}
+
+.namap__stage { position: relative; min-height: 340px; }
+.namap__stage canvas { display: block; width: 100%; height: 100%; }
+
+.namap__hubs { position: absolute; inset: 0; }
+
+.namap__hub {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--on-dark-3);
+  font: inherit;
+  font-size: .72rem;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: color .25s var(--ease-soft);
+}
+
+.namap__hub i {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, .35);
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, .06);
+  transition: background .25s var(--ease-soft), box-shadow .25s var(--ease-soft);
+}
+
+.namap__hub span {
+  font-family: var(--mono);
+  letter-spacing: .04em;
+  opacity: 0;
+  transform: translateX(-4px);
+  transition: opacity .25s var(--ease-soft), transform .25s var(--ease-soft);
+}
+
+.namap__hub:hover, .namap__hub.is-on { color: #fff; }
+.namap__hub:hover span, .namap__hub.is-on span, .namap__hub.is-hq span { opacity: 1; transform: none; }
+.namap__hub:hover i, .namap__hub.is-on i {
+  background: var(--amber);
+  box-shadow: 0 0 0 4px rgba(245, 165, 36, .22);
+}
+
+.namap__hub.is-hq i { background: var(--amber); }
+.namap__hub.is-on i { animation: hubPing 1.8s infinite; }
+
+@keyframes hubPing {
+  0%   { box-shadow: 0 0 0 0 rgba(245, 165, 36, .45); }
+  70%  { box-shadow: 0 0 0 11px rgba(245, 165, 36, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(245, 165, 36, 0); }
+}
+
+.namap__panel {
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+  border-left: 1px solid var(--hair);
+  background: rgba(0, 0, 0, .22);
+}
+
+.namap__eyebrow {
+  font-family: var(--mono);
+  font-size: .64rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--amber);
+}
+
+.namap__city {
+  margin: 12px 0 18px;
+  font-size: 1.32rem;
+  font-weight: 600;
+  letter-spacing: -.03em;
+  line-height: 1.15;
+}
+
+.namap__meta { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 0 0 18px; }
+.namap__meta dt {
+  font-family: var(--mono);
+  font-size: .6rem;
+  letter-spacing: .11em;
+  text-transform: uppercase;
+  color: var(--on-dark-3);
+  margin-bottom: 4px;
+}
+.namap__meta dd { margin: 0; font-family: var(--mono); font-size: 1.05rem; color: var(--on-dark); }
+
+.namap__note {
+  margin: 0 0 22px;
+  font-size: .88rem;
+  line-height: 1.6;
+  color: var(--on-dark-2);
+  min-height: 4.2em;
+}
+
+.namap__reach {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-top: auto;
+  padding-top: 18px;
+  border-top: 1px solid var(--hair);
+}
+.namap__reach b {
+  display: block;
+  font-family: var(--mono);
+  font-size: 1.2rem;
+  font-weight: 500;
+  letter-spacing: -.03em;
+  color: var(--amber);
+}
+.namap__reach span { font-size: .68rem; color: var(--on-dark-3); }
+
+.namap__hint {
+  margin-top: 14px;
+  font-family: var(--mono);
+  font-size: .62rem;
+  letter-spacing: .09em;
+  text-transform: uppercase;
+  color: var(--on-dark-3);
+}
+
+/* ==========================================================================
+   Trucking flagship — stats run full width above the two-column body.
+   ========================================================================== */
+
+/* Headline, numbers and proof read as one exhibit, so they share one panel. */
+.flagcard {
+  padding: clamp(26px, 3vw, 46px);
+  border: 1px solid var(--hair);
+  border-radius: var(--r-panel);
+  background:
+    radial-gradient(120% 110% at 50% 0%, rgba(245, 165, 36, .07), transparent 58%),
+    var(--panel);
+}
+.flagcard .head { margin-bottom: 0; }
+.flagcard .subhead { margin-top: 34px; }
+
+/* The proof panel is much taller than the copy beside it; centring left a
+   dead half-column above the heading, so the copy stretches and pins its
+   buttons to the bottom edge instead. */
+.flag { align-items: stretch; gap: 48px; }
+.flag__copy { display: flex; flex-direction: column; }
+.flag__copy .cta-row { margin-top: auto; padding-top: 28px; }
+/* Three numbers on a bare rule read as a footnote under the headline. Same
+   numbers, as cards, with the icon carrying the subject. */
+.flag__stats--wide {
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin: 30px 0 26px;
+  padding: 0;
+  border: 0;
+}
+
+.flag__stats--wide > div {
+  padding: 20px 20px 18px;
+  border: 1px solid var(--hair);
+  border-radius: var(--r-card);
+  background:
+    radial-gradient(120% 90% at 0% 0%, rgba(245, 165, 36, .07), transparent 62%),
+    var(--panel);
+  transition: border-color .28s var(--ease-soft), transform .28s var(--ease-soft);
+}
+
+.flag__stats--wide > div:hover { border-color: rgba(245, 165, 36, .4); transform: translateY(-3px); }
+
+.stat__i {
+  display: grid;
+  place-items: center;
+  width: 36px; height: 36px;
+  margin-bottom: 16px;
+  border: 1px solid var(--hair);
+  border-radius: 9px;
+  color: var(--amber);
+}
+
+.stat__i svg {
+  width: 19px; height: 19px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.flag__stats--wide .stat__l { margin-top: 8px; font-size: .78rem; color: var(--on-dark-2); }
+.flag__copy .d3 { letter-spacing: -.03em; }
+
+.flag__ticks { margin: 24px 0 0; }
+
+.flag__spec {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin: 28px 0 0;
+  padding-top: 22px;
+  border-top: 1px solid var(--hair);
+}
+
+.flag__spec dt {
+  margin-bottom: 5px;
+  font-family: var(--mono);
+  font-size: .6rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--on-dark-3);
+}
+
+.flag__spec dd { margin: 0; font-size: .84rem; color: var(--on-dark-2); }
+
+/* ── Automation loop: the four hops a load makes on its own, filling the
+      dead space the taller proof panel left under the spec row. The
+      highlight walks the row on a 6s cycle, one step every 1.5s. ── */
+
+.autoloop { margin-top: 28px; }
+
+.autoloop__lbl {
+  display: block;
+  margin-bottom: 12px;
+  font-family: var(--mono);
+  font-size: .6rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--on-dark-3);
+}
+
+.autoloop__steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.autoloop__steps li {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  padding: 12px 12px 13px;
+  border: 1px solid var(--hair);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, .02);
+  color: var(--on-dark-3);
+  animation: autoStep 6s linear infinite;
+  animation-delay: calc(var(--i) * 1.5s);
+}
+
+/* the hop to the next step */
+.autoloop__steps li + li::before {
+  content: '';
+  position: absolute;
+  left: -8px; top: 50%;
+  width: 6px; height: 6px;
+  margin-top: -3px;
+  border-top: 1.5px solid var(--on-dark-3);
+  border-right: 1.5px solid var(--on-dark-3);
+  transform: rotate(45deg);
+  opacity: .6;
+}
+
+.autoloop__steps svg {
+  width: 18px; height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.autoloop__steps b {
+  font-size: .78rem;
+  font-weight: 500;
+  line-height: 1.3;
+  color: inherit;
+}
+
+@keyframes autoStep {
+  0%, 4%   { border-color: var(--hair); background: rgba(255, 255, 255, .02); color: var(--on-dark-3); }
+  8%, 24%  { border-color: rgba(245, 165, 36, .5); background: rgba(245, 165, 36, .1); color: var(--amber); }
+  30%, 100% { border-color: var(--hair); background: rgba(255, 255, 255, .02); color: var(--on-dark-3); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .autoloop__steps li { animation: none; }
+}
+
+@media (max-width: 620px) {
+  .autoloop__steps { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .autoloop__steps li:nth-child(odd)::before { display: none; }
+}
+
+/* ── Failure ledger: the three things that break, and what shipped against
+      each one. Reads as a spec sheet rather than a sales paragraph. ── */
+
+.brk {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin-top: 24px;
+  border: 1px solid var(--hair);
+  border-radius: var(--r-card);
+  background: var(--panel);
+  overflow: hidden;
+}
+
+.brk__item {
+  position: relative;
+  padding: 28px 26px 26px;
+  border-right: 1px solid var(--hair);
+  transition: background .3s var(--ease-soft);
+}
+
+.brk__item:last-child { border-right: 0; }
+.brk__item:hover { background: rgba(255, 255, 255, .025); }
+
+.brk__item::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 2px;
+  background: var(--amber);
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform .45s var(--ease);
+}
+
+.brk__item:hover::before { transform: none; }
+
+.brk__i {
+  display: grid;
+  place-items: center;
+  width: 38px; height: 38px;
+  margin-bottom: 18px;
+  border: 1px solid var(--hair);
+  border-radius: 6px;
+  color: var(--amber);
+}
+
+.brk__i svg {
+  width: 20px; height: 20px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.brk__n {
+  display: block;
+  margin-bottom: 9px;
+  font-family: var(--mono);
+  font-size: .62rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--on-dark-3);
+}
+
+.brk h3 {
+  margin: 0 0 10px;
+  font-size: 1.06rem;
+  font-weight: 600;
+  letter-spacing: -.025em;
+  line-height: 1.25;
+}
+
+.brk p { margin: 0 0 20px; font-size: .89rem; line-height: 1.62; color: var(--on-dark-2); }
+
+.brk__fix {
+  display: block;
+  padding-top: 15px;
+  border-top: 1px solid var(--hair);
+  font-size: .8rem;
+  line-height: 1.5;
+  color: var(--on-dark-2);
+}
+
+.brk__fix::before {
+  content: '';
+  display: inline-block;
+  width: 6px; height: 6px;
+  margin-right: 9px;
+  vertical-align: middle;
+  background: var(--amber);
+}
+
+/* ── Route into the case study library. Three cards, not a row of pills:
+      the strip read as a nav bar and nobody clicked it. ── */
+
+.relwork { margin-top: 28px; }
+
+.relwork__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 14px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--hair);
+}
+
+.relwork__lbl {
+  font-family: var(--mono);
+  font-size: .62rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--on-dark-3);
+}
+
+.relwork__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+.relwork__grid a {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 18px 18px 16px;
+  border: 1px solid var(--hair);
+  border-radius: var(--r-card);
+  background:
+    radial-gradient(120% 80% at 0% 0%, rgba(245, 165, 36, .07), transparent 60%),
+    var(--panel);
+  text-decoration: none;
+  overflow: hidden;
+  transition: border-color .28s var(--ease-soft), transform .28s var(--ease-soft), background .28s var(--ease-soft);
+}
+
+/* amber rule that draws itself across the top edge on hover */
+.relwork__grid a::before {
+  content: '';
+  position: absolute;
+  left: 0; right: 0; top: 0;
+  height: 2px;
+  background: var(--amber);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .32s var(--ease-soft);
+}
+
+.relwork__grid a:hover { border-color: rgba(245, 165, 36, .45); transform: translateY(-4px); }
+.relwork__grid a:hover::before { transform: scaleX(1); }
+
+.relwork__tag {
+  font-family: var(--mono);
+  font-size: .58rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--amber);
+}
+
+.relwork__grid a b {
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: -.02em;
+  color: var(--on-dark);
+}
+
+.relwork__grid a em {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin-top: 2px;
+  font-style: normal;
+  font-size: .78rem;
+  color: var(--on-dark-3);
+  transition: color .25s var(--ease-soft);
+}
+
+.relwork__grid a em .ar { transition: transform .25s var(--ease-soft); }
+.relwork__grid a:hover em { color: var(--amber); }
+.relwork__grid a:hover em .ar { transform: translateX(4px); }
+
+.relwork__all {
+  font-family: var(--mono);
+  font-size: .72rem;
+  letter-spacing: .04em;
+  color: var(--amber);
+  text-decoration: none;
+}
+
+.relwork__all .ar { transition: transform .25s var(--ease-soft); }
+.relwork__all:hover .ar { transform: translateX(4px); }
+
+@media (max-width: 760px) {
+  .relwork__grid { grid-template-columns: 1fr; }
+}
+
+/* ── Triage: the three failures as a picker, wired to a live read-out on the
+      left. One form, and the visitor has already told us which of the three
+      they came here about. ── */
+
+.triage {
+  display: grid;
+  grid-template-columns: .92fr 1.08fr;
+  gap: 34px;
+  align-items: start;
+  margin-top: 18px;
+  padding: 30px;
+  border: 1px solid var(--hair);
+  border-radius: var(--r-panel);
+  background:
+    radial-gradient(ellipse 44% 90% at 0% 0%, rgba(245, 165, 36, .10), transparent 68%),
+    var(--panel);
+}
+
+.triage__copy .d3 { margin: 14px 0 10px; letter-spacing: -.03em; }
+.triage__copy .badge { margin-bottom: 16px; }
+.triage__copy > p { margin: 0; max-width: 46ch; font-size: .92rem; line-height: 1.65; color: var(--on-dark-2); }
+
+.triage__h {
+  margin: 24px 0 10px;
+  font-family: var(--mono);
+  font-size: .62rem;
+  font-weight: 500;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+  color: var(--on-dark-3);
+}
+
+.triage__read {
+  display: grid;
+  gap: 12px;
+  margin: 0;
+  padding: 16px 18px;
+  border: 1px solid var(--hair);
+  border-left: 2px solid var(--amber);
+  border-radius: var(--r-card);
+  background: rgba(255, 255, 255, .03);
+}
+
+.triage__read dt {
+  margin-bottom: 4px;
+  font-family: var(--mono);
+  font-size: .58rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--on-dark-3);
+}
+
+.triage__read dd {
+  margin: 0;
+  font-size: .88rem;
+  line-height: 1.55;
+  color: var(--on-dark);
+}
+
+/* The read-out swaps text under the visitor, so it needs a beat of motion or
+   the change reads as a rendering glitch. */
+.triage__read dd.is-swap { animation: tgSwap .34s var(--ease-soft); }
+@keyframes tgSwap { from { opacity: 0; transform: translateY(5px); } }
+
+.triage__assure {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 18px;
+  margin: 16px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.triage__assure li {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-family: var(--mono);
+  font-size: .64rem;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  color: var(--on-dark-3);
+}
+
+.triage__assure li::before {
+  content: '';
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: var(--amber);
+}
+
+/* ── the form itself: style.css authored .form for the white sheet ── */
+
+.triage__form { margin-top: 0; gap: 14px; }
+
+.triage__pick { display: grid; gap: 8px; margin: 0; padding: 0; border: 0; }
+
+.triage__pick legend {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 0;
+  font-family: var(--mono);
+  font-size: .62rem;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+  color: var(--on-dark-3);
+}
+
+.triage__opt { display: block; cursor: pointer; }
+.triage__opt input { position: absolute; opacity: 0; pointer-events: none; }
+
+.triage__opt-in {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 2px 14px;
+  padding: 12px 16px;
+  border: 1px solid var(--hair);
+  border-radius: var(--r-card);
+  background: rgba(255, 255, 255, .02);
+  transition: border-color .22s var(--ease-soft), background .22s var(--ease-soft);
+}
+
+.triage__opt-in b {
+  grid-row: span 2;
+  display: grid;
+  place-items: center;
+  width: 30px; height: 30px;
+  border: 1px solid var(--hair);
+  border-radius: 50%;
+  font-family: var(--mono);
+  font-size: .72rem;
+  font-weight: 500;
+  color: var(--on-dark-3);
+  transition: border-color .22s var(--ease-soft), background .22s var(--ease-soft), color .22s var(--ease-soft);
+}
+
+.triage__opt-in em { font-style: normal; font-size: .9rem; font-weight: 500; color: var(--on-dark); }
+.triage__opt-in i { font-style: normal; font-size: .76rem; line-height: 1.45; color: var(--on-dark-3); }
+
+.triage__opt:hover .triage__opt-in { border-color: rgba(255, 255, 255, .22); background: rgba(255, 255, 255, .04); }
+
+.triage__opt input:checked + .triage__opt-in {
+  border-color: rgba(245, 165, 36, .55);
+  background: rgba(245, 165, 36, .09);
+}
+.triage__opt input:checked + .triage__opt-in b { border-color: transparent; background: var(--amber); color: #1b1200; }
+.triage__opt input:checked + .triage__opt-in i { color: var(--on-dark-2); }
+.triage__opt input:focus-visible + .triage__opt-in { box-shadow: 0 0 0 3px rgba(245, 165, 36, .3); }
+
+.triage__form .form__row { gap: 14px; }
+.triage__form .form__field > span { font-size: .74rem; color: var(--on-dark-3); }
+
+.triage__form input[type="text"],
+.triage__form input[type="email"],
+.triage__form textarea {
+  border: 1px solid var(--hair);
+  border-radius: var(--r-card);
+  background: rgba(255, 255, 255, .03);
+  color: var(--on-dark);
+}
+
+.triage__form input::placeholder,
+.triage__form textarea::placeholder { color: rgba(255, 255, 255, .3); }
+
+.triage__form input:focus,
+.triage__form textarea:focus {
+  border-color: rgba(245, 165, 36, .6);
+  background: rgba(255, 255, 255, .05);
+  box-shadow: 0 0 0 3px rgba(245, 165, 36, .14);
+}
+
+.triage__act { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 2px; }
+.triage__form .form__submit { justify-self: start; }
+.triage__form .form__note { color: var(--on-dark-3); }
+.triage__form .form__note a { color: var(--amber); text-decoration: none; }
+.triage__form .form__note a:hover { text-decoration: underline; }
+
+.btn__wa { width: 17px; height: 17px; fill: currentColor; }
+
+/* ==========================================================================
+   Industries — tiles, not cards. The point is breadth at a glance.
+   ========================================================================== */
+
+.inds {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 12px;
+  margin-top: 26px;
+}
+
+.ind {
+  display: grid;
+  place-items: center;
+  gap: 12px;
+  padding: 26px 14px;
+  border: 1px solid var(--hair);
+  border-radius: var(--r-card);
+  background: var(--panel);
+  text-align: center;
+  text-decoration: none;
+  transition: border-color .28s var(--ease-soft), background .28s var(--ease-soft), transform .28s var(--ease-soft);
+}
+
+.ind span:last-child { font-size: .86rem; font-weight: 500; color: var(--on-dark-2); }
+
+.ind__i {
+  display: grid;
+  place-items: center;
+  width: 40px; height: 40px;
+  border: 1px solid var(--hair);
+  border-radius: 8px;
+  color: var(--amber);
+  transition: border-color .28s var(--ease-soft), background .28s var(--ease-soft);
+}
+
+.ind__i svg {
+  width: 21px; height: 21px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.ind:hover {
+  border-color: rgba(245, 165, 36, .45);
+  background: var(--panel-2);
+  transform: translateY(-4px);
+}
+
+.ind:hover .ind__i { border-color: rgba(245, 165, 36, .45); background: rgba(245, 165, 36, .1); }
+.ind:hover span:last-child { color: #fff; }
+
+@media (max-width: 1000px) {
+  .inds { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (max-width: 620px) {
+  .inds { grid-template-columns: repeat(2, 1fr); }
+  .ind { padding: 20px 10px; }
+}
+
+/* ==========================================================================
+   Results and success stories — problem, solution, result on the white sheet.
+   ========================================================================== */
+
+.reshead__more {
+  font-family: var(--mono);
+  font-size: .76rem;
+  letter-spacing: .03em;
+  color: var(--amber-dk);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.reshead__more .ar { display: inline-block; transition: transform .25s var(--ease-soft); }
+.reshead__more:hover .ar { transform: translateX(4px); }
+
+.res {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-top: 24px;
+}
+
+.res__card {
+  display: flex;
+  flex-direction: column;
+  padding: 24px 24px 22px;
+  border: 1px solid var(--sheet-hair);
+  border-radius: var(--r-card);
+  background: #fff;
+  text-decoration: none;
+  transition: border-color .3s var(--ease-soft), box-shadow .3s var(--ease-soft), transform .3s var(--ease-soft);
+}
+
+.res__card:hover {
+  border-color: rgba(11, 18, 32, .26);
+  box-shadow: 0 16px 40px rgba(11, 18, 32, .09);
+  transform: translateY(-4px);
+}
+
+/* Thumbnail bleeds to the card edge, so the padding is cancelled on the sides. */
+.res__shot {
+  margin: -24px -24px 20px;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: var(--r-card) var(--r-card) 0 0;
+  background: var(--sheet-soft);
+}
+.res__shot img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform .55s var(--ease-soft);
+}
+.res__card:hover .res__shot img { transform: scale(1.05); }
+
+.res__top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--sheet-hair);
+}
+
+.res__tag {
+  padding: 5px 10px;
+  border: 1px solid var(--sheet-hair);
+  border-radius: 3px;
+  background: var(--sheet-soft);
+  font-family: var(--mono);
+  font-size: .6rem;
+  letter-spacing: .09em;
+  text-transform: uppercase;
+  color: var(--ink-2);
+}
+
+.res__metric {
+  font-family: var(--mono);
+  font-size: .74rem;
+  letter-spacing: -.01em;
+  color: var(--amber-dk);
+}
+
+.res__body { margin: 18px 0 20px; }
+
+.res__body dt {
+  font-family: var(--mono);
+  font-size: .6rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+
+.res__body dd { margin: 6px 0 16px; font-size: .88rem; line-height: 1.6; color: var(--ink-2); }
+.res__body dd:last-child { margin-bottom: 0; }
+.res__win { color: var(--ink); font-weight: 500; }
+
+.res__card .tlink { margin-top: auto; }
+
+@media (max-width: 1000px) {
+  .res { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 720px) {
+  .res { grid-template-columns: 1fr; }
+}
+
+/* ==========================================================================
+   Cost of the workaround — the problems stated before the pitch. Separate
+   cards rather than the joined panel .brk uses, so the two do not read as
+   the same component twice.
+   ========================================================================== */
+
+.pain {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-top: 26px;
+}
+
+.pain__card {
+  position: relative;
+  display: block;
+  padding: 26px 24px 24px;
+  border: 1px solid var(--hair);
+  border-radius: var(--r-card);
+  background: var(--panel);
+  text-decoration: none;
+  transition: border-color .3s var(--ease-soft), background .3s var(--ease-soft), transform .3s var(--ease-soft);
+}
+
+.pain__card:hover {
+  border-color: rgba(255, 255, 255, .2);
+  background: var(--panel-2);
+  transform: translateY(-4px);
+}
+
+.pain__i {
+  display: grid;
+  place-items: center;
+  width: 36px; height: 36px;
+  margin-bottom: 16px;
+  border: 1px solid var(--hair);
+  border-radius: 6px;
+  color: var(--amber);
+}
+
+.pain__i svg {
+  width: 19px; height: 19px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.pain__card h3 {
+  margin: 0 0 9px;
+  font-size: 1.02rem;
+  font-weight: 600;
+  letter-spacing: -.025em;
+  line-height: 1.28;
+}
+
+.pain__card p { margin: 0; font-size: .88rem; line-height: 1.62; color: var(--on-dark-2); }
+
+/* Warning mark: no chrome around it, the way the reference sets it. */
+.pain__i--warn {
+  width: 22px; height: 22px;
+  margin-bottom: 18px;
+  border: 0;
+  border-radius: 0;
+}
+.pain__i--warn svg { width: 22px; height: 22px; stroke-width: 1.6; }
+
+.painmore { margin: 22px 0 0; text-align: center; }
+
+/* The one cell that answers the other five. */
+.pain__card--out {
+  border-color: rgba(245, 165, 36, .42);
+  background:
+    radial-gradient(ellipse 90% 100% at 0% 100%, rgba(245, 165, 36, .14), transparent 70%),
+    var(--panel);
+}
+
+.pain__card--out:hover { border-color: var(--amber); }
+.pain__card--out .pain__i { border-color: rgba(245, 165, 36, .42); background: rgba(245, 165, 36, .1); }
+.pain__card--out .pain__i svg { fill: currentColor; stroke: none; }
+.pain__card--out .tlink { margin-top: 16px; }
+
+@media (max-width: 1000px) {
+  .pain { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 620px) {
+  .pain { grid-template-columns: 1fr; }
+}
+
+/* ==========================================================================
+   Lifecycle — the four stages of an engagement as a control rail.
+   Replaces the two overlapping "lifecycle" blocks the page used to carry.
+   ========================================================================== */
+
+.lc { margin-top: 18px; }
+
+.lc__rail {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+}
+
+.lc__stage {
+  position: relative;
+  display: block;
+  padding: 22px 22px 24px;
+  border: 1px solid var(--hair);
+  border-radius: var(--r-card);
+  background: var(--panel);
+  color: inherit;
+  text-align: left;
+  font: inherit;
+  cursor: pointer;
+  transition: background .25s var(--ease-soft), border-color .25s var(--ease-soft);
+}
+
+/* The connector sits in the grid gap, so the cards must not clip their overflow. */
+.lc__stage + .lc__stage::before {
+  content: '';
+  position: absolute;
+  left: -19px; top: 50%;
+  width: 9px; height: 9px;
+  border-top: 2px solid var(--on-dark-3);
+  border-right: 2px solid var(--on-dark-3);
+  transform: translateY(-50%) rotate(45deg);
+}
+
+.lc__stage:hover { background: var(--panel-2); }
+.lc__stage.is-on { background: rgba(245, 165, 36, .07); border-color: rgba(245, 165, 36, .45); }
+
+/* The fill bar is the progress cue; it runs while a stage is auto-advancing. */
+.lc__stage::after {
+  content: '';
+  position: absolute;
+  left: 14px; right: 14px; bottom: 0;
+  height: 2px;
+  background: var(--amber);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .3s var(--ease-soft);
+}
+
+.lc__stage.is-on::after { transform: scaleX(1); }
+.lc__stage.is-done::after { transform: scaleX(1); background: var(--hair); }
+
+.lc__ico {
+  display: grid;
+  place-items: center;
+  width: 40px; height: 40px;
+  margin-bottom: 16px;
+  border: 1px solid var(--hair);
+  border-radius: 8px;
+  color: var(--amber);
+  transition: border-color .28s var(--ease-soft), background .28s var(--ease-soft);
+}
+
+.lc__ico svg {
+  width: 21px; height: 21px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.lc__stage:hover .lc__ico,
+.lc__stage.is-on .lc__ico { border-color: rgba(245, 165, 36, .45); background: rgba(245, 165, 36, .1); }
+
+.lc__n {
+  display: block;
+  margin-bottom: 9px;
+  font-family: var(--mono);
+  font-size: .68rem;
+  letter-spacing: .11em;
+  color: var(--on-dark-3);
+}
+
+.lc__stage.is-on .lc__n { color: var(--amber); }
+
+.lc__t {
+  display: block;
+  font-size: 1.06rem;
+  font-weight: 600;
+  letter-spacing: -.02em;
+  color: var(--on-dark);
+}
+
+.lc__sub {
+  display: block;
+  margin-top: 5px;
+  font-size: .82rem;
+  color: var(--on-dark-3);
+}
+
+.lc__body {
+  display: grid;
+  grid-template-columns: 1.25fr .75fr;
+  gap: 0;
+  margin-top: 18px;
+  border: 1px solid var(--hair);
+  border-radius: var(--r-card);
+  background: var(--panel);
+  overflow: hidden;
+}
+
+.lc__panel { display: none; padding: 34px 34px 36px; }
+.lc__panel.is-on { display: block; animation: lcIn .35s var(--ease-soft); }
+
+@keyframes lcIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+
+.lc__panel h3 {
+  margin: 0 0 14px;
+  font-size: clamp(1.3rem, 2vw, 1.65rem);
+  font-weight: 600;
+  letter-spacing: -.03em;
+}
+
+.lc__panel p { margin: 0 0 20px; font-size: .97rem; color: var(--on-dark-2); max-width: 58ch; }
+
+.lc__out {
+  display: grid;
+  gap: 0;
+  border-left: 1px solid var(--hair);
+  background: rgba(0, 0, 0, .22);
+}
+
+.lc__fact {
+  padding: 22px 26px;
+  border-bottom: 1px solid var(--hair);
+}
+
+.lc__fact:last-child { border-bottom: 0; }
+
+.lc__fact dt {
+  margin-bottom: 6px;
+  font-family: var(--mono);
+  font-size: .64rem;
+  letter-spacing: .11em;
+  text-transform: uppercase;
+  color: var(--on-dark-3);
+}
+
+.lc__fact dd {
+  margin: 0;
+  font-size: .93rem;
+  font-weight: 500;
+  color: var(--on-dark);
+}
+
+.lc__hint {
+  margin-top: 14px;
+  font-family: var(--mono);
+  font-size: .68rem;
+  letter-spacing: .09em;
+  text-transform: uppercase;
+  color: var(--on-dark-3);
+}
+
+/* ==========================================================================
+   Capability split — AI spotlight beside the rest of the stack, instead of
+   six identical cards.
+   ========================================================================== */
+
+.cap {
+  display: grid;
+  grid-template-columns: 1.05fr .95fr;
+  gap: 24px;
+  margin-top: 26px;
+}
+
+.cap__spot {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 34px;
+  border: 1px solid var(--sheet-hair);
+  border-radius: var(--r-card);
+  background: var(--ink);
+  color: #fff;
+  overflow: hidden;
+}
+
+.cap__spot::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(rgba(255, 255, 255, .03) 1px, transparent 1px) 0 0 / 100% 56px,
+    linear-gradient(90deg, rgba(255, 255, 255, .03) 1px, transparent 1px) 0 0 / 56px 100%;
+  pointer-events: none;
+}
+
+.cap__spot > * { position: relative; }
+
+.cap__live {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  align-self: flex-start;
+  margin-bottom: 20px;
+  padding: 6px 12px;
+  border-radius: 3px;
+  background: rgba(245, 165, 36, .14);
+  font-family: var(--mono);
+  font-size: .66rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--amber-lt);
+}
+
+.cap__live i {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--amber);
+  animation: capPulse 2s infinite;
+}
+
+@keyframes capPulse {
+  0%   { box-shadow: 0 0 0 0 rgba(245, 165, 36, .55); }
+  70%  { box-shadow: 0 0 0 7px rgba(245, 165, 36, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(245, 165, 36, 0); }
+}
+
+/* .page-light sets a dark ink on every heading; this card is dark itself. */
+.page-light .cap__spot h3,
+.cap__spot h3 {
+  margin: 0 0 14px;
+  font-size: clamp(1.5rem, 2.4vw, 2rem);
+  font-weight: 600;
+  letter-spacing: -.035em;
+  line-height: 1.12;
+  color: #fff;
+}
+
+.cap__spot p { margin: 0 0 24px; font-size: .97rem; color: rgba(255, 255, 255, .7); }
+
+.cap__proof {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  margin: 0 0 26px;
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, .1);
+  border-radius: 6px;
+  background: rgba(255, 255, 255, .1);
+  overflow: hidden;
+  list-style: none;
+}
+
+.cap__proof li {
+  padding: 16px 14px;
+  background: var(--ink);
+  font-size: .76rem;
+  color: rgba(255, 255, 255, .62);
+}
+
+.cap__proof b {
+  display: block;
+  margin-bottom: 3px;
+  font-family: var(--mono);
+  font-size: 1.15rem;
+  font-weight: 500;
+  letter-spacing: -.03em;
+  color: var(--amber);
+}
+
+.cap__spot .tlink { margin-top: auto; color: var(--amber); }
+
+/* the other five, as an index */
+.cap__list { display: grid; align-content: start; }
+
+.cap__row {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 18px;
+  padding: 21px 4px 21px 0;
+  border-bottom: 1px solid var(--sheet-hair);
+  transition: padding-left .28s var(--ease), border-color .28s var(--ease);
+}
+
+.cap__row:first-child { border-top: 1px solid var(--sheet-hair); }
+.cap__row:hover { padding-left: 12px; border-color: var(--amber); }
+
+.cap__row-n {
+  font-family: var(--mono);
+  font-size: .68rem;
+  letter-spacing: .09em;
+  color: var(--ink-3);
+}
+
+.cap__row:hover .cap__row-n { color: var(--amber-dk); }
+
+.cap__row-t { font-size: 1.02rem; font-weight: 600; letter-spacing: -.02em; color: var(--ink); }
+.cap__row-d { display: block; margin-top: 3px; font-size: .85rem; font-weight: 400; color: var(--ink-2); }
+
+.cap__row-ar {
+  font-size: 1rem;
+  color: var(--ink-3);
+  transition: transform .28s var(--ease), color .28s var(--ease);
+}
+
+.cap__row:hover .cap__row-ar { transform: translateX(4px); color: var(--amber-dk); }
+
+/* ==========================================================================
+   Driveaway crosslink — full-width band, not a card in a sidebar.
+   ========================================================================== */
+
+.spin {
+  display: grid;
+  grid-template-columns: 1fr .9fr;
+  gap: 40px;
+  align-items: center;
+  margin-top: 22px;
+  padding: 34px;
+  border: 1px solid var(--hair);
+  border-left: 3px solid var(--amber);
+  border-radius: var(--r-card);
+  background: var(--panel);
+  transition: border-color .3s var(--ease);
+}
+
+.spin:hover { border-color: rgba(245, 165, 36, .4); border-left-color: var(--amber); }
+
+.spin__eyebrow {
+  display: block;
+  margin-bottom: 12px;
+  font-family: var(--mono);
+  font-size: .66rem;
+  letter-spacing: .11em;
+  text-transform: uppercase;
+  color: var(--amber);
+}
+
+.spin h3 {
+  margin: 0 0 14px;
+  font-size: clamp(1.4rem, 2.2vw, 1.9rem);
+  font-weight: 600;
+  letter-spacing: -.035em;
+  line-height: 1.14;
+}
+
+.spin p { margin: 0 0 22px; font-size: .95rem; color: var(--on-dark-2); }
+
+.spin__facts {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin: 0 0 24px;
+}
+
+.spin__facts div { border-left: 1px solid var(--hair); padding-left: 14px; }
+
+.spin__facts dt {
+  font-family: var(--mono);
+  font-size: .62rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--on-dark-3);
+  margin-bottom: 5px;
+}
+
+.spin__facts dd { margin: 0; font-size: .88rem; font-weight: 500; }
+
+/* ── Route visual: the operation on the left, the running platform on the
+      right, one truck covering the distance between them. Replaced the white
+      browser miniature, which read as a stock screenshot on a dark band. ── */
+
+.spinviz {
+  display: block;
+  justify-self: center;
+  width: 100%;
+  max-width: 440px;
+  padding: 22px 24px 18px;
+  border: 1px solid var(--hair);
+  border-radius: var(--r-card);
+  background:
+    linear-gradient(rgba(245, 165, 36, .05), transparent),
+    rgba(0, 0, 0, .22);
+}
+
+.spinviz__road { position: relative; display: block; height: 52px; }
+
+/* the road itself, plus the amber stretch the truck has already covered */
+.spinviz__road::before,
+.spinviz__road::after {
+  content: '';
+  position: absolute;
+  left: 6px; right: 34px; top: 50%;
+  height: 2px;
+  margin-top: -1px;
+  border-radius: 2px;
+}
+
+.spinviz__road::before { background: repeating-linear-gradient(90deg, rgba(255, 255, 255, .16) 0 9px, transparent 9px 18px); }
+.spinviz__road::after {
+  background: linear-gradient(90deg, var(--amber), rgba(245, 165, 36, 0));
+  transform-origin: left;
+  animation: spinRoad 7s var(--ease-soft) infinite;
+}
+
+.spinviz__truck,
+.spinviz__dest {
+  position: absolute;
+  top: 50%;
+  display: grid;
+  place-items: center;
+  width: 36px; height: 36px;
+  margin-top: -18px;
+  border: 1px solid var(--hair);
+  border-radius: 9px;
+  background: var(--panel);
+  color: var(--on-dark-2);
+}
+
+.spinviz__truck svg,
+.spinviz__dest svg {
+  width: 20px; height: 20px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.spinviz__truck {
+  left: 0;
+  border-color: rgba(245, 165, 36, .5);
+  background: rgba(245, 165, 36, .12);
+  color: var(--amber);
+  animation: spinDrive 7s var(--ease-soft) infinite;
+}
+
+.spinviz__dest { right: 0; }
+.spin:hover .spinviz__dest { border-color: rgba(245, 165, 36, .45); color: var(--amber); }
+
+.spinviz__lbls {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 6px;
+}
+
+.spinviz__lbls em {
+  font-style: normal;
+  font-family: var(--mono);
+  font-size: .58rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--on-dark-3);
+}
+
+@keyframes spinDrive {
+  0%   { left: 0; opacity: 0; }
+  8%   { opacity: 1; }
+  62%  { left: calc(100% - 36px); opacity: 1; }
+  84%  { left: calc(100% - 36px); opacity: 1; }
+  94%  { left: calc(100% - 36px); opacity: 0; }
+  100% { left: 0; opacity: 0; }
+}
+
+@keyframes spinRoad {
+  0%   { transform: scaleX(0); }
+  62%  { transform: scaleX(1); }
+  84%  { transform: scaleX(1); }
+  100% { transform: scaleX(0); opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .spinviz__truck { animation: none; left: calc(100% - 36px); }
+  .spinviz__road::after { animation: none; }
+}
+
+/* ==========================================================================
+   FAQ — a dark band cut into the white sheet. .acc from style.css was a
+   hairline list built for an inset panel; here it becomes a control list
+   with a sticky brief beside it.
+   ========================================================================== */
+
+.faqband {
+  position: relative;
+  background: var(--bg-deep);
+  color: var(--on-dark);
+  overflow: hidden;
+}
+
+.faqband::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(rgba(255, 255, 255, .022) 1px, transparent 1px) 0 0 / 100% 78px,
+    linear-gradient(90deg, rgba(255, 255, 255, .022) 1px, transparent 1px) 0 0 / 78px 100%,
+    radial-gradient(ellipse 44% 62% at 76% -6%, rgba(245, 165, 36, .13), transparent 70%);
+  pointer-events: none;
+}
+
+.faqband > .wrap { position: relative; z-index: 1; }
+
+/* .page-light inks every heading and badge on the sheet; the band is dark again. */
+.page-light .faqband h2,
+.page-light .faqband h3 { color: #fff; }
+.page-light .faqband .lead { color: var(--on-dark-2); }
+.page-light .faqband .grad { color: var(--amber); }
+.page-light .faqband .tlink { color: var(--amber); }
+
+.page-light .faqband .badge {
+  background: rgba(255, 255, 255, .03);
+  border-color: var(--hair);
+  color: var(--on-dark-2);
+}
+
+.faqgrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 18px;
+  align-items: start;
+  max-width: 880px;
+  margin: 26px auto 0;
+}
+
+.faqside { position: static; }
+.faqside .d2 { margin: 18px 0 16px; }
+.faqside .lead { font-size: .95rem; }
+
+.faqside__ask {
+  margin-top: 0;
+  padding: 20px 22px;
+  border: 1px solid var(--hair);
+  border-left: 2px solid var(--amber);
+  border-radius: var(--r-card);
+  background: rgba(255, 255, 255, .03);
+}
+
+.faqside__lbl {
+  font-family: var(--mono);
+  font-size: .62rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--amber);
+}
+
+.page-light .faqside__ask p { margin: 10px 0 14px; font-size: .88rem; line-height: 1.6; color: var(--on-dark-2); }
+.faqside__ask .tlink { font-family: var(--mono); font-size: .82rem; letter-spacing: .02em; }
+
+#faq .acc { display: grid; gap: 10px; border-left: 0; counter-reset: faq; }
+
+#faq .acc__item {
+  counter-increment: faq;
+  position: relative;
+  padding: 0;
+  margin: 0;
+  border: 1px solid var(--hair);
+  border-radius: var(--r-card);
+  background: var(--panel);
+  overflow: hidden;
+  transition: border-color .3s var(--ease), background .3s var(--ease), box-shadow .3s var(--ease);
+}
+
+/* The base rule animates height; here the rail wipes instead. */
+#faq .acc__item::before {
+  left: 0;
+  width: 2px;
+  height: auto;
+  bottom: 0;
+  transform: scaleY(0);
+  transform-origin: top;
+  background: var(--amber);
+  transition: transform .5s var(--ease);
+}
+
+#faq .acc__item:hover { border-color: rgba(255, 255, 255, .2); background: var(--panel-2); }
+
+#faq .acc__item.is-open {
+  border-color: rgba(245, 165, 36, .42);
+  background: var(--panel-2);
+  box-shadow: 0 18px 44px rgba(0, 0, 0, .4);
+}
+
+#faq .acc__item.is-open::before { transform: none; }
+
+#faq .acc__q {
+  justify-content: flex-start;
+  gap: 16px;
+  padding: 18px 24px;
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: -.015em;
+  color: var(--on-dark-2);
+}
+
+#faq .acc__q::before {
+  content: counter(faq, decimal-leading-zero);
+  flex: none;
+  font-family: var(--mono);
+  font-size: .68rem;
+  font-weight: 500;
+  letter-spacing: .08em;
+  color: var(--on-dark-3);
+  transition: color .3s var(--ease);
+}
+
+#faq .acc__tag {
+  flex: none;
+  margin-left: auto;
+  padding: 4px 9px;
+  border: 1px solid var(--hair);
+  border-radius: 3px;
+  font-family: var(--mono);
+  font-size: .58rem;
+  letter-spacing: .11em;
+  text-transform: uppercase;
+  color: var(--on-dark-3);
+  transition: color .3s var(--ease), border-color .3s var(--ease);
+}
+
+#faq .acc__q i { margin-left: 14px; }
+
+#faq .acc__item.is-open .acc__q { color: #fff; }
+#faq .acc__item.is-open .acc__q::before { color: var(--amber); }
+#faq .acc__item.is-open .acc__tag { border-color: rgba(245, 165, 36, .4); color: var(--amber); }
+
+/* Padding lives on the <p> because the JS animates .acc__a to scrollHeight;
+   a vertical margin here would collapse out of the measurement. */
+#faq .acc__a p {
+  margin: 0 26px 0 64px;
+  padding: 16px 0 22px;
+  border-top: 1px solid var(--hair);
+  font-size: .92rem;
+  line-height: 1.68;
+  color: var(--on-dark-2);
+}
+
+@media (max-width: 1000px) {
+  .faqside { position: static; }
+}
+
+@media (max-width: 620px) {
+  #faq .acc__q { padding: 16px 18px; font-size: .95rem; gap: 12px; }
+  #faq .acc__tag { display: none; }
+  #faq .acc__a p { margin: 0 18px; padding: 14px 0 18px; }
+}
+
+/* ==========================================================================
+   Final CTA
+   ========================================================================== */
+
+/* style.css caps this at 16ch, which shattered the headline into three
+   ragged lines once the copy got longer than three words. */
+.final { padding: clamp(48px, 5vw, 78px) 0 clamp(52px, 5.6vw, 88px); }
+.final .d2 { max-width: none; }
+
+/* ── Closing panel: headline, one line, two buttons. Nothing else, because
+      the footer directly below already carries the contact details. ── */
+
+.close {
+  position: relative;
+  padding: clamp(46px, 6vw, 72px) 32px;
+  border: 1px solid var(--sheet-hair);
+  border-top: 2px solid var(--amber);
+  border-radius: var(--r-panel);
+  background: #fff;
+  box-shadow: 0 26px 64px rgba(11, 18, 32, .08);
+  overflow: hidden;
+}
+
+/* Blueprint grid in ink rather than in white: the closing panel stays on the
+   sheet the rest of the section is printed on. */
+.close::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(rgba(11, 18, 32, .035) 1px, transparent 1px) 0 0 / 100% 74px,
+    linear-gradient(90deg, rgba(11, 18, 32, .035) 1px, transparent 1px) 0 0 / 74px 100%,
+    radial-gradient(ellipse 52% 74% at 50% 118%, rgba(245, 165, 36, .26), transparent 70%);
+  pointer-events: none;
+}
+
+.close > * { position: relative; z-index: 1; }
+
+.close .d2 { margin: 0 auto 14px; }
+.close .lead { max-width: 46ch; margin: 0 auto; }
+
+.close__act {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 32px;
+}
+
+.close__act .btn > span { gap: 10px; }
+
+@media (max-width: 620px) {
+  .close { padding: 36px 22px; }
+  .close__act .btn { width: 100%; }
+  .close__act .btn > span { justify-content: center; }
+}
+
+.final__assure {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px 28px;
+  margin: 34px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.final__assure li {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-family: var(--mono);
+  font-size: .7rem;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+
+.final__assure li::before {
+  content: '';
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--amber);
+}
+
+@media (max-width: 1000px) {
+  .namap { grid-template-columns: 1fr; }
+  .namap__panel { border-left: 0; border-top: 1px solid var(--hair); }
+  .namap__stage { min-height: 300px; }
+  .lc__rail { grid-template-columns: repeat(2, 1fr); gap: 22px 30px; }
+  .lc__stage:nth-child(3)::before { display: none; }
+  .lc__body { grid-template-columns: 1fr; }
+  .lc__out { border-left: 0; border-top: 1px solid var(--hair); grid-template-columns: repeat(3, 1fr); }
+  .lc__fact { border-bottom: 0; border-right: 1px solid var(--hair); }
+  .lc__fact:last-child { border-right: 0; }
+  .cap, .spin, .faqgrid { grid-template-columns: 1fr; }
+  .spin__facts { grid-template-columns: repeat(3, 1fr); }
+  .faqgrid { gap: 30px; }
+
+  .brk { grid-template-columns: 1fr; }
+  .brk__item { border-right: 0; border-bottom: 1px solid var(--hair); }
+  .brk__item:last-child { border-bottom: 0; }
+
+  .triage { grid-template-columns: 1fr; gap: 26px; padding: 24px; }
+}
+
+@media (max-width: 620px) {
+  .lc__rail { grid-template-columns: 1fr; gap: 14px; }
+  .lc__stage + .lc__stage::before { display: none; }
+  .lc__panel { padding: 26px 22px 28px; }
+  .lc__out { grid-template-columns: 1fr; }
+  .lc__fact { border-right: 0; border-bottom: 1px solid var(--hair); }
+  .cap__proof, .spin__facts { grid-template-columns: 1fr; }
+  .spin { padding: 26px; }
+  .spin__facts div { border-left: 0; border-top: 1px solid var(--hair); padding-left: 0; padding-top: 12px; }
+
+  .brk__item { padding: 24px 20px; }
+  .relwork { gap: 8px; }
+  .relwork a { flex: 1 1 100%; justify-content: space-between; }
+  .relwork a.relwork__all { margin-left: 0; justify-content: flex-start; gap: 7px; }
+  .triage { padding: 26px 22px; }
+}
+
+/* ==========================================================================
+   Dark end to end. The white sheet is gone, but every component under
+   .page-light was authored against the paper tokens, so the tokens flip
+   rather than the markup.
+   ========================================================================== */
+
+.page-light {
+  --sheet:      var(--bg-deep);
+  --sheet-soft: rgba(255, 255, 255, .04);
+  --sheet-hair: var(--hair);
+  --ink:        #ffffff;
+  --ink-2:      var(--on-dark-2);
+  --ink-3:      var(--on-dark-3);
+  --grad-ink:   var(--amber);
+
+  background: var(--bg-deep);
+  border-top: 1px solid var(--hair-soft);
+}
+
+.page-light .grad { color: var(--amber); }
+.page-light .tlink { color: var(--amber); }
+.page-light .badge { background: rgba(255, 255, 255, .03); color: var(--on-dark-2); }
+
+/* The handful of rules that hardcoded paper instead of reading a token. */
+.res__card { background: var(--panel); }
+.res__card:hover {
+  border-color: rgba(245, 165, 36, .45);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, .35);
+}
+
+/* This card was the one dark surface on the sheet; now it has to invert the
+   other way to stay distinct from the panels around it. */
+.cap__spot { background: var(--panel-2); }
+.cap__proof li { background: var(--panel-2); }
+
+.close {
+  background: var(--panel);
+  box-shadow: 0 26px 64px rgba(0, 0, 0, .4);
+}
+
+.close::before {
+  background:
+    linear-gradient(rgba(255, 255, 255, .035) 1px, transparent 1px) 0 0 / 100% 74px,
+    linear-gradient(90deg, rgba(255, 255, 255, .035) 1px, transparent 1px) 0 0 / 74px 100%,
+    radial-gradient(ellipse 52% 74% at 50% 118%, rgba(245, 165, 36, .22), transparent 70%);
+}
+
+.final__assure li { color: var(--on-dark-3); }
+
+/* The FAQ band used to be a dark cut-out in the sheet. On a dark page it just
+   needs to sit a shade above it. */
+.faqband { background: var(--bg); }
+

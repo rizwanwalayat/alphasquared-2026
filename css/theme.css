@@ -1,0 +1,930 @@
+/* ==========================================================================
+   Alpha Squared — "Operator" theme layer
+   Loaded AFTER style.css. Overrides the tokens and the handful of rules that
+   hardcode the old tri-gradient, so the whole component library re-skins from
+   here rather than from edits scattered through style.css.
+
+   Direction: near-black steel, greyscale structure, ONE accent (high-vis
+   amber, the colour this industry already uses for "pay attention"). No
+   gradient text, no purple blooms, tight radii, mono for anything numeric.
+   ========================================================================== */
+
+:root {
+  /* --- single accent --- */
+  --amber:       #f5a524;
+  --amber-dk:    #d98c12;
+  --amber-lt:    #ffc45c;
+  --amber-tint:  rgba(245, 165, 36, .12);
+
+  /* The old brand tokens still have ~30 references across the stylesheets.
+     Rather than hunt them all down, collapse them onto the one accent. */
+  --blue:        #f5a524;
+  --purple:      #f5a524;
+  --orange:      #f5a524;
+  --blue-lt:     #ffc45c;
+  --purple-lt:   #ffc45c;
+
+  --grad-btn:    #f5a524;
+  --grad-text:   #f5a524;
+  --grad-ink:    #b06f00;
+
+  /* --- steel surfaces --- */
+  --bg:          #0b1220;
+  --bg-deep:     #070c16;
+  --panel:       #111a2b;
+  --panel-2:     #16202f;
+  --hair:        rgba(255, 255, 255, .10);
+  --hair-soft:   rgba(255, 255, 255, .06);
+
+  /* --- paper --- */
+  --sheet:       #ffffff;
+  --sheet-soft:  #f4f6f9;
+  --sheet-hair:  rgba(11, 18, 32, .12);
+
+  /* --- ink --- */
+  --ink:         #0b1220;
+  --ink-2:       #45516b;
+  --ink-3:       #77839c;
+  --on-dark:     #ffffff;
+  --on-dark-2:   rgba(255, 255, 255, .68);
+  --on-dark-3:   rgba(255, 255, 255, .44);
+
+  /* --- geometry: square-ish panels so the page still reads industrial,
+         but fully rounded controls so anything clickable looks clickable --- */
+  --r-card:      12px;
+  --r-panel:     16px;
+  --r-sheet:     0px;
+  --r-btn:       999px;
+  --r-pill:      999px;
+
+  --mono:        'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+/* ==========================================================================
+   Kill the gradient text. This was the single biggest "AI template" tell.
+   .grad now just means "the accent word".
+   ========================================================================== */
+
+.grad,
+.page-light .grad {
+  background: none;
+  -webkit-background-clip: border-box;
+  background-clip: border-box;
+  color: var(--amber);
+}
+
+.page-light .grad { color: var(--amber-dk); }
+
+/* ==========================================================================
+   Buttons — solid accent, dark label. No ring, no gradient slide.
+   ========================================================================== */
+
+.btn {
+  padding: 0;
+  background: var(--amber);
+  border: 0;
+  transition: background .2s var(--ease-soft), transform .2s var(--ease-soft);
+}
+
+.btn > span {
+  padding: 14px 28px;
+  border-radius: var(--r-btn);
+  background: var(--amber);
+  color: #1b1200;
+  font-weight: 600;
+  letter-spacing: -.005em;
+  transition: background .2s var(--ease-soft);
+}
+
+.btn:hover { background: var(--amber-lt); transform: translateY(-1px); }
+.btn:hover > span { background: var(--amber-lt); }
+
+/* A pill sitting on a dark panel needs a little lift or it reads as a sticker. */
+.btn:not(.btn--ghost) { box-shadow: 0 6px 18px rgba(245, 165, 36, .18); }
+.btn:not(.btn--ghost):hover { box-shadow: 0 10px 26px rgba(245, 165, 36, .26); }
+
+.btn--ghost { background: transparent; box-shadow: inset 0 0 0 1px var(--hair); }
+.btn--ghost > span {
+  background: transparent;
+  color: var(--on-dark);
+  font-weight: 500;
+  backdrop-filter: none;
+}
+.btn--ghost:hover { background: transparent; box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .26); }
+.btn--ghost:hover > span { background: rgba(255, 255, 255, .05); }
+
+.page-light .btn--ghost { background: transparent; box-shadow: inset 0 0 0 1px var(--sheet-hair); }
+.page-light .btn--ghost > span { background: transparent; color: var(--ink); }
+.page-light .btn--ghost:hover { background: transparent; box-shadow: inset 0 0 0 1px var(--amber); }
+.page-light .btn--ghost:hover > span { background: transparent; }
+
+/* ==========================================================================
+   Badges — squared off, mono, accent rule instead of a gradient donut.
+   ========================================================================== */
+
+.badge {
+  gap: 8px;
+  padding: 6px 14px;
+  border-radius: var(--r-pill);
+  background: rgba(255, 255, 255, .03);
+  font-family: var(--mono);
+  font-size: .7rem;
+  font-weight: 500;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--on-dark-2);
+}
+
+.badge::before {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--amber);
+  mask: none;
+  -webkit-mask: none;
+}
+
+.page-light .badge {
+  background: var(--sheet-soft);
+  border-color: var(--sheet-hair);
+  color: var(--ink-2);
+  box-shadow: none;
+}
+
+/* ==========================================================================
+   Atmosphere — the purple blooms become a faint blueprint grid. Structure
+   reads as engineered; a blurred glow reads as a stock hero background.
+   ========================================================================== */
+
+.hero__arc { display: none; }
+
+.hero__bloom {
+  background:
+    linear-gradient(rgba(255, 255, 255, .028) 1px, transparent 1px) 0 0 / 100% 88px,
+    linear-gradient(90deg, rgba(255, 255, 255, .028) 1px, transparent 1px) 0 0 / 88px 100%,
+    radial-gradient(ellipse 60% 50% at 50% 0%, rgba(245, 165, 36, .07), transparent 70%);
+  filter: none;
+  -webkit-mask: linear-gradient(#000 0%, #000 52%, transparent 92%);
+  mask: linear-gradient(#000 0%, #000 52%, transparent 92%);
+}
+
+.final::before {
+  background: radial-gradient(ellipse 60% 70% at 50% 104%, rgba(245, 165, 36, .16), transparent 68%);
+  filter: blur(40px);
+}
+
+.loader__ring {
+  background: conic-gradient(from 0deg, transparent 0deg, var(--amber) 300deg, transparent 360deg);
+}
+
+/* ==========================================================================
+   Data type — anything numeric or label-ish goes mono. This is what makes
+   an industrial UI look measured rather than marketed.
+   ========================================================================== */
+
+.statband__n,
+.stat__n,
+.statband__l,
+.stat__l,
+.card__label,
+.cs__tag,
+.chips span,
+.thread__cap,
+.hero__eyebrow,
+.proof__site,
+.footer__h {
+  font-family: var(--mono);
+}
+
+.statband__n, .stat__n { font-weight: 500; letter-spacing: -.03em; }
+
+/* .stat__n clipped the old gradient to its text, which renders transparent
+   once the gradient token becomes a flat colour. */
+.stat__n {
+  background: none;
+  -webkit-background-clip: border-box;
+  background-clip: border-box;
+  color: var(--amber);
+}
+
+.statband__l, .stat__l {
+  font-size: .68rem;
+  letter-spacing: .09em;
+  text-transform: uppercase;
+  color: var(--on-dark-3);
+}
+
+.hero__eyebrow {
+  font-size: .72rem;
+  font-weight: 500;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+  color: var(--amber);
+}
+
+.chips span {
+  border-radius: var(--r-pill);
+  font-size: .74rem;
+  letter-spacing: .02em;
+}
+
+.card__label, .cs__tag {
+  border-radius: var(--r-pill);
+  font-size: .68rem;
+  letter-spacing: .09em;
+  text-transform: uppercase;
+}
+
+/* Headlines: tighter tracking, no gradient to hide behind. */
+.d1, .d2, .d3 { letter-spacing: -.035em; font-weight: 600; }
+
+/* ==========================================================================
+   Surfaces — square the sheet, thin the borders, drop the lift-on-hover to
+   something a control panel would do: a border that lights, not a card that
+   floats.
+   ========================================================================== */
+
+.page-light { border-radius: 0; }
+
+.card, .svc, .cs, .work, .quote, .panel, .proof, .crosslink {
+  border-radius: var(--r-card);
+}
+
+.card:hover, .svc:hover, .cs:hover, .work:hover {
+  transform: translateY(-2px);
+  border-color: rgba(245, 165, 36, .45);
+}
+
+.page-light .card:hover, .page-light .svc:hover, .page-light .work:hover {
+  border-color: rgba(245, 165, 36, .55);
+}
+
+.tlink { color: var(--amber-dk); font-weight: 500; }
+.page-light .tlink { color: var(--amber-dk); }
+:not(.page-light) > * .tlink, .panel .tlink, .proof .tlink { color: var(--amber); }
+
+/* ==========================================================================
+   Leftover violet washes that were written as literal rgba() rather than
+   through a token. These are the last places the old palette shows through.
+   ========================================================================== */
+
+::selection { background: rgba(245, 165, 36, .32); color: #fff; }
+
+.proof {
+  background: linear-gradient(165deg, rgba(30, 41, 61, .85), rgba(11, 18, 32, .95));
+}
+
+.proof::before {
+  background: radial-gradient(ellipse 46% 60% at 50% 100%, rgba(245, 165, 36, .16), transparent 70%);
+}
+
+/* Cursor sheen + card glows default to violet where no --csGlow is set. */
+.card::after, .svc::after, .cs::after, .cs::before {
+  background: radial-gradient(ellipse 34% 56% at 50% 100%, var(--csGlow, rgba(245, 165, 36, .3)), transparent 66%);
+}
+
+.statband__grid > div::after {
+  background: linear-gradient(90deg, var(--amber), var(--amber-lt)) left / calc(var(--p, 0) * 100%) 100% no-repeat;
+}
+
+.pill[data-s="rolling"] {
+  color: var(--amber-lt);
+  border-color: rgba(245, 165, 36, .42);
+  background: rgba(245, 165, 36, .1);
+}
+
+.tzband__zones li.is-home {
+  border-color: transparent;
+  background: rgba(245, 165, 36, .16);
+}
+
+/* Accent rule under section headings, so the eye gets a fixed anchor. */
+.head--center .badge { margin-bottom: 18px; }
+
+/* ==========================================================================
+   Closing panel — every page signs off on the same block. It lives here
+   rather than in home.css because it is no longer homepage-only.
+   ========================================================================== */
+
+.final { padding: clamp(48px, 5vw, 78px) 0 clamp(52px, 5.6vw, 88px); }
+.final .d2 { max-width: none; }
+
+.close {
+  position: relative;
+  padding: clamp(46px, 6vw, 72px) 32px;
+  border: 1px solid var(--hair);
+  border-top: 2px solid var(--amber);
+  border-radius: var(--r-panel);
+  background: var(--panel);
+  box-shadow: 0 26px 64px rgba(0, 0, 0, .4);
+  text-align: center;
+  overflow: hidden;
+}
+
+/* Blueprint grid, plus one amber wash coming up off the bottom edge. */
+.close::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(rgba(255, 255, 255, .035) 1px, transparent 1px) 0 0 / 100% 74px,
+    linear-gradient(90deg, rgba(255, 255, 255, .035) 1px, transparent 1px) 0 0 / 74px 100%,
+    radial-gradient(ellipse 52% 74% at 50% 118%, rgba(245, 165, 36, .22), transparent 70%);
+  pointer-events: none;
+}
+
+/* The paper sheet has to stop above the closing panel: a dark card printed on
+   white, with the dark footer directly under it, reads as a mistake. */
+.page-light .final--close { background: var(--bg); }
+
+.close > * { position: relative; z-index: 1; }
+.close .d2 { margin: 0 auto 14px; }
+.close .lead { max-width: 46ch; margin: 0 auto; }
+
+/* The accent clause in a headline is an <em>: inked, not italicised. */
+.d1 em, .d2 em, .d3 em { font-style: normal; color: var(--amber); }
+
+/* Most pages end their white sheet on this panel, and `.page-light h1..h4`
+   would ink the headline dark on a dark card. */
+.page-light .close .d2 { color: var(--on-dark); }
+.page-light .close .lead { color: var(--on-dark-2); }
+.page-light .close em { color: var(--amber); }
+.page-light .close .btn--ghost { box-shadow: inset 0 0 0 1px var(--hair); }
+.page-light .close .btn--ghost > span { color: var(--on-dark); }
+.page-light .close .btn--ghost:hover { box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .26); }
+.page-light .close .btn--ghost:hover > span { background: rgba(255, 255, 255, .05); }
+
+.close__act {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 32px;
+}
+
+.close__act .btn > span { gap: 10px; }
+
+@media (max-width: 620px) {
+  .close { padding: 36px 22px; }
+  .close__act .btn { width: 100%; }
+  .close__act .btn > span { justify-content: center; }
+}
+
+/* ==========================================================================
+   Shared blocks any page can use: the three-promise band and the automation
+   strip. Both started on the services page and are now site-wide furniture.
+   ========================================================================== */
+
+.trustrow {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border: 1px solid var(--hair);
+  border-radius: var(--r-card);
+  background:
+    radial-gradient(120% 140% at 50% 0%, rgba(245, 165, 36, .06), transparent 60%),
+    var(--panel);
+  overflow: hidden;
+}
+
+.trustrow li {
+  display: grid;
+  gap: 7px;
+  padding: 24px 26px 26px;
+  border-right: 1px solid var(--hair);
+}
+
+.trustrow li:last-child { border-right: 0; }
+
+.trustrow__i {
+  display: grid;
+  place-items: center;
+  width: 36px; height: 36px;
+  margin-bottom: 5px;
+  border: 1px solid var(--hair);
+  border-radius: 9px;
+  color: var(--amber);
+}
+
+.trustrow__i svg {
+  width: 18px; height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.trustrow b { font-size: .98rem; font-weight: 600; letter-spacing: -.02em; color: var(--on-dark); }
+.trustrow span:last-child { font-size: .82rem; line-height: 1.5; color: var(--on-dark-2); }
+
+.autostrip {
+  margin-top: 14px;
+  padding: 20px 22px 22px;
+  border: 1px solid var(--hair);
+  border-radius: var(--r-card);
+  background:
+    radial-gradient(120% 120% at 50% 0%, rgba(245, 165, 36, .07), transparent 62%),
+    var(--panel);
+}
+
+.autostrip__k {
+  display: block;
+  margin-bottom: 10px;
+  font-family: var(--mono);
+  font-size: .58rem;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--amber);
+}
+
+.autostrip__h {
+  margin: 0 0 18px;
+  font-size: 1.02rem;
+  font-weight: 600;
+  letter-spacing: -.02em;
+  color: var(--on-dark);
+}
+
+.autostrip .tlink { display: inline-flex; margin-top: 18px; font-size: .84rem; }
+
+.autostrip__steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Each step carries `style="--i:n"`; the highlight walks the row on a loop. */
+.autostrip__steps li {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 10px 12px;
+  border: 1px solid var(--hair);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, .02);
+  color: var(--on-dark-3);
+  animation: svcStep 6s linear infinite;
+  animation-delay: calc(var(--i) * 1.5s);
+}
+
+.autostrip__steps b {
+  font-family: var(--mono);
+  font-size: .6rem;
+  font-weight: 500;
+  letter-spacing: .08em;
+  color: inherit;
+}
+
+.autostrip__steps span { font-size: .78rem; line-height: 1.25; color: inherit; }
+
+@keyframes svcStep {
+  0%, 4%    { border-color: var(--hair); background: rgba(255, 255, 255, .02); color: var(--on-dark-3); }
+  8%, 24%   { border-color: rgba(245, 165, 36, .5); background: rgba(245, 165, 36, .1); color: var(--amber); }
+  30%, 100% { border-color: var(--hair); background: rgba(255, 255, 255, .02); color: var(--on-dark-3); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .autostrip__steps li { animation: none; }
+}
+
+@media (max-width: 860px) {
+  .trustrow { grid-template-columns: 1fr; }
+  .trustrow li { border-right: 0; border-bottom: 1px solid var(--hair); }
+  .trustrow li:last-child { border-bottom: 0; }
+}
+
+@media (max-width: 620px) {
+  .autostrip__steps { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* ==========================================================================
+   Last of the old palette. These were written as literal blue/violet rather
+   than through a token, and only became visible once the theme went site-wide.
+   ========================================================================== */
+
+.brand__mark { background: var(--amber); }
+
+/* The spotlight panel carried a 480px blue bloom in its top corner. */
+.spot__glow {
+  width: 360px; height: 360px;
+  background: radial-gradient(circle, rgba(245, 165, 36, .16), transparent 66%);
+}
+
+.spot__tab.is-on { background: var(--amber); color: #1b1200; }
+
+.spark i { background: linear-gradient(180deg, var(--amber), rgba(245, 165, 36, .2)); }
+
+.pill[data-s="assigned"] {
+  color: var(--on-dark);
+  border-color: rgba(255, 255, 255, .22);
+  background: rgba(255, 255, 255, .06);
+}
+
+.sprail__fill { box-shadow: 0 0 18px rgba(245, 165, 36, .45); }
+
+@keyframes rowhit {
+  0%   { background: rgba(245, 165, 36, .16); }
+  100% { background: transparent; }
+}
+
+.svcRow--feature {
+  border-color: var(--sheet-hair);
+  background: rgba(245, 165, 36, .06);
+}
+
+.form input:focus, .form textarea:focus {
+  border-color: var(--amber);
+  box-shadow: 0 0 0 3px rgba(245, 165, 36, .16);
+}
+
+.form__chips input:checked + span { background: var(--amber); color: #1b1200; }
+.form__chips input:focus-visible + span { box-shadow: 0 0 0 3px rgba(245, 165, 36, .22); }
+
+/* about.css and case.css carry one literal each. */
+.principal::before { background: radial-gradient(circle, rgba(245, 165, 36, .16), transparent 65%); }
+.tl__node.is-on .tl__dot { box-shadow: 0 0 0 6px rgba(245, 165, 36, .18); }
+.dispatch__row.is-hit { background: rgba(245, 165, 36, .1); }
+
+/* The chat launcher shipped with a blue drop shadow baked in. */
+#askA2-launcher { box-shadow: 0 8px 24px rgba(245, 165, 36, .3); }
+
+/* ==========================================================================
+   LIGHT MODE
+   The component library reads its surfaces and its text off tokens, so the
+   flip is mostly a token swap. What follows the token block is the handful
+   of places that were written as literal dark values and cannot invert on
+   their own: the inset panels, the blueprint washes and the white-on-dark
+   fills. Toggle lives in the nav; the choice is remembered per browser.
+   ========================================================================== */
+
+:root[data-theme="light"] {
+  color-scheme: light;
+
+  --bg:          #e6eef9;
+  --bg-deep:     #d9e5f4;
+  --panel:       #f1f6fd;
+  --panel-2:     #e8f0fa;
+  --hair:        rgba(15, 44, 82, .16);
+  --hair-soft:   rgba(15, 44, 82, .09);
+
+  --sheet:       #eef4fc;
+  --sheet-soft:  #e2ecf8;
+  --sheet-hair:  rgba(15, 44, 82, .16);
+
+  /* Navy carries every line of type; nothing prints black. */
+  --ink:         #0f2c52;
+  --ink-2:       #395477;
+  --ink-3:       #6b83a3;
+  --on-dark:     #0f2c52;
+  --on-dark-2:   #395477;
+  --on-dark-3:   #6b83a3;
+
+  --amber:       #c08a1e;
+  --amber-dk:    #a8760f;
+  --amber-lt:    #e3a92f;
+  --amber-tint:  rgba(192, 138, 30, .12);
+  --blue:        #c08a1e;
+  --purple:      #c08a1e;
+  --orange:      #c08a1e;
+  --grad-btn:    #c08a1e;
+  --grad-text:   #c08a1e;
+}
+
+/* Amber on paper needs the darker step to stay legible. */
+:root[data-theme="light"] .grad,
+:root[data-theme="light"] .d1 em,
+:root[data-theme="light"] .d2 em,
+:root[data-theme="light"] .d3 em { color: var(--amber-dk); }
+
+:root[data-theme="light"] .badge { background: var(--sheet-soft); color: var(--ink-2); }
+
+/* Inset "dark panels" become raised light-blue cards. */
+:root[data-theme="light"] .panel,
+:root[data-theme="light"] .close,
+:root[data-theme="light"] .proof,
+:root[data-theme="light"] .study,
+:root[data-theme="light"] .product,
+:root[data-theme="light"] .crosslink,
+:root[data-theme="light"] .quote {
+  background: var(--panel);
+  border: 1px solid var(--sheet-hair);
+  color: var(--ink);
+  box-shadow: 0 14px 40px rgba(15, 44, 82, .1);
+}
+:root[data-theme="light"] .close { border-top: 2px solid var(--amber); }
+:root[data-theme="light"] .page-light .final--close { background: var(--sheet); }
+
+/* Blueprint grids and glows were drawn in white; on paper they must ink. */
+:root[data-theme="light"] .hero__bloom {
+  background:
+    linear-gradient(rgba(15, 44, 82, .06) 1px, transparent 1px) 0 0 / 100% 88px,
+    linear-gradient(90deg, rgba(15, 44, 82, .06) 1px, transparent 1px) 0 0 / 88px 100%,
+    radial-gradient(ellipse 60% 50% at 50% 0%, rgba(192, 138, 30, .14), transparent 70%);
+}
+:root[data-theme="light"] .close::before {
+  background:
+    linear-gradient(rgba(15, 44, 82, .05) 1px, transparent 1px) 0 0 / 100% 74px,
+    linear-gradient(90deg, rgba(15, 44, 82, .05) 1px, transparent 1px) 0 0 / 74px 100%,
+    radial-gradient(ellipse 52% 74% at 50% 118%, rgba(192, 138, 30, .2), transparent 70%);
+}
+:root[data-theme="light"] .proof::before,
+:root[data-theme="light"] .product::before,
+:root[data-theme="light"] .final::before {
+  background: radial-gradient(ellipse 50% 60% at 50% 100%, rgba(192, 138, 30, .18), transparent 70%);
+  filter: blur(30px);
+}
+
+/* Faint white fills read as nothing on paper; ink them instead. */
+:root[data-theme="light"] .card,
+:root[data-theme="light"] .svc,
+:root[data-theme="light"] .cs,
+:root[data-theme="light"] .work,
+:root[data-theme="light"] .rail__step,
+:root[data-theme="light"] .tflow__track li,
+:root[data-theme="light"] .acc__item,
+:root[data-theme="light"] .tfaq .acc__item,
+:root[data-theme="light"] .flag__stats--wide > div,
+:root[data-theme="light"] .troute,
+:root[data-theme="light"] .flagcard,
+:root[data-theme="light"] .ladder,
+:root[data-theme="light"] .tflow {
+  background: var(--panel);
+  border-color: var(--sheet-hair);
+}
+:root[data-theme="light"] .chips span,
+:root[data-theme="light"] .pill[data-s="assigned"] {
+  background: var(--sheet-soft);
+  border-color: var(--sheet-hair);
+  color: var(--ink-2);
+}
+
+/* Ghost buttons and the footer both assumed a dark backdrop. */
+:root[data-theme="light"] .btn--ghost { box-shadow: inset 0 0 0 1px var(--sheet-hair); }
+:root[data-theme="light"] .btn--ghost > span { color: var(--ink); }
+:root[data-theme="light"] .btn--ghost:hover { box-shadow: inset 0 0 0 1px var(--amber-dk); }
+:root[data-theme="light"] .btn--ghost:hover > span { background: rgba(15, 44, 82, .05); }
+:root[data-theme="light"] .footer {
+  background: linear-gradient(180deg, var(--sheet), var(--bg-deep));
+  border-top: 2px solid var(--amber);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .6);
+}
+:root[data-theme="light"] .footer__top,
+:root[data-theme="light"] .footer__grid { border-color: var(--sheet-hair); }
+:root[data-theme="light"] .footer li a:hover { color: var(--amber-dk); }
+
+/* This card is the one deliberately dark surface on the sheet; it stays dark
+   in both themes so the live panel still reads as a screen. */
+:root[data-theme="light"] .cap__spot,
+:root[data-theme="light"] .cap__proof li { background: #0f2c52; }
+
+:root[data-theme="light"] .close .btn--ghost > span,
+:root[data-theme="light"] .page-light .close .d2 { color: var(--ink); }
+:root[data-theme="light"] .page-light .close .lead { color: var(--ink-2); }
+
+:root[data-theme="light"] ::selection { background: rgba(192, 138, 30, .3); color: #0f2c52; }
+
+/* The page stylesheets re-point .page-light's ink tokens to white, because on
+   the dark build the "white sheet" is the darker sheet. In light mode that
+   flip has to be undone or every heading inside it prints white on white. */
+:root[data-theme="light"] .page-light {
+  --sheet:      #eef4fc;
+  --sheet-soft: #e2ecf8;
+  --sheet-hair: rgba(15, 44, 82, .16);
+  --ink:        #0f2c52;
+  --ink-2:      #395477;
+  --ink-3:      #6b83a3;
+  --grad-ink:   var(--amber-dk);
+
+  background: var(--sheet);
+  border-top: 1px solid var(--sheet-hair);
+}
+:root[data-theme="light"] .page-light .grad,
+:root[data-theme="light"] .page-light .tlink { color: var(--amber-dk); }
+:root[data-theme="light"] .page-light .badge { background: var(--sheet-soft); color: var(--ink-2); }
+:root[data-theme="light"] .page-light .faqband { background: var(--sheet-soft); }
+:root[data-theme="light"] .page-light .faqband h2,
+:root[data-theme="light"] .page-light .faqband h3 { color: var(--ink); }
+:root[data-theme="light"] .page-light .faqband .lead { color: var(--ink-2); }
+:root[data-theme="light"] .faqband::before {
+  background:
+    linear-gradient(rgba(15, 44, 82, .04) 1px, transparent 1px) 0 0 / 100% 78px,
+    linear-gradient(90deg, rgba(15, 44, 82, .04) 1px, transparent 1px) 0 0 / 78px 100%,
+    radial-gradient(ellipse 44% 62% at 76% -6%, rgba(192, 138, 30, .14), transparent 70%);
+}
+:root[data-theme="light"] .faqside__ask,
+:root[data-theme="light"] #faq .acc__item { background: var(--panel); }
+:root[data-theme="light"] .tzband__zones b { color: var(--ink); }
+:root[data-theme="light"] .tzband__zones li { background: var(--panel); border-color: var(--sheet-hair); }
+:root[data-theme="light"] .tzband__zones li.is-home { background: var(--amber-tint); }
+:root[data-theme="light"] .page-light .res__card,
+:root[data-theme="light"] .page-light .svc { background: var(--panel); }
+:root[data-theme="light"] .page-light .res__card:hover { box-shadow: 0 16px 40px rgba(15, 44, 82, .14); }
+:root[data-theme="light"] .final__assure li { color: var(--ink-3); }
+
+/* Everything below was written as a literal #fff because it only ever sat on
+   a dark surface. On paper it has to ink. */
+:root[data-theme="light"] .panel .badge,
+:root[data-theme="light"] .study .badge,
+:root[data-theme="light"] .spot .badge,
+:root[data-theme="light"] .tzband .badge,
+:root[data-theme="light"] .principal .badge,
+:root[data-theme="light"] .acc__item.is-open .acc__q,
+:root[data-theme="light"] #faq .acc__item.is-open .acc__q,
+:root[data-theme="light"] .page-light .faqband h3,
+:root[data-theme="light"] .crosslink__txt strong,
+:root[data-theme="light"] .cs h3,
+:root[data-theme="light"] .cs .tlink,
+:root[data-theme="light"] .product__copy .tlink,
+:root[data-theme="light"] .spot__pane h3,
+:root[data-theme="light"] .spot__pane .tlink,
+:root[data-theme="light"] .picker__out h3,
+:root[data-theme="light"] .picker__out .tlink,
+:root[data-theme="light"] .picker__opt.is-on,
+:root[data-theme="light"] .toggle button.is-on,
+:root[data-theme="light"] .footer__brand .brand,
+:root[data-theme="light"] .footer li a:hover,
+:root[data-theme="light"] .namap__hub:hover,
+:root[data-theme="light"] .namap__hub.is-on,
+:root[data-theme="light"] .ind:hover span:last-child,
+:root[data-theme="light"] .tl__node.is-on .tl__y,
+:root[data-theme="light"] .tl__detail h3,
+:root[data-theme="light"] .flip__face h3,
+:root[data-theme="light"] .stackcard h3,
+:root[data-theme="light"] .regions__tab:hover,
+:root[data-theme="light"] .pill:hover,
+:root[data-theme="light"] .crumbs a:hover,
+:root[data-theme="light"] .ix__step-t,
+:root[data-theme="light"] .ix__layer-t,
+:root[data-theme="light"] .ix__tab:hover,
+:root[data-theme="light"] .ix[data-ix="flow"] .ix__pane h3,
+:root[data-theme="light"] .ix__table td:nth-child(2),
+:root[data-theme="light"] .dispatch__log li b,
+:root[data-theme="light"] .call__field dd,
+:root[data-theme="light"] .pager__t,
+:root[data-theme="light"] .form__chips label:hover span,
+:root[data-theme="light"] .picker__opt:hover,
+:root[data-theme="light"] .spot__tab:hover,
+:root[data-theme="light"] .troute__end b,
+:root[data-theme="light"] .tflow__track h3,
+:root[data-theme="light"] .rail__step h3 { color: var(--ink); }
+
+/* Hairlines and hover washes drawn in white alpha vanish on paper. */
+:root[data-theme="light"] .board__bar > i,
+:root[data-theme="light"] .namap__hub i { background: rgba(15, 44, 82, .24); box-shadow: none; }
+:root[data-theme="light"] .board .row:hover,
+:root[data-theme="light"] .toggle button.is-on,
+:root[data-theme="light"] .picker__opt.is-on { background: rgba(15, 44, 82, .06); }
+:root[data-theme="light"] .board::after { background: none; }
+:root[data-theme="light"] .board__map,
+:root[data-theme="light"] .board__foot,
+:root[data-theme="light"] .namap__panel { background: var(--sheet-soft); }
+:root[data-theme="light"] .board { box-shadow: 0 30px 70px -40px rgba(15, 44, 82, .55); }
+:root[data-theme="light"] .namap { background: var(--panel); }
+
+/* Status pills: same semantics, navy-legible on the light-blue card. */
+:root[data-theme="light"] .pill[data-s="assigned"]  { color: #1b3f6b; border-color: rgba(27, 63, 107, .32); background: rgba(27, 63, 107, .08); }
+:root[data-theme="light"] .pill[data-s="pickup"]    { color: #a8760f; border-color: rgba(168, 118, 15, .32); background: rgba(168, 118, 15, .08); }
+:root[data-theme="light"] .pill[data-s="rolling"]   { color: #c08a1e; border-color: rgba(192, 138, 30, .38); background: rgba(192, 138, 30, .1); }
+:root[data-theme="light"] .pill[data-s="delivered"] { color: #12794c; border-color: rgba(18, 121, 76, .32);  background: rgba(18, 121, 76, .08); }
+@keyframes rowhitLight {
+  0%   { background: rgba(192, 138, 30, .2); }
+  100% { background: transparent; }
+}
+:root[data-theme="light"] .board .row.is-hit { animation-name: rowhitLight; }
+
+/* ==========================================================================
+   Client marks keep their own colours in both themes. Flattening eight brand
+   palettes to white was a dark-sheet decision; on the dark sheet they now
+   sit on a white chip instead so the artwork survives.
+   ========================================================================== */
+
+/* :root prefixes only to outrank the page stylesheets, which load after this
+   one and knock the same marks out to flat white. */
+:root .logo img,
+:root .logo--knockout img,
+:root .contact__logos img { filter: none; opacity: 1; }
+
+.logo {
+  padding: 5px 10px;
+  border-radius: 8px;
+  background: #fff;
+}
+.marquee:hover .logo img, .logo:hover img { opacity: 1; }
+
+/* The contact card sits on paper in both themes, so the marks need no chip. */
+.contact__logos img { max-height: 30px; }
+
+:root[data-theme="light"] .logo { padding: 0; background: transparent; }
+
+/* ==========================================================================
+   Theme toggle — a two-state pill that lives in the nav on every page.
+   Injected by js/main.js so the markup stays in one place.
+   ========================================================================== */
+
+.themetog {
+  flex: none;
+  display: inline-grid;
+  place-items: center;
+  width: 38px; height: 38px;
+  padding: 0;
+  border: 1px solid rgba(11, 18, 32, .14);
+  border-radius: 50%;
+  background: transparent;
+  color: #35304f;
+  cursor: pointer;
+  transition: background .25s var(--ease-soft), color .25s var(--ease-soft), border-color .25s var(--ease-soft);
+}
+.themetog:hover { background: rgba(11, 18, 32, .055); color: var(--ink); }
+.themetog:focus-visible { outline: 2px solid var(--amber); outline-offset: 2px; }
+.themetog svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; }
+.themetog .themetog__moon { display: none; }
+:root[data-theme="light"] .themetog .themetog__moon { display: block; }
+:root[data-theme="light"] .themetog .themetog__sun { display: none; }
+
+@media (max-width: 860px) {
+  .themetog { width: 34px; height: 34px; }
+}
+
+/* ==========================================================================
+   LIGHT MODE PALETTE — navy type, gold accent, light-blue surfaces. Nothing
+   prints black: every line of copy is a step of navy. Deleting this block
+   and the token block above returns light mode to plain amber-on-white.
+   ========================================================================== */
+
+:root[data-theme="light"] {
+  --navy:        #0f2c52;
+  --navy-2:      #1b3f6b;
+  --gold:        #c08a1e;
+  --gold-dk:     #a8760f;
+  --gold-lt:     #e3a92f;
+  --grad-ink:    var(--gold-dk);
+}
+
+/* Solid gold buttons take a navy label. */
+:root[data-theme="light"] .btn > span { color: #12243f; }
+:root[data-theme="light"] .spot__tab.is-on,
+:root[data-theme="light"] .form__chips input:checked + span { color: #12243f; }
+
+/* Amber written as a literal rgba, from before the accent was a token. */
+:root[data-theme="light"] .card:hover,
+:root[data-theme="light"] .svc:hover,
+:root[data-theme="light"] .cs:hover,
+:root[data-theme="light"] .work:hover,
+:root[data-theme="light"] .res__card:hover,
+:root[data-theme="light"] .rail__step:hover,
+:root[data-theme="light"] .flag__stats--wide > div:hover,
+:root[data-theme="light"] .page-light .svc:hover,
+:root[data-theme="light"] .product:hover { border-color: rgba(192, 138, 30, .55); }
+
+:root[data-theme="light"] .flagcard,
+:root[data-theme="light"] .ladder,
+:root[data-theme="light"] .tflow {
+  background:
+    radial-gradient(120% 110% at 50% 0%, rgba(192, 138, 30, .08), transparent 58%),
+    var(--panel);
+}
+:root[data-theme="light"] .card::after,
+:root[data-theme="light"] .svc::after,
+:root[data-theme="light"] .cs::after,
+:root[data-theme="light"] .cs::before {
+  background: radial-gradient(ellipse 34% 56% at 50% 100%, rgba(192, 138, 30, .3), transparent 66%);
+}
+:root[data-theme="light"] .statband__grid > div::after,
+:root[data-theme="light"] .spark i {
+  background: linear-gradient(90deg, var(--navy), var(--gold));
+}
+:root[data-theme="light"] .spot__glow,
+:root[data-theme="light"] .principal::before {
+  background: radial-gradient(circle, rgba(192, 138, 30, .18), transparent 66%);
+}
+:root[data-theme="light"] .sprail__fill { box-shadow: 0 0 18px rgba(192, 138, 30, .45); }
+:root[data-theme="light"] .btn:not(.btn--ghost) { box-shadow: 0 6px 18px rgba(192, 138, 30, .24); }
+:root[data-theme="light"] .btn:not(.btn--ghost):hover { box-shadow: 0 10px 26px rgba(192, 138, 30, .32); }
+:root[data-theme="light"] .form input:focus,
+:root[data-theme="light"] .form textarea:focus {
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px rgba(192, 138, 30, .18);
+}
+:root[data-theme="light"] #askA2-launcher { box-shadow: 0 8px 24px rgba(192, 138, 30, .32); }
+
+:root[data-theme="light"] .namap__hub:hover i,
+:root[data-theme="light"] .namap__hub.is-on i,
+:root[data-theme="light"] .namap__hub.is-hq i {
+  background: var(--gold);
+  box-shadow: 0 0 0 4px rgba(192, 138, 30, .22);
+}
+@keyframes hubPingGold {
+  0%   { box-shadow: 0 0 0 0 rgba(192, 138, 30, .45); }
+  70%  { box-shadow: 0 0 0 11px rgba(192, 138, 30, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(192, 138, 30, 0); }
+}
+:root[data-theme="light"] .namap__hub.is-on i { animation-name: hubPingGold; }
+
+

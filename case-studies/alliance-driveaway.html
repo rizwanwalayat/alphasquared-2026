@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Alliance Driveaway Solutions: Dispatch Software for 350+ CDL Drivers | Alpha Squared</title>
+<meta name="description" content="How we built Alliance Driveaway's entire digital ecosystem: a live dispatch dashboard, native iOS and Android driver apps, chain-of-custody handoffs and QuickBooks sync, running across 48 US states and Canada." />
+<link rel="canonical" href="https://alphasquared.ca/case-studies/alliance-driveaway.html" />
+
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="Alpha Squared" />
+<meta property="og:title" content="Alliance Driveaway Solutions: Dispatch Software for 350+ CDL Drivers | Alpha Squared" />
+<meta property="og:description" content="A live dispatch dashboard, native driver apps and QuickBooks sync for a Class 6/7/8 vehicle relocation company operating across 48 US states and Canada." />
+<meta property="og:url" content="https://alphasquared.ca/case-studies/alliance-driveaway.html" />
+<meta property="og:image" content="https://alphasquared.ca/assets/CaseStudies/09-alliance-driveaway-solutions.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Alliance Driveaway Solutions: Dispatch Software for 350+ CDL Drivers" />
+<meta name="twitter:description" content="A live dispatch dashboard, native driver apps and QuickBooks sync, running across 48 US states and Canada." />
+<meta name="twitter:image" content="https://alphasquared.ca/assets/CaseStudies/09-alliance-driveaway-solutions.jpg" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../css/style.css?v=20260813c" />
+<link rel="stylesheet" href="../css/theme.css?v=20260813c" />
+<link rel="stylesheet" href="../css/case.css?v=20260815a" />
+<link rel="stylesheet" href="../css/chatbot.css?v=20260813c" />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CreativeWork",
+  "name": "Alliance Driveaway Solutions",
+  "headline": "Dispatch software for when the truck is the freight",
+  "url": "https://alphasquared.ca/case-studies/alliance-driveaway.html",
+  "image": "https://alphasquared.ca/assets/CaseStudies/09-alliance-driveaway-solutions.jpg",
+  "about": "Trucking and transport dispatch platform",
+  "creator": {
+    "@type": "Organization",
+    "name": "Alpha Squared",
+    "url": "https://alphasquared.ca/",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Edmonton",
+      "addressRegion": "AB",
+      "addressCountry": "CA"
+    }
+  }
+}
+</script>
+</head>
+
+<body>
+
+<div class="loader" id="loader" aria-hidden="true">
+  <div class="loader__row">
+    <div class="loader__ring"></div>
+    <div class="loader__name">Alpha<sup>2</sup></div>
+    <span class="loader__pct" id="loaderPct">0%</span>
+  </div>
+</div>
+
+<header class="nav" id="nav">
+  <div class="nav__inner">
+    <a href="../index.html" class="brand" aria-label="Alpha Squared home, ideas implemented">
+      <img src="../assets/logo-full.png" alt="Alpha Squared logo" class="brand__logo" />
+    </a>
+
+    <nav class="nav__links">
+      <a href="../trucking.html">Trucking &amp; Transport</a>
+      <a href="../services.html">Services</a>
+      <a href="../case-studies.html" class="is-active">Case Studies</a>
+      <a href="../about.html">About Us</a>
+    </nav>
+
+    <a href="../contact.html" class="btn nav__cta"><span>Contact</span></a>
+
+    <button class="nav__burger" id="burger" aria-label="Menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main>
+
+<section class="hero hero--page hero--case">
+  <div class="hero__arc" data-parallax="0.12"></div>
+  <div class="hero__bloom" data-parallax="0.2"></div>
+
+  <div class="wrap hero__inner">
+    <nav class="crumbs" aria-label="Breadcrumb">
+      <a href="../index.html">Home</a> <span aria-hidden="true">/</span>
+      <a href="../case-studies.html">Case Studies</a> <span aria-hidden="true">/</span>
+      <span aria-current="page">Alliance Driveaway Solutions</span>
+    </nav>
+    <span class="hero__eyebrow grad" data-anim="fade">Trucking &amp; Transport &middot; Live in production</span>
+    <h1 class="d1" data-split="words">Dispatch software for when the truck is the freight.</h1>
+    <p class="hero__sub" data-anim="fade" data-delay="0.4">
+      350+ screened CDL drivers. 48 US states and Canada. Class 6, 7 and 8 equipment,
+      moving under their own power, tracked from assignment to signature.
+    </p>
+  </div>
+</section>
+
+<section class="section section--tight">
+  <div class="wrap">
+    <nav class="pager pager--top" aria-label="Case study navigation">
+      <a class="pager__side" href="diabetes-sims.html">
+        <span class="pager__k">Previous</span>
+        <span class="pager__t">Diabetes Diagnosis, Management &amp; Treatment Solution</span>
+      </a>
+      <a class="pager__mid" href="../case-studies.html">All 48 case studies</a>
+      <a class="pager__side pager__side--next" href="fluidsdata.html">
+        <span class="pager__k">Next</span>
+        <span class="pager__t">FluidsData</span>
+      </a>
+    </nav>
+
+      <div class="domflow" data-anim="up">
+        <div class="domflow__head">
+          <span class="domflow__i" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M2.5 6.5h10v9h-10z"/><path d="M12.5 9.5h4l3 3v3h-7z"/><circle cx="7" cy="17.5" r="1.9"/><circle cx="16.5" cy="17.5" r="1.9"/></svg></span>
+          <div>
+            <span class="domflow__k">Trucking &amp; Transport &middot; running unattended</span>
+            <p class="domflow__t">What the system does without anyone retyping it</p>
+          </div>
+        </div>
+        <ol class="domflow__steps">
+          <li style="--i:0"><b>01</b><span>Load created</span></li>
+          <li style="--i:1"><b>02</b><span>Driver accepts</span></li>
+          <li style="--i:2"><b>03</b><span>Proof captured</span></li>
+          <li style="--i:3"><b>04</b><span>Invoice sent</span></li>
+        </ol>
+      </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="study" data-anim="up">
+      <div class="study__top">
+        <div>
+          <span class="badge">Trucking &amp; Transport</span>
+          <h2 class="d3" style="margin-top:16px">What it is</h2>
+          <p class="lead" style="margin-top:14px">
+            The complete digital ecosystem for a North American vehicle relocation
+            company: public website, internal dispatch dashboard, and native iOS and
+            Android apps connecting 350+ drivers, clients and operations. Real-time
+            dispatch, driver management, job tracking and client communication, with
+            QuickBooks-integrated accounting underneath the whole thing. Built to
+            Small Woman-Owned Business standards.
+          </p>
+          <div class="chips">
+            <span>PHP / Laravel</span><span>Vue.js</span><span>Swift</span>
+            <span>Kotlin</span><span>MySQL</span><span>QuickBooks</span><span>Real-time tracking</span>
+          </div>
+        </div>
+        <figure class="study__shot">
+          <img src="../assets/CaseStudies/09-alliance-driveaway-solutions.jpg"
+               alt="Alliance Driveaway dispatch dashboard and driver app shown side by side"
+               loading="lazy" decoding="async" />
+        </figure>
+      </div>
+
+      <div class="study__grid">
+        <div>
+          <h3>The problem</h3>
+          <p>A distributed network of contractor drivers, one-way jobs spread across a
+            continent, and no software on the market built for an operation where the
+            vehicle being moved is the freight itself. Dispatch ran on phone calls,
+            spreadsheets and email threads that drifted out of sync the moment a job
+            changed hands. Every driveaway carrier we have talked to since describes
+            the same failure: the schedule in the office and the schedule in the cab
+            stop matching by mid-morning.</p>
+        </div>
+        <div>
+          <h3>What we shipped</h3>
+          <ul class="ticks">
+            <li>A live dispatch dashboard: job creation to delivery in one view</li>
+            <li>Native iOS and Android driver apps, offline-tolerant by design</li>
+            <li>Photo, GPS and signature chain-of-custody on every handoff</li>
+            <li>Deep QuickBooks sync: load to invoice with no retyping</li>
+            <li>Client-facing job visibility, so status calls stop coming in</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Where it stands today</h3>
+          <ul class="ticks">
+            <li>350+ screened CDL drivers dispatched through the platform</li>
+            <li>48 US states and Canada</li>
+            <li>Class 6, 7 and 8 equipment</li>
+            <li>Live truck tracking currently in build</li>
+            <li>Ongoing roadmap ownership, not a handover and goodbye</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── INTERACTIVE: dispatch board replay ── -->
+<section class="section section--tight">
+  <div class="wrap">
+    <div class="ix" data-ix="dispatch" data-anim="up">
+      <div class="ix__head">
+        <span class="badge">Live demo</span>
+        <h2 class="d3">Watch a load move through the board.</h2>
+        <p class="lead" style="font-size:.95rem;margin-top:12px">
+          A simplified replay of the dispatch view. Step through it, or let it run.
+          Every state change below is one a dispatcher actually sees.
+        </p>
+      </div>
+
+      <div class="dispatch">
+        <div class="dispatch__board" id="dispatchBoard" role="table" aria-label="Dispatch board replay">
+          <div class="dispatch__row dispatch__row--head" role="row">
+            <span role="columnheader">Load</span>
+            <span role="columnheader">Unit</span>
+            <span role="columnheader">Lane</span>
+            <span role="columnheader">Driver</span>
+            <span role="columnheader">Status</span>
+          </div>
+          <div class="dispatch__row" role="row" data-load="0">
+            <span role="cell">ADS-4417</span><span role="cell">Class 8 sleeper</span>
+            <span role="cell">Edmonton, AB &rsaquo; Laredo, TX</span>
+            <span role="cell" data-driver>Unassigned</span>
+            <span role="cell"><em class="dispatch__pill" data-status>Posted</em></span>
+          </div>
+          <div class="dispatch__row" role="row" data-load="1">
+            <span role="cell">ADS-4418</span><span role="cell">Class 6 box</span>
+            <span role="cell">Calgary, AB &rsaquo; Denver, CO</span>
+            <span role="cell" data-driver>M. Okafor</span>
+            <span role="cell"><em class="dispatch__pill" data-status>In transit</em></span>
+          </div>
+          <div class="dispatch__row" role="row" data-load="2">
+            <span role="cell">ADS-4419</span><span role="cell">Class 7 chassis</span>
+            <span role="cell">Winnipeg, MB &rsaquo; Fargo, ND</span>
+            <span role="cell" data-driver>D. Whitecalf</span>
+            <span role="cell"><em class="dispatch__pill" data-status>Delivered</em></span>
+          </div>
+        </div>
+
+        <ol class="dispatch__log" id="dispatchLog" aria-live="polite">
+          <li data-step="0"><b>Load posted.</b> ADS-4417 enters the board with the lane, equipment class and pickup window attached.</li>
+          <li data-step="1"><b>Driver accepts.</b> The job pushes to screened CDL drivers in range. First qualified acceptance takes it.</li>
+          <li data-step="2"><b>Pickup verified.</b> Driver captures photos, GPS and a signature. Chain of custody starts here, not at delivery.</li>
+          <li data-step="3"><b>In transit.</b> Position updates keep dispatch and the client honest without a single check-in call.</li>
+          <li data-step="4"><b>Delivered.</b> Second photo and signature set closes custody. The client sees it before the driver is off the lot.</li>
+          <li data-step="5"><b>Invoiced.</b> The load syncs to QuickBooks. Nobody retypes anything into accounting.</li>
+        </ol>
+      </div>
+
+      <div class="ix__ctl">
+        <button class="btn btn--sm" id="dispatchPlay" type="button"><span>Run the load</span></button>
+        <button class="btn btn--ghost btn--sm" id="dispatchStep" type="button"><span>Step forward</span></button>
+        <button class="btn btn--ghost btn--sm" id="dispatchReset" type="button"><span>Reset</span></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── INTERACTIVE: coverage ── -->
+<section class="section section--tight">
+  <div class="wrap">
+    <div class="ix" data-ix="metrics" data-anim="up">
+      <div class="ix__head">
+        <span class="badge">Coverage and scale</span>
+        <h2 class="d3">The numbers the platform runs at.</h2>
+      </div>
+      <div class="ix__meters">
+        <div class="ix__meter" style="--p:1">
+          <div class="ix__meter-n" data-count="350" data-suffix="+">0+</div>
+          <div class="ix__meter-l">screened CDL drivers dispatched</div>
+          <div class="ix__meter-bar"><i></i></div>
+        </div>
+        <div class="ix__meter" style="--p:0.96">
+          <div class="ix__meter-n" data-count="48" data-suffix="">0</div>
+          <div class="ix__meter-l">US states covered, plus Canada</div>
+          <div class="ix__meter-bar"><i></i></div>
+        </div>
+        <div class="ix__meter" style="--p:0.75">
+          <div class="ix__meter-n" data-count="3" data-suffix="">0</div>
+          <div class="ix__meter-l">equipment classes: 6, 7 and 8</div>
+          <div class="ix__meter-bar"><i></i></div>
+        </div>
+        <div class="ix__meter" style="--p:0.1">
+          <div class="ix__meter-n" data-count="0" data-suffix="">0</div>
+          <div class="ix__meter-l">spreadsheets left in the dispatch path</div>
+          <div class="ix__meter-bar"><i></i></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── WHY NOW: the numbers behind the build ── -->
+<section class="section section--tight" id="why-now">
+  <div class="wrap">
+    <div class="head head--center">
+      <span class="badge" data-anim="fade">Why now</span>
+      <h2 class="d3" data-anim="up">Nobody wakes up wanting software. They wake up wanting margin.</h2>
+      <p class="lead" data-anim="fade">Three numbers are reshaping this industry right now.
+        Each one is a software problem underneath.</p>
+    </div>
+
+    <div class="figs">
+      <article class="fig" data-anim="up">
+        <div class="fig__n fig__n--warn">&minus;2.3%</div>
+        <h3>Average truckload operating margin</h3>
+        <p>Carriers are losing money per mile. Every hour a dispatcher spends retyping a job
+          into accounting comes straight out of that.</p>
+        <cite>Industry operating data, 2025</cite>
+      </article>
+
+      <article class="fig" data-anim="up" data-delay="0.08">
+        <div class="fig__n">$520k</div>
+        <h3>Average annual cargo loss, per affected carrier</h3>
+        <p>75% is never recovered, and the mechanics have shifted from physical theft to
+          impersonation and double-brokering.</p>
+        <cite>ATRI; Verisk CargoNet, 2025</cite>
+      </article>
+
+      <article class="fig" data-anim="up" data-delay="0.16">
+        <div class="fig__n">5&ndash;12%</div>
+        <h3>Of CDL holders exiting over 2&ndash;3 years</h3>
+        <p>Under English-proficiency enforcement and the non-domiciled CDL rule. Qualification
+          tracking just became a legal exposure.</p>
+        <cite>FMCSA rulemaking; ATA estimates</cite>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ── WHAT YOU'D DO INSTEAD ── -->
+<section class="section section--tight" id="compare">
+  <div class="wrap">
+    <div class="head head--center">
+      <span class="badge" data-anim="fade">What you'd do instead</span>
+      <h2 class="d3" data-anim="up">The real question isn't our price. It's your alternative.</h2>
+      <p class="lead" data-anim="fade">Four honest options, and what each one actually costs you.</p>
+    </div>
+
+    <div class="cmpstack">
+      <section class="cmprow" data-anim="up">
+        <h3>Fits driveaway</h3>
+        <div class="cmprow__opts">
+          <div><span>Enterprise TMS</span><b>No, assumes trailer + ELD</b></div>
+          <div><span>SMB SaaS</span><b>No, assumes freight loads</b></div>
+          <div><span>Build in-house</span><b>Yes, eventually</b></div>
+          <div class="cmprow__us"><span>This platform</span><b>Built for it from the object model up</b></div>
+        </div>
+      </section>
+
+      <section class="cmprow" data-anim="up">
+        <h3>Time to running</h3>
+        <div class="cmprow__opts">
+          <div><span>Enterprise TMS</span><b>3+ months</b></div>
+          <div><span>SMB SaaS</span><b>Days, but wrong shape</b></div>
+          <div><span>Build in-house</span><b>6&ndash;18 months</b></div>
+          <div class="cmprow__us"><span>This platform</span><b>Weeks, configured rather than written</b></div>
+        </div>
+      </section>
+
+      <section class="cmprow" data-anim="up">
+        <h3>Up-front cost</h3>
+        <div class="cmprow__opts">
+          <div><span>Enterprise TMS</span><b>$50,000+ implementation</b></div>
+          <div><span>SMB SaaS</span><b>Low</b></div>
+          <div><span>Build in-house</span><b>A dev team's salary</b></div>
+          <div class="cmprow__us"><span>This platform</span><b>Scoped after a paid audit</b></div>
+        </div>
+      </section>
+
+      <section class="cmprow" data-anim="up">
+        <h3>Ongoing</h3>
+        <div class="cmprow__opts">
+          <div><span>Enterprise TMS</span><b>$100&ndash;300 / truck / month</b></div>
+          <div><span>SMB SaaS</span><b>~$300 / month</b></div>
+          <div><span>Build in-house</span><b>Permanent maintenance burden</b></div>
+          <div class="cmprow__us"><span>This platform</span><b>Monthly retainer, fixed</b></div>
+        </div>
+      </section>
+
+      <section class="cmprow" data-anim="up">
+        <h3>1099 driver network</h3>
+        <div class="cmprow__opts">
+          <div><span>Enterprise TMS</span><b>Not modeled</b></div>
+          <div><span>SMB SaaS</span><b>Not modeled</b></div>
+          <div><span>Build in-house</span><b>You design it yourself</b></div>
+          <div class="cmprow__us"><span>This platform</span><b>The design center</b></div>
+        </div>
+      </section>
+
+      <section class="cmprow" data-anim="up">
+        <h3>Native driver apps</h3>
+        <div class="cmprow__opts">
+          <div><span>Enterprise TMS</span><b>Web wrapper</b></div>
+          <div><span>SMB SaaS</span><b>Web wrapper</b></div>
+          <div><span>Build in-house</span><b>Two more teams</b></div>
+          <div class="cmprow__us"><span>This platform</span><b>iOS + Android, in production</b></div>
+        </div>
+      </section>
+
+      <section class="cmprow" data-anim="up">
+        <h3>QuickBooks automation</h3>
+        <div class="cmprow__opts">
+          <div><span>Enterprise TMS</span><b>Deep, but legacy UX</b></div>
+          <div><span>SMB SaaS</span><b>Push-only, shallow</b></div>
+          <div><span>Build in-house</span><b>You build it</b></div>
+          <div class="cmprow__us"><span>This platform</span><b>Bi-directional, already shipped</b></div>
+        </div>
+      </section>
+    </div>
+  </div>
+</section>
+
+<div class="page-light">
+  <section class="section section--tight">
+    <div class="wrap">
+      <nav class="pager" aria-label="More case studies">
+        <a class="pager__side" href="diabetes-sims.html">
+          <span class="pager__k">Previous</span>
+          <span class="pager__t">Diabetes Diagnosis, Management &amp; Treatment Solution</span>
+        </a>
+        <a class="pager__mid" href="../case-studies.html">All 48 case studies</a>
+        <a class="pager__side pager__side--next" href="fluidsdata.html">
+          <span class="pager__k">Next</span>
+          <span class="pager__t">FluidsData</span>
+        </a>
+      </nav>
+    </div>
+  </section>
+
+  <section class="final final--close" id="contact">
+    <div class="wrap">
+      <div class="close" data-anim="up">
+        <h2 class="d2" data-anim="up">Show Us One Manual Process. <em>We'll Show You What Automating It Takes</em></h2>
+        <p class="lead">One conversation, and you know what it takes.</p>
+
+        <div class="close__act">
+          <a class="btn" href="https://wa.me/18259772020?text=Hi%20Alpha%20Squared%2C%20I%27d%20like%20to%20book%20a%20call%20about%20a%20build."
+             target="_blank" rel="noopener">
+            <span>Book a call <i class="ar">&rarr;</i></span>
+          </a>
+
+          <a class="btn btn--ghost" href="../contact.html"><span>Send a brief</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <a href="../index.html" class="brand" aria-label="Alpha Squared home, ideas implemented">
+          <img src="../assets/logo-full-white.png" alt="Alpha Squared logo" class="brand__logo" />
+        </a>
+        <p>Canadian software studio building for operators and enterprises since 2012.
+          Edmonton, Alberta. Trucking and transport specialists. Ideas implemented.</p>
+
+        <h2 class="footer__h footer__h--soc">Follow Along</h2>
+        <!-- Profile URLs are placeholders until the real handles are confirmed;
+             WhatsApp and email are live. -->
+        <ul class="soc">
+          <li><a href="#" aria-label="Alpha Squared on LinkedIn">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5ZM3 9.5h4V21H3V9.5Zm6.5 0h3.8v1.6h.05a4.2 4.2 0 0 1 3.77-2.07c4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.1c0-1.22-.02-2.78-1.7-2.78-1.7 0-1.96 1.33-1.96 2.7V21h-4V9.5Z"/></svg>
+          </a></li>
+          <li><a href="#" aria-label="Alpha Squared on X">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.53 3h3.2l-6.99 7.99L22 21h-6.44l-5.04-6.6L4.75 21H1.54l7.48-8.55L2 3h6.6l4.56 6.03L17.53 3Zm-1.12 16.06h1.77L7.67 4.84H5.77l10.64 14.22Z"/></svg>
+          </a></li>
+          <li><a href="#" aria-label="Alpha Squared on Facebook">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 21v-8h2.7l.4-3.1h-3.1V7.9c0-.9.25-1.5 1.54-1.5h1.66V3.63A22 22 0 0 0 14.3 3.5c-2.4 0-4.05 1.47-4.05 4.17V9.9H7.5V13h2.75v8h3.25Z"/></svg>
+          </a></li>
+          <li><a href="#" aria-label="Alpha Squared on Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r="1.1" fill="currentColor" stroke="none"/></svg>
+          </a></li>
+          <li><a href="https://wa.me/18259772020" target="_blank" rel="noopener" aria-label="Alpha Squared on WhatsApp">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2C6.6 2 2.2 6.4 2.2 11.84c0 1.74.46 3.44 1.32 4.94L2 22l5.34-1.4a9.8 9.8 0 0 0 4.7 1.2h.01c5.43 0 9.84-4.4 9.84-9.84C21.89 6.4 17.48 2 12.04 2Zm5.76 14.02c-.24.68-1.4 1.3-1.94 1.34-.5.05-.98.23-3.3-.69-2.78-1.1-4.55-3.94-4.69-4.13-.13-.19-1.12-1.49-1.12-2.84s.71-2.01.96-2.29c.25-.27.55-.34.73-.34l.53.01c.17 0 .4-.06.62.48.24.57.8 1.97.87 2.11.07.14.12.31.02.5-.09.19-.14.31-.28.47l-.42.49c-.14.14-.28.29-.12.57.16.27.71 1.17 1.52 1.9 1.05.93 1.93 1.22 2.2 1.36.28.14.44.12.6-.07.17-.19.7-.81.88-1.09.19-.27.37-.23.63-.14.25.1 1.65.78 1.93.92.28.14.47.21.54.33.07.11.07.65-.17 1.33Z"/></svg>
+          </a></li>
+          <li><a href="mailto:info@alphasquared.co" aria-label="Email Alpha Squared">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="2.5" y="4.5" width="19" height="15" rx="2.5"/><path d="m3.5 7 8.5 6 8.5-6"/></svg>
+          </a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h2 class="footer__h">Solutions</h2>
+        <ul>
+          <li><a href="../trucking.html">Trucking &amp; Transport</a></li>
+          <li><a href="../services.html#teams">Dedicated Teams</a></li>
+          <li><a href="../services.html#platforms">Operations Platforms</a></li>
+          <li><a href="../services.html#mobile">Mobile Apps</a></li>
+          <li><a href="../services.html#ai">AI &amp; Automation</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h2 class="footer__h">Company</h2>
+        <ul>
+          <li><a href="../about.html">About Us</a></li>
+          <li><a href="../case-studies.html">Case Studies</a></li>
+          <li><a href="../services.html">Services</a></li>
+          <li><a href="../trust.html">Trust &amp; Security</a></li>
+          <li><a href="../contact.html">Contact</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h2 class="footer__h">Talk to Us</h2>
+        <ul class="footer__contact">
+          <li><span>Phone</span><a href="tel:+18259772020">+1 (825) 977-2020</a></li>
+          <li><span>Email</span><a href="mailto:info@alphasquared.co">info@alphasquared.co</a></li>
+          <li><span>Office</span>5479 CrabApple Loop SW<br />Edmonton, Alberta T6X 1S5</li>
+          <li><span>Hours</span>Mountain Time, 8am to 6pm</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer__base">
+      <span>© 2026 Alpha Squared. Ideas Implemented.</span>
+      <ul class="footer__legal">
+        <li><a href="../sitemap.xml">Sitemap</a></li>
+      </ul>
+      <span>Built in Edmonton, Alberta</span>
+    </div>
+  </div>
+</footer>
+
+<button id="askA2-launcher" aria-label="Open chat">
+  <div class="askA2-ring"></div>
+  <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+  <div class="askA2-badge-dot" id="askA2-badge-dot">1</div>
+</button>
+
+<div id="askA2-panel">
+  <div class="askA2-head">
+    <div class="askA2-avatar">&#945;&sup2;</div>
+    <div>
+      <div class="askA2-title">Ask Alpha&sup2;</div>
+      <div class="askA2-status"><span class="askA2-status-dot"></span>Usually replies instantly</div>
+    </div>
+    <button class="askA2-close" id="askA2-close" aria-label="Close chat">
+      <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 6L6 18M6 6l12 12"/></svg>
+    </button>
+  </div>
+
+  <div class="askA2-body" id="askA2-body">
+    <div class="askA2-msg bot">Hey. I'm the Alpha&sup2; assistant. Ask me about our work, pricing, timelines or how we staff a project, or tap a question below.</div>
+  </div>
+
+  <div class="askA2-quick-wrap">
+    <div class="askA2-quick-label">Quick questions</div>
+    <div class="askA2-quick-row" id="askA2-quick-row">
+      <button class="askA2-quick-btn" data-q="Do you build trucking dispatch software?">Do you build dispatch software?</button>
+      <button class="askA2-quick-btn" data-q="Tell me about your AI automation work">Tell me about AI automation</button>
+      <button class="askA2-quick-btn" data-q="What does a project cost?">What does a project cost?</button>
+      <button class="askA2-quick-btn" data-q="How do I book a call?">How do I book a call?</button>
+    </div>
+  </div>
+
+  <div class="askA2-input-row">
+    <input type="text" id="askA2-input" placeholder="Ask anything..." aria-label="Ask a question" />
+    <button class="askA2-send" id="askA2-send" aria-label="Send">
+      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 2 11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+    </button>
+  </div>
+
+  <div class="askA2-disclaimer">Ask Alpha&sup2; can make mistakes. For anything important, book a call with our team.</div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/CustomEase.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
+<script src="https://unpkg.com/split-type@0.3.4/umd/index.min.js"></script>
+<script src="../js/main.js?v=20260813c"></script>
+<script src="../js/case.js?v=20260815a"></script>
+<script src="../js/chatbot.js?v=20260815a"></script>
+</body>
+</html>
