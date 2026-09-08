@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="css/style.css?v=20260729g" />
+<link rel="stylesheet" href="css/style.css?v=20260908c" />
 </head>
 
 <body class="is-loading">
@@ -48,250 +48,123 @@
 <main>
 
 <!-- ═══════════════════════ HERO ═══════════════════════ -->
+<!-- Hero and logo wall are ONE section on one background — the arc and bloom
+     span the whole thing. Splitting them made the hero read lighter than the
+     row below it, because the bloom got compressed into the short text block. -->
 <section class="hero">
   <div class="hero__arc" data-parallax="0.12"></div>
   <div class="hero__bloom" data-parallax="0.2"></div>
 
   <div class="wrap hero__inner">
-    <span class="hero__eyebrow grad" data-anim="fade">Engineering since 2012 · Edmonton, Canada</span>
+    <div class="hero__pills" data-anim="fade">
+      <span class="hero__pill">Software</span>
+      <span class="hero__pill">Automation</span>
+      <span class="hero__pill">AI</span>
+    </div>
 
-    <h1 class="d1" data-split="words">Software that moves your operation.</h1>
+    <h1 class="d1" data-split="lines">Software systems<br /><span class="grad">your business runs on.</span></h1>
 
     <p class="hero__sub" data-anim="fade" data-delay="0.5">
-      We build dispatch platforms, driver apps and AI operations tools for trucking,
-      transport and industrial teams — the systems that have to work at 2am on a
-      Tuesday, not just in a demo.
+      Dispatch boards, field apps, client portals, AI agents and the integrations
+      that hold them together — built for the way your operation actually works.
     </p>
 
     <div class="cta-row" data-anim="fade" data-delay="0.65">
-      <a href="#contact" class="btn"><span>Start a project <i class="ar">→</i></span></a>
-      <a href="trucking.html" class="btn btn--ghost"><span>See our trucking work</span></a>
+      <a href="#contact" class="btn"><span>Book a Growth &amp; Systems Review <i class="ar">→</i></span></a>
+      <a href="case-studies.html" class="btn btn--ghost"><span>See what we&#39;ve built</span></a>
     </div>
   </div>
 
-  <!-- Dot-matrix world map: the visual claim the stats below quantify.
-       Country names live in the strip below rather than on the canvas —
-       at this width Europe spans ~46px and five labels would collide. -->
-  <div class="hero__viz">
-    <canvas id="heroViz"></canvas>
-  </div>
-
   <div class="wrap">
-    <div class="geo" data-anim="fade" data-delay="0.9">
-      <div class="geo__group geo__group--lead">
-        <h3>North America</h3>
-        <p>Edmonton · Calgary · Toronto · Vancouver<br />Chicago · Dallas · New York · Miami</p>
-      </div>
-      <div class="geo__group">
-        <h3>Europe</h3>
-        <p>UK · Spain · France · Italy · Switzerland · Sweden</p>
-      </div>
-      <div class="geo__group">
-        <h3>Middle East</h3>
-        <p>UAE · Saudi Arabia · Oman</p>
-      </div>
-      <div class="geo__group">
-        <h3>Asia</h3>
-        <p>China · Malaysia · Pakistan</p>
-      </div>
-      <div class="geo__group">
-        <h3>Africa</h3>
-        <p>South Africa · Nigeria</p>
-      </div>
-      <div class="geo__group">
-        <h3>Oceania</h3>
-        <p>Australia</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════════════ STATS ═══════════════════════ -->
-<section class="statband">
-  <div class="wrap">
-    <div class="statband__grid">
-      <div data-anim="up">
-        <div class="statband__n" data-count="14" data-suffix="+">0</div>
-        <div class="statband__l">Years shipping software</div>
-      </div>
-      <div data-anim="up" data-delay="0.07">
-        <div class="statband__n" data-count="265" data-suffix="+">0</div>
-        <div class="statband__l">Projects delivered</div>
-      </div>
-      <div data-anim="up" data-delay="0.14">
-        <div class="statband__n" data-count="17" data-suffix="">0</div>
-        <div class="statband__l">Countries worked in</div>
-      </div>
-      <div data-anim="up" data-delay="0.21">
-        <div class="statband__n" data-count="52" data-suffix="">0</div>
-        <div class="statband__l">Repeat clients</div>
-      </div>
-      <div data-anim="up" data-delay="0.28">
-        <div class="statband__n" data-count="8" data-suffix="">0</div>
-        <div class="statband__l">Startups taken to launch</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════════════ MARQUEE ═══════════════════════ -->
-<section class="section section--tight" style="padding-bottom:0">
-  <div class="wrap">
-    <p class="marquee__label" data-anim="fade">Our team's work and career experience span</p>
+    <p class="marquee__label" data-anim="fade">Companies we&#39;ve worked with</p>
   </div>
   <!-- Logo wall. Each mark is an <img> in assets/logos/ with the company name
        as a wordmark behind it: if the file is missing the <img> removes itself
        and the name shows instead, so the row never renders as broken icons.
-       Drop-in filenames: salesforce.svg, levi-strauss.svg, honeywell.svg,
-       matrikon.svg, century-business-solutions.svg, arcus-power.svg,
-       fluidsdata.svg, whoifollow.svg — SVG preferred, transparent PNG fine
-       (update the src if the extension differs). Marks are rendered
-       monochrome so eight different brand palettes don't fight each other. -->
+       Real brand colour on the page background, not the old flattened-to-white
+       treatment — several of these files were originally white-only cutouts and
+       had to be swapped for genuinely coloured source art: levi-strauss.png,
+       alliance-driveaway.png, att.svg, cocacola.svg and adnoc.png.
+       Arcus Power is withheld: naming rights unresolved since 3 July, see the
+       logo-wall-by-icp note / README §Confirm before launch. -->
   <div class="marquee">
     <div class="marquee__track">
       <span class="logo logo--knockout"><img src="assets/logos/salesforce.svg" alt="Salesforce" loading="lazy" onerror="this.remove()" /><i>Salesforce</i></span>
       <span class="logo"><img src="assets/logos/levi-strauss.png" alt="Levi Strauss &amp; Co." loading="lazy" onerror="this.remove()" /><i>Levi Strauss &amp; Co.</i></span>
       <span class="logo"><img src="assets/logos/honeywell.svg" alt="Honeywell" loading="lazy" onerror="this.remove()" /><i>Honeywell</i></span>
       <span class="logo"><img src="assets/logos/matrikon.png" alt="Matrikon" loading="lazy" onerror="this.remove()" /><i>Matrikon</i></span>
-      <span class="logo"><img src="assets/logos/alliance-driveaway.gif" alt="Alliance Driveaway Solutions" loading="lazy" onerror="this.remove()" /><i>Alliance Driveaway</i></span>
+      <span class="logo"><img src="assets/logos/alliance-driveaway.png" alt="Alliance Driveaway Solutions" loading="lazy" onerror="this.remove()" /><i>Alliance Driveaway</i></span>
       <span class="logo"><img src="assets/logos/century-business-solutions.png" alt="Century Business Solutions" loading="lazy" onerror="this.remove()" /><i>Century Business Solutions</i></span>
-      <span class="logo"><img src="assets/logos/arcus-power.svg" alt="Arcus Power" loading="lazy" onerror="this.remove()" /><i>Arcus Power</i></span>
       <span class="logo"><img src="assets/logos/fluidsdata.svg" alt="FluidsData" loading="lazy" onerror="this.remove()" /><i>FluidsData</i></span>
       <span class="logo logo--wordmark"><img src="assets/logos/whoifollow.svg" alt="WhoIFollow" loading="lazy" onerror="this.remove()" /><i>WhoIFollow</i></span>
-
+      <span class="logo"><img src="assets/logos/cocacola.svg" alt="Coca-Cola" loading="lazy" onerror="this.remove()" /><i>Coca-Cola</i></span>
+      <span class="logo"><img src="assets/logos/att.svg" alt="AT&amp;T" loading="lazy" onerror="this.remove()" /><i>AT&amp;T</i></span>
+      <span class="logo logo--tall"><img src="assets/logos/adnoc.png" alt="ADNOC" loading="lazy" onerror="this.remove()" /><i>ADNOC</i></span>
       <!-- second copy — the track translates -50%, so the loop needs an exact duplicate -->
       <span class="logo logo--knockout" aria-hidden="true"><img src="assets/logos/salesforce.svg" alt="" loading="lazy" onerror="this.remove()" /><i>Salesforce</i></span>
       <span class="logo" aria-hidden="true"><img src="assets/logos/levi-strauss.png" alt="" loading="lazy" onerror="this.remove()" /><i>Levi Strauss &amp; Co.</i></span>
       <span class="logo" aria-hidden="true"><img src="assets/logos/honeywell.svg" alt="" loading="lazy" onerror="this.remove()" /><i>Honeywell</i></span>
       <span class="logo" aria-hidden="true"><img src="assets/logos/matrikon.png" alt="" loading="lazy" onerror="this.remove()" /><i>Matrikon</i></span>
-      <span class="logo" aria-hidden="true"><img src="assets/logos/alliance-driveaway.gif" alt="" loading="lazy" onerror="this.remove()" /><i>Alliance Driveaway</i></span>
+      <span class="logo" aria-hidden="true"><img src="assets/logos/alliance-driveaway.png" alt="" loading="lazy" onerror="this.remove()" /><i>Alliance Driveaway</i></span>
       <span class="logo" aria-hidden="true"><img src="assets/logos/century-business-solutions.png" alt="" loading="lazy" onerror="this.remove()" /><i>Century Business Solutions</i></span>
-      <span class="logo" aria-hidden="true"><img src="assets/logos/arcus-power.svg" alt="" loading="lazy" onerror="this.remove()" /><i>Arcus Power</i></span>
       <span class="logo" aria-hidden="true"><img src="assets/logos/fluidsdata.svg" alt="" loading="lazy" onerror="this.remove()" /><i>FluidsData</i></span>
       <span class="logo logo--wordmark" aria-hidden="true"><img src="assets/logos/whoifollow.svg" alt="" loading="lazy" onerror="this.remove()" /><i>WhoIFollow</i></span>
+      <span class="logo" aria-hidden="true"><img src="assets/logos/cocacola.svg" alt="" loading="lazy" onerror="this.remove()" /><i>Coca-Cola</i></span>
+      <span class="logo" aria-hidden="true"><img src="assets/logos/att.svg" alt="" loading="lazy" onerror="this.remove()" /><i>AT&amp;T</i></span>
+      <span class="logo logo--tall" aria-hidden="true"><img src="assets/logos/adnoc.png" alt="" loading="lazy" onerror="this.remove()" /><i>ADNOC</i></span>
     </div>
   </div>
 </section>
 
-<!-- ═══════════════════════ LIFECYCLE CARDS ═══════════════════════ -->
-<section class="section">
+<!-- ═══════════════════════ WHY ALPHA SQUARED ═══════════════════════ -->
+<!-- Second block on the page, straight under the logo wall. It carries the
+     company facts that used to be the first accordion claim; the other three
+     claims became the FAQ at the foot of the page. The map here is the home
+     market at city level — a different canvas from the world map, which now
+     opens the About Us page. -->
+<section class="section" id="why">
   <div class="wrap">
-    <div class="head head--center">
-      <h2 class="d2" data-split="lines">Trusted by operating teams<br /><span class="grad">from first call to full scale.</span></h2>
-      <p class="lead" data-anim="fade">One accountable partner across the whole lifecycle. 265+ projects
-        delivered since 2012, for clients in 17 countries.</p>
-    </div>
-
-    <div class="riser" style="margin-top:58px">
-      <div class="grid grid--4">
-        <article class="card" data-anim="up">
-          <span class="card__label">Discover</span>
-          <h3>Understand the operation before writing code.</h3>
-          <ul class="ticks">
-            <li>Ride-along process mapping</li>
-            <li>Fixed-price scoping</li>
-          </ul>
-        </article>
-
-        <article class="card" data-anim="up" data-delay="0.08">
-          <span class="card__label">Design</span>
-          <h3>Interfaces dispatchers and drivers actually use.</h3>
-          <ul class="ticks">
-            <li>Field-tested UX</li>
-            <li>Clickable prototype first</li>
-          </ul>
-        </article>
-
-        <article class="card" data-anim="up" data-delay="0.16">
-          <span class="card__label">Build</span>
-          <h3>Senior engineers shipping working software weekly.</h3>
-          <ul class="ticks">
-            <li>Demos, not status reports</li>
-            <li>Native iOS, Android, web</li>
-          </ul>
-        </article>
-
-        <article class="card" data-anim="up" data-delay="0.24">
-          <span class="card__label">Operate</span>
-          <h3>Still here after launch, when it counts most.</h3>
-          <ul class="ticks">
-            <li>Monitoring and real SLAs</li>
-            <li>Roadmap ownership</li>
-          </ul>
-        </article>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════════════════════ TRUCKING FLAGSHIP ═══════════════════════ -->
-<section class="section" id="trucking">
-  <div class="wrap">
-    <div class="flag">
+    <div class="whyus">
       <div>
-        <span class="badge" data-anim="fade">Trucking &amp; Transport</span>
-        <h2 class="d2" data-split="lines">We already know<br /><span class="grad">what breaks at scale.</span></h2>
+        <span class="badge" data-anim="fade">Why Alpha Squared</span>
+        <h2 class="d2" data-split="lines">We&#39;ve shipped this before.<br /><span class="grad">265 times, in 17 countries.</span></h2>
         <p class="lead" data-anim="fade" style="margin-top:22px">
-          Dispatch boards that drift out of sync. Drivers on the phone because the app
-          lost signal in Wyoming. Proof-of-delivery photos stuck on a device. We've built
-          the platform that solves all three — in production, across a continent.
+          Operating since 2012 out of Edmonton, Alberta. 265+ projects delivered,
+          clients in 17 countries, 52 of them repeat. A Canadian principal in your
+          timezone, a senior engineering bench behind him — and a portfolio we can
+          point at instead of a pitch deck.
         </p>
-
-        <div class="flag__stats">
-          <div data-anim="up">
-            <div class="stat__n" data-count="350" data-suffix="+">0</div>
-            <div class="stat__l">Drivers kept in sync</div>
-          </div>
-          <div data-anim="up" data-delay="0.1">
-            <div class="stat__n" data-count="48" data-suffix=" + CA">0</div>
-            <div class="stat__l">US states covered</div>
-          </div>
-          <div data-anim="up" data-delay="0.2">
-            <div class="stat__n" data-count="3" data-suffix="">0</div>
-            <div class="stat__l">Apps: dispatch, iOS, Android</div>
-          </div>
-        </div>
-
-        <div class="cta-row" data-anim="fade">
-          <a href="trucking.html" class="btn"><span>Explore trucking solutions <i class="ar">→</i></span></a>
+        <div class="cta-row" data-anim="fade" style="margin-top:30px">
+          <a href="about.html" class="btn btn--ghost"><span>More about us <i class="ar">→</i></span></a>
         </div>
       </div>
 
-      <div class="proof" data-anim="up" data-delay="0.15">
-        <div class="proof__site"><span class="dot"></span> alliancedriveaway.com · live</div>
-        <h3 class="d3">Alliance Driveaway Solutions</h3>
-        <p class="lead" style="margin-top:12px;font-size:.93rem">
-          A full digital ecosystem for a North American vehicle-relocation company:
-          a dispatch web dashboard plus native iOS and Android driver apps, keeping
-          drivers, clients and operations in sync with real-time job tracking.
-        </p>
+      <!-- North America, city-level — Edmonton is the hq marker -->
+      <div class="whyus__viz" data-anim="fade"><canvas id="naViz"></canvas></div>
+    </div>
 
-        <div class="proof__viz"><canvas id="proofViz"></canvas></div>
-
-        <div class="chips">
-          <span>PHP / Laravel</span><span>Vue.js</span><span>Swift</span>
-          <span>Kotlin</span><span>Real-time dispatch</span><span>GPS tracking</span>
+    <div class="statband statband--inline">
+  <div class="statband__grid">
+        <div data-anim="up">
+          <div class="statband__n" data-count="14" data-suffix="+">0</div>
+          <div class="statband__l">Years shipping software</div>
         </div>
-
-        <!-- Cross-link into the Driveaway product site -->
-        <a class="crosslink" href="index-trucking-b.html">
-          <span class="crosslink__shot" aria-hidden="true">
-            <span class="crosslink__bar"><i></i><i></i><i></i><em>Driveaway Dispatch Platform</em></span>
-            <span class="crosslink__body">
-              <span class="crosslink__hl"></span>
-              <span class="crosslink__hl crosslink__hl--sm"></span>
-              <span class="crosslink__rows">
-                <span></span><span></span><span></span><span></span>
-              </span>
-            </span>
-          </span>
-          <span class="crosslink__txt">
-            <strong>The product we built it into</strong>
-            Dispatch, driver apps and QuickBooks sync — now a platform other
-            vehicle-relocation operators can deploy.
-            <span class="tlink">Visit the Driveaway site <i class="ar">→</i></span>
-          </span>
-        </a>
+        <div data-anim="up" data-delay="0.07">
+          <div class="statband__n" data-count="265" data-suffix="+">0</div>
+          <div class="statband__l">Projects delivered</div>
+        </div>
+        <div data-anim="up" data-delay="0.14">
+          <div class="statband__n" data-count="17" data-suffix="">0</div>
+          <div class="statband__l">Countries worked in</div>
+        </div>
+        <div data-anim="up" data-delay="0.21">
+          <div class="statband__n" data-count="52" data-suffix="">0</div>
+          <div class="statband__l">Repeat clients</div>
+        </div>
+        <div data-anim="up" data-delay="0.28">
+          <div class="statband__n" data-count="8" data-suffix="">0</div>
+          <div class="statband__l">Startups taken to launch</div>
+        </div>
       </div>
     </div>
   </div>
@@ -300,140 +173,6 @@
 <!-- ═══════════════════════ WHITE SHEET ═══════════════════════ -->
 <div class="page-light">
 
-  <!-- ── COMPARE / DEPENDABILITY ── -->
-  <section class="section">
-    <div class="wrap">
-      <div class="head head--center">
-        <span class="badge" data-anim="fade">Dependability</span>
-        <h2 class="d2" data-split="lines">Stop babysitting your build.<br /><span class="grad">Start shipping with confidence.</span></h2>
-      </div>
-
-      <div class="compare">
-        <div class="compare__col">
-          <div class="cmp cmp--bad" data-anim="left">
-            <span class="cmp__i"><svg viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg></span>
-            Status updates that describe activity instead of progress
-          </div>
-          <div class="cmp cmp--bad" data-anim="left" data-delay="0.08">
-            <span class="cmp__i"><svg viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg></span>
-            Junior developers learning your domain on your budget
-          </div>
-          <div class="cmp cmp--bad" data-anim="left" data-delay="0.16">
-            <span class="cmp__i"><svg viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg></span>
-            Offshore teams asleep when production breaks
-          </div>
-          <div class="cmp cmp--bad" data-anim="left" data-delay="0.24">
-            <span class="cmp__i"><svg viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg></span>
-            A handover document instead of a working system
-          </div>
-        </div>
-
-        <div class="globe"><canvas id="globeViz"></canvas></div>
-
-        <div class="compare__col">
-          <div class="cmp" data-anim="right">
-            <span class="cmp__i"><svg viewBox="0 0 24 24"><path d="m20 6-11 11-5-5"/></svg></span>
-            A working demo every week — you see the software, not a report
-          </div>
-          <div class="cmp" data-anim="right" data-delay="0.08">
-            <span class="cmp__i"><svg viewBox="0 0 24 24"><path d="m20 6-11 11-5-5"/></svg></span>
-            Senior engineers only, 16+ years of delivery behind the work
-          </div>
-          <div class="cmp" data-anim="right" data-delay="0.16">
-            <span class="cmp__i"><svg viewBox="0 0 24 24"><path d="m20 6-11 11-5-5"/></svg></span>
-            A Canadian principal in your timezone, accountable by name
-          </div>
-          <div class="cmp" data-anim="right" data-delay="0.24">
-            <span class="cmp__i"><svg viewBox="0 0 24 24"><path d="m20 6-11 11-5-5"/></svg></span>
-            Documented, monitored systems we keep running after launch
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── THREAD WAVE / CAPABILITY ── -->
-  <section class="section section--tight">
-    <div class="wrap">
-      <div class="head head--center">
-        <span class="badge" data-anim="fade">One team, whole lifecycle</span>
-        <h2 class="d2" data-split="lines">One partner who plans, builds and stays.<br /><span class="grad">Compounding value.</span></h2>
-        <p class="lead" data-anim="fade">Strategy, design, engineering and AI under one roof — so nothing
-          gets lost in a handoff between three vendors.</p>
-      </div>
-
-      <div class="threads">
-        <div class="threads__cols">
-          <div class="thread" style="--tcol:#1c4eff" data-anim="up">
-            <span class="thread__cap">Plans</span>
-            <ul><li>requirements</li><li>architecture</li><li>scope</li><li>budget</li></ul>
-          </div>
-          <div class="thread" style="--tcol:#7b31ff" data-anim="up" data-delay="0.08">
-            <span class="thread__cap">Designs</span>
-            <ul><li>workflows</li><li>interfaces</li><li>prototypes</li><li>systems</li></ul>
-          </div>
-          <div class="thread" style="--tcol:#ac24ff" data-anim="up" data-delay="0.16">
-            <span class="thread__cap">Builds</span>
-            <ul><li>platforms</li><li>mobile apps</li><li>integrations</li><li>AI agents</li></ul>
-          </div>
-          <div class="thread" style="--tcol:#fe881b" data-anim="up" data-delay="0.24">
-            <span class="thread__cap">Operates</span>
-            <ul><li>releases</li><li>monitoring</li><li>support</li><li>roadmap</li></ul>
-          </div>
-        </div>
-        <div class="threads__wave" id="waveHost"></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── WHY US (dark inset panel) ── -->
-  <section class="section section--tight">
-    <div class="wrap">
-      <div class="panel" data-anim="up">
-        <div class="why">
-          <div>
-            <span class="badge">Why Alpha Squared</span>
-            <h2 class="d2">Dependable is a track record,<br /><span class="grad">not an adjective.</span></h2>
-
-            <div class="acc" id="acc" style="margin-top:34px">
-              <div class="acc__item is-open">
-                <button class="acc__q">Fourteen years of shipped work <i></i></button>
-                <div class="acc__a"><p>Operating since 2012 out of Edmonton, Alberta. 265+ projects,
-                  clients in 17 countries, 52 of them repeat. The portfolio is the argument —
-                  we point at production systems, not potential.</p></div>
-              </div>
-              <div class="acc__item">
-                <button class="acc__q">Deep expertise in transport operations <i></i></button>
-                <div class="acc__a"><p>We've built the dispatch dashboard, the driver apps and the
-                  tracking layer for a vehicle-relocation network running across 48 states and
-                  Canada. We understand load assignment, driver state and offline sync because
-                  we've shipped them.</p></div>
-              </div>
-              <div class="acc__item">
-                <button class="acc__q">AI already running in production <i></i></button>
-                <div class="acc__a"><p>Voice agents answering real customer calls, OCR microservices,
-                  agentic assistants wired into live CRMs. We treat AI as engineering with a
-                  measurable job to do, not as a line on a slide.</p></div>
-              </div>
-              <div class="acc__item">
-                <button class="acc__q">Canadian front door, senior global bench <i></i></button>
-                <div class="acc__a"><p>Abdullah is your principal in Alberta — same timezone, same
-                  contracts, accountable by name. Behind him is a senior engineering team that
-                  keeps budgets realistic without dropping the standard.</p></div>
-              </div>
-            </div>
-
-            <div class="toggle" id="toggle">
-              <button class="is-on" data-mode="typical">Typical vendor</button>
-              <button data-mode="alpha">Alpha Squared</button>
-            </div>
-          </div>
-
-          <div class="why__viz"><canvas id="radarViz"></canvas></div>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <!-- ── SERVICES ── -->
   <section class="section" id="services">
@@ -489,6 +228,43 @@
     </div>
   </section>
 
+  <!-- ── AI AGENT ── -->
+  <!-- The wireframe globe is back as the centrepiece, driven as a voice agent:
+       rings leave it on a speech envelope and the waveform under the transcript
+       runs off the same signal, so the block reads as one agent mid-sentence. -->
+  <section class="section section--tight" id="ai">
+    <div class="wrap">
+      <div class="agent">
+        <div>
+          <span class="badge" data-anim="fade">AI in production</span>
+          <h2 class="d2" data-split="lines">AI that answers the phone.<br /><span class="grad">Not a line on a slide.</span></h2>
+          <p class="lead" data-anim="fade" style="margin-top:22px">
+            Voice agents taking real inbound calls, OCR microservices reading real
+            documents, agentic assistants wired into live CRMs. We treat AI as
+            engineering with a measurable job to do.
+          </p>
+          <ul class="ticks" style="margin-top:26px">
+            <li>Understands intent, checks live availability, books the job</li>
+            <li>Writes straight into the CRM — no human in the loop</li>
+            <li>Running 24/7 for a real client today</li>
+          </ul>
+          <div class="cta-row" data-anim="fade" style="margin-top:28px">
+            <a href="case-studies.html#futurespark" class="btn btn--ghost"><span>Read the AI Front Desk case study <i class="ar">→</i></span></a>
+          </div>
+        </div>
+
+        <div class="agent__viz" data-anim="fade">
+          <div class="agent__globe"><canvas id="globeViz"></canvas></div>
+          <div class="agent__caption" aria-live="polite">
+            <span class="agent__dot"></span>
+            <span class="agent__line" id="agentLine">Good afternoon — Alpha Squared, how can I help?</span>
+          </div>
+          <div class="agent__wave" id="agentWave" aria-hidden="true"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ── CASE STUDIES ── -->
   <section class="section section--tight" id="work">
     <div class="wrap">
@@ -500,6 +276,7 @@
       <div class="grid grid--3" style="margin-top:56px">
         <a class="cs" href="case-studies.html#alliance" style="--csGlow:rgba(255,138,36,.4)" data-anim="up">
           <span class="cs__tag">Trucking &amp; Transport</span>
+          <span class="cs__shot"><img src="assets/work/alliance.jpg" alt="Alliance Driveaway dispatch platform on mobile" loading="lazy" decoding="async" /></span>
           <h3>Alliance Driveaway</h3>
           <p>Dispatch dashboard and native driver apps keeping 350+ drivers, clients and operations in sync across 48 states and Canada.</p>
           <span class="tlink">Read case study <i class="ar">→</i></span>
@@ -507,6 +284,7 @@
 
         <a class="cs" href="case-studies.html#fluidsdata" style="--csGlow:rgba(168,48,255,.4)" data-anim="up" data-delay="0.08">
           <span class="cs__tag">Energy &amp; Industrial</span>
+          <span class="cs__shot"><img src="assets/work/fluidsdata.jpg" alt="FluidsData analytics dashboard" loading="lazy" decoding="async" /></span>
           <h3>FluidsData</h3>
           <p>Analytics platform for drilling-fluids data, used by teams at Chevron, ExxonMobil and ADNOC to read wells faster.</p>
           <span class="tlink">Read case study <i class="ar">→</i></span>
@@ -514,6 +292,7 @@
 
         <a class="cs" href="case-studies.html#futurespark" style="--csGlow:rgba(58,110,255,.42)" data-anim="up" data-delay="0.16">
           <span class="cs__tag">AI in production</span>
+          <span class="cs__shot"><img src="assets/work/ai-front-desk.jpg" alt="AI Front Desk voice agent console" loading="lazy" decoding="async" /></span>
           <h3>AI Front Desk</h3>
           <p>A voice agent that answers real inbound calls, books jobs and writes straight into the CRM — no human in the loop.</p>
           <span class="tlink">Read case study <i class="ar">→</i></span>
@@ -522,17 +301,51 @@
     </div>
   </section>
 
+  <!-- ── THREAD WAVE / CAPABILITY ── -->
+  <section class="section section--tight">
+    <div class="wrap">
+      <div class="head head--center">
+        <span class="badge" data-anim="fade">One team, whole lifecycle</span>
+        <h2 class="d2" data-split="lines">One partner who plans, builds and stays.<br /><span class="grad">Compounding value.</span></h2>
+        <p class="lead" data-anim="fade">Strategy, design, engineering and AI under one roof — so nothing
+          gets lost in a handoff between three vendors.</p>
+      </div>
+
+      <div class="threads">
+        <div class="threads__cols">
+          <div class="thread" style="--tcol:#1c4eff" data-anim="up">
+            <span class="thread__cap">Plans</span>
+            <ul><li>requirements</li><li>architecture</li><li>scope</li><li>budget</li></ul>
+          </div>
+          <div class="thread" style="--tcol:#7b31ff" data-anim="up" data-delay="0.08">
+            <span class="thread__cap">Designs</span>
+            <ul><li>workflows</li><li>interfaces</li><li>prototypes</li><li>systems</li></ul>
+          </div>
+          <div class="thread" style="--tcol:#ac24ff" data-anim="up" data-delay="0.16">
+            <span class="thread__cap">Builds</span>
+            <ul><li>platforms</li><li>mobile apps</li><li>integrations</li><li>AI agents</li></ul>
+          </div>
+          <div class="thread" style="--tcol:#fe881b" data-anim="up" data-delay="0.24">
+            <span class="thread__cap">Operates</span>
+            <ul><li>releases</li><li>monitoring</li><li>support</li><li>roadmap</li></ul>
+          </div>
+        </div>
+        <div class="threads__wave" id="waveHost"></div>
+      </div>
+    </div>
+  </section>
+
   <!-- ── TEAM ── -->
-  <section class="section section--tight" id="about">
+  <section class="section section--tight" id="team">
     <div class="wrap">
       <div class="team">
         <div>
           <span class="badge" data-anim="fade">Who you work with</span>
-          <h2 class="d2" data-split="lines">A named principal,<br /><span class="grad">not an account manager.</span></h2>
+          <h2 class="d2" data-split="lines">You work with Abdullah.<br /><span class="grad">Not an account manager.</span></h2>
           <p class="lead" data-anim="fade" style="margin-top:22px">
-            You get the people who do the work. Abdullah leads every engagement from
-            Alberta; a senior engineering bench builds behind him. No layer of
-            middlemen, no rotating cast.
+            Abdullah Farooq Ahmed leads every engagement personally, from Edmonton —
+            he scopes it, designs it and stays on it. A senior engineering bench
+            builds behind him. No layer of middlemen, no rotating cast.
           </p>
           <div class="cta-row" data-anim="fade" style="margin-top:28px">
             <a href="about.html" class="btn btn--ghost"><span>Meet the team <i class="ar">→</i></span></a>
@@ -540,8 +353,8 @@
         </div>
 
         <div class="team__list">
-          <div class="person" data-anim="right">
-            <span class="person__av">AF</span>
+          <div class="person person--lead" data-anim="right">
+            <span class="person__av person__av--photo"><img src="assets/team/abdullah.jpg" alt="Abdullah Farooq Ahmed" loading="lazy" decoding="async" /></span>
             <div>
               <h4>Abdullah Farooq Ahmed</h4>
               <div class="role">Principal · Edmonton, Alberta</div>
@@ -553,18 +366,6 @@
           </div>
 
           <div class="person" data-anim="right" data-delay="0.1">
-            <span class="person__av">RW</span>
-            <div>
-              <h4>Rizwan Walayat</h4>
-              <div class="role">Head of Sales</div>
-              <p>Runs outbound, pipeline and client relationships. Came up through
-                engineering — he led mobile architecture on our driver-app work and the
-                AI systems we run in production — so the first conversation about your
-                project is with someone who's actually shipped this kind of system.</p>
-            </div>
-          </div>
-
-          <div class="person" data-anim="right" data-delay="0.2">
             <span class="person__av">A²</span>
             <div>
               <h4>The engineering bench</h4>
@@ -578,15 +379,96 @@
     </div>
   </section>
 
+  <!-- ── FAQ ── -->
+  <!-- The accordion out of the old Why panel. Its first claim became the copy
+       in the Why Alpha Squared section up top, so only three items remain. -->
+  <section class="section section--tight" id="faq">
+    <div class="wrap">
+      <div class="head head--center">
+        <span class="badge" data-anim="fade">Straight answers</span>
+        <h2 class="d2" data-split="lines">The questions<br /><span class="grad">people actually ask.</span></h2>
+      </div>
+
+      <div class="faq">
+        <div class="acc" id="acc">
+          <div class="acc__item">
+            <button class="acc__q">Deep expertise in transport operations <i></i></button>
+            <div class="acc__a"><p>We&#39;ve built the dispatch dashboard, the driver apps and the
+              tracking layer for a vehicle-relocation network running across 48 states and
+              Canada. We understand load assignment, driver state and offline sync because
+              we&#39;ve shipped them.</p></div>
+          </div>
+          <div class="acc__item">
+            <button class="acc__q">AI already running in production <i></i></button>
+            <div class="acc__a"><p>Voice agents answering real customer calls, OCR microservices,
+              agentic assistants wired into live CRMs. We treat AI as engineering with a
+              measurable job to do, not as a line on a slide.</p></div>
+          </div>
+          <div class="acc__item">
+            <button class="acc__q">Canadian front door, senior global bench <i></i></button>
+            <div class="acc__a"><p>Abdullah is your principal in Alberta — same timezone, same
+              contracts, accountable by name. Behind him is a senior engineering team that
+              keeps budgets realistic without dropping the standard.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ── FINAL CTA ── -->
+  <!-- Two ways in: write to us, or take a slot directly. The form posts to
+       Netlify Forms (the site already deploys there), so it needs no backend —
+       submissions land under the site's Forms tab. -->
   <section class="final" id="contact">
     <div class="wrap">
-      <span class="badge" data-anim="fade">Let's talk</span>
+      <span class="badge" data-anim="fade">Let&#39;s talk</span>
       <h2 class="d2" data-split="lines"><span class="grad">One conversation</span> makes your roadmap real.</h2>
-      <p class="lead" data-anim="fade">Tell us what you're building. You'll get an honest read on scope,
+      <p class="lead" data-anim="fade">Tell us what you&#39;re building. You&#39;ll get an honest read on scope,
         timeline and the right engagement model — usually within two business days.</p>
-      <div class="cta-row" data-anim="fade" style="justify-content:center;margin-top:32px">
-        <a href="mailto:info@alphasquared.co" class="btn"><span>Book a discovery call <i class="ar">→</i></span></a>
+
+      <div class="contact">
+        <div class="contact__card" data-anim="up">
+          <h3>Send us the details</h3>
+          <p>The more you tell us about the operation, the more useful the first call is.</p>
+
+          <form name="enquiry" method="POST" data-netlify="true" netlify-honeypot="company-website">
+            <input type="hidden" name="form-name" value="enquiry" />
+            <p hidden><label>Leave this empty: <input name="company-website" /></label></p>
+
+            <div class="contact__row">
+              <label class="field">
+                <span>Name</span>
+                <input type="text" name="name" autocomplete="name" placeholder="Jane Cooper" required />
+              </label>
+              <label class="field">
+                <span>Email</span>
+                <input type="email" name="email" autocomplete="email" placeholder="jane@company.com" required />
+              </label>
+            </div>
+
+            <label class="field">
+              <span>Company</span>
+              <input type="text" name="company" autocomplete="organization" placeholder="Cooper Logistics" />
+            </label>
+
+            <label class="field">
+              <span>What are you building?</span>
+              <textarea name="message" placeholder="We run 40 trucks and dispatch on a whiteboard and three spreadsheets…" required></textarea>
+            </label>
+
+            <button type="submit" class="btn"><span>Send it over <i class="ar">→</i></span></button>
+            <p class="contact__note">Or email <a href="mailto:info@alphasquared.co">info@alphasquared.co</a> directly.</p>
+          </form>
+        </div>
+
+        <div class="contact__card contact__cal" data-anim="up" data-delay="0.08">
+          <h3>Or book the call now</h3>
+          <p>Twenty minutes with Abdullah. Pick a slot that works — no form in between.</p>
+          <!-- Cal.com inline month view, same account as Abdullah's own site -->
+          <div class="cal-embed" id="a2Cal"></div>
+          <p class="contact__note">Calendar not loading?
+            <a href="https://cal.com/abdullahahmed-alphasquared/20min" target="_blank" rel="noopener">Open it in a new tab ↗</a></p>
+        </div>
       </div>
     </div>
   </section>
@@ -647,6 +529,15 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/CustomEase.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
 <script src="https://unpkg.com/split-type@0.3.4/umd/index.min.js"></script>
-<script src="js/main.js?v=20260729g"></script>
+<!-- Cal.com embed — the booking calendar in the Let's talk section. Same
+     account and loader as builds/abdullah-personal-site. -->
+<script type="text/javascript">
+  (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if (typeof namespace === "string") { cal.ns[namespace] = cal.ns[namespace] || api; p(cal.ns[namespace], ar); p(cal, ["initNamespace", namespace]); } else p(cal, ar); return; } p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+  Cal("init", { origin: "https://cal.com" });
+  Cal("inline", { elementOrSelector: "#a2Cal", calLink: "abdullahahmed-alphasquared/20min", layout: "month_view" });
+  Cal("ui", { styles: { branding: { brandColor: "#ac24ff" } }, hideEventTypeDetails: false, layout: "month_view" });
+</script>
+<script src="js/main.js?v=20260908c"></script>
 </body>
 </html>
+

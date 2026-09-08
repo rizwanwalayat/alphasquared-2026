@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="css/style.css?v=20260729g" />
+<link rel="stylesheet" href="css/style.css?v=20260908c" />
 </head>
 
 <body class="is-loading">
@@ -48,7 +48,7 @@
 <main>
 
 <!-- ═══════════════════════ HERO ═══════════════════════ -->
-<section class="hero hero--page">
+<section class="hero hero--page hero--map">
   <div class="hero__arc" data-parallax="0.12"></div>
   <div class="hero__bloom" data-parallax="0.2"></div>
 
@@ -60,6 +60,43 @@
       Alberta since 2012. We build the systems operators depend on, and we're
       still there after launch.
     </p>
+  </div>
+
+  <!-- Dot-matrix world map, moved off the homepage hero — this is the page
+       where the reach claim belongs, and the stat band underneath quantifies
+       it. Country names live in the strip below rather than on the canvas: at
+       this width Europe spans ~46px and five labels would collide. -->
+  <div class="hero__viz">
+    <canvas id="heroViz"></canvas>
+  </div>
+
+  <div class="wrap">
+    <div class="geo" data-anim="fade" data-delay="0.9">
+      <div class="geo__group geo__group--lead">
+        <h3>North America</h3>
+        <p>Edmonton · Calgary · Toronto · Vancouver<br />Chicago · Dallas · New York · Miami</p>
+      </div>
+      <div class="geo__group">
+        <h3>Europe</h3>
+        <p>UK · Spain · France · Italy · Switzerland · Sweden</p>
+      </div>
+      <div class="geo__group">
+        <h3>Middle East</h3>
+        <p>UAE · Saudi Arabia · Oman</p>
+      </div>
+      <div class="geo__group">
+        <h3>Asia</h3>
+        <p>China · Malaysia · Pakistan</p>
+      </div>
+      <div class="geo__group">
+        <h3>Africa</h3>
+        <p>South Africa · Nigeria</p>
+      </div>
+      <div class="geo__group">
+        <h3>Oceania</h3>
+        <p>Australia</p>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -183,20 +220,6 @@
         </div>
 
         <div class="person" data-anim="up" data-delay="0.1">
-          <span class="person__av">RW</span>
-          <div>
-            <h4>Rizwan Walayat</h4>
-            <div class="role">Head of Sales</div>
-            <p>Runs outbound, pipeline and client relationships. Came up through
-              engineering — he led mobile architecture on our driver-app work and
-              the AI systems we run in production, from the voice agents answering
-              real calls to the assistants wired into client CRMs — so the first
-              conversation about your project is with someone who's actually
-              shipped this kind of system, not a generalist account rep.</p>
-          </div>
-        </div>
-
-        <div class="person" data-anim="up" data-delay="0.2">
           <span class="person__av">A&sup2;</span>
           <div>
             <h4>The engineering bench</h4>
@@ -297,6 +320,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/CustomEase.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
 <script src="https://unpkg.com/split-type@0.3.4/umd/index.min.js"></script>
-<script src="js/main.js?v=20260729g"></script>
+<script src="js/main.js?v=20260908c"></script>
 </body>
 </html>

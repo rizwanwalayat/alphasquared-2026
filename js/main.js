@@ -755,6 +755,177 @@
   }
 
   /* ══════════════════════════════════════════════════════════════════
+     13. Voice agent — one speech envelope drives the globe's rings, the
+         waveform and the transcript, so the block reads as a single
+         agent mid-sentence rather than three unrelated loops.
+     ══════════════════════════════════════════════════════════════════ */
+
+  /* ══════════════════════════════════════════════════════════════════
+     Voice-agent speech envelope. One signal drives the globe's rings,
+     the waveform bars and the transcript, so they stay in sync and the
+     block reads as a single agent speaking rather than three loops.
+     Phrase-shaped on purpose: bursts of syllables, then a breath.
+     ══════════════════════════════════════════════════════════════════ */
+  var AGENT = { level: 0, speaking: true, _ts: -1 };
+
+  function agentEnvelope(t) {
+    // Advance once per frame no matter how many consumers ask, so the globe
+    // and the waveform can each drive it and neither freezes if the other
+    // is off-screen (rAF also stops entirely in a background tab).
+    if (t === AGENT._ts) return AGENT.level;
+    AGENT._ts = t;
+
+    // 5.4s cycle: ~4s of speech in syllable bursts, then a pause
+    var cycle = (t % 5400) / 5400;
+    if (cycle > 0.76) { AGENT.speaking = false; AGENT.level += (0 - AGENT.level) * 0.08; return AGENT.level; }
+    AGENT.speaking = true;
+    var syll = Math.abs(Math.sin(t / 118)) * Math.abs(Math.sin(t / 47));
+    var phrase = 0.55 + 0.45 * Math.sin(cycle * Math.PI * 3.1);
+    var target = Math.max(0, syll * phrase);
+    AGENT.level += (target - AGENT.level) * 0.22;      // smooth, no strobing
+    return AGENT.level;
+  }
+
+  /* Waveform bars under the transcript — same envelope, offset per bar so it
+     reads as speech rather than a level meter. */
+  function agentWave() {
+    var host = document.getElementById('agentWave');
+    if (!host) return;
+    var N = 28, bars = [];
+    for (var i = 0; i < N; i++) { var b = document.createElement('i'); host.appendChild(b); bars.push(b); }
+    if (REDUCED) { bars.forEach(function (b) { b.style.height = '6px'; }); return; }
+    var t0 = 0;
+    (function frame(ts) {
+      requestAnimationFrame(frame);
+      if (ts - t0 < 40) return;                        // 25fps is plenty
+      t0 = ts;
+      if (!onScreen(host)) return;
+      var lv = REDUCED ? 0 : agentEnvelope(ts);
+      for (var i = 0; i < N; i++) {
+        var centre = 1 - Math.abs(i - (N - 1) / 2) / ((N - 1) / 2);   // taller mid-row
+        var j = Math.abs(Math.sin(ts / 90 + i * 0.7));
+        bars[i].style.height = (3 + lv * j * centre * 23).toFixed(1) + 'px';
+      }
+    })(0);
+  }
+
+  /* Transcript — cycles the kind of line the front-desk agent actually says. */
+  function agentLine() {
+    var el = document.getElementById('agentLine');
+    if (!el || REDUCED) return;
+    var lines = [
+      'Good afternoon — Alpha Squared, how can I help?',
+      'I can see Thursday at 10, or Friday morning. Which suits?',
+      'Booked. I\u2019ve put the details in your CRM.'
+    ];
+    var i = 0;
+    setInterval(function () {
+      if (!onScreen(el)) return;
+      i = (i + 1) % lines.length;
+      el.style.opacity = 0;
+      setTimeout(function () { el.textContent = lines[i]; el.style.opacity = 1; }, 260);
+    }, 5400);                                          // matches the envelope cycle
+    el.style.transition = 'opacity .26s ease';
+  }
+
+  /* ══════════════════════════════════════════════════════════════════
+     North America, city-level. Same dot grid as the hero's world map,
+     cropped to the home market and scaled up so the cities carry labels.
+     ══════════════════════════════════════════════════════════════════ */
+  function naViz() {
+    var canvas = document.getElementById('naViz');
+    if (!canvas) return;
+
+    var c = setupCanvas(canvas);
+    var land = decodeLand();
+
+    // crop window, in degrees
+    var W_LNG = -168, E_LNG = -52, N_LAT = 72, S_LAT = 14;
+    var col0 = Math.floor((W_LNG + 180) / 360 * LAND_COLS);
+    var col1 = Math.ceil((E_LNG + 180) / 360 * LAND_COLS);
+    var row0 = Math.floor((LAND_LAT0 - N_LAT) / (LAND_LAT0 - LAND_LAT1) * LAND_ROWS);
+    var row1 = Math.ceil((LAND_LAT0 - S_LAT) / (LAND_LAT0 - LAND_LAT1) * LAND_ROWS);
+    var cols = col1 - col0, rows = row1 - row0;
+
+    var NA = PLACES.filter(function (p) { return p.lng < -50 && p.lat > 12; });
+
+    var geom = null;
+    function layout() {
+      var step = Math.min(c.w / cols, c.h / rows);
+      geom = {
+        step: step,
+        x0: (c.w - step * cols) / 2,
+        y0: (c.h - step * rows) / 2,
+        r: Math.max(1.1, step * 0.3)
+      };
+    }
+    layout();
+    window.addEventListener('resize', function () { setTimeout(layout, 60); });
+
+    function put(lat, lng) {
+      var g = geom;
+      return {
+        x: g.x0 + ((lng + 180) / 360 * LAND_COLS - col0) * g.step,
+        y: g.y0 + ((LAND_LAT0 - lat) / (LAND_LAT0 - LAND_LAT1) * LAND_ROWS - row0) * g.step
+      };
+    }
+
+    NA.forEach(function (p, i) { p.phase = (i * 0.41) % 1; });
+
+    var t0 = 0, clock = 0;
+    function frame(ts) {
+      requestAnimationFrame(frame);
+      if (!onScreen(canvas)) return;
+      if (ts - t0 < 32) return;
+      var dt = Math.min(0.1, (ts - t0) / 1000);
+      t0 = ts;
+      if (!REDUCED) clock += dt;
+
+      var ctx = c.ctx, g = geom;
+      ctx.clearRect(0, 0, c.w, c.h);
+      if (!g) return;
+
+      for (var row = row0; row < row1; row++) {
+        for (var col = col0; col < col1; col++) {
+          if (row < 0 || row >= LAND_ROWS || !land[row * LAND_COLS + col]) continue;
+          var x = g.x0 + (col - col0 + 0.5) * g.step;
+          var y = g.y0 + (row - row0 + 0.5) * g.step;
+          var t = (col - col0) / cols;
+          var cr = 43 + t * 159, cg2 = 167 - t * 98;
+          ctx.fillStyle = 'rgba(' + (cr | 0) + ',' + (cg2 | 0) + ',255,0.30)';
+          ctx.beginPath();
+          ctx.arc(x, y, g.r, 0, Math.PI * 2);
+          ctx.fill();
+        }
+      }
+
+      NA.forEach(function (p) {
+        var q = put(p.lat, p.lng);
+        var pulse = 0.5 + 0.5 * Math.sin((clock * 0.9 + p.phase) * Math.PI * 2);
+        var R = (p.hq ? 5.5 : 3.6) + pulse * (p.hq ? 2.6 : 1.3);
+
+        var halo = ctx.createRadialGradient(q.x, q.y, 0, q.x, q.y, R * 4);
+        halo.addColorStop(0, 'rgba(202,69,255,' + (0.34 + pulse * 0.26).toFixed(3) + ')');
+        halo.addColorStop(1, 'rgba(202,69,255,0)');
+        ctx.fillStyle = halo;
+        ctx.beginPath(); ctx.arc(q.x, q.y, R * 4, 0, Math.PI * 2); ctx.fill();
+
+        ctx.fillStyle = p.hq ? '#ffd9a8' : '#ffffff';
+        ctx.beginPath(); ctx.arc(q.x, q.y, p.hq ? 3 : 2, 0, Math.PI * 2); ctx.fill();
+
+        if (c.w > 460) {
+          ctx.font = (p.hq ? '600 ' : '500 ') + '11px Poppins, sans-serif';
+          ctx.textAlign = p.a || 'left';
+          ctx.textBaseline = 'middle';
+          ctx.fillStyle = p.hq ? 'rgba(255,236,214,.96)' : 'rgba(255,255,255,.66)';
+          ctx.fillText(p.n, q.x + (p.dx || 8) * 0.55, q.y + (p.dy || 0) * 0.55);
+        }
+      });
+    }
+    requestAnimationFrame(frame);
+  }
+
+  /* ══════════════════════════════════════════════════════════════════
      13. Wireframe globe — the reference's centrepiece in the compare block
      ══════════════════════════════════════════════════════════════════ */
   function globeViz() {
@@ -788,13 +959,29 @@
       rot += REDUCED ? 0 : 0.0032;
       var tilt = -0.42;
 
+      /* Speech rings — the globe is the agent's "mouth", so rings leave it in
+         time with the envelope. Drawn before the sphere so they read as
+         emanating from behind it. */
+      var lv = REDUCED ? 0 : agentEnvelope(ts);
+      for (var ri = 0; ri < 3; ri++) {
+        var phase = ((ts / 1400) + ri / 3) % 1;
+        var rr = R * (1.06 + phase * 0.9);
+        var ra = (1 - phase) * 0.5 * lv;
+        if (ra <= 0.004) continue;
+        ctx.strokeStyle = 'rgba(202,69,255,' + ra.toFixed(3) + ')';
+        ctx.lineWidth = 1.5;
+        ctx.beginPath();
+        ctx.arc(cx, cy, rr, 0, Math.PI * 2);
+        ctx.stroke();
+      }
+
       // rim ring in the brand gradient
       var rim = ctx.createLinearGradient(cx - R, cy - R, cx + R, cy + R);
       rim.addColorStop(0, '#2ba7ff');
       rim.addColorStop(.5, '#ca45ff');
       rim.addColorStop(1, '#fe881b');
       ctx.strokeStyle = rim;
-      ctx.lineWidth = 2;
+      ctx.lineWidth = 2 + lv * 1.6;
       ctx.beginPath();
       ctx.arc(cx, cy, R * 1.06, 0, Math.PI * 2);
       ctx.stroke();
@@ -996,6 +1183,9 @@
     safely('heroViz', heroViz);
     safely('proofViz', proofViz);
     safely('globeViz', globeViz);
+    safely('naViz', naViz);
+    safely('agentWave', agentWave);
+    safely('agentLine', agentLine);
     safely('radarViz', radarViz);
 
     // The loader is last but must run no matter what came before it,
