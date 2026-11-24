@@ -1,0 +1,132 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { width: 1200px; height: 1200px; }
+  body {
+    background: #13101c;
+    font-family: 'Poppins', sans-serif;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+  }
+  .glow { position: absolute; border-radius: 50%; filter: blur(120px); opacity: .55; }
+  .g1 { width: 620px; height: 620px; background: #1c4eff; top: -260px; right: -180px; }
+  .g2 { width: 520px; height: 520px; background: #ac24ff; bottom: -260px; left: -200px; opacity: .4; }
+  .grid {
+    position: absolute; inset: 0;
+    background-image: radial-gradient(rgba(255,255,255,.07) 1px, transparent 1px);
+    background-size: 28px 28px;
+  }
+  .wrap { position: relative; padding: 84px 84px 0; height: 100%; }
+  .kicker {
+    display: inline-block; font-size: 22px; font-weight: 500; letter-spacing: .04em;
+    color: rgba(255,255,255,.66);
+    border: 1px solid rgba(255,255,255,.14); border-radius: 999px; padding: 10px 22px;
+  }
+  h1 { font-size: 84px; line-height: 1.04; font-weight: 600; letter-spacing: -.02em; margin-top: 34px; }
+  h1 .grad {
+    background: linear-gradient(90deg, #2ba7ff 0%, #ca45ff 50%, #fe881b 100%);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+
+  .compare { display: grid; grid-template-columns: 1fr 70px 1fr; align-items: center; margin-top: 56px; }
+  .label { font-size: 20px; font-weight: 500; letter-spacing: .1em; text-transform: uppercase; margin-bottom: 16px; }
+  .label.before { color: rgba(255,255,255,.42); }
+  .label.after { color: #2ba7ff; }
+
+  .node {
+    background: #1a1526; border: 1px solid rgba(255,255,255,.09); border-radius: 22px;
+    padding: 26px; height: 470px; display: flex; flex-direction: column;
+  }
+  .node.after {
+    border: 1.5px solid transparent;
+    background: linear-gradient(#1d1730, #1d1730) padding-box,
+                linear-gradient(135deg, #1c4eff, #ac24ff 55%, #fe881b) border-box;
+    box-shadow: 0 30px 80px -30px rgba(28,78,255,.55);
+  }
+  .nhead { display: flex; align-items: center; gap: 14px; padding-bottom: 20px; border-bottom: 1px solid rgba(255,255,255,.08); margin-bottom: 20px; }
+  .icon { width: 46px; height: 46px; border-radius: 12px; display: grid; place-items: center; font-size: 22px; font-weight: 600; flex: none; }
+  .icon.http { background: #2a2338; color: rgba(255,255,255,.6); font-family: 'JetBrains Mono', monospace; font-size: 16px; }
+  .icon.mine { background: linear-gradient(135deg, #1c4eff, #ac24ff); }
+  .ntitle { font-size: 23px; font-weight: 600; }
+  .nsub { font-size: 16px; color: rgba(255,255,255,.42); }
+
+  pre {
+    font-family: 'JetBrains Mono', monospace; font-size: 17px; line-height: 1.6;
+    color: rgba(255,255,255,.55); white-space: pre; overflow: hidden;
+  }
+  .k { color: #ca45ff; } .s { color: #fe881b; } .warn { color: #ff6b6b; }
+
+  .field { margin-bottom: 11px; }
+  .flabel { font-size: 15px; color: rgba(255,255,255,.5); margin-bottom: 6px; }
+  .finput {
+    background: #13101c; border: 1px solid rgba(255,255,255,.1); border-radius: 10px;
+    padding: 9px 15px; font-size: 18px; display: flex; justify-content: space-between; align-items: center;
+  }
+  .finput .chev { color: rgba(255,255,255,.4); font-size: 14px; }
+  .ok { color: #3ddc97; font-size: 15px; }
+
+  .arrow { text-align: center; font-size: 40px; color: rgba(255,255,255,.35); padding-top: 40px; }
+
+  .foot {
+    position: absolute; left: 84px; right: 84px; bottom: 70px;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .foot img { height: 50px; }
+  .foot span { font-size: 21px; color: rgba(255,255,255,.5); }
+</style></head>
+<body>
+  <div class="glow g1"></div><div class="glow g2"></div><div class="grid"></div>
+  <div class="wrap">
+    <span class="kicker">n8n · custom nodes</span>
+    <h1>No node for it?<br><span class="grad">Build one.</span></h1>
+
+    <div class="compare">
+      <div>
+        <div class="label before">The workaround</div>
+        <div class="node">
+          <div class="nhead">
+            <div class="icon http">{ }</div>
+            <div><div class="ntitle">HTTP Request</div><div class="nsub">POST /v2/records</div></div>
+          </div>
+<pre>{
+  <span class="k">"auth"</span>: <span class="s">"Bearer sk_live_…"</span>,
+  <span class="k">"query"</span>: {
+    <span class="k">"status"</span>: <span class="s">"open"</span>,
+    <span class="k">"page"</span>: <span class="s">"{{$json.p}}"</span>
+  },
+  <span class="k">"fields"</span>: [<span class="s">"id"</span>,<span class="s">"…"</span>]
+}
+<span class="warn">// do not touch. nobody knows why</span></pre>
+        </div>
+      </div>
+
+      <div class="arrow">→</div>
+
+      <div>
+        <div class="label after">A proper node</div>
+        <div class="node after">
+          <div class="nhead">
+            <div class="icon mine">α²</div>
+            <div><div class="ntitle">[Your System]</div><div class="nsub">Get many records</div></div>
+          </div>
+          <div class="field"><div class="flabel">Credential</div>
+            <div class="finput">[Your System] account <span class="ok">● connected</span></div></div>
+          <div class="field"><div class="flabel">Resource</div>
+            <div class="finput">Record <span class="chev">▼</span></div></div>
+          <div class="field"><div class="flabel">Status</div>
+            <div class="finput">Open <span class="chev">▼</span></div></div>
+          <div class="field"><div class="flabel">Return all</div>
+            <div class="finput">On <span class="ok">pagination handled</span></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="foot">
+    <img src="../../assets/logo-full-white.png" alt="Alpha Squared">
+    <span>alphasquared.ca</span>
+  </div>
+</body></html>

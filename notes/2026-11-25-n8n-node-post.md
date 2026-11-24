@@ -1,6 +1,7 @@
 # n8n node post: draft for 25 Nov 2026
 
 Status: draft. Fill in the [brackets] before posting.
+Image: images/2026-11-25-n8n-node.png (source: images/2026-11-25-n8n-node.html)
 
 ---
 
